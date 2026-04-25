@@ -1,11 +1,19 @@
+@import url("/fonts/neo-sans/stylesheet.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Ocean Six Condensed";
-  src: url(/fonts/Ocean6.ttf) format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+@layer base {
+  h1 {
+    font-family: "Neo Sans Pro Cyr", sans-serif;
+    @apply text-6xl;
+    font-weight: 800;
+    font-style: normal;
+  }
+  h2 {
+    font-family: "Neo Sans Pro Cyr", sans-serif;
+    @apply text-4xl;
+    font-weight: bold;
+    font-style: normal;
+  }
 }
