@@ -16,4 +16,16 @@
     font-weight: bold;
     font-style: normal;
   }
+  p {
+    font-family: "Neo Sans Pro Cyr", sans-serif;
+    @apply text-base;
+    font-weight: 500;
+    font-style: normal;
+  }
+  a {
+    font-family: "Neo Sans Pro Cyr", sans-serif;
+    @apply text-base;
+    font-weight: 500;
+    font-style: normal;
+  }
 }
