@@ -7,11 +7,6 @@ export default {
       orange: "#EA7601",
       green: "#258225",
     },
-    extend: {
-      fontFamily: {
-        display: ['"Ocean Six Condensed"', "sans-serif"],
-      },
-    },
   },
   plugins: [],
 };
