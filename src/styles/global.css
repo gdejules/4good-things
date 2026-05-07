@@ -3,18 +3,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+* {
+  outline: 1px solid purple;
+}
+*/
+
 @layer base {
   h1 {
     font-family: "Neo Sans Pro Cyr", sans-serif;
     @apply text-6xl;
     font-weight: 900;
     font-style: normal;
+    line-height: 72px;
   }
   h2 {
     font-family: "Neo Sans Pro Cyr", sans-serif;
     @apply text-4xl;
     font-weight: 700;
     font-style: normal;
+    line-height: 48px;
   }
   h3 {
     font-family: "Neo Sans Pro Cyr", sans-serif;
@@ -31,6 +39,12 @@
   .highlight {
     font-family: "Neo Sans Pro Cyr", sans-serif;
     @apply text-3xl;
+    font-weight: 500;
+    font-style: normal;
+  }
+  button {
+    font-family: "Neo Sans Pro Cyr", sans-serif;
+    @apply text-base;
     font-weight: 500;
     font-style: normal;
   }
