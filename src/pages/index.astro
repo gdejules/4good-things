@@ -33,25 +33,28 @@ import ProductSection from "../components/ProductSection.astro";
       class="absolute top-4 right-36 text-sm text-gray-500 hover:text-gray-700"
       >Project</a
     >
-    <div class="w-full mx-0 bg-cream min-h-screen">
-      <div class="container mx-auto py-12 flex flex-row justify-stretch gap-16">
+    <div class="w-full px-24 pt-12 pb-14 bg-green min-h-screen">
+      <div class="flex justify-between items-center gap-9">
         <div
-          class="text-green w-1/2 flex flex-col justify-center gap-4 min-h-[600px]">
+          class="text-cream w-1/2 flex flex-col justify-center items-start gap-5">
           <h1>Good Things are Coming to You</h1>
-          <p>
-            What if waste — especially plastic—was not the end of a story, but
+          <p class="text-xl">
+            What if waste——especially plastic——was not the end of a story, but
             the beginning of something new?
           </p>
-          <button
-            class="bg-transparent w-48 text-green rounded hover:bg-green-dark transition-colors duration-300">
-            <a href="/about" class="block">Learn More</a>
-          </button>
+          <a
+            href="#about"
+            class="flex-shrink-0 flex items-center mt-3 text-cream hover:text-orange hover:underline">
+            <span class="font-mono text-sm uppercase">
+              Explore More <span class="font-mono text-xl">↓</span>
+            </span>
+          </a>
         </div>
-        <div class="w-1/2 relative">
+        <div class="w-1/2 h-screen relative">
           <img
             src="./src/assets/images/hero/aloha-table.jpeg"
             alt="Aloha Project recycled plastic table"
-            class="absolute top-16 left-24 w-64 h-auto rounded-lg shadow-md"
+            class="absolute top-16 left-20 w-64 h-auto rounded-lg shadow-md"
           />
           <img
             src="./src/assets/images/hero/astha.jpeg"
@@ -61,22 +64,22 @@ import ProductSection from "../components/ProductSection.astro";
           <img
             src="./src/assets/images/hero/padel.jpeg"
             alt="Recycled plastic padel racket keychain"
-            class="absolute top-80 right-64 w-32 h-auto rounded-lg shadow-md"
+            class="absolute top-80 right-56 w-32 h-auto rounded-lg shadow-md"
           />
           <img
             src="./src/assets/images/hero/signature-stool.jpeg"
             alt="Recycled plastic stool"
-            class="absolute top-72 left-4 w-48 h-auto rounded-lg shadow-md"
+            class="absolute top-72 left-1 w-48 h-auto rounded-lg shadow-md"
           />
           <img
             src="./src/assets/images/hero/signboard.jpeg"
             alt="Recycled plastic table signboard"
-            class="absolute top-80 right-4 w-48 h-auto rounded-lg shadow-md"
+            class="absolute top-96 right-2 w-48 h-auto rounded-lg shadow-md"
           />
         </div>
       </div>
     </div>
-    <div class="w-full h-auto mx-0 bg-green/[0.2]">
+    <div id="about" class="w-full h-auto mx-0 bg-green/[0.2]">
       <div class="container mx-auto py-12 flex flex-row justify-stretch gap-16">
         <div class="w-1/3 flex flex-col justify-center gap-12">
           <div>
