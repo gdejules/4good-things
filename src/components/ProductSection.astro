@@ -4,8 +4,8 @@ import ProductCard from "./ProductCard.astro";
 ---
 
 <div class="w-full h-auto py-12 px-24 bg-white">
-  <div class="flex justify-between items-end gap-5 mb-6">
-    <div class="flex-1 flex flex-col justify-stretch gap-4">
+  <div class="flex flex-col justify-start gap-10">
+    <div class="flex-1 flex flex-col justify-stretch gap-4 w-3/4">
       <h2>
         We design products that functional, emotionally valuable, rooted in
         waste reduction principle
@@ -14,19 +14,41 @@ import ProductCard from "./ProductCard.astro";
         Explore our Smaller Things and Larger Things product categories
       </p>
     </div>
-    <a
-      href="/product/"
-      class="flex-shrink-0 flex items-center hover:text-green hover:underline">
-      <span class="font-mono text-sm uppercase">
-        See Smaller Things Products <span class="font-mono text-xl">→</span>
-      </span>
-      <!-- <span class="font-mono text-base ml-2">→</span> -->
-    </a>
-  </div>
-  <div class="flex flex-row justify-between items-start">
-    <ProductCard />
-    <ProductCard />
-    <ProductCard />
-    <ProductCard />
+    <div class="flex flex-col gap-5">
+      <div class="flex justify-between">
+        <h3 class="flex-1">Featured Smaller Things Products</h3>
+        <a
+          href="/product/"
+          class="flex-shrink-0 flex items-center hover:text-green hover:underline">
+          <span class="font-mono text-sm uppercase">
+            See All Smaller Things <span class="font-mono text-xl">→</span>
+          </span>
+        </a>
+      </div>
+      <div class="flex justify-between items-start">
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+      </div>
+    </div>
+    <div class="flex flex-col gap-5">
+      <div class="flex justify-between">
+        <h3 class="flex-1">Featured Larger Things Products</h3>
+        <a
+          href="/product/"
+          class="flex-shrink-0 flex items-center hover:text-green hover:underline">
+          <span class="font-mono text-sm uppercase">
+            See All Larger Things <span class="font-mono text-xl">→</span>
+          </span>
+        </a>
+      </div>
+      <div class="flex justify-between items-start">
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+      </div>
+    </div>
   </div>
 </div>
