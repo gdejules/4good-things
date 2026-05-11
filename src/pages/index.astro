@@ -15,10 +15,10 @@ import ProductSection from "../components/ProductSection.astro";
   </head>
   <body>
     <Navigation />
-    <div class="w-full px-24 pt-12 pb-14 bg-green min-h-screen">
+    <div class="w-full px-24 pt-12 pb-14 bg-amber-50 min-h-screen">
       <div class="flex justify-between items-center gap-9">
         <div
-          class="text-cream w-1/2 flex flex-col justify-center items-start gap-5">
+          class="text-black w-1/2 flex flex-col justify-center items-start gap-5">
           <h1>Good Things are Coming to You</h1>
           <p class="text-xl">
             What if waste——especially plastic——was not the end of a story, but
@@ -26,7 +26,7 @@ import ProductSection from "../components/ProductSection.astro";
           </p>
           <a
             href="#about"
-            class="flex-shrink-0 flex items-center mt-3 text-cream hover:text-orange hover:underline">
+            class="flex-shrink-0 flex items-center mt-3 text-black hover:text-orange hover:underline">
             <span class="font-mono text-sm uppercase">
               Explore More <span class="font-mono text-xl">↓</span>
             </span>
@@ -79,11 +79,17 @@ import ProductSection from "../components/ProductSection.astro";
           </div>
         </div>
         <div class="w-1/3 flex flex-col justify-center gap-4">
-          <span class="highlight text-green block">
+          <span class="highlight text-black block">
             4GoodThings is where plastic waste stops being trash and starts
             becoming something that matters.
           </span>
-          <a href="./about">About Us</a>
+          <a
+            href="/about"
+            class="flex-shrink-0 flex items-center mt-3 text-black hover:text-orange hover:underline">
+            <span class="font-mono text-sm uppercase">
+              About Us <span class="font-mono text-xl">→</span>
+            </span>
+          </a>
         </div>
         <div class="w-1/3 flex flex-col justify-center gap-12">
           <div>
