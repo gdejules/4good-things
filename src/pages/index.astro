@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Navigation from "../components/Navigation.astro";
 import ProductSection from "../components/ProductSection.astro";
 import CollabSection from "../components/CollabSection.astro";
+import Hero from "../components/Hero.astro";
 ---
 
 <html lang="en">
@@ -12,100 +13,11 @@ import CollabSection from "../components/CollabSection.astro";
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Home</title>
+    <title>Waste Recycle Brand</title>
   </head>
   <body>
     <Navigation />
-    <div class="w-full px-24 pt-12 pb-14 bg-amber-50 min-h-screen">
-      <div class="flex justify-between items-center gap-9">
-        <div
-          class="text-black w-1/2 flex flex-col justify-center items-start gap-5">
-          <h1>Good Things are Coming to You</h1>
-          <p class="text-xl">
-            What if waste——especially plastic——was not the end of a story, but
-            the beginning of something new?
-          </p>
-          <a
-            href="#about"
-            class="flex-shrink-0 flex items-center mt-3 text-black hover:text-orange hover:underline">
-            <span class="font-mono text-sm uppercase">
-              Explore More <span class="font-mono text-xl">↓</span>
-            </span>
-          </a>
-        </div>
-        <div class="w-1/2 h-screen relative">
-          <img
-            src="/hero/aloha-table.jpeg"
-            alt="Aloha Project recycled plastic table"
-            class="absolute top-16 left-20 w-64 h-auto rounded-lg shadow-md"
-          />
-          <img
-            src="/hero/astha.jpeg"
-            alt="Astha Project recycled plastic table"
-            class="absolute top-4 right-8 w-48 h-auto rounded-lg shadow-md"
-          />
-          <img
-            src="/hero/padel.jpeg"
-            alt="Recycled plastic padel racket keychain"
-            class="absolute top-80 right-56 w-32 h-auto rounded-lg shadow-md"
-          />
-          <img
-            src="/hero/signature-stool.jpeg"
-            alt="Recycled plastic stool"
-            class="absolute top-72 left-1 w-48 h-auto rounded-lg shadow-md"
-          />
-          <img
-            src="/hero/signboard.jpeg"
-            alt="Recycled plastic table signboard"
-            class="absolute top-96 right-2 w-48 h-auto rounded-lg shadow-md"
-          />
-        </div>
-      </div>
-    </div>
-    <div id="about" class="w-full h-auto px-24 py-16 bg-green/[0.2]">
-      <div class="container mx-auto flex flex-row justify-between gap-10">
-        <div class="w-1/3 flex flex-col justify-between gap-12">
-          <div class="flex flex-col gap-5">
-            <span class="highlight text-orange block">5th in the world</span>
-            <p class="text-xl">
-              Indonesia is world's fifth-largest contributor to plastic waste in
-              the ocean.
-            </p>
-          </div>
-          <div class="flex flex-col gap-5">
-            <span class="highlight text-orange block">60% is mismanaged</span>
-            <p class="text-xl">
-              More than 60% of the total plastic waste is mismanaged.
-            </p>
-          </div>
-        </div>
-        <div class="w-1/3 flex flex-col justify-center gap-4">
-          <span class="highlight text-black block">
-            4GoodThings is where plastic waste stops being trash and starts
-            becoming something that matters.
-          </span>
-          <a
-            href="/about"
-            class="flex-shrink-0 flex items-center text-black hover:text-orange hover:underline">
-            <span class="font-mono text-sm uppercase">
-              About Us <span class="font-mono text-xl">→</span>
-            </span>
-          </a>
-        </div>
-        <div class="w-1/3 flex flex-col justify-between gap-12">
-          <div class="flex flex-col gap-5">
-            <span class="highlight text-orange">14.433 kg</span>
-            <p class="text-xl">plastic waste recycled per November 2025</p>
-          </div>
-          <div class="flex flex-col gap-5">
-            <span class="highlight text-orange">3.946.667 pieces</span>
-            <p class="text-xl">
-              of mixed plastic bottle waste has been collected
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Hero />
     <ProductSection />
     <CollabSection />
     <div class="w-full h-auto px-24 py-20 bg-green">
