@@ -1,5 +1,5 @@
 ---
-// import "../styles/global.css";
+import "../styles/global.css";
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
@@ -27,7 +27,7 @@ if (!images[imagePath])
     alt={altText}
     width="288"
   />
-  <h2>{name}</h2>
+  <h2 class="my-3">{name}</h2>
   <p>{wasteRecycled} kg of plastic waste recycled</p>
 </div>
 
