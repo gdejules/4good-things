@@ -77,6 +77,24 @@
   font-style: normal;
 }
 
+:root {
+  --color-primary-cream: #ede99a;
+  --color-primary-orange: #ea7601;
+  --color-primary-green: #258225;
+  --color-secondary-honey: #ff9c00;
+  --color-secondary-blue: #0037ff;
+  --color-secondary-red: #ed0a0a;
+  --color-transparent: #00000000;
+  --color-background-green: #93b493;
+  --color-background-orange: #e8ad73;
+  --color-background-light: #f8fafc;
+  --color-text-dark: #1c1917;
+  --color-text-light: #ffffff;
+
+  /* font */
+  font-family: "Neo Sans Pro Cyr", sans-serif;
+}
+
 @layer base {
   h1 {
     font-family: "Neo Sans Pro Cyr", sans-serif;
@@ -118,8 +136,8 @@
   }
   .menu {
     font-family: "Neo Sans Pro Cyr", sans-serif;
-    @apply text-xl;
-    font-weight: 300;
+    @apply text-lg;
+    font-weight: 400;
     font-style: normal;
   }
   button {
