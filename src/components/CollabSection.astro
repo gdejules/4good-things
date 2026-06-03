@@ -1,13 +1,13 @@
 ---
 import "../styles/global.css";
-import { Image } from "astro:assets";
-// import { Picture } from "astro:assets";
+// import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import alohaMtr from "/src/assets/collab/aloha/aloha-misc.jpeg";
 import alohaTable1 from "/src/assets/collab/aloha/aloha-table1.jpeg";
 import alohaTable2 from "/src/assets/collab/aloha/aloha-table2.jpeg";
-import petronasRack1 from "/src/assets/collab/petronas/petronas-rack1.jpeg";
-import petronasRack2 from "/src/assets/collab/petronas/petronas-rack2.jpeg";
-import petronasRack3 from "/src/assets/collab/petronas/petronas-rack3.jpeg";
+import petronasRack1 from "/src/assets/collab/petronas/petronas-rack1.png";
+import petronasRack2 from "/src/assets/collab/petronas/petronas-rack2.png";
+import petronasRack3 from "/src/assets/collab/petronas/petronas-rack3.png";
 ---
 
 <div class="w-full h-auto py-14 px-24 bg-green/[0.2]">
@@ -31,19 +31,22 @@ import petronasRack3 from "/src/assets/collab/petronas/petronas-rack3.jpeg";
     </div>
     <div class="flex justify-between items-start gap-12 w-full">
       <div class="flex justify-between w-2/3">
-        <Image
+        <Picture
           class="object-cover object-center w-64 h-64 rounded-lg border-2 border-solid border-white"
           src={alohaMtr}
+          formats={["avif", "webp"]}
           alt="A bowl of shredded plastics and a bowl of bottle caps with two coasters made from recycled plastics."
         />
-        <Image
+        <Picture
           class="object-cover object-center w-64 h-64 rounded-lg border-2 border-solid border-white"
           src={alohaTable1}
+          formats={["avif", "webp"]}
           alt="A light-colored round table made from plastic sheet with four chairs around it."
         />
-        <Image
+        <Picture
           class="object-cover object-center w-64 h-64 rounded-lg border-2 border-solid border-white"
           src={alohaTable2}
+          formats={["avif", "webp"]}
           alt="A light-colored round table made from recycled plastics"
         />
       </div>
@@ -59,19 +62,22 @@ import petronasRack3 from "/src/assets/collab/petronas/petronas-rack3.jpeg";
     <div
       class="flex flex-row-reverse justify-between items-start gap-12 w-full">
       <div class="flex justify-between w-2/3">
-        <Image
+        <Picture
           class="object-cover object-center w-64 h-64 rounded-lg border-2 border-solid border-white"
           src={petronasRack1}
+          formats={["avif", "webp"]}
           alt="A green-colored rack of snacks made from recycled plastic sheet photographed from front-left side."
         />
-        <Image
+        <Picture
           class="object-cover object-center w-64 h-64 rounded-lg border-2 border-solid border-white"
           src={petronasRack2}
+          formats={["avif", "webp"]}
           alt="A green-colored rack of snacks made from recycled plastic sheet photographed from front-right side."
         />
-        <Image
+        <Picture
           class="object-cover object-center w-64 h-64 rounded-lg border-2 border-solid border-white"
           src={petronasRack3}
+          formats={["avif", "webp"]}
           alt="A green-colored rack of snacks made from recycled plastic sheet photographed from front side."
         />
       </div>
