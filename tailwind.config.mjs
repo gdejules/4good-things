@@ -13,7 +13,7 @@ export default {
       red: "#ed0a0a",
       white: "#FFFFFF",
       dark: "#1c1917",
-      lightGreen: "#93b493",
+      lightGreen: "#c1dcc1",
       lightOrange: "#e8ad73",
       lightBackground: "#f8fafc",
     },

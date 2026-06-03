@@ -85,7 +85,7 @@
   --color-secondary-blue: #0037ff;
   --color-secondary-red: #ed0a0a;
   --color-transparent: #00000000;
-  --color-background-green: #93b493;
+  --color-background-green: #c1dcc1;
   --color-background-orange: #e8ad73;
   --color-background-light: #f8fafc;
   --color-text-dark: #1c1917;
@@ -93,6 +93,7 @@
 
   /* font */
   font-family: "Neo Sans Pro Cyr", sans-serif;
+  color: var(--color-text-dark);
 }
 
 @layer base {

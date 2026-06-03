@@ -4,6 +4,7 @@ import Navigation from "../components/Navigation.astro";
 import ProductSection from "../components/ProductSection.astro";
 import CollabSection from "../components/CollabSection.astro";
 import Hero from "../components/Hero.astro";
+import BrandHighlight from "../components/BrandHighlight.astro";
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -18,12 +19,13 @@ import Hero from "../components/Hero.astro";
   <body>
     <Navigation />
     <Hero />
+    <BrandHighlight />
     <ProductSection />
     <CollabSection />
     <div class="w-full h-auto px-24 py-20 bg-green">
       <div class="flex flex-col justify-center items-center gap-6">
-        <h2>Have other ideas in mind?</h2>
-        <p>We open for new collaboration!</p>
+        <h2 class="text-white">Have other ideas in mind?</h2>
+        <p class="text-white">We open for new collaboration!</p>
       </div>
     </div>
   </body>
