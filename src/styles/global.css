@@ -1,12 +1,82 @@
-@import url("../fonts/neo-sans/stylesheet.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/*
-* {
-  outline: 1px solid purple;
+
+@font-face {
+  font-family: "Neo Sans Pro Cyr";
+  src: url("NeoSansProCyr-Light.eot");
+  src:
+    local("Neo Sans Pro Cyr Light"),
+    local("NeoSansProCyr-Light"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Light.eot?#iefix")
+      format("embedded-opentype"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Light.woff2") format("woff2"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Light.woff") format("woff"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
 }
-*/
+
+@font-face {
+  font-family: "Neo Sans Pro Cyr";
+  src: url("NeoSansProCyr-Regular.eot");
+  src:
+    local("Neo Sans Pro Cyr Regular"),
+    local("NeoSansProCyr-Regular"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Regular.woff2") format("woff2"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Regular.woff") format("woff"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neo Sans Pro Cyr";
+  src: url("NeoSansProCyr-Medium.eot");
+  src:
+    local("Neo Sans Pro Cyr Medium"),
+    local("NeoSansProCyr-Medium"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Medium.woff2") format("woff2"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Medium.woff") format("woff"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neo Sans Pro Cyr";
+  src: url("NeoSansProCyr-Bold.eot");
+  src:
+    local("Neo Sans Pro Cyr Bold"),
+    local("NeoSansProCyr-Bold"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Bold.woff2") format("woff2"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Bold.woff") format("woff"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neo Sans Pro Cyr";
+  src: url("NeoSansProCyr-Black.eot");
+  src:
+    local("Neo Sans Pro Cyr Black"),
+    local("NeoSansProCyr-Black"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Black.eot?#iefix")
+      format("embedded-opentype"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Black.woff2") format("woff2"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Black.woff") format("woff"),
+    url("/src/fonts/neo-sans/NeoSansProCyr-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
 @layer base {
   h1 {
     font-family: "Neo Sans Pro Cyr", sans-serif;
