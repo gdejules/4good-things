@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import Navigation from "../components/Navigation.astro";
 import ProductSection from "../components/ProductSection.astro";
 import CollabSection from "../components/CollabSection.astro";
@@ -7,26 +8,16 @@ import Hero from "../components/Hero.astro";
 import BrandHighlight from "../components/BrandHighlight.astro";
 ---
 
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Waste Recycle Brand</title>
-  </head>
-  <body>
-    <Navigation />
-    <Hero />
-    <BrandHighlight />
-    <ProductSection />
-    <CollabSection />
-    <div class="w-full h-auto px-24 py-20 bg-green">
-      <div class="flex flex-col justify-center items-center gap-6">
-        <h2 class="text-white">Have other ideas in mind?</h2>
-        <p class="text-white">We open for new collaboration!</p>
-      </div>
+<BaseLayout>
+  <Navigation />
+  <Hero />
+  <BrandHighlight />
+  <ProductSection />
+  <CollabSection />
+  <div class="w-full h-auto px-24 py-20 bg-green">
+    <div class="flex flex-col justify-center items-center gap-6">
+      <h2 class="text-white">Have other ideas in mind?</h2>
+      <p class="text-white">We open for new collaboration!</p>
     </div>
-  </body>
-</html>
+  </div>
+</BaseLayout>

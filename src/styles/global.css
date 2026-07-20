@@ -1,7 +1,9 @@
-@import 'tailwindcss' layer(base);
-@import 'tailwindcss';
+@import "tailwindcss" layer(base);
+@import "tailwindcss";
 
-@theme {
+@theme inline {
+  --font-heading: var(--font-bobby-jones);
+  --font-body: var(--font-neo-sans);
   --color-*: initial;
   --color-cream: #ede99a;
   --color-orange: #ea7601;
@@ -36,76 +38,61 @@
 
 @layer utilities {
   @font-face {
-    font-family: 'Neo Sans Pro Cyr';
-    src: url('NeoSansProCyr-Light.eot');
+    font-family: "Neo Sans Pro Cyr";
+    src: url("NeoSansProCyr-Regular.eot");
     src:
-      local('Neo Sans Pro Cyr Light'),
-      local('NeoSansProCyr-Light'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Light.eot?#iefix')
-        format('embedded-opentype'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Light.woff2') format('woff2'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Light.woff') format('woff'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Neo Sans Pro Cyr';
-    src: url('NeoSansProCyr-Regular.eot');
-    src:
-      local('Neo Sans Pro Cyr Regular'),
-      local('NeoSansProCyr-Regular'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Regular.eot?#iefix')
-        format('embedded-opentype'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Regular.woff2') format('woff2'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Regular.woff') format('woff'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Regular.ttf') format('truetype');
+      local("Neo Sans Pro Cyr Regular"),
+      local("NeoSansProCyr-Regular"),
+      url("/src/fonts/neo-sans/NeoSansProCyr-Regular.eot?#iefix")
+        format("embedded-opentype"),
+      url("/src/fonts/neo-sans/NeoSansProCyr-Regular.woff2") format("woff2"),
+      url("/src/fonts/neo-sans/NeoSansProCyr-Regular.woff") format("woff"),
+      url("/src/fonts/neo-sans/NeoSansProCyr-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'Neo Sans Pro Cyr';
-    src: url('NeoSansProCyr-Medium.eot');
+    font-family: "Neo Sans Pro Cyr";
+    src: url("NeoSansProCyr-Medium.eot");
     src:
-      local('Neo Sans Pro Cyr Medium'),
-      local('NeoSansProCyr-Medium'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Medium.eot?#iefix')
-        format('embedded-opentype'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Medium.woff2') format('woff2'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Medium.woff') format('woff'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Medium.ttf') format('truetype');
+      local("Neo Sans Pro Cyr Medium"),
+      local("NeoSansProCyr-Medium"),
+      url("/src/fonts/neo-sans/NeoSansProCyr-Medium.eot?#iefix")
+        format("embedded-opentype"),
+      url("/src/fonts/neo-sans/NeoSansProCyr-Medium.woff2") format("woff2"),
+      url("/src/fonts/neo-sans/NeoSansProCyr-Medium.woff") format("woff"),
+      url("/src/fonts/neo-sans/NeoSansProCyr-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'Neo Sans Pro Cyr';
-    src: url('NeoSansProCyr-Bold.eot');
+    font-family: "Neo Sans Pro Cyr";
+    src: url("NeoSansProCyr-Bold.eot");
     src:
-      local('Neo Sans Pro Cyr Bold'),
-      local('NeoSansProCyr-Bold'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Bold.eot?#iefix')
-        format('embedded-opentype'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Bold.woff2') format('woff2'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Bold.woff') format('woff'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Bold.ttf') format('truetype');
+      local("Neo Sans Pro Cyr Bold"),
+      local("NeoSansProCyr-Bold"),
+      url("/src/fonts/neo-sans/NeoSansProCyr-Bold.eot?#iefix")
+        format("embedded-opentype"),
+      url("/src/fonts/neo-sans/NeoSansProCyr-Bold.woff2") format("woff2"),
+      url("/src/fonts/neo-sans/NeoSansProCyr-Bold.woff") format("woff"),
+      url("/src/fonts/neo-sans/NeoSansProCyr-Bold.ttf") format("truetype");
     font-weight: bold;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'Neo Sans Pro Cyr';
-    src: url('NeoSansProCyr-Black.eot');
+    font-family: "Neo Sans Pro Cyr";
+    src: url("NeoSansProCyr-Black.eot");
     src:
-      local('Neo Sans Pro Cyr Black'),
-      local('NeoSansProCyr-Black'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Black.eot?#iefix')
-        format('embedded-opentype'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Black.woff2') format('woff2'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Black.woff') format('woff'),
-      url('/src/fonts/neo-sans/NeoSansProCyr-Black.ttf') format('truetype');
+      local("Neo Sans Pro Cyr Black"),
+      local("NeoSansProCyr-Black"),
+      url("/src/fonts/neo-sans/NeoSansProCyr-Black.eot?#iefix")
+        format("embedded-opentype"),
+      url("/src/fonts/neo-sans/NeoSansProCyr-Black.woff2") format("woff2"),
+      url("/src/fonts/neo-sans/NeoSansProCyr-Black.woff") format("woff"),
+      url("/src/fonts/neo-sans/NeoSansProCyr-Black.ttf") format("truetype");
     font-weight: 900;
     font-style: normal;
   }
@@ -125,60 +112,65 @@
     --color-text-light: #ffffff;
 
     /* font */
-    font-family: 'Neo Sans Pro Cyr', sans-serif;
+    font-family: "Neo Sans Pro Cyr", sans-serif;
     color: var(--color-text-dark);
   }
 }
 
 @layer base {
   h1 {
-    font-family: "Neo Sans Pro Cyr", sans-serif;
+    font-family: var(--font-heading);
     @apply text-6xl;
-    font-weight: 900;
+    font-weight: normal;
     font-style: normal;
-    line-height: 72px;
+    line-height: 1.1;
   }
   h2 {
-    font-family: "Neo Sans Pro Cyr", sans-serif;
+    font-family: var(--font-heading);
     @apply text-4xl;
-    font-weight: 700;
+    font-weight: normal;
     font-style: normal;
-    line-height: 48px;
+    line-height: 1.1;
   }
   h3 {
-    font-family: "Neo Sans Pro Cyr", sans-serif;
+    font-family: var(--font-heading);
     @apply text-2xl;
-    font-weight: 600;
+    font-weight: normal;
     font-style: normal;
+    line-height: 1.1;
   }
   h4 {
-    font-family: "Neo Sans Pro Cyr", sans-serif;
+    font-family: var(--font-body);
     @apply text-lg;
-    font-weight: 500;
+    font-weight: bold;
     font-style: normal;
+    line-height: 1.3;
   }
   p {
-    font-family: "Neo Sans Pro Cyr", sans-serif;
+    font-family: var(--font-body);
     @apply text-base;
-    font-weight: 500;
+    font-weight: normal;
     font-style: normal;
+    line-height: 1.5;
   }
   .highlight {
-    font-family: "Neo Sans Pro Cyr", sans-serif;
+    font-family: var(--font-body);
     @apply text-3xl;
-    font-weight: 500;
+    font-weight: medium;
     font-style: normal;
+    line-height: 1.3;
   }
   .menu {
-    font-family: "Neo Sans Pro Cyr", sans-serif;
+    font-family: var(--font-body);
     @apply text-lg;
-    font-weight: 400;
+    font-weight: medium;
     font-style: normal;
+    line-height: 1.3;
   }
   button {
-    font-family: "Neo Sans Pro Cyr", sans-serif;
+    font-family: var(--font-heading);
     @apply text-base;
-    font-weight: 500;
+    font-weight: normal;
     font-style: normal;
   }
 }
