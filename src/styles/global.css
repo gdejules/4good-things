@@ -1,100 +1,133 @@
-@import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss' layer(base);
+@import 'tailwindcss';
 
-@font-face {
-  font-family: "Neo Sans Pro Cyr";
-  src: url("NeoSansProCyr-Light.eot");
-  src:
-    local("Neo Sans Pro Cyr Light"),
-    local("NeoSansProCyr-Light"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Light.eot?#iefix")
-      format("embedded-opentype"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Light.woff2") format("woff2"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Light.woff") format("woff"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Light.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
+@theme {
+  --color-*: initial;
+  --color-cream: #ede99a;
+  --color-orange: #ea7601;
+  --color-green: #258225;
+  --color-honey: #ff9c00;
+  --color-blue: #0037ff;
+  --color-red: #ed0a0a;
+  --color-white: #ffffff;
+  --color-dark: #1c1917;
+  --color-lightGreen: #c1dcc1;
+  --color-lightOrange: #e8ad73;
+  --color-lightBackground: #f8fafc;
 }
 
-@font-face {
-  font-family: "Neo Sans Pro Cyr";
-  src: url("NeoSansProCyr-Regular.eot");
-  src:
-    local("Neo Sans Pro Cyr Regular"),
-    local("NeoSansProCyr-Regular"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Regular.eot?#iefix")
-      format("embedded-opentype"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Regular.woff2") format("woff2"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Regular.woff") format("woff"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
 }
 
-@font-face {
-  font-family: "Neo Sans Pro Cyr";
-  src: url("NeoSansProCyr-Medium.eot");
-  src:
-    local("Neo Sans Pro Cyr Medium"),
-    local("NeoSansProCyr-Medium"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Medium.eot?#iefix")
-      format("embedded-opentype"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Medium.woff2") format("woff2"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Medium.woff") format("woff"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-}
+@layer utilities {
+  @font-face {
+    font-family: 'Neo Sans Pro Cyr';
+    src: url('NeoSansProCyr-Light.eot');
+    src:
+      local('Neo Sans Pro Cyr Light'),
+      local('NeoSansProCyr-Light'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Light.eot?#iefix')
+        format('embedded-opentype'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Light.woff2') format('woff2'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Light.woff') format('woff'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
 
-@font-face {
-  font-family: "Neo Sans Pro Cyr";
-  src: url("NeoSansProCyr-Bold.eot");
-  src:
-    local("Neo Sans Pro Cyr Bold"),
-    local("NeoSansProCyr-Bold"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Bold.eot?#iefix")
-      format("embedded-opentype"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Bold.woff2") format("woff2"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Bold.woff") format("woff"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Bold.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal;
-}
+  @font-face {
+    font-family: 'Neo Sans Pro Cyr';
+    src: url('NeoSansProCyr-Regular.eot');
+    src:
+      local('Neo Sans Pro Cyr Regular'),
+      local('NeoSansProCyr-Regular'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Regular.eot?#iefix')
+        format('embedded-opentype'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Regular.woff2') format('woff2'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Regular.woff') format('woff'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
 
-@font-face {
-  font-family: "Neo Sans Pro Cyr";
-  src: url("NeoSansProCyr-Black.eot");
-  src:
-    local("Neo Sans Pro Cyr Black"),
-    local("NeoSansProCyr-Black"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Black.eot?#iefix")
-      format("embedded-opentype"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Black.woff2") format("woff2"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Black.woff") format("woff"),
-    url("/src/fonts/neo-sans/NeoSansProCyr-Black.ttf") format("truetype");
-  font-weight: 900;
-  font-style: normal;
-}
+  @font-face {
+    font-family: 'Neo Sans Pro Cyr';
+    src: url('NeoSansProCyr-Medium.eot');
+    src:
+      local('Neo Sans Pro Cyr Medium'),
+      local('NeoSansProCyr-Medium'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Medium.eot?#iefix')
+        format('embedded-opentype'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Medium.woff2') format('woff2'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Medium.woff') format('woff'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
 
-:root {
-  --color-primary-cream: #ede99a;
-  --color-primary-orange: #ea7601;
-  --color-primary-green: #258225;
-  --color-secondary-honey: #ff9c00;
-  --color-secondary-blue: #0037ff;
-  --color-secondary-red: #ed0a0a;
-  --color-transparent: #00000000;
-  --color-background-green: #c1dcc1;
-  --color-background-orange: #e8ad73;
-  --color-background-light: #f8fafc;
-  --color-text-dark: #1c1917;
-  --color-text-light: #ffffff;
+  @font-face {
+    font-family: 'Neo Sans Pro Cyr';
+    src: url('NeoSansProCyr-Bold.eot');
+    src:
+      local('Neo Sans Pro Cyr Bold'),
+      local('NeoSansProCyr-Bold'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Bold.eot?#iefix')
+        format('embedded-opentype'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Bold.woff2') format('woff2'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Bold.woff') format('woff'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
 
-  /* font */
-  font-family: "Neo Sans Pro Cyr", sans-serif;
-  color: var(--color-text-dark);
+  @font-face {
+    font-family: 'Neo Sans Pro Cyr';
+    src: url('NeoSansProCyr-Black.eot');
+    src:
+      local('Neo Sans Pro Cyr Black'),
+      local('NeoSansProCyr-Black'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Black.eot?#iefix')
+        format('embedded-opentype'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Black.woff2') format('woff2'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Black.woff') format('woff'),
+      url('/src/fonts/neo-sans/NeoSansProCyr-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+  }
+
+  :root {
+    --color-primary-cream: #ede99a;
+    --color-primary-orange: #ea7601;
+    --color-primary-green: #258225;
+    --color-secondary-honey: #ff9c00;
+    --color-secondary-blue: #0037ff;
+    --color-secondary-red: #ed0a0a;
+    --color-transparent: #00000000;
+    --color-background-green: #c1dcc1;
+    --color-background-orange: #e8ad73;
+    --color-background-light: #f8fafc;
+    --color-text-dark: #1c1917;
+    --color-text-light: #ffffff;
+
+    /* font */
+    font-family: 'Neo Sans Pro Cyr', sans-serif;
+    color: var(--color-text-dark);
+  }
 }
 
 @layer base {
