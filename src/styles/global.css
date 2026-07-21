@@ -6,19 +6,19 @@
   --font-display: var(--font-bobby-jones);
   --font-body: var(--font-neo-sans);
 
-  --color-cream: #ede99a;
-  --color-orange: #ea7601;
-  --color-green: #258225;
-  --color-honey: #ff9c00;
-  --color-blue: #0037ff;
-  --color-red: #ed0a0a;
-  --color-transparent: #00000000;
-  --color-forest-shadow: #122312;
-  --color-soft-sand: #f4f1dc;
-  --color-warm-alabaster: #faf9f5;
-  --color-deep-pine-charcoal: #1c221c;
-  --color-muted-moss: #545e54;
-  --color-pure-white: #ffffff;
+  --color-cream: oklch(91.938% 0.0996 105.738);
+  --color-orange: oklch(68.749% 0.17328 53.414);
+  --color-green: oklch(53.334% 0.15508 143.033);
+  --color-honey: oklch(77.704% 0.17286 66.053);
+  --color-blue: oklch(48.954% 0.28806 264.075);
+  --color-red: oklch(59.63% 0.24154 28.934);
+  --color-transparent: oklch(0% 0 0 / 0);
+  --color-forest-shadow: oklch(23.546% 0.03929 144.234);
+  --color-soft-sand: oklch(95.489% 0.02774 100.303);
+  --color-warm-alabaster: oklch(98.178% 0.00528 95.189);
+  --color-deep-pine-charcoal: oklch(24.368% 0.01422 145.213);
+  --color-muted-moss: oklch(47.001% 0.02015 145.369);
+  --color-pure-white: oklch(100% 0.00011 271.152);
 
   --shadow-solid: 0 10px 15px -3px rgb(234, 118, 1);
 }
