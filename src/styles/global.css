@@ -1,11 +1,25 @@
 @import "tailwindcss";
-
-@theme inline {
-  --font-bobby: var(--font-bobby-jones);
-  --font-neo: var(--font-neo-sans);
-}
+@source "../src";
 
 @theme {
+  --font-*: initial;
+  --font-display: var(--font-bobby-jones);
+  --font-body: var(--font-neo-sans);
+
+  --color-cream: #ede99a;
+  --color-orange: #ea7601;
+  --color-green: #258225;
+  --color-honey: #ff9c00;
+  --color-blue: #0037ff;
+  --color-red: #ed0a0a;
+  --color-transparent: #00000000;
+  --color-forest-shadow: #122312;
+  --color-soft-sand: #f4f1dc;
+  --color-warm-alabaster: #faf9f5;
+  --color-deep-pine-charcoal: #1c221c;
+  --color-muted-moss: #545e54;
+  --color-pure-white: #ffffff;
+
   --shadow-solid: 0 10px 15px -3px rgb(234, 118, 1);
 }
 
@@ -20,21 +34,6 @@
 
 @layer utilities {
   :root {
-    --color-primary-cream: #ede99a;
-    --color-primary-orange: #ea7601;
-    --color-primary-green: #258225;
-    --color-secondary-honey: #ff9c00;
-    --color-secondary-blue: #0037ff;
-    --color-secondary-red: #ed0a0a;
-    --color-transparent: #00000000;
-    --color-background-forest-shadow: #122312;
-    --color-background-soft-sand: #f4f1dc;
-    --color-background-warm-alabaster: #faf9f5;
-    --color-neutral-deep-pine-charcoal: #1c221c;
-    --color-neutral-muted-moss: #545e54;
-    --color-neutral-cream: #ede99a;
-    --color-neutral-pure-white: #ffffff;
-
     color: var(--color-neutral-deep-pine-charcoal);
   }
 }
