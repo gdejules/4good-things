@@ -18,17 +18,17 @@ export default defineConfig({
         variants: [
           {
             src: ["./src/fonts/NeoSansProCyr-Regular.woff2"],
-            weight: "normal",
+            weight: "400",
             style: "normal",
           },
           {
             src: ["./src/fonts/NeoSansProCyr-Medium.woff2"],
-            weight: "medium",
+            weight: "500",
             style: "normal",
           },
           {
             src: ["./src/fonts/NeoSansProCyr-Bold.woff2"],
-            weight: "bold",
+            weight: "800",
             style: "normal",
           },
         ],

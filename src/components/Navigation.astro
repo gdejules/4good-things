@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import MenuButton from "./MenuButton.astro";
 ---
 
 <div class="w-full h-auto px-16 py-5 bg-transparent">
@@ -12,21 +13,9 @@ import "../styles/global.css";
       /></a
     >
     <div class="flex justify-between items-center gap-10">
-      <a
-        href="/product"
-        class="menu uppercase text-white border-b-2 border-[#00000000] hover:text-honey hover:border-b-2 hover:border-honey duration-300">
-        Product</a
-      >
-      <a
-        href="/project"
-        class="menu uppercase text-white border-b-2 border-[#00000000] hover:text-honey hover:border-b-2 hover:border-honey duration-300">
-        Project</a
-      >
-      <a
-        href="/about"
-        class="menu uppercase text-white border-b-2 border-[#00000000] hover:text-honey hover:border-b-2 hover:border-honey duration-300">
-        About</a
-      >
+      <MenuButton><a href="/product"> Product </a></MenuButton>
+      <MenuButton><a href="/project"> Project </a></MenuButton>
+      <MenuButton><a href="/about"> About </a></MenuButton>
     </div>
   </div>
 </div>
