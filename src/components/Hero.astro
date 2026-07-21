@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import MenuButtonAstroComponent from "./MenuButton.astro";
 import { Image } from "astro:assets";
 import alohaTable from "/src/assets/hero/aloha-table.jpeg";
 import asthaTable from "/src/assets/hero/astha-table.jpeg";
@@ -11,33 +12,17 @@ import tableStool from "/src/assets/hero/table-and-stool.jpeg";
 <div class="w-full px-24 pt-5 pb-14 min-h-screen bg-lightBackground">
   <div class="flex justify-between items-center gap-9">
     <div class="text-dark w-1/2 flex flex-col justify-center items-start gap-5">
-      <h1>Good Things are Coming to You</h1>
-      <span class="text-xl text-dark">
+      <h1 class="font-display text-6xl flex flex-col gap-3">
+        <span class="text-green">Good Things</span>
+        <span class="text-deep-pine-charcoal">are Coming to You</span>
+      </h1>
+      <span class="font-body text-xl text-muted-moss">
         What if waste——especially plastic——was not the end of a story, but the
         beginning of something new?
       </span>
-      <a href="#brand-highlight" class="relative shrink-0 mt-3 flex gap-2">
-        <span
-          class="peer text-lg uppercase text-orange hover:text-dark hover:duration-300">
-          Explore More
-        </span>
-        <svg
-          class="flex-1 animate-bounce peer-hover:stroke-dark peer-hover:duration-300"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#ea7601"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round">
-          <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
-          <path d="M8 12l4 4"></path>
-          <path d="M12 8v8"></path>
-          <path d="M16 12l-4 4"></path>
-        </svg>
-      </a>
+      <MenuButtonAstroComponent>
+        <a href="#brand-highlight"> Explore More </a>
+      </MenuButtonAstroComponent>
     </div>
     <div class="w-1/2 h-screen relative">
       <Image

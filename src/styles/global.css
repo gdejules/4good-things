@@ -20,7 +20,7 @@
   --color-muted-moss: oklch(47.001% 0.02015 145.369);
   --color-pure-white: oklch(100% 0.00011 271.152);
 
-  --shadow-solid: 0 10px 15px -3px rgb(234, 118, 1);
+  --shadow-solid: 10px 10px 0px 0px #ea7601;
 }
 
 /*
@@ -38,8 +38,8 @@
   }
 }
 
-h1 {
-  font-family: var(--font-heading);
+/* h1 {
+  font-family: var(--font-display);
   @apply text-6xl;
   font-weight: normal;
   font-style: normal;
@@ -92,4 +92,4 @@ button {
   @apply text-base;
   font-weight: 400;
   font-style: normal;
-}
+} */
