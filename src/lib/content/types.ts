@@ -37,6 +37,6 @@ export interface Stat {
 export interface ColorSwatch {
   name: string;
   hex?: string;
-  textureImage: string;
+  textureImage: ImageAsset;
   available: boolean;
 }

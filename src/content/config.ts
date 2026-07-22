@@ -1,0 +1,67 @@
+// src/content/config.ts
+import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
+import { z } from "astro/zod";
+
+const products = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/products" }),
+  schema: z.object({
+    name: z.string(),
+    category: z.enum(["smaller-things", "larger-things"]),
+    description: z.string(),
+    recycledWeight: z.string(), // e.g. "1 kg"
+    price: z.number(), // IDR
+    dimensions: z.string(),
+    images: z.array(
+      z.object({
+        src: z.string(),
+        alt: z.string(),
+      }),
+    ),
+    featured: z.boolean().default(false),
+  }),
+});
+
+const projects = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
+  schema: z.object({
+    title: z.string(),
+    client: z.string(),
+    type: z.enum(["collaborathing", "b2b"]),
+    materialSource: z.string(),
+    recycledWeight: z.string(),
+    description: z.string(),
+    images: z.array(
+      z.object({
+        src: z.string(),
+        alt: z.string(),
+      }),
+    ),
+    featured: z.boolean().default(false),
+  }),
+});
+
+const stats = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/stats" }),
+  schema: z.object({
+    value: z.number(),
+    unit: z.string(),
+    label: z.string(),
+    source: z.string().optional(),
+  }),
+});
+
+const colors = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/colors" }),
+  schema: z.object({
+    name: z.string(),
+    hex: z.string(),
+    textureImage: z.object({
+      src: z.string(),
+      alt: z.string(),
+    }),
+    available: z.boolean().default(false),
+  }),
+});
+
+export const collections = { products, projects, stats, colors };
