@@ -1,5 +1,6 @@
 ---
 import { Font } from "astro:assets";
+import NavigationAstroComponent from "../components/Navigation.astro";
 import FooterAstroComponent from "../components/Footer.astro";
 ---
 
@@ -15,6 +16,7 @@ import FooterAstroComponent from "../components/Footer.astro";
     <Font cssVariable="--font-neo-sans" />
   </head>
   <body>
+    <NavigationAstroComponent />
     <slot />
     <FooterAstroComponent />
   </body>
