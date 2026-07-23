@@ -1,89 +1,112 @@
 ---
 import "../styles/global.css";
-import { Picture } from "astro:assets";
-import alohaPlastics from "/src/assets/collab/aloha/aloha-plastics.png";
+import { Image } from "astro:assets";
+import alohaTrash from "/src/assets/highlight/aloha-trash-3.jpeg";
 import alohaPressing from "/src/assets/collab/aloha/aloha-pressing.png";
 import alohaProduct from "/src/assets/collab/aloha/aloha-product.png";
+import MenuButtonAstroComponent from "./MenuButton.astro";
 ---
 
-<div id="brand-highlight" class="w-full h-auto px-24 py-28 bg-lightGreen">
+<div id="brand-highlight" class="w-full h-auto flex flex-col gap-4">
   <div
-    class="grid grid-rows-[min-content_minmax(280px,1fr)_min-content] gap-16">
-    <div class="grid grid-cols-3 items-start gap-8">
-      <div class="grid grid-rows-3">
-        <span class="row-start-2 text-2xl font-semibold text-green"
-          >The world is producing 430 million tonnes of plastic per year.</span
-        >
+    class="px-4 md:px-16 py-8 md:py-20 font-display text-2xl md:text-6xl bg-soft-sand flex flex-col">
+    <span class="text-green">4GoodThings is where </span>
+    <span class="text-deep-pine-charcoal">
+      plastic waste stop being trash and starts becoming something that matters
+    </span>
+  </div>
+  <div class="px-4 md:px-16 py-8 md:py-20 flex flex-col md:flex-row gap-10">
+    <div class="flex-1 flex justify-center md:justify-start">
+      <div class="max-w-[460] pr-6 md:pr-10">
+        <Image
+          src={alohaTrash}
+          alt="plastic glass trashes"
+          class="w-full h-auto rounded-2xl rotate-6 md:rotate-10"
+        />
       </div>
-      <div class="flex flex-col gap-3">
-        <span class="highlight text-dark"
-          >5th largest contributor to plastic waste</span
-        >
-        <span class="text-xl">
-          Indonesia is world's fifth-largest contributor to plastic waste in the
-          ocean. More than 60% of the total plastic waste is mismanaged.
-        </span>
-        <span class="text-sm">IUCN NL (2025)</span>
-      </div>
-      <div class="flex flex-col gap-3">
-        <span class="highlight text-dark"
+    </div>
+    <div class="flex-1 flex flex-col gap-8">
+      <span class="font-display text-xl md:text-3xl text-orange"
+        >the world is producing 430 million tonnes of plastic per year</span
+      >
+      <div class="flex flex-col gap-2">
+        <span
+          class="font-body font-bold text-lg md:text-2xl text-deep-pine-charcoal"
           >46% of plastic waste is landfilled.</span
         >
-        <span class="text-xl">
-          Plastic makes up the biggest, and most harmful, representing at least
-          85% of total marine waste.
-        </span>
-        <span class="text-sm">un.org (2023)</span>
-      </div>
-    </div>
-    <div
-      class="grid grid-cols-3 justify-items-center items-center border-t-2 border-b-2 border-green/15 py-10">
-      <div class="flex flex-col items-start gap-4">
-        <span class="highlight text-dark">
-          4GoodThings is where plastic waste stops being trash and starts
-          becoming something that matters.
-        </span>
-        <a
-          href="/about"
-          class="shrink-0 flex items-center text-black hover:text-orange hover:underline">
-          <span class="font-mono text-sm uppercase">
-            About Us <span class="font-mono text-xl">→</span>
-          </span>
-        </a>
-      </div>
-      <Picture
-        class="object-cover object-center w-64 h-64 rounded-lg border-2 border-solid border-white"
-        src={alohaPressing}
-        formats={["avif", "webp"]}
-        alt="Plastic shreds are molded and pressed to be plastic sheet."
-      />
-      <Picture
-        class="object-cover object-center w-64 h-64 rounded-lg border-2 border-solid border-white"
-        src={alohaProduct}
-        formats={["avif", "webp"]}
-        alt="A light-colored round table made from recycled plastics surrounded by four chairs."
-      />
-    </div>
-    <div class="grid grid-cols-3 items-start gap-8">
-      <div>
-        <span class="text-2xl font-semibold text-green"
-          >We focus on reducing plastic waste that ends up in the ocean and
-          landfills.</span
+        <span class="font-body text-lg md:text-2xl text-muted-moss"
+          >Plastic makes up the biggest, and most harmful, representing at least
+          85% of total marine waste.</span
+        >
+        <span class="font-body text-base md:text-lg text-muted-moss"
+          >un.org (2023)</span
         >
       </div>
-      <div class="flex flex-col gap-3">
-        <span class="highlight text-dark">14.433 kg</span>
-        <span class="text-xl">
-          Amount of plastic waste that we have recycled per November 2025.
-        </span>
+      <div class="flex flex-col gap-2">
+        <span
+          class="font-body font-bold text-lg md:text-2xl text-deep-pine-charcoal"
+          >Indonesia is world's fifth-largest contributor to plastic waste in
+          the ocean.</span
+        >
+        <span class="font-body text-lg md:text-2xl text-muted-moss"
+          >More than 60% of the total plastic waste is mismanaged.</span
+        >
+        <span class="font-body text-base md:text-lg text-muted-moss"
+          >IUCN NL (2025)</span
+        >
       </div>
-      <div class="flex flex-col gap-3">
-        <span class="highlight text-dark">3.946.667 pieces</span>
-        <span class="text-xl">
-          Total of mixed plastic bottle waste that we have been collected so
-          far.
-        </span>
+    </div>
+  </div>
+  <div
+    class="px-4 md:px-16 py-8 md:py-20 font-display text-2xl md:text-6xl bg-soft-sand flex flex-col gap-4">
+    <span class="text-green"
+      >We focus on reducing plastic waste that ends up in the ocean and
+      landfills.</span
+    >
+    <span class="text-deep-pine-charcoal">
+      by doing so, we give plastic waste a second lifea and turn it into
+      something useful.
+    </span>
+  </div>
+  <div
+    class="px-4 md:px-16 py-8 md:py-20 flex flex-col-reverse md:flex-row gap-10">
+    <div class="flex-1 flex flex-col sm:flex-row gap-2">
+      <div class="flex-1 min-w-0">
+        <Image
+          src={alohaPressing}
+          alt="plastic glass trashes"
+          class="w-full h-auto object-contain rounded-2xl bg-center"
+        />
       </div>
+      <div class="flex-1 min-w-0">
+        <Image
+          src={alohaProduct}
+          alt="plastic glass trashes"
+          class="w-full h-auto object-contain rounded-2xl bg-center"
+        />
+      </div>
+    </div>
+    <div class="flex-1 flex flex-col gap-8">
+      <div class="flex flex-col gap-2">
+        <span class="font-display text-xl md:text-3xl text-deep-pine-charcoal"
+          >more than 14.433 kg</span
+        >
+        <span class="font-body text-lg md:text-2xl text-muted-moss"
+          >the total of plastic waste recycled per November 2025.</span
+        >
+      </div>
+      <div class="flex flex-col gap-2">
+        <span class="font-display text-xl md:text-3xl text-deep-pine-charcoal"
+          >over 3.946.667 pieces</span
+        >
+        <span class="font-body text-lg md:text-2xl text-muted-moss"
+          >the total of mixed plastic bottle waste that we have been collected
+          so far.</span
+        >
+      </div>
+      <MenuButtonAstroComponent>
+        <a href="/about">more about us</a>
+      </MenuButtonAstroComponent>
     </div>
   </div>
 </div>

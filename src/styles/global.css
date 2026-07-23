@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @source "../src";
 
-@theme {
+@theme inline {
   --font-*: initial;
   --font-display: var(--font-bobby-jones);
   --font-body: var(--font-neo-sans);
