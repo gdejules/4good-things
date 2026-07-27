@@ -10,15 +10,15 @@ height: 45 cm
 images:
   [
     {
-      src: "/src/assets/products/signature-stool/signature-stool-1.jpeg",
+      src: "/products/signature-stool/signature-stool-1.jpeg",
       alt: a red-colored stool,
     },
     {
-      src: "/src/assets/products/signature-stool/signature-stool-2.jpeg",
+      src: "/products/signature-stool/signature-stool-2.jpeg",
       alt: a red-colored stool,
     },
     {
-      src: "/src/assets/products/signature-stool/signature-stool-3.jpeg",
+      src: "/products/signature-stool/signature-stool-3.jpeg",
       alt: a red-colored stool,
     },
   ]

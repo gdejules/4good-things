@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import "../styles/global.css";
-import { Image } from "astro:assets";
 
 type Props = {
   product: CollectionEntry<"products">;
@@ -13,7 +12,7 @@ const { name, recycledWeight, price, images } = product.data;
 
 <div
   class="card w-72 flex flex-col justify-start items-start py-3 px-3 bg-soft-sand rounded-2xl">
-  <Image
+  <img
     class="object-cover object-center w-72 h-72 rounded-lg"
     src={images[0].src}
     alt={images[0].alt}

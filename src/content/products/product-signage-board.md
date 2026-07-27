@@ -10,15 +10,15 @@ height: 65 cm
 images:
   [
     {
-      src: "/src/assets/products/signage-board/signage-board-1.jpeg",
+      src: "/products/signage-board/signage-board-1.jpeg",
       alt: a blue-colored signage board,
     },
     {
-      src: "/src/assets/products/signage-board/signage-board-2.jpeg",
+      src: "/products/signage-board/signage-board-2.jpeg",
       alt: a blue-colored signage board,
     },
     {
-      src: "/src/assets/products/signage-board/signage-board-3.jpeg",
+      src: "/products/signage-board/signage-board-3.jpeg",
       alt: a blue-colored signage board with some information,
     },
   ]

@@ -10,16 +10,13 @@ thickness: 1 cm
 images:
   [
     {
-      src: "/src/assets/products/hanger/hanger-1.jpeg",
+      src: "/products/hanger/hanger-1.jpeg",
       alt: three hanger hanging in a bar,
     },
     {
-      src: "/src/assets/products/hanger/hanger-2.jpeg",
+      src: "/products/hanger/hanger-2.jpeg",
       alt: three hanger captured from above,
     },
-    {
-      src: "/src/assets/products/hanger/hanger-3.jpeg",
-      alt: a blue-colored hanger,
-    },
+    { src: "/products/hanger/hanger-3.jpeg", alt: a blue-colored hanger },
   ]
 ---

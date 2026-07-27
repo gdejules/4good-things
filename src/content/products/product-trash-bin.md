@@ -11,15 +11,15 @@ volume: 70 litre
 images:
   [
     {
-      src: "/src/assets/products/trash-bin/trash-bin-1.jpeg",
+      src: "/products/trash-bin/trash-bin-1.jpeg",
       alt: two trash bin with blue and green color,
     },
     {
-      src: "/src/assets/products/trash-bin/trash-bin-2.jpeg",
+      src: "/products/trash-bin/trash-bin-2.jpeg",
       alt: two trash bin with blue and green color,
     },
     {
-      src: "/src/assets/products/trash-bin/trash-bin-3.jpeg",
+      src: "/products/trash-bin/trash-bin-3.jpeg",
       alt: two trash bin with blue and green color,
     },
   ]

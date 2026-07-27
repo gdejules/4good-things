@@ -9,15 +9,15 @@ width: 3 cm
 images:
   [
     {
-      src: "/src/assets/products/phone-holder/phone-holder-1.jpeg",
+      src: "/products/phone-holder/phone-holder-1.jpeg",
       alt: phone holder captured from above,
     },
     {
-      src: "/src/assets/products/phone-holder/phone-holder-2.jpeg",
+      src: "/products/phone-holder/phone-holder-2.jpeg",
       alt: phone holder mounting a phone,
     },
     {
-      src: "/src/assets/products/phone-holder/phone-holder-3.jpeg",
+      src: "/products/phone-holder/phone-holder-3.jpeg",
       alt: phone holder mounting a phone,
     },
   ]
