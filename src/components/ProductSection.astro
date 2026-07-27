@@ -1,93 +1,60 @@
 ---
+import { getCollection } from "astro:content";
 import "../styles/global.css";
 import ProductCard from "./ProductCard.astro";
+const smallerProducts = await getCollection("products", ({ data }) => {
+  return data.category === "smaller-things";
+});
+const largerProducts = await getCollection("products", ({ data }) => {
+  return data.category === "larger-things";
+});
 ---
 
-<div class="w-full h-auto py-20 px-24 bg-white">
+<div class="w-full h-auto py-20 px-24 bg-forest-shadow">
   <div class="flex flex-col justify-start gap-20">
     <div class="flex-1 flex flex-col justify-stretch gap-4 w-3/4">
-      <h2>
+      <h2 class="font-display text-2xl md:text-6xl text-pure-white">
         We design products that functional, emotionally valuable, rooted in
         waste reduction principle
       </h2>
-      <p class="text-xl">
+      <p class="font-body text-xl text-pure-white">
         Explore our Smaller Things and Larger Things product categories
       </p>
     </div>
     <div class="flex flex-col gap-5">
       <div class="flex justify-between">
-        <h3 class="flex-1 uppercase">Featured Smaller Things Products</h3>
+        <h3
+          class="flex-1 font-display text-xl md:text-3xl uppercase text-pure-white">
+          Featured Smaller Things Products
+        </h3>
         <a
           href="/product/"
           class="shrink-0 flex items-center hover:text-green hover:underline">
-          <span class="font-mono text-sm uppercase">
-            See All Smaller Things <span class="font-mono text-xl">→</span>
+          <span class="font-body text-base uppercase text-pure-white">
+            See All Smaller Things <span class="font-body text-xl">→</span>
           </span>
         </a>
       </div>
       <div class="flex justify-between items-start">
-        <ProductCard
-          imagePath="/src/assets/products/hanger.jpeg"
-          altText="Red and blue hanger products hanging on the steel bar"
-          name="Hanging Hanger"
-          wasteRecycled={1}
-        />
-        <ProductCard
-          imagePath="/src/assets/products/phone-holder.jpeg"
-          altText="A smartphone lean on a blue phone holder"
-          name="Phone Holder"
-          wasteRecycled={0.3}
-        />
-        <ProductCard
-          imagePath="/src/assets/products/sign-board.jpeg"
-          altText="A blue sign board in front of a cafe"
-          name="Signage Board"
-          wasteRecycled={3}
-        />
-        <ProductCard
-          imagePath="/src/assets/products/trash-bin.jpeg"
-          altText="Blue and green trash bin"
-          name="Trash Bin"
-          wasteRecycled={4}
-        />
+        {smallerProducts.slice(0, 3).map((p) => <ProductCard product={p} />)}
       </div>
     </div>
     <div class="flex flex-col gap-5">
       <div class="flex justify-between">
-        <h3 class="flex-1 uppercase">Featured Larger Things Products</h3>
+        <h3
+          class="flex-1 font-display text-xl md:text-3xl uppercase text-pure-white">
+          Featured Larger Things Products
+        </h3>
         <a
           href="/product/"
           class="shrink-0 flex items-center hover:text-green hover:underline">
-          <span class="font-mono text-sm uppercase">
-            See All Larger Things <span class="font-mono text-xl">→</span>
+          <span class="font-body text-base uppercase text-pure-white">
+            See All Larger Things <span class="font-body text-xl">→</span>
           </span>
         </a>
       </div>
       <div class="flex justify-between items-start">
-        <ProductCard
-          imagePath="/src/assets/products/hanger.jpeg"
-          altText="Red and blue hanger products hanging on the steel bar"
-          name="Hanging Hanger"
-          wasteRecycled={1}
-        />
-        <ProductCard
-          imagePath="/src/assets/products/phone-holder.jpeg"
-          altText="A smartphone lean on a blue phone holder"
-          name="Phone Holder"
-          wasteRecycled={0.3}
-        />
-        <ProductCard
-          imagePath="/src/assets/products/sign-board.jpeg"
-          altText="A blue sign board in front of a cafe"
-          name="Signage Board"
-          wasteRecycled={3}
-        />
-        <ProductCard
-          imagePath="/src/assets/products/trash-bin.jpeg"
-          altText="Blue and green trash bin"
-          name="Trash Bin"
-          wasteRecycled={4}
-        />
+        {largerProducts.slice(0, 3).map((p) => <ProductCard product={p} />)}
       </div>
     </div>
   </div>

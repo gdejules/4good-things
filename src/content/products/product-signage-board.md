@@ -1,0 +1,25 @@
+---
+name: Signage Board
+category: larger-things
+description: A signage board to display information
+recycledWeight: 11 kg plastic waste recycled
+price: IDR 1.650.000
+length: 45 cm
+width: 40 cm
+height: 65 cm
+images:
+  [
+    {
+      src: "/src/assets/products/signage-board/signage-board-1.jpeg",
+      alt: a blue-colored signage board,
+    },
+    {
+      src: "/src/assets/products/signage-board/signage-board-2.jpeg",
+      alt: a blue-colored signage board,
+    },
+    {
+      src: "/src/assets/products/signage-board/signage-board-3.jpeg",
+      alt: a blue-colored signage board with some information,
+    },
+  ]
+---
