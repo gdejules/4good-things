@@ -16,10 +16,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node (use Node >=22.12.0 required by Astro)
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          # Use the 22.x line (will pick a version >= 22.12.0). Change to '24' if you prefer Node 24.
+          node-version: "24.x"
+
+      - name: Verify Node/npm versions
+        run: |
+          echo "node: $(node -v)"
+          echo "npm:  $(npm -v)"
 
       - name: Install dependencies
         run: npm ci
@@ -39,6 +45,7 @@ jobs:
           fi
 
       - name: Upload Pages artifact
+        # Use the newest pages upload action to avoid deprecated upload-artifact v3 dependency
         uses: actions/upload-pages-artifact@v4
         with:
           path: "./dist"
