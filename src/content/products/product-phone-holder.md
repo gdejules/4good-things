@@ -7,18 +7,10 @@ price: 60000
 length: 8 cm
 width: 3 cm
 images:
-  [
-    {
-      src: "/products/phone-holder/phone-holder-1.jpeg",
-      alt: phone holder captured from above,
-    },
-    {
-      src: "/products/phone-holder/phone-holder-2.jpeg",
-      alt: phone holder mounting a phone,
-    },
-    {
-      src: "/products/phone-holder/phone-holder-3.jpeg",
-      alt: phone holder mounting a phone,
-    },
-  ]
+  - src: "./../../assets/phone-holder-1.jpeg"
+    alt: a blue-colored phone holder
+  - src: "./../../assets/phone-holder-2.jpeg"
+    alt: a handphone mounted on a phone holder
+  - src: "./../../assets/phone-holder-3.jpeg"
+    alt: a handphone mounted on a phone holder
 ---

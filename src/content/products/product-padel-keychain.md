@@ -8,18 +8,10 @@ length: 7 cm
 width: 2,5 cm
 thickness: 0,5 - 1 cm
 images:
-  [
-    {
-      src: "/products/padel-keychain/padel-keychain-1.jpeg",
-      alt: an orange-colored padel key chain,
-    },
-    {
-      src: "/products/padel-keychain/padel-keychain-2.jpeg",
-      alt: two padel key chains with orange and green color,
-    },
-    {
-      src: "/products/padel-keychain/padel-keychain-3.jpeg",
-      alt: two padel key chains hanged in a bag,
-    },
-  ]
+  - src: "./../../assets/padel-keychain-1.jpeg"
+    alt: an orange-colored padel key chain
+  - src: "./../../assets/padel-keychain-2.jpeg"
+    alt: two padel key chains with orange and green color
+  - src: "./../../assets/padel-keychain-3.jpeg"
+    alt: two padel key chain attached to a bag
 ---

@@ -5,26 +5,27 @@ import { z } from "astro/zod";
 
 const products = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/products" }),
-  schema: z.object({
-    name: z.string(),
-    category: z.enum(["smaller-things", "larger-things"]),
-    description: z.string(),
-    recycledWeight: z.string(), // e.g. "1 kg"
-    price: z.number(), // IDR
-    length: z.string().optional(),
-    width: z.string().optional(),
-    diameter: z.string().optional(),
-    height: z.string().optional(),
-    volume: z.string().optional(),
-    thickness: z.string().optional(),
-    images: z.array(
-      z.object({
-        src: z.string(),
-        alt: z.string(),
-      }),
-    ),
-    featured: z.boolean().default(false),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      category: z.enum(["smaller-things", "larger-things"]),
+      description: z.string(),
+      recycledWeight: z.string(), // e.g. "1 kg"
+      price: z.number(), // IDR
+      length: z.string().optional(),
+      width: z.string().optional(),
+      diameter: z.string().optional(),
+      height: z.string().optional(),
+      volume: z.string().optional(),
+      thickness: z.string().optional(),
+      images: z.array(
+        z.object({
+          src: image(),
+          alt: z.string(),
+        }),
+      ),
+      featured: z.boolean().default(false),
+    }),
 });
 
 const projects = defineCollection({

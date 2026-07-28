@@ -8,18 +8,10 @@ length: 45 cm
 width: 40 cm
 height: 65 cm
 images:
-  [
-    {
-      src: "/products/signage-board/signage-board-1.jpeg",
-      alt: a blue-colored signage board,
-    },
-    {
-      src: "/products/signage-board/signage-board-2.jpeg",
-      alt: a blue-colored signage board,
-    },
-    {
-      src: "/products/signage-board/signage-board-3.jpeg",
-      alt: a blue-colored signage board with some information,
-    },
-  ]
+  - src: "./../../assets/signage-board-1.jpeg"
+    alt: a blue-colored signage board
+  - src: "./../../assets/signage-board-2.jpeg"
+    alt: a blue-colored signage board
+  - src: "./../../assets/signage-board-3.jpeg"
+    alt: a blue-colored signage board with some information
 ---

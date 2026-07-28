@@ -9,18 +9,10 @@ width: 30 cm
 height: 90 cm
 volume: 70 litre
 images:
-  [
-    {
-      src: "/products/trash-bin/trash-bin-1.jpeg",
-      alt: two trash bin with blue and green color,
-    },
-    {
-      src: "/products/trash-bin/trash-bin-2.jpeg",
-      alt: two trash bin with blue and green color,
-    },
-    {
-      src: "/products/trash-bin/trash-bin-3.jpeg",
-      alt: two trash bin with blue and green color,
-    },
-  ]
+  - src: "./../../assets/trash-bin-1.jpeg"
+    alt: two trash bins with blue and green color
+  - src: "./../../assets/trash-bin-2.jpeg"
+    alt: two trash bins with blue and green color
+  - src: "./../../assets/trash-bin-3.jpeg"
+    alt: two trash bins with blue and green color
 ---

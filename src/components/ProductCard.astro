@@ -9,14 +9,16 @@ type Props = {
 const { product } = Astro.props;
 const { name, recycledWeight, price, images } = product.data;
 import { formatPrice } from "../data/product.ts";
+import Image from "astro/components/Image.astro";
 ---
 
 <div
   class="card w-72 flex flex-col justify-start items-start py-3 px-3 bg-soft-sand rounded-2xl">
-  <img
+  <Image
     class="object-cover object-center w-72 h-72 rounded-lg"
     src={images[0].src}
     alt={images[0].alt}
+    format="webp"
     width="240"
     height="240"
   />

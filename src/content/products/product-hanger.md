@@ -8,15 +8,10 @@ length: 40 cm
 width: 23 cm
 thickness: 1 cm
 images:
-  [
-    {
-      src: "/products/hanger/hanger-1.jpeg",
-      alt: three hanger hanging in a bar,
-    },
-    {
-      src: "/products/hanger/hanger-2.jpeg",
-      alt: three hanger captured from above,
-    },
-    { src: "/products/hanger/hanger-3.jpeg", alt: a blue-colored hanger },
-  ]
+  - src: "./../../assets/hanger-1.jpeg"
+    alt: three hanger hanging in a bar
+  - src: "./../../assets/hanger-2.jpeg"
+    alt: three hanger captured from above
+  - src: "./../../assets/hanger-3.jpeg"
+    alt: a blue-colored hanger
 ---

@@ -1,5 +1,7 @@
+import type { ImageMetadata } from "astro";
+
 export interface ImageAsset {
-  src: string;
+  src: ImageMetadata;
   alt: string;
 }
 
@@ -10,7 +12,12 @@ export interface Product {
   description: string;
   recycledWeight: string;
   price: number;
-  dimensions: string;
+  length: string;
+  width: string;
+  diameter: string;
+  height: string;
+  volume: string;
+  thickness: string;
   images: ImageAsset[];
   featured: boolean;
 }

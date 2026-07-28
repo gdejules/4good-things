@@ -8,18 +8,10 @@ length: 30 cm
 width: 30 cm
 height: 45 cm
 images:
-  [
-    {
-      src: "/products/signature-stool/signature-stool-1.jpeg",
-      alt: a red-colored stool,
-    },
-    {
-      src: "/products/signature-stool/signature-stool-2.jpeg",
-      alt: a red-colored stool,
-    },
-    {
-      src: "/products/signature-stool/signature-stool-3.jpeg",
-      alt: a red-colored stool,
-    },
-  ]
+  - src: "./../../assets/signature-stool-1.jpeg"
+    alt: a red-colored signature stool
+  - src: "./../../assets/signature-stool-2.jpeg"
+    alt: detail image of a red-colored signature stool
+  - src: "./../../assets/signature-stool-3.jpeg"
+    alt: detail image of a red-colored signature stool
 ---
