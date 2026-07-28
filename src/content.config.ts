@@ -30,21 +30,22 @@ const products = defineCollection({
 
 const projects = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
-  schema: z.object({
-    title: z.string(),
-    client: z.string(),
-    type: z.enum(["collaborathing", "b2b"]),
-    materialSource: z.string(),
-    recycledWeight: z.string(),
-    description: z.string(),
-    images: z.array(
-      z.object({
-        src: z.string(),
-        alt: z.string(),
-      }),
-    ),
-    featured: z.boolean().default(false),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      client: z.string(),
+      type: z.enum(["collaborathing", "b2b"]),
+      materialSource: z.string(),
+      recycledWeight: z.string(),
+      description: z.string(),
+      images: z.array(
+        z.object({
+          src: image(),
+          alt: z.string(),
+        }),
+      ),
+      featured: z.boolean().default(false),
+    }),
 });
 
 const stats = defineCollection({
