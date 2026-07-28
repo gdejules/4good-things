@@ -3,7 +3,7 @@ name: Hanging Hanger
 category: smaller-things
 description: Hanger for hanging clothes
 recycledWeight: 1 kg plastic waste recycled
-price: IDR 235.000
+price: 235000
 length: 40 cm
 width: 23 cm
 thickness: 1 cm

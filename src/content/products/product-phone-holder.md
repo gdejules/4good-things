@@ -3,7 +3,7 @@ name: Phone Holder Bag Charm
 category: smaller-things
 description: A bag charm that you can use as phone stand
 recycledWeight: 100 gr plastic waste recycled
-price: IDR 60.000
+price: 60000
 length: 8 cm
 width: 3 cm
 images:

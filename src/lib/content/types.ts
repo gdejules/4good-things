@@ -9,7 +9,7 @@ export interface Product {
   category: "smaller-things" | "larger-things";
   description: string;
   recycledWeight: string;
-  price: string;
+  price: number;
   dimensions: string;
   images: ImageAsset[];
   featured: boolean;

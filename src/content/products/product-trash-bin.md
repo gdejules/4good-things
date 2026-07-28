@@ -3,7 +3,7 @@ name: Trash Bin
 category: larger-things
 description: A box-shaped trash bin
 recycledWeight: 33 kg plastic waste recycled
-price: IDR 235.000
+price: 235000
 length: 30 cm
 width: 30 cm
 height: 90 cm

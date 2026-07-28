@@ -3,7 +3,7 @@ name: Padel Key Chain
 category: smaller-things
 description: A key chain with padel racket form
 recycledWeight: 100 gr plastic waste recycled
-price: IDR 60.000
+price: 60000
 length: 7 cm
 width: 2,5 cm
 thickness: 0,5 - 1 cm
