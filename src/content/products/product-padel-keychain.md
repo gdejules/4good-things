@@ -2,7 +2,7 @@
 name: Padel Key Chain
 category: smaller-things
 description: A key chain with padel racket form
-recycledWeight: 100 gr plastic waste recycled
+recycledWeight: 100 gr
 price: 60000
 length: 7 cm
 width: 2,5 cm

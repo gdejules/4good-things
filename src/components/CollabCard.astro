@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import alohaPlastic from "/src/assets/aloha-plastic-sort-6.jpeg";
+import type { CollectionEntry } from "astro:content";
+type Props = {
+  project: CollectionEntry<"projects">;
+};
+const { project } = Astro.props;
+const { title, recycledWeight, description } = project.data;
+---
+
+<div class="flex justify-between">
+  <div class="flex-1 flex flex-col gap-3">
+    <h2 class="my-3 font-display text-lg md:text-2xl text-deep-pine-charcoal">
+      {title}
+    </h2>
+    <p class="font-body text-pure-white px-4 py-2 bg-forest-shadow">
+      {recycledWeight} of plastic waste recycled
+    </p>
+    <p class="font-body text-muted-moss">{description}</p>
+  </div>
+  <div class="flex-1 max-w-[460] pr-6 md:pr-10">
+    <Image
+      src={alohaPlastic}
+      alt="aloha's employees sorted trashes to be recycled"
+      width={640}
+      format="webp"
+      class="rounded-2xl -rotate-6 md:rotate-10 shadow-(--shadow-solid)"
+    />
+  </div>
+</div>

@@ -1,14 +1,12 @@
 ---
-name: Hanging Hanger
-category: smaller-things
-description: Hanger for hanging clothes
-recycledWeight: 1 kg
-price: 235000
-length: 40 cm
-width: 23 cm
-thickness: 1 cm
+title: 4GoodThings with Aloha
+client: Aloha
+type: collaborathing
+materialSource: plastic glasses
+recycledWeight: 26 kg
+description: From post-consumer plastic packaging to tabletops, installed in Aloha’s main hall. ± 26 kg of plastic packagings recycled.
 images:
-  [
+[
     {
       src: "/products/hanger/hanger-1.jpeg",
       alt: three hanger hanging in a bar,
@@ -19,4 +17,5 @@ images:
     },
     { src: "/products/hanger/hanger-3.jpeg", alt: a blue-colored hanger },
   ]
+featured: true
 ---

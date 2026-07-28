@@ -2,7 +2,7 @@
 name: Trash Bin
 category: larger-things
 description: A box-shaped trash bin
-recycledWeight: 33 kg plastic waste recycled
+recycledWeight: 33 kg
 price: 235000
 length: 30 cm
 width: 30 cm

@@ -2,7 +2,7 @@
 name: Signature Stool
 category: larger-things
 description: Our signature stool that can be assembled quickly
-recycledWeight: 8 kg plastic waste recycled
+recycledWeight: 8 kg
 price: 235000
 length: 30 cm
 width: 30 cm

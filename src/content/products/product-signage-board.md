@@ -2,7 +2,7 @@
 name: Signage Board
 category: larger-things
 description: A signage board to display information
-recycledWeight: 11 kg plastic waste recycled
+recycledWeight: 11 kg
 price: 1650000
 length: 45 cm
 width: 40 cm
