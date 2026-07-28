@@ -1,102 +1,45 @@
 ---
 import "../styles/global.css";
-import { Picture } from "astro:assets";
-import alohaMtr from "/src/assets/collab/aloha/aloha-misc.jpeg";
-import alohaTable1 from "/src/assets/collab/aloha/aloha-table1.jpeg";
-import alohaTable2 from "/src/assets/collab/aloha/aloha-table2.jpeg";
-import petronasRack1 from "/src/assets/collab/petronas/petronas-rack1.png";
-import petronasRack2 from "/src/assets/collab/petronas/petronas-rack2.png";
-import petronasRack3 from "/src/assets/collab/petronas/petronas-rack3.png";
+import { getCollection } from "astro:content";
+import CollabCard from "./CollabCard.astro";
+
+const featuredCollaborathings = await getCollection("projects", ({ data }) => {
+  return data.type === "collaborathing";
+});
 ---
 
-<div class="w-full h-auto py-20 px-24 bg-green/20">
+<div class="w-full h-auto pt-20 pb-40 px-24 bg-warm-alabaster">
   <div class="flex flex-col justify-start gap-14">
     <div class="flex-1 flex flex-col justify-start gap-4">
-      <h2 class="w-3/4">
+      <span class="font-display text-lg md:text-2xl text-muted-moss"
+        >Our projects</span
+      >
+      <h2
+        class="w-3/4 font-display text-2xl md:text-6xl text-deep-pine-charcoal">
         Collaborathings: Your journey of circular economy starts here
       </h2>
-      <p class="text-xl w-3/4">
+      <p class="w-3/4 font-body text-lg md:text-2xl text-muted-moss">
         Collaborathings is our collaboration projects with uniquely-designed
         process and products
       </p>
     </div>
-    <div class="flex flex-col">
+    <div class="flex flex-col gap-6">
       <div class="flex justify-between w-full mb-5">
-        <h3 class="w-3/4">Featured Collaborathings</h3>
+        <h3
+          class="w-3/4 font-display text-xl md:text-3xl text-deep-pine-charcoal">
+          Featured Collaborathings
+        </h3>
         <a
           href="/about"
-          class="shrink-0 flex items-center text-black hover:text-orange hover:underline">
-          <span class="font-mono text-sm uppercase">
-            See All Projects <span class="font-mono text-xl">→</span>
+          class="shrink-0 flex items-center text-deep-pine-charcoal hover:text-orange hover:underline">
+          <span class="font-body text-base uppercase">
+            See All Projects <span class="font-body text-xl">→</span>
           </span>
         </a>
       </div>
-      <div class="flex justify-between items-start gap-12 w-full mb-40">
-        <div class="flex justify-between w-2/3">
-          <Picture
-            class="object-cover object-center w-64 h-64 rounded-lg border-2 border-solid border-white"
-            src={alohaMtr}
-            formats={["avif", "webp"]}
-            alt="A bowl of shredded plastics and a bowl of bottle caps with two coasters made from recycled plastics."
-          />
-          <Picture
-            class="object-cover object-center w-64 h-64 rounded-lg border-2 border-solid border-white"
-            src={alohaTable1}
-            formats={["avif", "webp"]}
-            alt="A light-colored round table made from plastic sheet with four chairs around it."
-          />
-          <Picture
-            class="object-cover object-center w-64 h-64 rounded-lg border-2 border-solid border-white"
-            src={alohaTable2}
-            formats={["avif", "webp"]}
-            alt="A light-colored round table made from recycled plastics"
-          />
-        </div>
-        <div class="flex flex-col justify-start items-start w-1/3 gap-4">
-          <h4 class="font-bold text-green">4GoodThings with Aloha</h4>
-          <p>
-            From post-consumer plastic packaging to tabletops, installed in
-            Aloha’s main hall
-          </p>
-          <p>± 26 kg of plastic packagings recycled</p>
-        </div>
-      </div>
-      <div
-        class="flex flex-row-reverse justify-between items-start gap-12 w-full">
-        <div class="flex justify-between w-2/3">
-          <Picture
-            class="object-cover object-center w-64 h-64 rounded-lg border-2 border-solid border-white"
-            src={petronasRack1}
-            formats={["avif", "webp"]}
-            alt="A green-colored rack of snacks made from recycled plastic sheet photographed from front-left side."
-          />
-          <Picture
-            class="object-cover object-center w-64 h-64 rounded-lg border-2 border-solid border-white"
-            src={petronasRack2}
-            formats={["avif", "webp"]}
-            alt="A green-colored rack of snacks made from recycled plastic sheet photographed from front-right side."
-          />
-          <Picture
-            class="object-cover object-center w-64 h-64 rounded-lg border-2 border-solid border-white"
-            src={petronasRack3}
-            formats={["avif", "webp"]}
-            alt="A green-colored rack of snacks made from recycled plastic sheet photographed from front side."
-          />
-        </div>
-        <div class="flex flex-col justify-start items-start w-1/3 gap-4">
-          <h4 class="font-bold text-green">4GoodThings with Petronas</h4>
-          <p>From expired safety helmets to coasters.</p>
-          <p>± 20 kg of plastic packagings recycled</p>
-        </div>
+      <div class="flex flex-col gap-10">
+        {featuredCollaborathings.map((p) => <CollabCard project={p} />)}
       </div>
     </div>
-    <!-- <div class="flex flex-col items-center gap-6">
-      <h2>Our Collaborators</h2>
-      <div class="flex justify-center items-center gap-20">
-        <span class="text-base font-medium">Company Logo 1</span>
-        <span class="text-base font-medium">Company Logo 1</span>
-        <span class="text-base font-medium">Company Logo 1</span>
-      </div>
-    </div> -->
   </div>
 </div>
