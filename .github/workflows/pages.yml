@@ -16,16 +16,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node (use Node >=22.12.0 required by Astro)
+      - name: Setup Node (Astro requires >=22.12.0)
         uses: actions/setup-node@v4
         with:
-          # Use the 22.x line (will pick a version >= 22.12.0). Change to '24' if you prefer Node 24.
           node-version: "24.x"
 
-      - name: Verify Node/npm versions
-        run: |
-          echo "node: $(node -v)"
-          echo "npm:  $(npm -v)"
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Install dependencies
         run: npm ci
@@ -35,20 +37,19 @@ jobs:
 
       - name: Ensure .nojekyll in output
         run: |
-          # default Astro output dir is ./dist — change if you set outputDir in astro.config.mjs
-          if [ -d ./dist ]; then
-            touch ./dist/.nojekyll
+          # using the user's published output directory: .dist
+          if [ -d ./.dist ]; then
+            touch ./.dist/.nojekyll
           else
-            echo "ERROR: expected ./dist to exist. Check your astro build outputDir."
+            echo "ERROR: expected ./.dist to exist. Check your astro build outputDir (should be .dist)."
             ls -la
             exit 1
           fi
 
       - name: Upload Pages artifact
-        # Use the newest pages upload action to avoid deprecated upload-artifact v3 dependency
         uses: actions/upload-pages-artifact@v4
         with:
-          path: "./dist"
+          path: ".dist"
 
   deploy:
     needs: build
