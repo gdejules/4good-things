@@ -19,12 +19,14 @@ const { title, recycledWeight, description, images } = project.data;
     </p>
     <p class="font-body text-muted-moss">{description}</p>
   </div>
-  <div class="flex-1 max-w-[460] pr-6 md:pr-10">
-    <Image
-      class="w-full h-auto rounded-2xl rotate-6 md:rotate-10 shadow-(--shadow-solid)"
-      src={images[0].src}
-      alt={images[0].alt}
-      format="webp"
-    />
+  <div class="">
+    <div class="flex-1 max-w-[460] pl-6 md:pl-10">
+      <Image
+        class="w-full h-auto rounded-2xl rotate-6 md:rotate-10 shadow-(--shadow-solid)"
+        src={images[0].src}
+        alt={images[0].alt}
+        format="webp"
+      />
+    </div>
   </div>
 </div>
