@@ -5,8 +5,8 @@ import MenuButton from "./MenuButton.astro";
 import logo from "/src/assets/4goodthings-logo.png";
 ---
 
-<div class="w-full h-auto px-16 py-5 bg-transparent">
-  <div class="flex justify-between items-center gap-40">
+<nav class="w-auto h-auto px-16 py-5 bg-warm-alabaster">
+  <div class="flex justify-between items-center">
     <MenuButton>
       <a href="/">
         <Image
@@ -18,7 +18,7 @@ import logo from "/src/assets/4goodthings-logo.png";
         />
       </a>
     </MenuButton>
-    <div class="flex justify-between items-center gap-10 max-md:hidden">
+    <div class="flex justify-between items-center gap-3 max-md:hidden">
       <MenuButton><a href="/product"> Product </a></MenuButton>
       <MenuButton><a href="/project"> Project </a></MenuButton>
       <MenuButton><a href="/about"> About </a></MenuButton>
@@ -40,8 +40,8 @@ import logo from "/src/assets/4goodthings-logo.png";
             d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"
           ></path>
         </svg>
-        <span>Contact Us</span>
+        <span class="max-md:hidden">Contact Us</span>
       </a>
     </MenuButton>
   </div>
-</div>
+</nav>
