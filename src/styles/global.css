@@ -6,6 +6,14 @@
   --font-display: var(--font-bobby-jones);
   --font-body: var(--font-neo-sans);
 
+  --step--1: clamp(0.8333rem, 0.829rem + 0.0193vw, 0.844rem);
+  --step-0: clamp(1rem, 0.9489rem + 0.2273vw, 1.125rem);
+  --step-1: clamp(1.2rem, 1.0774rem + 0.5448vw, 1.4996rem);
+  --step-2: clamp(1.44rem, 1.2113rem + 1.0164vw, 1.999rem);
+  --step-3: clamp(1.728rem, 1.3448rem + 1.703vw, 2.6647rem);
+  --step-4: clamp(2.0736rem, 1.4688rem + 2.688vw, 3.552rem);
+  --step-5: clamp(2.4883rem, 1.5693rem + 4.0845vw, 4.7348rem);
+
   --color-cream: oklch(91.938% 0.0996 105.738);
   --color-orange: oklch(68.749% 0.17328 53.414);
   --color-green: oklch(53.334% 0.15508 143.033);
@@ -23,73 +31,40 @@
   --shadow-solid: 10px 10px 0px 0px #ea7601;
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    max-width: 30ch;
+  }
 
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
+  h1 {
+    font-size: var(--step-5);
+    line-height: 1.1;
+  }
 
-@layer utilities {
-  :root {
-    color: var(--color-neutral-deep-pine-charcoal);
+  p,
+  .body-normal,
+  .body-large,
+  .body-small {
+    font-family: var(--font-body);
+    line-height: 1.5;
+  }
+
+  .body-large {
+    font-size: var(--step-1);
+    max-width: 70ch;
+  }
+
+  .body-normal {
+    font-size: var(--step-0);
+    max-width: 75ch;
+  }
+
+  .body-small {
+    font-size: var(--step--1);
+    max-width: 75ch;
   }
 }
-
-/* h1 {
-  font-family: var(--font-display);
-  @apply text-6xl;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1.1;
-}
-h2 {
-  font-family: var(--font-heading);
-  @apply text-4xl;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1.1;
-}
-h3 {
-  font-family: var(--font-heading);
-  @apply text-2xl;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1.1;
-}
-h4 {
-  font-family: var(--font-body);
-  @apply text-lg;
-  font-weight: 800;
-  font-style: normal;
-  line-height: 1.3;
-}
-p {
-  font-family: var(--font-body);
-  @apply text-base;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1.5;
-}
-.highlight {
-  font-family: var(--font-body);
-  @apply text-3xl;
-  font-weight: 500;
-  font-style: normal;
-  line-height: 1.3;
-}
-.menu {
-  font-family: var(--font-body);
-  @apply text-lg;
-  font-weight: 500;
-  font-style: normal;
-  line-height: 1.3;
-}
-button {
-  font-family: var(--font-heading);
-  @apply text-base;
-  font-weight: 400;
-  font-style: normal;
-} */
