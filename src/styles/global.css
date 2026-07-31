@@ -1,18 +1,38 @@
 @import "tailwindcss";
 @source "../src";
 
-@theme inline {
+@theme {
   --font-*: initial;
   --font-display: var(--font-bobby-jones);
   --font-body: var(--font-neo-sans);
 
-  --step--1: clamp(0.8333rem, 0.829rem + 0.0193vw, 0.844rem);
-  --step-0: clamp(1rem, 0.9489rem + 0.2273vw, 1.125rem);
-  --step-1: clamp(1.2rem, 1.0774rem + 0.5448vw, 1.4996rem);
-  --step-2: clamp(1.44rem, 1.2113rem + 1.0164vw, 1.999rem);
-  --step-3: clamp(1.728rem, 1.3448rem + 1.703vw, 2.6647rem);
-  --step-4: clamp(2.0736rem, 1.4688rem + 2.688vw, 3.552rem);
-  --step-5: clamp(2.4883rem, 1.5693rem + 4.0845vw, 4.7348rem);
+  --text-body-small: clamp(0.8333rem, 0.829rem + 0.0193vw, 0.844rem);
+  --text-body-small--line-height: 1.6;
+  --text-body-small--max-width: 75ch;
+
+  --text-body-normal: clamp(1rem, 0.9489rem + 0.2273vw, 1.125rem);
+  --text-body-normal--line-height: 1.5;
+  --text-body-normal--max-width: 70ch;
+
+  --text-body-large: clamp(1.2rem, 1.0774rem + 0.5448vw, 1.4996rem);
+  --text-body-large--line-height: 1.5;
+  --text-body-large--max-width: 70ch;
+
+  --text-heading-small: clamp(1.44rem, 1.2113rem + 1.0164vw, 1.999rem);
+  --text-heading-small--line-height: 1.2;
+  --text-heading-small--max-width: 40ch;
+
+  --text-heading-medium: clamp(1.728rem, 1.3448rem + 1.703vw, 2.6647rem);
+  --text-heading-medium--line-height: 1.2;
+  --text-heading-medium--max-width: 35ch;
+
+  --text-heading-large: clamp(2.0736rem, 1.4688rem + 2.688vw, 3.552rem);
+  --text-heading-large--line-height: 1.1;
+  --text-heading-large--max-width: 30ch;
+
+  --text-heading-super: clamp(2.4883rem, 1.5693rem + 4.0845vw, 4.7348rem);
+  --text-heading-super--line-height: 1.1;
+  --text-heading-super--max-width: 30ch;
 
   --color-cream: oklch(91.938% 0.0996 105.738);
   --color-orange: oklch(68.749% 0.17328 53.414);
@@ -36,35 +56,14 @@
   h2,
   h3,
   h4 {
-    font-family: var(--font-display);
-    max-width: 30ch;
+    @apply font-display;
   }
 
   h1 {
-    font-size: var(--step-5);
-    line-height: 1.1;
+    @apply text-heading-super;
   }
 
-  p,
-  .body-normal,
-  .body-large,
-  .body-small {
-    font-family: var(--font-body);
-    line-height: 1.5;
-  }
-
-  .body-large {
-    font-size: var(--step-1);
-    max-width: 70ch;
-  }
-
-  .body-normal {
-    font-size: var(--step-0);
-    max-width: 75ch;
-  }
-
-  .body-small {
-    font-size: var(--step--1);
-    max-width: 75ch;
+  p {
+    @apply font-body text-body-normal;
   }
 }
