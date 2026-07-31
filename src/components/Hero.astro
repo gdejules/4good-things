@@ -11,7 +11,8 @@ import tableStool from "/src/assets/hero/table-and-stool.jpeg";
 
 <div class="w-full px-24 pt-5 pb-14 min-h-screen bg-warm-alabaster">
   <div class="grid grid-cols-2 gap-10 max-md:flex max-md:flex-col max-md:gap-6">
-    <div class="flex flex-col justify-center items-start gap-5">
+    <div
+      class="order-1 max-md:order-2 flex flex-col justify-center items-start gap-5">
       <h1 class="flex flex-col gap-3">
         <span class="text-green">Good Things</span>
         <span class="text-deep-pine-charcoal">are Coming to You</span>
@@ -24,7 +25,7 @@ import tableStool from "/src/assets/hero/table-and-stool.jpeg";
         <a href="#brand-highlight"> Explore More </a>
       </MenuButtonAstroComponent>
     </div>
-    <div class="w-1/2 h-screen relative">
+    <div class="h-screen relative">
       <Image
         class="absolute top-16 left-20 w-64 h-auto rounded-lg shadow-md"
         src={alohaTable}
