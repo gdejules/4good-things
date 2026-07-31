@@ -22,40 +22,42 @@ import tableStool from "/src/assets/hero/table-and-stool.jpeg";
         giving it a second life and turn it into something impactful.
       </p>
       <MenuButtonAstroComponent>
-        <a href="#brand-highlight"> Explore More </a>
+        <a href="#brand-highlight"> about us </a>
       </MenuButtonAstroComponent>
     </div>
-    <div class="order-2 max-md:order-1 h-screen relative">
-      <Image
-        class="absolute top-16 left-20 w-64 h-auto rounded-lg shadow-md"
-        src={alohaTable}
-        priority
-        alt="A light-colored table made from recycled plastic sheet"
-      />
-      <Image
-        class="absolute top-4 right-8 w-48 h-auto rounded-lg shadow-md"
-        src={asthaTable}
-        priority
-        alt="A blue-colored table made from recycled plastic sheet"
-      />
-      <Image
-        class="absolute top-80 right-56 w-32 h-auto rounded-lg shadow-md"
-        src={padelKeychain}
-        priority
-        alt="Five small padel racket keychain made from recycled plastic sheet"
-      />
-      <Image
-        class="absolute top-72 left-1 w-48 h-auto rounded-lg shadow-md"
-        src={signatureStool}
-        priority
-        alt="A red stool made from recycled plastic sheet"
-      />
-      <Image
-        class="absolute top-96 right-2 w-48 h-auto rounded-lg shadow-md"
-        src={tableStool}
-        priority
-        alt="A table and two stool with green color made from recycled plastic sheet"
-      />
+    <div
+      class="order-2 max-md:order-1 grid grid-cols-2 grid-rows-2 gap-x-4 gap-y-8 max-md:gap-x-2 max-md:gap-y-4">
+      <div
+        class="col-start-1 col-end-2 row-start-1 row-end-2 flex items-center">
+        <Image
+          class="h-auto rounded-lg shadow-md"
+          src={alohaTable}
+          alt="A light-colored table made from recycled plastic sheet"
+        />
+      </div>
+      <div
+        class="col-start-2 col-end-3 row-start-1 row-end-2 flex items-center">
+        <Image
+          class="h-auto rounded-lg shadow-md"
+          src={asthaTable}
+          alt="A blue-colored table made from recycled plastic sheet"
+        />
+      </div>
+      <div
+        class="col-start-2 col-end-3 row-start-2 row-end-3 flex justify-center items-center">
+        <Image
+          class="w-2/3 h-auto rounded-lg shadow-md"
+          src={padelKeychain}
+          alt="Five small padel racket keychain made from recycled plastic sheet"
+        />
+      </div>
+      <div class="col-start-1 col-end-2 row-start-2 row-end-3">
+        <Image
+          class="h-auto rounded-lg shadow-md"
+          src={signatureStool}
+          alt="A red stool made from recycled plastic sheet"
+        />
+      </div>
     </div>
   </div>
 </div>
