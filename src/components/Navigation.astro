@@ -1,20 +1,18 @@
 ---
+import Image from "astro/components/Image.astro";
 import "../styles/global.css";
 import MenuButton from "./MenuButton.astro";
+import logo from "/src/assets/4goodthings-logo.png";
 ---
 
 <div class="w-full h-auto px-16 py-5 bg-transparent">
   <div class="flex justify-between items-center gap-40">
     <MenuButton>
       <a href="/">
-        <img
-          src="/4goodthings-logo-center_1.png"
-          alt="4GoodThings Logo"
-          width="100"
-        />
+        <Image src={logo} alt="4GoodThings Logo" layout="constrained" />
       </a>
     </MenuButton>
-    <div class="flex justify-between items-center gap-10">
+    <div class="flex justify-between items-center gap-10 max-md:hidden">
       <MenuButton><a href="/product"> Product </a></MenuButton>
       <MenuButton><a href="/project"> Project </a></MenuButton>
       <MenuButton><a href="/about"> About </a></MenuButton>
