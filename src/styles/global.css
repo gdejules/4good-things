@@ -94,10 +94,10 @@
 }
 
 @layer component {
-  .section-wrapper {
-    @apply max-w-6xl mx-auto max-md:mx-3;
-    width: calc(100vw - 2 * var(--spacing-custom-xs-3xl));
-    margin-top: var(--spacing-custom-xl-2xl);
-    margin-bottom: var(--spacing-custom-xl-2xl);
+  .section {
+    @apply w-full py-10;
+  }
+  .wrapper {
+    @apply max-w-6xl mx-auto;
   }
 }
