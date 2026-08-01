@@ -6,10 +6,9 @@ import alohaTable from "/src/assets/hero/aloha-table.jpeg";
 import asthaTable from "/src/assets/hero/astha-table.jpeg";
 import padelKeychain from "/src/assets/hero/padel-keychain.jpeg";
 import signatureStool from "/src/assets/hero/signature-stool.jpeg";
-import tableStool from "/src/assets/hero/table-and-stool.jpeg";
 ---
 
-<div class="w-full px-24 pt-5 pb-14 min-h-screen bg-warm-alabaster">
+<div class="w-full px-16 pt-4 pb-14 min-h-screen bg-warm-alabaster">
   <div class="grid grid-cols-2 gap-10 max-md:flex max-md:flex-col max-md:gap-6">
     <div
       class="order-1 max-md:order-2 flex flex-col justify-center items-start gap-5">
@@ -32,14 +31,16 @@ import tableStool from "/src/assets/hero/table-and-stool.jpeg";
         <Image
           class="h-auto rounded-lg shadow-md"
           src={alohaTable}
+          priority
           alt="A light-colored table made from recycled plastic sheet"
         />
       </div>
       <div
-        class="col-start-2 col-end-3 row-start-1 row-end-2 flex items-center">
+        class="col-start-2 col-end-3 row-start-1 row-end-2 flex justify-center items-center">
         <Image
-          class="h-auto rounded-lg shadow-md"
+          class="w-3/4 h-auto rounded-lg shadow-md"
           src={asthaTable}
+          priority
           alt="A blue-colored table made from recycled plastic sheet"
         />
       </div>
@@ -48,6 +49,7 @@ import tableStool from "/src/assets/hero/table-and-stool.jpeg";
         <Image
           class="w-2/3 h-auto rounded-lg shadow-md"
           src={padelKeychain}
+          priority
           alt="Five small padel racket keychain made from recycled plastic sheet"
         />
       </div>
@@ -55,6 +57,7 @@ import tableStool from "/src/assets/hero/table-and-stool.jpeg";
         <Image
           class="h-auto rounded-lg shadow-md"
           src={signatureStool}
+          priority
           alt="A red stool made from recycled plastic sheet"
         />
       </div>

@@ -49,6 +49,31 @@
   --color-pure-white: oklch(100% 0.00011 271.152);
 
   --shadow-solid: 10px 10px 0px 0px #ea7601;
+
+  --spacing-custom-3xs: clamp(0.25rem, 0.2244rem + 0.1136vw, 0.3125rem);
+  --spacing-custom-2xs: clamp(0.5rem, 0.4744rem + 0.1136vw, 0.5625rem);
+  --spacing-custom-xs: clamp(0.75rem, 0.6989rem + 0.2273vw, 0.875rem);
+  --spacing-custom-s: clamp(1rem, 0.9489rem + 0.2273vw, 1.125rem);
+  --spacing-custom-m: clamp(1.5rem, 1.4233rem + 0.3409vw, 1.6875rem);
+  --spacing-custom-l: clamp(2rem, 1.8977rem + 0.4545vw, 2.25rem);
+  --spacing-custom-xl: clamp(3rem, 2.8466rem + 0.6818vw, 3.375rem);
+  --spacing-custom-2xl: clamp(4rem, 3.7955rem + 0.9091vw, 4.5rem);
+  --spacing-custom-3xl: clamp(6rem, 5.6932rem + 1.3636vw, 6.75rem);
+
+  /* One-up pairs */
+  --spacing-custom-3xs-2xs: clamp(0.25rem, 0.1222rem + 0.5682vw, 0.5625rem);
+  --spacing-custom-2xs-xs: clamp(0.5rem, 0.3466rem + 0.6818vw, 0.875rem);
+  --spacing-custom-xs-s: clamp(0.75rem, 0.5966rem + 0.6818vw, 1.125rem);
+  --spacing-custom-s-m: clamp(1rem, 0.7188rem + 1.25vw, 1.6875rem);
+  --spacing-custom-m-l: clamp(1.5rem, 1.1932rem + 1.3636vw, 2.25rem);
+  --spacing-custom-l-xl: clamp(2rem, 1.4375rem + 2.5vw, 3.375rem);
+  --spacing-custom-xl-2xl: clamp(3rem, 2.3864rem + 2.7273vw, 4.5rem);
+  --spacing-custom-2xl-3xl: clamp(4rem, 2.875rem + 5vw, 6.75rem);
+
+  /* Custom pairs */
+  --spacing-custom-s-l: clamp(1rem, 0.4886rem + 2.2727vw, 2.25rem);
+  --spacing-custom-2xs-xl: clamp(0.5rem, -0.6761rem + 5.2273vw, 3.375rem);
+  --spacing-custom-xs-3xl: clamp(0.75rem, -1.7045rem + 10.9091vw, 6.75rem);
 }
 
 @layer base {
@@ -65,5 +90,14 @@
 
   p {
     @apply font-body text-body-normal;
+  }
+}
+
+@layer component {
+  .section-wrapper {
+    @apply max-w-6xl mx-auto max-md:mx-3;
+    width: calc(100vw - 2 * var(--spacing-custom-xs-3xl));
+    margin-top: var(--spacing-custom-xl-2xl);
+    margin-bottom: var(--spacing-custom-xl-2xl);
   }
 }
