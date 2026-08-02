@@ -11,36 +11,33 @@ const largerProducts = await getCollection("products", ({ data }) => {
 import MenuButtonAstroComponent from "./MenuButton.astro";
 ---
 
-<div class="w-full h-auto py-20 bg-forest-shadow">
+<section class="w-full h-auto py-20 bg-forest-shadow">
   <div
-    class="max-w-6xl mx-auto flex flex-col justify-start gap-20 max-md:mx-0 max-md:px-5 max-md:gap-10">
+    class="max-w-6xl mx-auto px-4 flex flex-col justify-start items-center gap-20 sm:mx-0 sm:px-5 sm:gap-16">
     <div class="flex-1 flex flex-col justify-stretch gap-4">
-      <span class="font-display text-lg md:text-2xl text-cream"
-        >Our products</span
-      >
-      <h2 class="font-display text-2xl md:text-6xl text-pure-white">
-        We design products that functional, emotionally valuable, rooted in
-        waste reduction principle
-      </h2>
-      <p class="font-body text-lg md:text-2xl text-pure-white">
+      <h2 class="font-display text-heading-small text-cream">Our products</h2>
+      <span class="font-display text-heading-large md:text-6xl text-pure-white">
+        We design functional and emotionally valuable products
+      </span>
+      <p class="font-body text-body-large text-cream">
         Explore our Smaller Things and Larger Things product categories
       </p>
     </div>
     <div class="flex flex-col gap-5">
-      <h3 class="font-display text-3xl max-md:text-xl text-pure-white">
-        Featured Smaller Things Products
+      <h3 class="font-display text-heading-medium text-pure-white">
+        Featured Smaller Things
       </h3>
       <div
-        class="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-4 lg:flex lg:flex-row lg:justify-between">
+        class="flex flex-col gap-8 sm:grid sm:grid-cols-2 sm:gap-4 lg:flex lg:flex-row lg:justify-between lg:gap-8">
         {smallerProducts.slice(0, 3).map((p) => <ProductCard product={p} />)}
       </div>
     </div>
     <div class="flex flex-col gap-5">
-      <h3 class="flex-1 font-display text-3xl max-md:text-xl text-pure-white">
-        Featured Larger Things Products
+      <h3 class="font-display text-heading-medium text-pure-white">
+        Featured Larger Things
       </h3>
       <div
-        class="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-4 lg:flex lg:flex-row lg:justify-between">
+        class="flex flex-col gap-8 sm:grid sm:grid-cols-2 sm:gap-4 lg:flex lg:flex-row lg:justify-between lg:gap-8">
         {largerProducts.slice(0, 3).map((p) => <ProductCard product={p} />)}
       </div>
     </div>
@@ -48,4 +45,4 @@ import MenuButtonAstroComponent from "./MenuButton.astro";
       <a href="/product/"> See All Products </a>
     </MenuButtonAstroComponent>
   </div>
-</div>
+</section>
