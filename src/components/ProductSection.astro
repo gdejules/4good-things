@@ -8,11 +8,13 @@ const smallerProducts = await getCollection("products", ({ data }) => {
 const largerProducts = await getCollection("products", ({ data }) => {
   return data.category === "larger-things";
 });
+import MenuButtonAstroComponent from "./MenuButton.astro";
 ---
 
-<div class="w-full h-auto py-20 px-24 bg-forest-shadow">
-  <div class="flex flex-col justify-start gap-20">
-    <div class="flex-1 flex flex-col justify-stretch gap-4 w-3/4">
+<div class="w-full h-auto py-20 bg-forest-shadow">
+  <div
+    class="max-w-6xl mx-auto flex flex-col justify-start gap-20 max-md:mx-0 max-md:px-5 max-md:gap-10">
+    <div class="flex-1 flex flex-col justify-stretch gap-4">
       <span class="font-display text-lg md:text-2xl text-cream"
         >Our products</span
       >
@@ -25,38 +27,25 @@ const largerProducts = await getCollection("products", ({ data }) => {
       </p>
     </div>
     <div class="flex flex-col gap-5">
-      <div class="flex justify-between">
-        <h3 class="flex-1 font-display text-xl md:text-3xl text-pure-white">
-          Featured Smaller Things Products
-        </h3>
-        <a
-          href="/product/"
-          class="shrink-0 flex items-center hover:text-green hover:underline">
-          <span class="font-body text-base uppercase text-pure-white">
-            See All Smaller Things <span class="font-body text-xl">→</span>
-          </span>
-        </a>
-      </div>
-      <div class="flex justify-between items-start">
+      <h3 class="font-display text-3xl max-md:text-xl text-pure-white">
+        Featured Smaller Things Products
+      </h3>
+      <div
+        class="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-4 lg:flex lg:flex-row lg:justify-between">
         {smallerProducts.slice(0, 3).map((p) => <ProductCard product={p} />)}
       </div>
     </div>
     <div class="flex flex-col gap-5">
-      <div class="flex justify-between">
-        <h3 class="flex-1 font-display text-xl md:text-3xl text-pure-white">
-          Featured Larger Things Products
-        </h3>
-        <a
-          href="/product/"
-          class="shrink-0 flex items-center hover:text-green hover:underline">
-          <span class="font-body text-base uppercase text-pure-white">
-            See All Larger Things <span class="font-body text-xl">→</span>
-          </span>
-        </a>
-      </div>
-      <div class="flex justify-between items-start">
+      <h3 class="flex-1 font-display text-3xl max-md:text-xl text-pure-white">
+        Featured Larger Things Products
+      </h3>
+      <div
+        class="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-4 lg:flex lg:flex-row lg:justify-between">
         {largerProducts.slice(0, 3).map((p) => <ProductCard product={p} />)}
       </div>
     </div>
+    <MenuButtonAstroComponent>
+      <a href="/product/"> See All Products </a>
+    </MenuButtonAstroComponent>
   </div>
 </div>
