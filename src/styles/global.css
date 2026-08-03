@@ -12,7 +12,7 @@
 
   --text-body-normal: clamp(1rem, 0.9489rem + 0.2273vw, 1.125rem);
   --text-body-normal--line-height: 1.5;
-  --text-body-normal--max-width: 70ch;
+  --spacing-text-body-normal: 70ch;
 
   --text-body-large: clamp(1.2rem, 1.0774rem + 0.5448vw, 1.4996rem);
   --text-body-large--line-height: 1.5;

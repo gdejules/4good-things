@@ -13,4 +13,5 @@ images:
     alt: a handphone mounted on a phone holder
   - src: "./../../assets/phone-holder-3.jpeg"
     alt: a handphone mounted on a phone holder
+featured: true
 ---

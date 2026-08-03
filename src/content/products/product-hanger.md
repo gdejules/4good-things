@@ -14,4 +14,5 @@ images:
     alt: three hanger captured from above
   - src: "./../../assets/hanger-3.jpeg"
     alt: a blue-colored hanger
+featured: true
 ---

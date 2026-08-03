@@ -14,4 +14,5 @@ images:
     alt: a blue-colored signage board
   - src: "./../../assets/signage-board-3.jpeg"
     alt: a blue-colored signage board with some information
+featured: true
 ---

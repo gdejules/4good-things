@@ -14,4 +14,5 @@ images:
     alt: two padel key chains with orange and green color
   - src: "./../../assets/padel-keychain-3.jpeg"
     alt: two padel key chain attached to a bag
+featured: true
 ---

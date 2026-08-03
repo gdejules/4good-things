@@ -21,11 +21,13 @@ import Image from "astro/components/Image.astro";
     layout="constrained"
     format="webp"
   />
-  <h2 class="my-3 font-display text-lg md:text-2xl text-deep-pine-charcoal">
+  <h4 class="my-3 font-display text-heading-small text-deep-pine-charcoal">
     {name}
-  </h2>
-  <p class="font-body text-muted-moss">
+  </h4>
+  <p class="font-body text-body-small text-muted-moss">
     {recycledWeight} of plastic waste recycled
   </p>
-  <p class="font-body text-muted-moss">{formatPrice(price)}</p>
+  <p class="font-body text-body-small font-medium text-green">
+    {formatPrice(price)}
+  </p>
 </div>

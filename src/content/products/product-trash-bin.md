@@ -15,4 +15,5 @@ images:
     alt: two trash bins with blue and green color
   - src: "./../../assets/trash-bin-3.jpeg"
     alt: two trash bins with blue and green color
+featured: true
 ---
