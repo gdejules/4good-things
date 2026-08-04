@@ -1,7 +1,7 @@
 ---
 title: 4GoodThings with Aloha
 client: Aloha
-type: collaborathing
+type: Collaborathing
 materialSource: plastic glasses
 recycledWeight: 26 kg
 description: From post-consumer plastic packaging to tabletops, installed in Aloha’s main hall. ± 26 kg of plastic packagings recycled.

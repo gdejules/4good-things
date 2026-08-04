@@ -3,43 +3,47 @@ import "../styles/global.css";
 import { getCollection } from "astro:content";
 import ProjectCard from "./ProjectCard.astro";
 
-const featuredCollaborathings = await getCollection("projects", ({ data }) => {
-  return data.type === "collaborathing";
+const featuredProjects = await getCollection("projects", ({ data }) => {
+  return data.featured === true;
 });
 ---
 
-<div class="w-full h-auto pt-20 pb-40 px-24 bg-warm-alabaster">
-  <div class="flex flex-col justify-start gap-14">
-    <div class="flex-1 flex flex-col justify-start gap-4">
-      <span class="font-display text-lg md:text-2xl text-muted-moss"
-        >Our projects</span
-      >
+<section class="section py-20 bg-warm-alabaster">
+  <div
+    class="max-w-6xl mx-auto flex flex-col justify-start gap-custom-m-l max-md:mx-6 max-xl:mx-10">
+    <div class="flex-1 flex flex-col justify-start gap-custom-xs">
       <h2
-        class="w-3/4 font-display text-2xl md:text-6xl text-deep-pine-charcoal">
-        Collaborathings: Your journey of circular economy starts here
+        class="font-display text-heading-medium max-w-text-heading-medium text-muted-moss">
+        Our projects
       </h2>
-      <p class="w-3/4 font-body text-lg md:text-2xl text-muted-moss">
-        Collaborathings is our collaboration projects with uniquely-designed
-        process and products
+      <span
+        class="font-display text-heading-large max-w-text-heading-large text-deep-pine-charcoal">
+        We help enterprises and institutions in their circular economy journey
+      </span>
+      <p
+        class="font-body text-body-normal max-w-text-body-normal text-muted-moss">
+        We are fostering impactful collaborations through collaborathings, a
+        tailored and unique initiative, and also general projects, an end-to-end
+        recycling collaboration.
       </p>
     </div>
-    <div class="flex flex-col gap-6">
-      <div class="flex justify-between w-full mb-5">
-        <h3
-          class="w-3/4 font-display text-xl md:text-3xl text-deep-pine-charcoal">
-          Featured Collaborathings
-        </h3>
-        <a
-          href="/about"
-          class="shrink-0 flex items-center text-deep-pine-charcoal hover:text-orange hover:underline">
-          <span class="font-body text-base uppercase">
-            See All Projects <span class="font-body text-xl">→</span>
-          </span>
-        </a>
-      </div>
-      <div class="flex flex-col gap-10">
-        {featuredCollaborathings.map((p) => <ProjectCard project={p} />)}
+    <div class="flex flex-col gap-custom-s-m">
+      <h3
+        class="font-display text-heading-small max-w-text-heading-small text-deep-pine-charcoal">
+        Featured Collaborations
+      </h3>
+      <div
+        class="grid grid-cols-12 auto-rows-auto gap-y-custom-xl max-md:flex max-md:flex-col max-md:gap-custom-xl max-md:items-center">
+        {
+          featuredProjects.length > 0 ? (
+            featuredProjects.map((p) => <ProjectCard project={p} />)
+          ) : (
+            <p class="col-start-1 col-span-12 font-body text-body-normal text-muted-moss my-custom-xl">
+              No featured collaborations available yet.
+            </p>
+          )
+        }
       </div>
     </div>
   </div>
-</div>
+</section>

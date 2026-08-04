@@ -34,7 +34,7 @@ const projects = defineCollection({
     z.object({
       title: z.string(),
       client: z.string(),
-      type: z.enum(["collaborathing", "b2b"]),
+      type: z.enum(["Collaborathing", "General Project"]),
       materialSource: z.string(),
       recycledWeight: z.string(),
       description: z.string(),
