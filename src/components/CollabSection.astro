@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import { getCollection } from "astro:content";
-import CollabCard from "./CollabCard.astro";
+import ProjectCard from "./ProjectCard.astro";
 
 const featuredCollaborathings = await getCollection("projects", ({ data }) => {
   return data.type === "collaborathing";
@@ -38,7 +38,7 @@ const featuredCollaborathings = await getCollection("projects", ({ data }) => {
         </a>
       </div>
       <div class="flex flex-col gap-10">
-        {featuredCollaborathings.map((p) => <CollabCard project={p} />)}
+        {featuredCollaborathings.map((p) => <ProjectCard project={p} />)}
       </div>
     </div>
   </div>

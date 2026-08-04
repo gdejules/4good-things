@@ -10,19 +10,22 @@ const { title, recycledWeight, description, images } = project.data;
 
 <div class="flex justify-between">
   <div class="flex-1 flex flex-col gap-3">
-    <h2 class="my-3 font-display text-2xl md:text-4xl text-green">
+    <h4
+      class="my-3 font-body font-extrabold text-heading-medium text-deep-pine-charcoal">
       {title}
-    </h2>
+    </h4>
     <p
-      class="font-body font-extrabold max-w-max rounded-2xl text-deep-pine-charcoal px-4 py-2 bg-soft-sand">
+      class="font-display font-extrabold text-body-small max-w-max rounded-2xl text-pure-white px-4 py-2 bg-green">
       {recycledWeight} of plastic waste recycled
     </p>
-    <p class="font-body text-muted-moss">{description}</p>
+    <p class="font-body font-normal text-body-normal text-muted-moss">
+      {description}
+    </p>
   </div>
   <div class="">
-    <div class="flex-1 max-w-[460] pl-6 md:pl-10">
+    <div class="flex-1 w-full h-auto px-custom-l-xl">
       <Image
-        class="w-full h-auto rounded-2xl rotate-6 md:rotate-10 shadow-(--shadow-solid)"
+        class="object-cover object-center w-full aspect-auto rounded-2xl rotate-6 shadow-(--shadow-solid-honey)"
         src={images[0].src}
         alt={images[0].alt}
         format="webp"
