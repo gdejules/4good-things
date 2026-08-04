@@ -20,19 +20,19 @@
 
   --text-heading-small: clamp(1.44rem, 1.2113rem + 1.0164vw, 1.999rem);
   --text-heading-small--line-height: 1.2;
-  --spacing-text-heading-small: 40ch;
+  --spacing-text-heading-small: 50ch;
 
   --text-heading-medium: clamp(1.728rem, 1.3448rem + 1.703vw, 2.6647rem);
   --text-heading-medium--line-height: 1.2;
-  --spacing-text-heading-medium: 35ch;
+  --spacing-text-heading-medium: 50ch;
 
   --text-heading-large: clamp(2.0736rem, 1.4688rem + 2.688vw, 3.552rem);
   --text-heading-large--line-height: 1.1;
-  --spacing-text-heading-large: 30ch;
+  --spacing-text-heading-large: 45ch;
 
   --text-heading-super: clamp(2.4883rem, 1.5693rem + 4.0845vw, 4.7348rem);
   --text-heading-super--line-height: 1.1;
-  --spacing-text-heading-super: 30ch;
+  --spacing-text-heading-super: 40ch;
 
   --color-cream: oklch(91.938% 0.0996 105.738);
   --color-orange: oklch(68.749% 0.17328 53.414);
