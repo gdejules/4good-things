@@ -8,11 +8,10 @@ import padelKeychain from "/src/assets/hero/padel-keychain.jpeg";
 import signatureStool from "/src/assets/hero/signature-stool.jpeg";
 ---
 
-<section class="section bg-warm-alabaster">
-  <div
-    class="wrapper grid grid-cols-2 gap-10 max-md:flex max-md:flex-col max-md:gap-6">
+<section class="section py-10 bg-warm-alabaster">
+  <div class="wrapper">
     <div
-      class="order-1 max-md:order-2 flex flex-col justify-center items-start gap-5">
+      class="order-1 max-md:order-2 col-start-1 col-end-7 flex flex-col justify-center items-start gap-5">
       <h1 class="flex flex-col">
         <span class="text-green">Good Things</span>
         <span class="text-deep-pine-charcoal">are Coming to You</span>
@@ -26,9 +25,9 @@ import signatureStool from "/src/assets/hero/signature-stool.jpeg";
       </MenuButtonAstroComponent>
     </div>
     <div
-      class="order-2 max-md:order-1 grid grid-cols-2 grid-rows-2 gap-x-4 gap-y-8 max-md:gap-x-2 max-md:gap-y-4">
+      class="order-2 max-md:order-1 col-start-7 col-end-13 grid grid-cols-6 grid-rows-2 gap-x-custom-m gap-y-custom-s max-md:grid-cols-2 max-md:gap-custom-s max-md:items-center">
       <div
-        class="col-start-1 col-end-2 row-start-1 row-end-2 flex items-center">
+        class="col-start-1 col-end-4 row-start-1 row-end-2 flex items-center max-md:col-start-1 max-md:col-end-2">
         <Image
           class="h-auto rounded-lg shadow-md"
           src={alohaTable}
@@ -37,7 +36,7 @@ import signatureStool from "/src/assets/hero/signature-stool.jpeg";
         />
       </div>
       <div
-        class="col-start-2 col-end-3 row-start-1 row-end-2 flex justify-center items-center">
+        class="col-start-4 col-end-7 row-start-1 row-end-2 flex justify-center items-center max-md:col-start-2 max-md:col-end-3">
         <Image
           class="w-3/4 h-auto rounded-lg shadow-md"
           src={asthaTable}
@@ -46,7 +45,7 @@ import signatureStool from "/src/assets/hero/signature-stool.jpeg";
         />
       </div>
       <div
-        class="col-start-2 col-end-3 row-start-2 row-end-3 flex justify-center items-center">
+        class="col-start-4 col-end-7 row-start-2 row-end-3 flex justify-center items-center max-md:col-start-2 max-md:col-end-3">
         <Image
           class="w-2/3 h-auto rounded-lg shadow-md"
           src={padelKeychain}
@@ -54,9 +53,10 @@ import signatureStool from "/src/assets/hero/signature-stool.jpeg";
           alt="Five small padel racket keychain made from recycled plastic sheet"
         />
       </div>
-      <div class="col-start-1 col-end-2 row-start-2 row-end-3">
+      <div
+        class="col-start-1 col-end-4 row-start-2 row-end-3 flex justify-center items-center max-md:col-start-1 max-md:col-end-2">
         <Image
-          class="h-auto rounded-lg shadow-md"
+          class="w-3/4 rounded-lg shadow-md"
           src={signatureStool}
           priority
           alt="A red stool made from recycled plastic sheet"
