@@ -13,7 +13,7 @@ import Image from "astro/components/Image.astro";
 ---
 
 <div
-  class="w-full h-auto flex flex-col justify-start items-start py-3 px-3 bg-soft-sand rounded-2xl">
+  class="w-full h-auto col-span-3 flex flex-col gap-custom-2xs justify-start items-start py-custom-2xs px-custom-2xs bg-warm-alabaster rounded-2xl max-md:col-span-1">
   <Image
     class="object-cover object-center w-full aspect-square rounded-lg"
     src={images[0].src}
@@ -22,13 +22,13 @@ import Image from "astro/components/Image.astro";
     format="webp"
   />
   <h4
-    class="my-3 font-body text-body-large font-extrabold text-deep-pine-charcoal">
+    class="my-custom-2xs-xs font-body text-body-normal font-extrabold text-deep-pine-charcoal">
     {name}
   </h4>
   <p class="font-body text-body-small text-muted-moss">
     {recycledWeight} of plastic waste recycled
   </p>
-  <p class="font-body text-body-small font-medium text-blue">
+  <p class="font-body text-body-normal font-medium text-blue">
     {formatPrice(price)}
   </p>
 </div>
