@@ -11,22 +11,28 @@ const largerProducts = await getCollection("products", ({ data }) => {
 import MenuButtonAstroComponent from "./MenuButton.astro";
 ---
 
-<section class="w-full h-auto py-20 bg-forest-shadow">
+<section class="section py-24 bg-forest-shadow">
   <div
-    class="max-w-6xl mx-auto px-4 flex flex-col justify-start items-center gap-20 max-sm:mx-custom-xs max-sm:gap-16">
-    <div class="flex-1 flex flex-col justify-stretch gap-4">
-      <h2 class="font-display text-heading-medium text-cream">Our products</h2>
-      <span class="font-display text-heading-large md:text-6xl text-pure-white">
+    class="max-w-6xl mx-auto flex flex-col justify-start gap-custom-xl-2xl max-md:mx-6 max-xl:mx-10">
+    <div class="flex-1 flex flex-col justify-start gap-custom-xs">
+      <h2
+        class="font-display text-heading-medium max-w-text-heading-medium text-pure-white">
+        Our products
+      </h2>
+      <span
+        class="font-display text-heading-large max-w-text-heading-large text-pure-white">
         We design functional and emotionally valuable products
       </span>
-      <p class="font-body text-body-normal max-w-text-body-normal text-cream">
+      <p
+        class="font-body text-body-normal max-w-text-body-normal text-pure-white">
         Our product line up are made with functional design and purpose to bring
         joy in your everyday needs. Explore our Smaller Things and Larger Things
         product categories based on its dimensions.
       </p>
     </div>
-    <div class="flex flex-col gap-5">
-      <h3 class="font-display text-heading-small text-cream">
+    <div class="flex flex-col gap-custom-m-l">
+      <h3
+        class="font-display text-heading-small max-w-text-heading-small text-pure-white">
         Featured Smaller Things
       </h3>
       <div
