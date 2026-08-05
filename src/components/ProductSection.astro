@@ -8,7 +8,7 @@ const smallerProducts = await getCollection("products", ({ data }) => {
 const largerProducts = await getCollection("products", ({ data }) => {
   return data.category === "larger-things" && data.featured === true;
 });
-import MenuButtonAstroComponent from "./MenuButton.astro";
+import Button from "./Button.astro";
 ---
 
 <section class="section py-24 bg-forest-shadow">
@@ -46,8 +46,8 @@ import MenuButtonAstroComponent from "./MenuButton.astro";
         {largerProducts.map((p) => <ProductCard product={p} />)}
       </div>
     </div>
-    <MenuButtonAstroComponent>
+    <Button>
       <a href="/product/"> See All Products </a>
-    </MenuButtonAstroComponent>
+    </Button>
   </div>
 </section>

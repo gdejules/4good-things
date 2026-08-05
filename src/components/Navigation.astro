@@ -1,14 +1,14 @@
 ---
 import Image from "astro/components/Image.astro";
 import "../styles/global.css";
-import MenuButton from "./MenuButton.astro";
+import Button from "./Button.astro";
 import logo from "/src/assets/4goodthings-logo.png";
 ---
 
 <nav class="section py-custom-xs-s bg-warm-alabaster">
   <div
     class="max-w-6xl mx-auto flex justify-between items-center max-md:mx-6 max-xl:mx-10">
-    <MenuButton>
+    <Button>
       <a href="/">
         <Image
           src={logo}
@@ -18,14 +18,14 @@ import logo from "/src/assets/4goodthings-logo.png";
           class="w-auto"
         />
       </a>
-    </MenuButton>
+    </Button>
     <div
       class="flex justify-between items-center gap-custom-xs-s max-md:hidden">
-      <MenuButton><a href="/product"> Product </a></MenuButton>
-      <MenuButton><a href="/project"> Project </a></MenuButton>
-      <MenuButton><a href="/about"> About </a></MenuButton>
+      <Button><a href="/product"> Product </a></Button>
+      <Button><a href="/project"> Project </a></Button>
+      <Button><a href="/about"> About </a></Button>
     </div>
-    <MenuButton>
+    <Button>
       <a href="" class="flex gap-custom-3xs items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -44,6 +44,6 @@ import logo from "/src/assets/4goodthings-logo.png";
         </svg>
         <span class="max-md:hidden">Contact Us</span>
       </a>
-    </MenuButton>
+    </Button>
   </div>
 </nav>

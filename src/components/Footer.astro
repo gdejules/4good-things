@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import { Image } from "astro:assets";
 import logo from "/public/4goodthings-logo-center_1.png";
-import MenuButtonAstroComponent from "./MenuButton.astro";
+import Button from "./Button.astro";
 ---
 
 <footer class="section pt-20 pb-10 bg-forest-shadow">
@@ -115,7 +115,7 @@ import MenuButtonAstroComponent from "./MenuButton.astro";
           </span>
         </div>
         <div class="flex gap-custom-l">
-          <MenuButtonAstroComponent>
+          <Button>
             <a href="" class="flex gap-custom-2xs items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -135,8 +135,8 @@ import MenuButtonAstroComponent from "./MenuButton.astro";
               >
               <span>Whatsapp</span>
             </a>
-          </MenuButtonAstroComponent>
-          <MenuButtonAstroComponent>
+          </Button>
+          <Button>
             <a href="" class="flex gap-custom-2xs items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -155,7 +155,7 @@ import MenuButtonAstroComponent from "./MenuButton.astro";
               >
               <span>Email</span>
             </a>
-          </MenuButtonAstroComponent>
+          </Button>
         </div>
       </div>
     </div>
