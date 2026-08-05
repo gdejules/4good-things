@@ -33,7 +33,7 @@ const featuredProjects = await getCollection("projects", ({ data }) => {
         Featured Collaborations
       </h3>
       <div
-        class="grid grid-cols-12 auto-rows-auto gap-x-custom-m gap-y-custom-xl">
+        class="grid grid-cols-12 auto-rows-auto gap-x-custom-2xs gap-y-custom-xl">
         {
           featuredProjects.length > 0 ? (
             featuredProjects.map((p) => <ProjectCard project={p} />)
