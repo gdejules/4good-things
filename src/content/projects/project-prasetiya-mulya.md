@@ -1,5 +1,5 @@
 ---
-title: 4GoodThings with Prasetiya Mulya
+title: 4GoodThings with Universitas Prasetiya Mulya
 client: Universitas Prasetiya Mulya
 type: General Project
 materialSource: plastic glasses
