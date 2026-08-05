@@ -99,6 +99,6 @@
     @apply w-full h-auto;
   }
   .wrapper {
-    @apply max-w-6xl mx-auto grid grid-cols-12 gap-x-custom-m gap-y-custom-xl max-md:flex max-md:flex-col max-md:gap-custom-xl max-md:items-center max-md:mx-6 max-xl:mx-10;
+    @apply max-w-6xl mx-auto grid grid-cols-12 gap-x-custom-2xs gap-y-custom-l-xl max-md:flex max-md:flex-col max-md:mx-6 max-xl:mx-10;
   }
 }
