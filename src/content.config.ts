@@ -60,15 +60,15 @@ const stats = defineCollection({
 
 const colors = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/colors" }),
-  schema: z.object({
-    name: z.string(),
-    hex: z.string(),
-    textureImage: z.object({
-      src: z.string(),
-      alt: z.string(),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      textureImage: z.object({
+        src: image(),
+        alt: z.string(),
+      }),
+      available: z.boolean().default(false),
     }),
-    available: z.boolean().default(false),
-  }),
 });
 
 export const collections = { products, projects, stats, colors };
