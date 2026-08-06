@@ -48,9 +48,9 @@
   --color-muted-moss: oklch(47.001% 0.02015 145.369);
   --color-pure-white: oklch(100% 0.00011 271.152);
 
-  --shadow-solid-orange: 10px 10px 0px 0px #ea7601;
-  --shadow-solid-honey: 10px 10px 0px 0px #ff9c00;
-  --shadow-solid-green: 10px 10px 0px 0px #258225;
+  --shadow-solid-orange: 0px 10px 0px 0px #ea7601;
+  --shadow-solid-honey: 0px 10px 0px 0px #ff9c00;
+  --shadow-solid-green: 0px 10px 0px 0px #258225;
 
   --spacing-custom-3xs: clamp(0.25rem, 0.2244rem + 0.1136vw, 0.3125rem);
   --spacing-custom-2xs: clamp(0.5rem, 0.4744rem + 0.1136vw, 0.5625rem);
