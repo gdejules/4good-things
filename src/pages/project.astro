@@ -1,18 +1,67 @@
 ---
 import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Navigation from "../components/Navigation.astro";
+import { Image } from "astro:assets";
+
+import alohaTable from "./../assets/collab/aloha/aloha-table1.jpeg";
+import prasmulSign from "./../assets/prasmul-signage.jpg";
+import petronasRack from "./../assets/collab/petronas/petronas-rack1.png";
 ---
 
 <BaseLayout>
-  <div class="h-screen bg-cream flex-items-center justify-start p-16">
-    <h2 class="text-green mb-4">
-      What if waste — especially plastic—was not the end of a story, but the
-      beginning of something new?
-    </h2>
-    <h1 class="text-black">
-      4GoodThings is where plastic waste stops being trash and starts becoming
-      something that matters.
-    </h1>
-  </div>
+  <section id="project-header" class="section bg-warm-alabaster">
+    <div class="wrapper grid-rows-1 auto-rows-auto py-custom-xl">
+      <div
+        class="col-span-6 col-end-7 flex flex-col justify-center items-start gap-custom-s">
+        <h1
+          class="text-heading-large max-w-text-heading-large text-deep-pine-charcoal">
+          Our Projects
+        </h1>
+        <p class="max-w-text-body-normal text-muted-moss">
+          We are actively collaborating with brands and instances to inspire
+          environmental and sustainable practices. Here are how we help our
+          collaborators in their circular economy journey.
+        </p>
+      </div>
+      <div
+        class="col-span-6 col-end-13 flex justify-center items-center px-custom-2xs-xl">
+        <div class="flex-1">
+          <Image
+            class="w-auto h-1/3 aspect-auto rotate-15 rounded-lg shadow-solid-green"
+            src={petronasRack}
+            priority
+            alt="A red stool made from recycled plastic sheet"
+          />
+        </div>
+        <div class="flex-1 z-1 -mx-custom-3xs">
+          <Image
+            class="w-full h-auto aspect-auto rounded-lg shadow-solid-green"
+            src={alohaTable}
+            priority
+            alt="A red stool made from recycled plastic sheet"
+          />
+        </div>
+        <div class="flex-1">
+          <Image
+            class="w-auto h-1/3 aspect-auto -rotate-15 rounded-lg shadow-solid-green"
+            src={prasmulSign}
+            priority
+            alt="A red stool made from recycled plastic sheet"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="collaborathings" class="section bg-forest-shadow">
+    <div class="wrapper grid-rows-1 auto-rows-auto py-custom-xl">
+      <div></div>
+      <div></div>
+    </div>
+  </section>
+  <section id="general-projects" class="section bg-warm-alabaster">
+    <div class="wrapper grid-rows-1 auto-rows-auto py-custom-xl">
+      <div></div>
+      <div></div>
+    </div>
+  </section>
 </BaseLayout>
