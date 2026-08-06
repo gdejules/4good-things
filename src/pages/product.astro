@@ -11,6 +11,8 @@ import table from "./../assets/table-1.jpeg";
 import { getCollection } from "astro:content";
 import ProductCard from "../components/ProductCard.astro";
 const allProducts = await getCollection("products");
+import ColorCard from "../components/ColorCard.astro";
+const allColors = await getCollection("colors");
 ---
 
 <BaseLayout>
@@ -57,29 +59,12 @@ const allProducts = await getCollection("products");
       </div>
     </div>
   </section>
-  <section id="cta-banner" class="section bg-blue">
-    <div
-      class="max-w-6xl mx-auto py-custom-s-m flex justify-between items-center gap-custom-2xl max-lg:flex-col max-lg:gap-custom-m max-md:mx-6 max-xl:mx-10 max-lg:pt-custom-s-m max-lg:pb-custom-m-l">
-      <span class="font-body text-body-large font-normal text-pure-white"
-        >Go to our marketplace to purchase our product or download our full
-        catalogue for additional information</span
-      >
-      <div class="flex gap-custom-s">
-        <Button>
-          <a href=""> browse marketplace </a>
-        </Button>
-        <Button>
-          <a href=""> download catalogue </a>
-        </Button>
-      </div>
-    </div>
-  </section>
   <section id="product-list" class="section bg-soft-sand">
     <div
       class="max-w-6xl mx-auto py-custom-l-xl flex flex-col gap-custom-s-l max-md:mx-6 max-xl:mx-10">
       <div class="flex justify-between items-center">
         <h2
-          class="text-heading-small max-w-text-heading-small text-deep-pine-charcoal">
+          class="text-heading-medium max-w-text-heading-medium text-deep-pine-charcoal">
           Product Collections
         </h2>
         <div class="flex items-center">
@@ -100,6 +85,41 @@ const allProducts = await getCollection("products");
       <div
         class="grid grid-cols-12 auto-rows-auto gap-x-custom-2xs gap-y-custom-xl max-md:grid-cols-2 max-md:gap-y-custom-m-l">
         {allProducts.map((p) => <ProductCard product={p} />)}
+      </div>
+    </div>
+  </section>
+  <section id="cta-banner" class="section bg-blue">
+    <div
+      class="max-w-6xl mx-auto py-custom-s-m flex justify-between items-center gap-custom-2xl max-lg:flex-col max-lg:gap-custom-m max-md:mx-6 max-xl:mx-10 max-lg:pt-custom-s-m max-lg:pb-custom-m-l">
+      <span class="font-body text-body-large font-normal text-pure-white"
+        >Go to our marketplace to purchase our product or download our full
+        catalogue for additional information</span
+      >
+      <div class="flex gap-custom-s">
+        <Button>
+          <a href=""> browse marketplace </a>
+        </Button>
+        <Button>
+          <a href=""> download catalogue </a>
+        </Button>
+      </div>
+    </div>
+  </section>
+  <section id="product-colors" class="section bg-warm-alabaster">
+    <div class="wrapper grid-rows-1 auto-rows-auto py-custom-xl">
+      <div class="col-span-12 row-end-2 flex flex-col gap-custom-xs-s">
+        <h2
+          class="text-heading-medium max-w-text-heading-medium text-deep-pine-charcoal">
+          Good Sheets Colors
+        </h2>
+        <p class="max-w-text-body-normal text-muted-moss">
+          Good Sheet is how we called our recycled plastic sheets. Available in
+          various colors. Browse the options below to find your favorite ones!
+        </p>
+      </div>
+      <div
+        class="col-span-12 row-end-3 grid grid-cols-12 auto-rows-auto gap-x-custom-2xs gap-y-custom-xl max-md:grid-cols-2 max-md:gap-y-custom-m-l">
+        {allColors.map((c) => <ColorCard color={c} />)}
       </div>
     </div>
   </section>
