@@ -22,7 +22,7 @@ const allColors = await getCollection("colors");
         class="col-span-6 col-end-7 flex flex-col justify-center items-start gap-custom-s">
         <h1
           class="text-heading-large max-w-text-heading-large text-deep-pine-charcoal">
-          Our Product Collection
+          Good Things
         </h1>
         <p class="max-w-text-body-normal text-muted-moss">
           Our products are produced and designed efficiently, with less waste,
@@ -31,10 +31,10 @@ const allColors = await getCollection("colors");
         </p>
       </div>
       <div
-        class="col-span-6 col-end-13 flex justify-center items-center px-custom-2xl">
+        class="col-span-6 col-end-13 flex justify-center items-center px-custom-2xs-xl">
         <div class="flex-1">
           <Image
-            class="w-auto h-1/3 aspect-auto ml-10 rotate-15 rounded-lg shadow-solid-green"
+            class="w-auto h-1/3 aspect-auto rotate-15 rounded-lg shadow-solid-green"
             src={table}
             priority
             alt="A red stool made from recycled plastic sheet"
@@ -61,23 +61,24 @@ const allColors = await getCollection("colors");
   </section>
   <section id="product-list" class="section bg-soft-sand">
     <div
-      class="max-w-6xl mx-auto py-custom-l-xl flex flex-col gap-custom-s-l max-md:mx-6 max-xl:mx-10">
-      <div class="flex justify-between items-center">
+      class="max-w-6xl mx-auto py-custom-l-xl flex flex-col gap-custom-l-xl max-md:mx-6 max-xl:mx-10">
+      <div
+        class="flex justify-between items-center max-md:flex-col max-md:gap-custom-s max-md:items-start">
         <h2
           class="text-heading-medium max-w-text-heading-medium text-deep-pine-charcoal">
           Product Collections
         </h2>
         <div class="flex items-center">
           <div
-            class="px-custom-m py-custom-2xs bg-green rounded-l-full border border-green font-body text-body-small font-extrabold text-pure-white">
+            class="px-custom-s-m py-custom-3xs-2xs bg-green rounded-l-full border border-green font-body text-body-small font-extrabold text-pure-white">
             all products
           </div>
           <div
-            class="px-custom-m py-custom-2xs bg-soft-sand border border-green font-body text-body-small text-deep-pine-charcoal">
+            class="px-custom-s-m py-custom-3xs-2xs bg-soft-sand border border-green font-body text-body-small text-deep-pine-charcoal">
             smaller things
           </div>
           <div
-            class="px-custom-m py-custom-2xs bg-soft-sand rounded-r-full border border-green font-body text-body-small text-deep-pine-charcoal">
+            class="px-custom-s-m py-custom-3xs-2xs bg-soft-sand rounded-r-full border border-green font-body text-body-small text-deep-pine-charcoal">
             larger things
           </div>
         </div>
@@ -90,12 +91,14 @@ const allColors = await getCollection("colors");
   </section>
   <section id="cta-banner" class="section bg-blue">
     <div
-      class="max-w-6xl mx-auto py-custom-s-m flex justify-between items-center gap-custom-2xl max-lg:flex-col max-lg:gap-custom-m max-md:mx-6 max-xl:mx-10 max-lg:pt-custom-s-m max-lg:pb-custom-m-l">
-      <span class="font-body text-body-large font-normal text-pure-white"
+      class="max-w-6xl mx-auto py-custom-xl-m flex justify-between items-center gap-custom-2xl max-lg:flex-col max-lg:gap-custom-m max-md:mx-6 max-xl:mx-10">
+      <span
+        class="font-body text-body-large font-normal text-pure-white max-lg:text-center"
         >Go to our marketplace to purchase our product or download our full
         catalogue for additional information</span
       >
-      <div class="flex gap-custom-s">
+      <div
+        class="flex gap-custom-s max-md:flex-col max-md:items-center max-md:gap-custom-m-l">
         <Button>
           <a href=""> browse marketplace </a>
         </Button>

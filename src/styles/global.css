@@ -6,6 +6,7 @@
   --font-display: var(--font-bobby-jones);
   --font-body: var(--font-neo-sans);
 
+  /* @link https://utopia.fyi/space/calculator?c=360,16,1.2,1240,18,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l|l-m|l-s|xl-m&g=s,l,xl,12 */
   --text-body-small: clamp(0.8333rem, 0.829rem + 0.0193vw, 0.844rem);
   --text-body-small--line-height: 1.6;
   --spacing-text-body-small: 75ch;
@@ -76,6 +77,9 @@
   --spacing-custom-s-l: clamp(1rem, 0.4886rem + 2.2727vw, 2.25rem);
   --spacing-custom-2xs-xl: clamp(0.5rem, -0.6761rem + 5.2273vw, 3.375rem);
   --spacing-custom-xs-3xl: clamp(0.75rem, -1.7045rem + 10.9091vw, 6.75rem);
+  --spacing-custom-l-m: clamp(1.6875rem, 2.1278rem + -0.5682vw, 2rem);
+  --spacing-custom-l-s: clamp(1.125rem, 2.358rem + -1.5909vw, 2rem);
+  --spacing-custom-xl-m: clamp(1.6875rem, 3.5369rem + -2.3864vw, 3rem);
 }
 
 @layer base {
