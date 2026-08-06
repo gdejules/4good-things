@@ -1,18 +1,71 @@
 ---
 import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Navigation from "../components/Navigation.astro";
+import { Image } from "astro:assets";
+import Button from "../components/Button.astro";
+
+import signatureStool from "./../assets/signature-stool-1.jpeg";
 ---
 
 <BaseLayout>
-  <div class="h-screen bg-cream flex-items-center justify-start p-16">
-    <h2 class="text-green mb-4">
-      What if waste — especially plastic—was not the end of a story, but the
-      beginning of something new?
-    </h2>
-    <h1 class="text-black">
-      4GoodThings is where plastic waste stops being trash and starts becoming
-      something that matters.
-    </h1>
-  </div>
+  <section class="section bg-warm-alabaster">
+    <div class="wrapper pt-custom-xl pb-custom-2xl">
+      <div
+        class="col-span-6 col-end-7 flex flex-col justify-center items-start gap-custom-s">
+        <h1
+          class="text-heading-large max-w-text-heading-large text-deep-pine-charcoal">
+          Our Product Collection
+        </h1>
+        <p class="max-w-text-body-normal text-muted-moss">
+          Our products are produced and designed efficiently, with less waste,
+          and easy to assemble, guided by principle that it should be useful and
+          meaningful.
+        </p>
+      </div>
+      <div
+        class="col-span-6 col-end-13 flex justify-center items-center px-custom-2xl">
+        <div class="flex-1">
+          <Image
+            class="w-auto h-40 ml-10 rotate-15 rounded-lg shadow-solid-green"
+            src={signatureStool}
+            priority
+            alt="A red stool made from recycled plastic sheet"
+          />
+        </div>
+        <div class="flex-1 z-1 -mx-custom-xs-s">
+          <Image
+            class="w-auto h-56 rounded-lg shadow-solid-green"
+            src={signatureStool}
+            priority
+            alt="A red stool made from recycled plastic sheet"
+          />
+        </div>
+        <div class="flex-1">
+          <Image
+            class="w-auto h-40 -rotate-15 rounded-lg shadow-solid-green"
+            src={signatureStool}
+            priority
+            alt="A red stool made from recycled plastic sheet"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section bg-blue">
+    <div
+      class="max-w-6xl mx-auto py-custom-s-m flex justify-between items-center gap-custom-2xl max-md:flex-col max-md:gap-custom-m">
+      <span class="font-body text-body-large font-normal text-pure-white"
+        >Go to our marketplace to purchase our product or download our full
+        catalogue for additional information</span
+      >
+      <div class="flex gap-custom-s">
+        <Button>
+          <a href=""> browse marketplace </a>
+        </Button>
+        <Button>
+          <a href=""> download catalogue </a>
+        </Button>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
