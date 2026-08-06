@@ -6,6 +6,15 @@ import { Image } from "astro:assets";
 import alohaTable from "./../assets/collab/aloha/aloha-table1.jpeg";
 import prasmulSign from "./../assets/prasmul-signage.jpg";
 import petronasRack from "./../assets/collab/petronas/petronas-rack1.png";
+
+import { getCollection } from "astro:content";
+import CollaborathingList from "../components/CollaborathingList.astro";
+const allCollaborathings = await getCollection("projects", ({ data }) => {
+  return data.type === "Collaborathing";
+});
+const allGeneralProjects = await getCollection("projects", ({ data }) => {
+  return data.type === "General Project";
+});
 ---
 
 <BaseLayout>
@@ -54,13 +63,44 @@ import petronasRack from "./../assets/collab/petronas/petronas-rack1.png";
   </section>
   <section id="collaborathings" class="section bg-forest-shadow">
     <div class="wrapper grid-rows-1 auto-rows-auto py-custom-xl">
-      <div></div>
-      <div></div>
+      <div class="col-span-12 row-end-2 flex flex-col gap-custom-xs-s">
+        <h2
+          class="text-heading-medium max-w-text-heading-medium text-pure-white">
+          Collaborathing
+        </h2>
+        <p class="max-w-text-body-normal text-cream">
+          These are where journeys of circular economy happened. We were working
+          closely with our partner, from thrash gathering all the way to custom
+          product design, tailored to our partners’ needs.
+        </p>
+      </div>
+      <div
+        class="col-span-12 row-end-3 grid grid-cols-12 auto-rows-auto gap-x-custom-2xs gap-y-custom-xl">
+        {
+          allCollaborathings.length > 0 ? (
+            allCollaborathings.map((p) => <CollaborathingList project={p} />)
+          ) : (
+            <p class="col-start-1 col-span-12 font-body text-body-normal text-muted-moss my-custom-xl">
+              No collaborathing project available yet.
+            </p>
+          )
+        }
+      </div>
     </div>
   </section>
   <section id="general-projects" class="section bg-warm-alabaster">
     <div class="wrapper grid-rows-1 auto-rows-auto py-custom-xl">
-      <div></div>
+      <div class="col-span-12 row-end-2 flex flex-col gap-custom-xs-s">
+        <h2
+          class="text-heading-medium max-w-text-heading-medium text-deep-pine-charcoal">
+          General Project
+        </h2>
+        <p class="max-w-text-body-normal text-muted-moss">
+          Our projects bring our recycling initiative and product design to help
+          various institution and brands achieve their environmental and
+          sustainability goals.
+        </p>
+      </div>
       <div></div>
     </div>
   </section>

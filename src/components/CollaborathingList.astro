@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+type Props = {
+  project: CollectionEntry<"projects">;
+};
+const { project } = Astro.props;
+const { client, title, recycledWeight, description, images } = project.data;
+
+import textureBackground from "./../assets/texture-stone.jpeg";
+---
+
+<div
+  class="col-span-12 grid grid-cols-12 gap-x-custom-2xs items-center max-md:flex max-md:flex-col max-md:gap-custom-s max-md:items-center max-md:relative">
+  <div
+    class="z-2 order-1 col-span-6 col-end-7 row-end-2 pr-custom-s-m max-md:px-custom-2xs-xl">
+    <Image
+      class="object-cover object-center w-full aspect-auto rounded-2xl"
+      src={images[0].src}
+      alt={images[0].alt}
+      format="webp"
+    />
+  </div>
+  <div
+    class="z-2 order-2 col-span-6 col-end-13 row-end-2 flex flex-col gap-custom-xs-s max-md:px-custom-2xs-xl">
+    <span class="font-body font-medium text-body-large uppercase text-cream"
+      >{client}</span
+    >
+    <h4
+      class="font-display font-extrabold text-heading-medium tracking-wide text-pure-white">
+      {title}
+    </h4>
+    <p
+      class="font-body font-extrabold text-body-small max-w-max rounded-2xl text-pure-white px-custom-xs py-custom-2xs bg-green">
+      {recycledWeight} of plastic waste recycled
+    </p>
+    <p class="font-body font-normal text-body-normal text-cream">
+      {description}
+    </p>
+  </div>
+  <div
+    class="z-1 order-2 col-span-9 col-end-13 row-end-2 max-md:absolute max-md:bottom-0">
+    <Image
+      class="object-cover object-center w-full aspect-video rounded-l-full max-md:rounded-t-full max-md:aspect-auto max-md:rounded-bl-none"
+      src={textureBackground}
+      alt="stone-colored texture background"
+      format="webp"
+    />
+  </div>
+</div>
