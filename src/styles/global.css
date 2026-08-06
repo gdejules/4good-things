@@ -76,6 +76,7 @@
   /* Custom pairs */
   --spacing-custom-s-l: clamp(1rem, 0.4886rem + 2.2727vw, 2.25rem);
   --spacing-custom-2xs-xl: clamp(0.5rem, -0.6761rem + 5.2273vw, 3.375rem);
+  --spacing-custom-xs-m: clamp(0.75rem, 0.3665rem + 1.7045vw, 1.6875rem);
   --spacing-custom-xs-3xl: clamp(0.75rem, -1.7045rem + 10.9091vw, 6.75rem);
   --spacing-custom-l-m: clamp(1.6875rem, 2.1278rem + -0.5682vw, 2rem);
   --spacing-custom-l-s: clamp(1.125rem, 2.358rem + -1.5909vw, 2rem);
