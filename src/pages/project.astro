@@ -9,6 +9,7 @@ import petronasRack from "./../assets/collab/petronas/petronas-rack1.png";
 
 import { getCollection } from "astro:content";
 import CollaborathingList from "../components/CollaborathingList.astro";
+import ProjectList from "../components/ProjectList.astro";
 const allCollaborathings = await getCollection("projects", ({ data }) => {
   return data.type === "Collaborathing";
 });
@@ -101,7 +102,18 @@ const allGeneralProjects = await getCollection("projects", ({ data }) => {
           sustainability goals.
         </p>
       </div>
-      <div></div>
+      <div
+        class="col-span-12 row-end-3 grid grid-cols-12 auto-rows-auto gap-x-custom-2xs gap-y-custom-xl">
+        {
+          allGeneralProjects.length > 0 ? (
+            allGeneralProjects.map((p) => <ProjectList project={p} />)
+          ) : (
+            <p class="col-start-1 col-span-12 font-body text-body-normal text-muted-moss my-custom-xl">
+              No collaborathing project available yet.
+            </p>
+          )
+        }
+      </div>
     </div>
   </section>
 </BaseLayout>
