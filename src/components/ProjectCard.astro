@@ -5,7 +5,7 @@ type Props = {
   project: CollectionEntry<"projects">;
 };
 const { project } = Astro.props;
-const { title, type, recycledWeight, description, images } = project.data;
+const { client, type, recycledWeight, description, images } = project.data;
 ---
 
 <div
@@ -17,7 +17,7 @@ const { title, type, recycledWeight, description, images } = project.data;
     >
     <h4
       class="font-display font-extrabold text-heading-medium tracking-wide text-deep-pine-charcoal">
-      {title}
+      <span class="text-green">4GoodThings</span> with {client}
     </h4>
     <p
       class="font-body font-extrabold text-body-small max-w-max rounded-2xl text-pure-white px-custom-xs py-custom-2xs bg-green">
@@ -30,7 +30,7 @@ const { title, type, recycledWeight, description, images } = project.data;
   <div
     class="col-span-6 col-end-13 px-custom-m-l py-custom-l-xl max-md:px-custom-2xs-xl">
     <Image
-      class="object-cover object-center w-full aspect-auto rounded-2xl rotate-6 shadow-(--shadow-solid-honey)"
+      class="object-cover object-center w-full aspect-auto rounded-2xl rotate-6 shadow-tl-solid-honey"
       src={images[0].src}
       alt={images[0].alt}
       format="webp"
