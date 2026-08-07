@@ -1,5 +1,5 @@
 ---
-title: 4GoodThings with Aloha
+title: Recycling Business Waste into Value-Added Products
 client: Aloha
 type: Collaborathing
 materialSource: plastic glasses
