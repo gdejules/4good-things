@@ -15,7 +15,15 @@ export default defineConfig({
       provider: fontProviders.local(),
       name: "NeoSansPro",
       cssVariable: "--font-neo-sans",
-      fallbacks: ["sans-serif"],
+      optimizedFallbacks: false,
+      fallbacks: [
+        "Segoe UI",
+        "Trebuchet MS",
+        "Helvetica Neue",
+        "Helvetica",
+        "Arial",
+        "sans-serif",
+      ],
       options: {
         variants: [
           {
@@ -40,7 +48,8 @@ export default defineConfig({
       provider: fontProviders.local(),
       name: "BobbyJonesSoft",
       cssVariable: "--font-bobby-jones",
-      fallbacks: ["sans-serif"],
+      optimizedFallbacks: false,
+      fallbacks: ["Impact", "Comic Sans MS", "system-ui", "sans-serif"],
       options: {
         variants: [
           {
