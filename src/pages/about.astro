@@ -1,18 +1,127 @@
 ---
 import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Navigation from "../components/Navigation.astro";
+import { Image } from "astro:assets";
+
+import alohaTrash from "./../assets/highlight/aloha-trash-3.jpeg";
+import alohaTable from "./../assets/hero/aloha-table.jpeg";
+import placeholder from "./../assets/prasmul-signage.jpg";
 ---
 
 <BaseLayout>
-  <div class="h-screen bg-cream flex-items-center justify-start p-16">
-    <h2 class="text-green mb-4">
-      What if waste — especially plastic—was not the end of a story, but the
-      beginning of something new?
-    </h2>
-    <h1 class="text-black">
-      4GoodThings is where plastic waste stops being trash and starts becoming
-      something that matters.
-    </h1>
-  </div>
+  <section id="about-header" class="section bg-warm-alabaster">
+    <div class="wrapper grid-rows-1 auto-rows-auto py-custom-xl">
+      <div
+        class="col-span-6 col-end-13 row-end-2 flex flex-col justify-center items-start gap-custom-s">
+        <h1
+          class="text-heading-large max-w-text-heading-large text-deep-pine-charcoal">
+          A mission from a curiosity
+        </h1>
+        <p class="max-w-text-body-normal text-muted-moss">
+          Our story began with a simple but uncomfortable reality. Just 6
+          kilometers from our workshop stands Bantar Gebang, the largest
+          landfill in Indonesia. This reality raised many questions that we end
+          up digging further: Is plastic waste actually valuable? Could it be
+          transformed into something useful instead of polluting our
+          environment?
+        </p>
+      </div>
+      <div
+        class="col-span-6 col-end-7 flex justify-center items-center px-custom-2xs-xl">
+        <div class="flex-1 z-1 -mx-custom-3xs">
+          <Image
+            class="w-full h-auto aspect-auto rotate-12 rounded-lg shadow-tl-solid-green"
+            src={alohaTrash}
+            priority
+            alt="A red stool made from recycled plastic sheet"
+          />
+        </div>
+        <div class="flex-1">
+          <Image
+            class="w-auto h-1/3 aspect-auto -rotate-15 rounded-lg shadow-tl-solid-green"
+            src={alohaTable}
+            priority
+            alt="A red stool made from recycled plastic sheet"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="about-header" class="section bg-warm-alabaster">
+    <div class="wrapper grid-rows-1 auto-rows-auto py-custom-xl">
+      <div
+        class="col-span-6 col-end-7 flex flex-col justify-center items-start gap-custom-l">
+        <div class="flex flex-col gap-custom-s">
+          <h2
+            class="text-heading-medium max-w-text-heading-medium text-deep-pine-charcoal">
+            Purposeful waste
+          </h2>
+          <p class="max-w-text-body-normal text-muted-moss">
+            Inspired by the global goals for a more sustainable future, we
+            believe that waste can have purpose. From that belief, 4GoodThings
+            was born —a movement to transform plastic waste into meaningful
+            products and create real impact for our environment and community.
+          </p>
+        </div>
+        <div class="flex flex-col gap-custom-s">
+          <div class="flex flex-col gap-custom-xs">
+            <h3
+              class="text-heading-small max-w-text-heading-small text-deep-pine-charcoal">
+              One-way in, one-way out
+            </h3>
+            <p>
+              We have a term "One-way in, one-way out". This means that every
+              piece of plastic waste that enters our workshop must leave as a
+              useful and impactful products aligned with our roots.
+            </p>
+          </div>
+          <div class="flex flex-col gap-custom-xs">
+            <h3
+              class="text-heading-small max-w-text-heading-small text-deep-pine-charcoal">
+              Produced efficiently in-house
+            </h3>
+            <p>
+              Our product and essential goods are designed and created
+              efficiently with less waste and easy to assemble. Because from one
+              product, it can be reused, repaired, and recycled — this is how
+              our circular system works.
+            </p>
+          </div>
+          <div class="flex flex-col gap-custom-xs">
+            <h3
+              class="text-heading-small max-w-text-heading-small text-deep-pine-charcoal">
+              Functional and emotionally valuable
+            </h3>
+            <p>
+              Each product is designed to be functional, durable, and
+              emotionally valuable. There's no perfection in every products but
+              there's a story behind every product we craft.
+            </p>
+          </div>
+          <div class="flex flex-col gap-custom-xs">
+            <h3
+              class="text-heading-small max-w-text-heading-small text-deep-pine-charcoal">
+              Raising environmental awareness
+            </h3>
+            <p>
+              We share our journey to create environmental impact and raise
+              awareness, in order to establish collective responsibility among
+              social & community.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-span-6 col-end-13 flex justify-center items-center px-custom-2xs-xl">
+        <div class="flex-1 z-1 -mx-custom-3xs">
+          <Image
+            class="w-full h-auto aspect-auto rounded-lg shadow-tl-solid-green"
+            src={placeholder}
+            priority
+            alt="A red stool made from recycled plastic sheet"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
