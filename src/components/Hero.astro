@@ -1,11 +1,13 @@
 ---
 import "../styles/global.css";
-import Button from "./Button.astro";
+import Button from "./PrimaryButton.jsx";
 import { Image } from "astro:assets";
 import alohaTable from "/src/assets/hero/aloha-table.jpeg";
 import asthaTable from "/src/assets/hero/astha-table.jpeg";
 import padelKeychain from "/src/assets/hero/padel-keychain.jpeg";
 import signatureStool from "/src/assets/hero/signature-stool.jpeg";
+
+const ctaButton = { label: "About us", href: "#brand-highlight" };
 ---
 
 <section class="section py-custom-xl-2xl bg-warm-alabaster">
@@ -20,9 +22,7 @@ import signatureStool from "/src/assets/hero/signature-stool.jpeg";
         We are reducing plastic waste that ends up in the ocean and landfills by
         giving it a second life and turn it into something impactful.
       </p>
-      <Button>
-        <a href="#brand-highlight"> about us </a>
-      </Button>
+      <Button client:load href={ctaButton.href}> {ctaButton.label} </Button>
     </div>
     <div
       class="order-2 max-md:order-1 col-span-6 col-end-13 grid grid-cols-6 grid-rows-2 gap-x-custom-xs-s gap-y-custom-xs-s max-md:grid-cols-2">
