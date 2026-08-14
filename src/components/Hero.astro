@@ -7,6 +7,7 @@ import asthaTable from "/src/assets/hero/astha-table.jpeg";
 import padelKeychain from "/src/assets/hero/padel-keychain.jpeg";
 import signatureStool from "/src/assets/hero/signature-stool.jpeg";
 import { PrimaryGreenButton, SecondaryGreenButton } from "./TiltButton";
+import { navigate } from "astro:transitions/client";
 
 const ctaButton = { label: "About us", href: "#brand-highlight" };
 const otherCtaButton = {
@@ -18,8 +19,13 @@ const otherCtaButton = {
 const secondCtaButton = {
   label: "Download Catalogue",
   href: "#brand-highlight",
-  className: "second-cta",
+  className: "cta",
   width: 240,
+};
+
+const handleClick = (e: any, href: string) => {
+  e.preventDefault();
+  navigate(href);
 };
 ---
 
@@ -43,14 +49,16 @@ const secondCtaButton = {
           client:load
           href={otherCtaButton.href}
           className={otherCtaButton.className}
-          width={otherCtaButton.width}>
+          width={otherCtaButton.width}
+          handleClick={(e: any) => handleClick(e, otherCtaButton.href)}>
           {otherCtaButton.label}
         </PrimaryGreenButton>
         <SecondaryGreenButton
           client:load
           href={secondCtaButton.href}
           className={secondCtaButton.className}
-          width={secondCtaButton.width}>
+          width={secondCtaButton.width}
+          handleClick={(e: any) => handleClick(e, secondCtaButton.href)}>
           {secondCtaButton.label}
         </SecondaryGreenButton>
       </div>
@@ -100,6 +108,7 @@ const secondCtaButton = {
   const highlight = document.getElementById("brand-highlight");
   const cta = document.querySelector(".cta");
   const secondCta = document.querySelector(".second-cta");
+
 
   cta?.addEventListener("click", () => {
     highlight?.scrollIntoView();

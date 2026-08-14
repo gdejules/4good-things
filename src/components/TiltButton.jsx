@@ -1,6 +1,6 @@
 import { TiltButton } from "react-tilt-button";
 
-function PrimaryGreenButton({ children, href, className, width }) {
+function PrimaryGreenButton({ children, href, className, width, handleClick }) {
   return (
     <TiltButton
       className={className}
@@ -13,14 +13,23 @@ function PrimaryGreenButton({ children, href, className, width }) {
       sideColor="oklch(0.400391 0.096875 143.3)"
       borderColor="oklch(0.400391 0.096875 143.3)"
       textColor="oklch(1 0 0)">
-      <a href={href} className="font-display text-body-normal tracking-wider">
+      <a
+        href={href}
+        onClick={handleClick}
+        className="font-display text-body-normal tracking-wider">
         {children}
       </a>
     </TiltButton>
   );
 }
 
-function SecondaryGreenButton({ children, href, className, width }) {
+function SecondaryGreenButton({
+  children,
+  href,
+  className,
+  width,
+  handleClick,
+}) {
   return (
     <TiltButton
       className={className}
@@ -33,14 +42,23 @@ function SecondaryGreenButton({ children, href, className, width }) {
       sideColor="oklch(0.400391 0.096875 143.3)"
       borderColor="oklch(0.400391 0.096875 143.3)"
       textColor="oklch(0.400391 0.096875 143.3)">
-      <a href={href} className="font-display text-body-normal tracking-wider">
+      <a
+        href={href}
+        onClick={handleClick}
+        className="font-display text-body-normal tracking-wider">
         {children}
       </a>
     </TiltButton>
   );
 }
 
-function PrimaryOrangeButton({ children, href, className, width }) {
+function PrimaryOrangeButton({
+  children,
+  href,
+  className,
+  width,
+  handleClick,
+}) {
   return (
     <TiltButton
       className={className}
@@ -53,14 +71,23 @@ function PrimaryOrangeButton({ children, href, className, width }) {
       sideColor="oklch(0.62207 0.14375 53.4)"
       borderColor="oklch(0.62207 0.14375 53.4)"
       textColor="oklch(1 0 0)">
-      <a href={href} className="font-display text-body-normal tracking-wider">
+      <a
+        href={href}
+        onClick={handleClick}
+        className="font-display text-body-normal tracking-wider">
         {children}
       </a>
     </TiltButton>
   );
 }
 
-function SecondaryOrangeButton({ children, href, className, width }) {
+function SecondaryOrangeButton({
+  children,
+  href,
+  className,
+  width,
+  handleClick,
+}) {
   return (
     <TiltButton
       className={className}
@@ -73,7 +100,10 @@ function SecondaryOrangeButton({ children, href, className, width }) {
       sideColor="oklch(0.62207 0.14375 53.4)"
       borderColor="oklch(0.62207 0.14375 53.4)"
       textColor="oklch(68.749% 0.17328 53.414)">
-      <a href={href} className="font-display text-body-normal tracking-wider">
+      <a
+        href={href}
+        onClick={handleClick}
+        className="font-display text-body-normal tracking-wider">
         {children}
       </a>
     </TiltButton>
