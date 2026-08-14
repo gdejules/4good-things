@@ -6,8 +6,19 @@ import alohaTable from "/src/assets/hero/aloha-table.jpeg";
 import asthaTable from "/src/assets/hero/astha-table.jpeg";
 import padelKeychain from "/src/assets/hero/padel-keychain.jpeg";
 import signatureStool from "/src/assets/hero/signature-stool.jpeg";
+import { PrimaryGreenButton, SecondaryGreenButton } from "./TiltButton";
 
 const ctaButton = { label: "About us", href: "#brand-highlight" };
+const otherCtaButton = {
+  label: "Learn more",
+  className: "cta",
+  width: 160,
+};
+const secondCtaButton = {
+  label: "Download Catalogue",
+  className: "second-cta",
+  width: 240,
+};
 ---
 
 <section class="section py-custom-xl-2xl bg-warm-alabaster">
@@ -22,7 +33,23 @@ const ctaButton = { label: "About us", href: "#brand-highlight" };
         We are reducing plastic waste that ends up in the ocean and landfills by
         giving it a second life and turn it into something impactful.
       </p>
-      <Button client:load href={ctaButton.href}> {ctaButton.label} </Button>
+      <div class="flex gap-custom-s">
+        <Button client:load href={ctaButton.href}>
+          {ctaButton.label}
+        </Button>
+        <PrimaryGreenButton
+          client:load
+          className={otherCtaButton.className}
+          width={otherCtaButton.width}>
+          {otherCtaButton.label}
+        </PrimaryGreenButton>
+        <SecondaryGreenButton
+          client:load
+          className={secondCtaButton.className}
+          width={secondCtaButton.width}>
+          {secondCtaButton.label}
+        </SecondaryGreenButton>
+      </div>
     </div>
     <div
       class="order-2 max-md:order-1 col-span-6 col-end-13 grid grid-cols-6 grid-rows-2 gap-x-custom-xs-s gap-y-custom-xs-s max-md:grid-cols-2">
@@ -65,3 +92,16 @@ const ctaButton = { label: "About us", href: "#brand-highlight" };
     </div>
   </div>
 </section>
+<script>
+  const highlight = document.getElementById("brand-highlight");
+  const cta = document.querySelector(".cta");
+  const secondCta = document.querySelector(".second-cta");
+
+  cta?.addEventListener("click", () => {
+    highlight?.scrollIntoView();
+  });
+
+  secondCta?.addEventListener("click", () => {
+    highlight?.scrollIntoView();
+  });
+</script>
