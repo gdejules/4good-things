@@ -11,11 +11,13 @@ import { PrimaryGreenButton, SecondaryGreenButton } from "./TiltButton";
 const ctaButton = { label: "About us", href: "#brand-highlight" };
 const otherCtaButton = {
   label: "Learn more",
+  href: "#brand-highlight",
   className: "cta",
   width: 160,
 };
 const secondCtaButton = {
   label: "Download Catalogue",
+  href: "#brand-highlight",
   className: "second-cta",
   width: 240,
 };
@@ -39,12 +41,14 @@ const secondCtaButton = {
         </Button>
         <PrimaryGreenButton
           client:load
+          href={otherCtaButton.href}
           className={otherCtaButton.className}
           width={otherCtaButton.width}>
           {otherCtaButton.label}
         </PrimaryGreenButton>
         <SecondaryGreenButton
           client:load
+          href={secondCtaButton.href}
           className={secondCtaButton.className}
           width={secondCtaButton.width}>
           {secondCtaButton.label}
@@ -92,7 +96,7 @@ const secondCtaButton = {
     </div>
   </div>
 </section>
-<script>
+<!-- <script>
   const highlight = document.getElementById("brand-highlight");
   const cta = document.querySelector(".cta");
   const secondCta = document.querySelector(".second-cta");
@@ -104,4 +108,4 @@ const secondCtaButton = {
   secondCta?.addEventListener("click", () => {
     highlight?.scrollIntoView();
   });
-</script>
+</script> -->

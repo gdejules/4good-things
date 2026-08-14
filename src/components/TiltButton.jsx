@@ -1,6 +1,6 @@
 import { TiltButton } from "react-tilt-button";
 
-function PrimaryGreenButton({ children, className, width }) {
+function PrimaryGreenButton({ children, href, className, width }) {
   return (
     <TiltButton
       className={className}
@@ -13,14 +13,14 @@ function PrimaryGreenButton({ children, className, width }) {
       sideColor="oklch(0.400391 0.096875 143.3)"
       borderColor="oklch(0.400391 0.096875 143.3)"
       textColor="oklch(1 0 0)">
-      <span className="font-display text-body-normal tracking-wider">
+      <a href={href} className="font-display text-body-normal tracking-wider">
         {children}
-      </span>
+      </a>
     </TiltButton>
   );
 }
 
-function SecondaryGreenButton({ children, className, width }) {
+function SecondaryGreenButton({ children, href, className, width }) {
   return (
     <TiltButton
       className={className}
@@ -33,11 +33,56 @@ function SecondaryGreenButton({ children, className, width }) {
       sideColor="oklch(0.400391 0.096875 143.3)"
       borderColor="oklch(0.400391 0.096875 143.3)"
       textColor="oklch(0.400391 0.096875 143.3)">
-      <span className="font-display text-body-normal tracking-wider">
+      <a href={href} className="font-display text-body-normal tracking-wider">
         {children}
-      </span>
+      </a>
     </TiltButton>
   );
 }
 
-export { PrimaryGreenButton, SecondaryGreenButton };
+function PrimaryOrangeButton({ children, href, className, width }) {
+  return (
+    <TiltButton
+      className={className}
+      variant="primary"
+      width={width}
+      height={72}
+      elevation={21}
+      tilt={2.3}
+      surfaceColor="oklch(68.749% 0.17328 53.414)"
+      sideColor="oklch(0.62207 0.14375 53.4)"
+      borderColor="oklch(0.62207 0.14375 53.4)"
+      textColor="oklch(1 0 0)">
+      <a href={href} className="font-display text-body-normal tracking-wider">
+        {children}
+      </a>
+    </TiltButton>
+  );
+}
+
+function SecondaryOrangeButton({ children, href, className, width }) {
+  return (
+    <TiltButton
+      className={className}
+      variant="outline"
+      width={width}
+      height={72}
+      elevation={21}
+      tilt={2.3}
+      surfaceColor="oklch(98.178% 0.00528 95.189)"
+      sideColor="oklch(0.62207 0.14375 53.4)"
+      borderColor="oklch(0.62207 0.14375 53.4)"
+      textColor="oklch(68.749% 0.17328 53.414)">
+      <a href={href} className="font-display text-body-normal tracking-wider">
+        {children}
+      </a>
+    </TiltButton>
+  );
+}
+
+export {
+  PrimaryGreenButton,
+  SecondaryGreenButton,
+  PrimaryOrangeButton,
+  SecondaryOrangeButton,
+};
