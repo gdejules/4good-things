@@ -1,7 +1,8 @@
-import React, { Children } from "react";
+import { useEffect, useState } from "react";
 import { PrimaryOrangeButton, SecondaryOrangeButton } from "./TiltButton";
 import "/src/styles/global.css";
 import { navigate } from "astro:transitions/client";
+import PrimaryButton from "./PrimaryButton";
 
 const homeButton = {
   label: "",
@@ -39,15 +40,28 @@ const contactButton = {
 };
 
 export default function Navigation({ logoImage }) {
+  const [mountKey, setMountKey] = useState(0);
+
+  useEffect(() => {
+    const rerenderNav = () => setMountKey((value) => value + 1);
+
+    document.addEventListener("astro:page-load", rerenderNav);
+
+    return () => {
+      document.removeEventListener("astro:page-load", rerenderNav);
+    };
+  }, []);
+
   const handleNavigation = (href) => {
-    navigate(href);
+    if (href) {
+      navigate(href);
+    }
   };
 
   return (
-    <nav className="section py-custom-xs-s bg-warm-alabaster">
+    <nav key={mountKey} className="section py-custom-xs-s bg-warm-alabaster">
       <div className="max-w-6xl mx-auto flex justify-between items-center max-md:mx-6 max-xl:mx-10">
         <SecondaryOrangeButton
-          client:load
           href={homeButton.href}
           className={homeButton.className}
           width={homeButton.width}
@@ -62,8 +76,21 @@ export default function Navigation({ logoImage }) {
         </SecondaryOrangeButton>
         <ul className="flex justify-between items-center gap-custom-xs-s max-md:hidden">
           <li>
+            <button className="py-4 px-8 bg-soft-sand">
+              <a
+                href="/about"
+                className="font-display text-body-normal tracking-wider text-deep-pine-charcoal">
+                About
+              </a>
+            </button>
+          </li>
+          <li>
+            <PrimaryButton href={aboutButton.href}>
+              {aboutButton.label}
+            </PrimaryButton>
+          </li>
+          <li>
             <SecondaryOrangeButton
-              client:load
               href={productButton.href}
               className={productButton.className}
               width={productButton.width}
@@ -73,7 +100,6 @@ export default function Navigation({ logoImage }) {
           </li>
           <li>
             <SecondaryOrangeButton
-              client:load
               href={projectButton.href}
               className={projectButton.className}
               width={projectButton.width}
@@ -83,7 +109,6 @@ export default function Navigation({ logoImage }) {
           </li>
           <li>
             <SecondaryOrangeButton
-              client:load
               href={aboutButton.href}
               className={aboutButton.className}
               width={aboutButton.width}
@@ -93,7 +118,6 @@ export default function Navigation({ logoImage }) {
           </li>
         </ul>
         <PrimaryOrangeButton
-          client:load
           href={contactButton.href}
           className={contactButton.className}
           width={contactButton.width}

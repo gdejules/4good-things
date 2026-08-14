@@ -1,5 +1,5 @@
 ---
-import { Image, getImage } from "astro:assets";
+import { getImage } from "astro:assets";
 import NavBar from "./NavBar";
 import logo from "/src/assets/4goodthings-logo.png";
 
@@ -10,4 +10,4 @@ const optimizedLogo = await getImage({
 });
 ---
 
-<NavBar client:load logoImage={optimizedLogo} />
+<NavBar client:load transition:persist logoImage={optimizedLogo} />

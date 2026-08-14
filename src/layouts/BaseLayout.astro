@@ -1,6 +1,7 @@
 ---
 import { Font } from "astro:assets";
 import NavBarWrapper from "../components/NavBarWrapper.astro";
+import { ClientRouter } from "astro:transitions";
 import Footer from "../components/Footer.astro";
 ---
 
@@ -14,6 +15,7 @@ import Footer from "../components/Footer.astro";
     <title>Waste Recycle Brand</title>
     <Font cssVariable="--font-bobby-jones" preload />
     <Font cssVariable="--font-neo-sans" />
+    <ClientRouter />
   </head>
   <body>
     <NavBarWrapper />
