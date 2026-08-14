@@ -12,11 +12,9 @@ function PrimaryGreenButton({ children, href, className, width, handleClick }) {
       surfaceColor="oklch(53.334% 0.15508 143.033)"
       sideColor="oklch(0.400391 0.096875 143.3)"
       borderColor="oklch(0.400391 0.096875 143.3)"
-      textColor="oklch(1 0 0)">
-      <a
-        href={href}
-        onClick={handleClick}
-        className="font-display text-body-normal tracking-wider">
+      textColor="oklch(1 0 0)"
+      onClick={handleClick}>
+      <a href={href} className="font-display text-body-normal tracking-wider">
         {children}
       </a>
     </TiltButton>
@@ -41,11 +39,9 @@ function SecondaryGreenButton({
       surfaceColor="oklch(98.178% 0.00528 95.189)"
       sideColor="oklch(0.400391 0.096875 143.3)"
       borderColor="oklch(0.400391 0.096875 143.3)"
-      textColor="oklch(0.400391 0.096875 143.3)">
-      <a
-        href={href}
-        onClick={handleClick}
-        className="font-display text-body-normal tracking-wider">
+      textColor="oklch(0.400391 0.096875 143.3)"
+      onClick={handleClick}>
+      <a href={href} className="font-display text-body-normal tracking-wider">
         {children}
       </a>
     </TiltButton>
@@ -70,11 +66,9 @@ function PrimaryOrangeButton({
       surfaceColor="oklch(68.749% 0.17328 53.414)"
       sideColor="oklch(0.62207 0.14375 53.4)"
       borderColor="oklch(0.62207 0.14375 53.4)"
-      textColor="oklch(1 0 0)">
-      <a
-        href={href}
-        onClick={handleClick}
-        className="font-display text-body-normal tracking-wider">
+      textColor="oklch(1 0 0)"
+      onClick={handleClick}>
+      <a href={href} className="font-display text-body-normal tracking-wider">
         {children}
       </a>
     </TiltButton>
@@ -99,11 +93,9 @@ function SecondaryOrangeButton({
       surfaceColor="oklch(98.178% 0.00528 95.189)"
       sideColor="oklch(0.62207 0.14375 53.4)"
       borderColor="oklch(0.62207 0.14375 53.4)"
-      textColor="oklch(68.749% 0.17328 53.414)">
-      <a
-        href={href}
-        onClick={handleClick}
-        className="font-display text-body-normal tracking-wider">
+      textColor="oklch(68.749% 0.17328 53.414)"
+      onClick={handleClick}>
+      <a href={href} className="font-display text-body-normal tracking-wider">
         {children}
       </a>
     </TiltButton>

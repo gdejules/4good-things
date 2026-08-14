@@ -1,6 +1,7 @@
 import React, { Children } from "react";
 import { PrimaryOrangeButton, SecondaryOrangeButton } from "./TiltButton";
 import "/src/styles/global.css";
+import { navigate } from "astro:transitions/client";
 
 const homeButton = {
   label: "",
@@ -38,9 +39,8 @@ const contactButton = {
 };
 
 export default function Navigation({ logoImage }) {
-  const handleNavigation = (e, href) => {
-    e.preventDefault();
-    window.location.href = href;
+  const handleNavigation = (href) => {
+    navigate(href);
   };
 
   return (
@@ -51,7 +51,7 @@ export default function Navigation({ logoImage }) {
           href={homeButton.href}
           className={homeButton.className}
           width={homeButton.width}
-          handleClick={(e) => handleNavigation(e, homeButton.href)}>
+          handleClick={() => handleNavigation(homeButton.href)}>
           <img
             slot="children"
             src={logoImage.src}
@@ -67,7 +67,7 @@ export default function Navigation({ logoImage }) {
               href={productButton.href}
               className={productButton.className}
               width={productButton.width}
-              handleClick={(e) => handleNavigation(e, productButton.href)}>
+              handleClick={() => handleNavigation(productButton.href)}>
               {productButton.label}
             </SecondaryOrangeButton>
           </li>
@@ -77,7 +77,7 @@ export default function Navigation({ logoImage }) {
               href={projectButton.href}
               className={projectButton.className}
               width={projectButton.width}
-              handleClick={(e) => handleNavigation(e, projectButton.href)}>
+              handleClick={() => handleNavigation(projectButton.href)}>
               {projectButton.label}
             </SecondaryOrangeButton>
           </li>
@@ -87,7 +87,7 @@ export default function Navigation({ logoImage }) {
               href={aboutButton.href}
               className={aboutButton.className}
               width={aboutButton.width}
-              handleClick={(e) => handleNavigation(e, aboutButton.href)}>
+              handleClick={() => handleNavigation(aboutButton.href)}>
               {aboutButton.label}
             </SecondaryOrangeButton>
           </li>
@@ -97,7 +97,7 @@ export default function Navigation({ logoImage }) {
           href={contactButton.href}
           className={contactButton.className}
           width={contactButton.width}
-          handleClick={(e) => handleNavigation(e, contactButton.href)}>
+          handleClick={() => handleNavigation(contactButton.href)}>
           <div slot="children" className="flex gap-custom-3xs items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
