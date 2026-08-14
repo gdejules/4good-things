@@ -102,9 +102,38 @@ function SecondaryOrangeButton({
   );
 }
 
+function PressedOrangeButton({
+  children,
+  href,
+  className,
+  width,
+  handleClick,
+}) {
+  return (
+    <TiltButton
+      className={className}
+      variant="outline"
+      width={width}
+      height={72}
+      elevation={21}
+      tilt={2.3}
+      disabled={true}
+      surfaceColor="oklch(98.178% 0.00528 95.189)"
+      sideColor="oklch(0.62207 0.14375 53.4)"
+      borderColor="oklch(0.62207 0.14375 53.4)"
+      textColor="oklch(68.749% 0.17328 53.414)"
+      onClick={handleClick}>
+      <a href={href} className="font-display text-body-normal tracking-wider">
+        {children}
+      </a>
+    </TiltButton>
+  );
+}
+
 export {
   PrimaryGreenButton,
   SecondaryGreenButton,
   PrimaryOrangeButton,
   SecondaryOrangeButton,
+  PressedOrangeButton,
 };

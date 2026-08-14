@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import Button from "./PrimaryButton.jsx";
 import { Image } from "astro:assets";
 import alohaTable from "/src/assets/hero/aloha-table.jpeg";
 import asthaTable from "/src/assets/hero/astha-table.jpeg";
@@ -9,7 +8,6 @@ import signatureStool from "/src/assets/hero/signature-stool.jpeg";
 import { PrimaryGreenButton, SecondaryGreenButton } from "./TiltButton";
 import { navigate } from "astro:transitions/client";
 
-const ctaButton = { label: "About us", href: "#brand-highlight" };
 const otherCtaButton = {
   label: "Learn more",
   href: "#brand-highlight",
@@ -42,9 +40,6 @@ const handleClick = (e: any, href: string) => {
         giving it a second life and turn it into something impactful.
       </p>
       <div class="main-cta flex gap-custom-s">
-        <Button client:load href={ctaButton.href}>
-          {ctaButton.label}
-        </Button>
         <PrimaryGreenButton
           client:load
           href={otherCtaButton.href}
