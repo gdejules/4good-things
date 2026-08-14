@@ -41,7 +41,7 @@ const handleClick = (e: any, href: string) => {
         We are reducing plastic waste that ends up in the ocean and landfills by
         giving it a second life and turn it into something impactful.
       </p>
-      <div class="flex gap-custom-s">
+      <div class="main-cta flex gap-custom-s">
         <Button client:load href={ctaButton.href}>
           {ctaButton.label}
         </Button>
@@ -104,17 +104,11 @@ const handleClick = (e: any, href: string) => {
     </div>
   </div>
 </section>
-<!-- <script>
+<script>
   const highlight = document.getElementById("brand-highlight");
-  const cta = document.querySelector(".cta");
-  const secondCta = document.querySelector(".second-cta");
-
+  const cta = document.querySelector(".main-cta");
 
   cta?.addEventListener("click", () => {
     highlight?.scrollIntoView();
   });
-
-  secondCta?.addEventListener("click", () => {
-    highlight?.scrollIntoView();
-  });
-</script> -->
+</script>
