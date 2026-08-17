@@ -3,7 +3,8 @@ import { TiltButton } from "react-tilt-button";
 function PrimaryGreenButton({ children, href, className, width, handleClick }) {
   return (
     <TiltButton
-      client:only="react"
+      client:load
+      transition:persist="button"
       className={className}
       variant="primary"
       width={width}
@@ -31,7 +32,8 @@ function SecondaryGreenButton({
 }) {
   return (
     <TiltButton
-      client:only="react"
+      client:load
+      transition:persist="button"
       className={className}
       variant="outline"
       width={width}
@@ -59,7 +61,8 @@ function PrimaryOrangeButton({
 }) {
   return (
     <TiltButton
-      client:only="react"
+      client:load
+      transition:persist="button"
       className={className}
       variant="primary"
       width={width}
@@ -87,7 +90,8 @@ function SecondaryOrangeButton({
 }) {
   return (
     <TiltButton
-      client:only="react"
+      client:load
+      transition:persist="button"
       className={className}
       variant="outline"
       width={width}
@@ -115,7 +119,8 @@ function PressedOrangeButton({
 }) {
   return (
     <TiltButton
-      client:only="react"
+      client:load
+      transition:persist="button"
       className={className}
       variant="outline"
       width={width}

@@ -26,12 +26,7 @@ import Footer from "../components/Footer.astro";
     <ClientRouter />
   </head>
   <body>
-    <NavBar
-      client:load
-      transition:name="navbar"
-      transition:persist
-      logoImage={optimizedLogo}
-    />
+    <NavBar client:load transition:persist="navbar" logoImage={optimizedLogo} />
     <slot />
     <Footer />
   </body>

@@ -62,6 +62,8 @@ export default function Navigation({ logoImage }) {
     <nav key={mountKey} className="section py-custom-xs-s bg-warm-alabaster">
       <div className="max-w-6xl mx-auto flex justify-between items-center max-md:mx-6 max-xl:mx-10">
         <SecondaryOrangeButton
+          client:load
+          transition:persist="navbarButton"
           href={homeButton.href}
           className={homeButton.className}
           width={homeButton.width}
@@ -82,6 +84,8 @@ export default function Navigation({ logoImage }) {
           </li>
           <li>
             <SecondaryOrangeButton
+              client:load
+              transition:persist="navbarButton"
               href={productButton.href}
               className={productButton.className}
               width={productButton.width}
@@ -91,6 +95,8 @@ export default function Navigation({ logoImage }) {
           </li>
           <li>
             <SecondaryOrangeButton
+              client:load
+              transition:persist="navbarButton"
               href={projectButton.href}
               className={projectButton.className}
               width={projectButton.width}
@@ -100,6 +106,8 @@ export default function Navigation({ logoImage }) {
           </li>
           <li>
             <SecondaryOrangeButton
+              client:load
+              transition:persist="navbarButton"
               href={aboutButton.href}
               className={aboutButton.className}
               width={aboutButton.width}
@@ -109,6 +117,8 @@ export default function Navigation({ logoImage }) {
           </li>
         </ul>
         <PrimaryOrangeButton
+          client:load
+          transition:persist="navbarButton"
           href={contactButton.href}
           className={contactButton.className}
           width={contactButton.width}
