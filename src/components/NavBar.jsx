@@ -76,15 +76,6 @@ export default function Navigation({ logoImage }) {
         </SecondaryOrangeButton>
         <ul className="flex justify-between items-center gap-custom-xs-s max-md:hidden">
           <li>
-            <button className="py-4 px-8 bg-soft-sand">
-              <a
-                href="/about"
-                className="font-display text-body-normal tracking-wider text-deep-pine-charcoal">
-                About
-              </a>
-            </button>
-          </li>
-          <li>
             <PrimaryButton href={aboutButton.href}>
               {aboutButton.label}
             </PrimaryButton>

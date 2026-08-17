@@ -1,7 +1,15 @@
 ---
 import { Font } from "astro:assets";
-import NavBarWrapper from "../components/NavBarWrapper.astro";
 import { ClientRouter } from "astro:transitions";
+import { getImage } from "astro:assets";
+import NavBar from "../components/NavBar";
+import logo from "/src/assets/4goodthings-logo.png";
+
+const optimizedLogo = await getImage({
+  src: logo,
+  alt: "4GoodThings Logo",
+  height: 32,
+});
 import Footer from "../components/Footer.astro";
 ---
 
@@ -18,7 +26,12 @@ import Footer from "../components/Footer.astro";
     <ClientRouter />
   </head>
   <body>
-    <NavBarWrapper />
+    <NavBar
+      client:load
+      transition:name="navbar"
+      transition:persist
+      logoImage={optimizedLogo}
+    />
     <slot />
     <Footer />
   </body>
