@@ -9,6 +9,15 @@ const largerProducts = await getCollection("products", ({ data }) => {
   return data.category === "larger-things" && data.featured === true;
 });
 import Button from "./Button.astro";
+import { PrimaryButton } from "./CustomAwesomeButton";
+
+const seeMoreProductButton = {
+  children: "See more",
+  href: "/product",
+  className: "product-content",
+  size: "large",
+  active: false,
+};
 ---
 
 <section class="section py-24 bg-forest-shadow">
@@ -46,8 +55,13 @@ import Button from "./Button.astro";
         {largerProducts.map((p) => <ProductCard product={p} />)}
       </div>
     </div>
-    <Button>
-      <a href="/product/"> See All Products </a>
-    </Button>
+    <PrimaryButton
+      client:load
+      transition:persist
+      href={seeMoreProductButton.href}
+      active={seeMoreProductButton.active}
+      size={seeMoreProductButton.size}>
+      {seeMoreProductButton.children}
+    </PrimaryButton>
   </div>
 </section>

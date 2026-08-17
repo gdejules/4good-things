@@ -3,7 +3,15 @@ import "../styles/global.css";
 import { Image } from "astro:assets";
 import alohaTrash from "/src/assets/highlight/aloha-trash-3.jpeg";
 import alohaPressing from "/src/assets/collab/aloha/aloha-pressing.png";
-import Button from "./Button.astro";
+import { PrimaryButton } from "./CustomAwesomeButton";
+
+const learnMoreButton = {
+  children: "Learn more",
+  href: "/about",
+  className: "about-content",
+  size: "large",
+  active: false,
+};
 ---
 
 <section id="brand-highlight" class="section flex flex-col gap-custom-xl-2xl">
@@ -124,9 +132,14 @@ import Button from "./Button.astro";
           so far.</span
         >
       </div>
-      <Button>
-        <a href="/about">learn more</a>
-      </Button>
+      <PrimaryButton
+        client:load
+        transition:persist
+        href={learnMoreButton.href}
+        active={learnMoreButton.active}
+        size={learnMoreButton.size}>
+        {learnMoreButton.children}
+      </PrimaryButton>
     </div>
   </div>
 </section>

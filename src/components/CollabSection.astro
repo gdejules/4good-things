@@ -3,6 +3,15 @@ import "../styles/global.css";
 import { getCollection } from "astro:content";
 import ProjectCard from "./ProjectCard.astro";
 import Button from "./Button.astro";
+import { PrimaryButton } from "./CustomAwesomeButton";
+
+const seeMoreProjectButton = {
+  children: "See more",
+  href: "/project",
+  className: "project-content",
+  size: "large",
+  active: false,
+};
 
 const featuredProjects = await getCollection("projects", ({ data }) => {
   return data.featured === true;
@@ -46,8 +55,13 @@ const featuredProjects = await getCollection("projects", ({ data }) => {
         }
       </div>
     </div>
-    <Button>
-      <a href="/project/"> See All Projects </a>
-    </Button>
+    <PrimaryButton
+      client:load
+      transition:persist
+      href={seeMoreProjectButton.href}
+      active={seeMoreProjectButton.active}
+      size={seeMoreProjectButton.size}>
+      {seeMoreProjectButton.children}
+    </PrimaryButton>
   </div>
 </section>
