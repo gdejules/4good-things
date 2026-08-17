@@ -111,3 +111,24 @@
     @apply max-w-6xl mx-auto grid grid-cols-12 gap-x-custom-2xs gap-y-custom-l-xl max-md:flex max-md:flex-col max-md:mx-6 max-xl:mx-10;
   }
 }
+
+:root {
+  .aws-btn {
+    --button-primary-color: oklch(53.334% 0.15508 143.033);
+    --button-primary-color-dark: oklch(40.147% 0.09762 143.511);
+    --button-primary-color-light: oklch(1 0 0);
+    --button-primary-color-hover: oklch(62.334% 0.13401 143.033);
+    --button-primary-color-active: oklch(45.334% 0.10301 140.133);
+    --button-primary-border: none;
+
+    --button-secondary-color: oklch(95.489% 0.02774 100.303);
+    --button-secondary-color-dark: oklch(40.147% 0.09762 143.511);
+    --button-secondary-color-light: oklch(53.334% 0.15508 143.033);
+    --button-secondary-color-hover: oklch(99.489% 0.02274 100.303);
+    --button-secondary-color-active: oklch(87.489% 0.01374 100.303);
+    --button-secondary-border: 2px solid oklch(53.334% 0.15508 143.033);
+
+    --button-raise-level: 6px;
+    --button-default-border-radius: 16px;
+  }
+}

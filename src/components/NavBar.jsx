@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { PrimaryOrangeButton, SecondaryOrangeButton } from "./TiltButton";
 import "/src/styles/global.css";
 import { navigate } from "astro:transitions/client";
-import PrimaryButton from "./PrimaryButton";
+import { PrimaryButton, SecondaryButton } from "./PrimaryButton";
 
 const homeButton = {
   label: "",
@@ -22,14 +22,16 @@ const projectButton = {
   label: "Project",
   href: "/project",
   className: "nav",
-  width: 120,
+  size: "medium",
+  active: false,
 };
 
 const aboutButton = {
   label: "About",
   href: "/about",
   className: "nav",
-  width: 120,
+  size: "medium",
+  active: false,
 };
 
 const contactButton = {
@@ -78,11 +80,6 @@ export default function Navigation({ logoImage }) {
         </SecondaryOrangeButton>
         <ul className="flex justify-between items-center gap-custom-xs-s max-md:hidden">
           <li>
-            <PrimaryButton href={aboutButton.href}>
-              {aboutButton.label}
-            </PrimaryButton>
-          </li>
-          <li>
             <SecondaryOrangeButton
               client:load
               transition:persist="navbarButton"
@@ -94,26 +91,20 @@ export default function Navigation({ logoImage }) {
             </SecondaryOrangeButton>
           </li>
           <li>
-            <SecondaryOrangeButton
-              client:load
-              transition:persist="navbarButton"
+            <SecondaryButton
               href={projectButton.href}
-              className={projectButton.className}
-              width={projectButton.width}
-              handleClick={() => handleNavigation(projectButton.href)}>
+              active={projectButton.active}
+              size={projectButton.size}>
               {projectButton.label}
-            </SecondaryOrangeButton>
+            </SecondaryButton>
           </li>
           <li>
-            <SecondaryOrangeButton
-              client:load
-              transition:persist="navbarButton"
+            <SecondaryButton
               href={aboutButton.href}
-              className={aboutButton.className}
-              width={aboutButton.width}
-              handleClick={() => handleNavigation(aboutButton.href)}>
+              active={aboutButton.active}
+              size={aboutButton.size}>
               {aboutButton.label}
-            </SecondaryOrangeButton>
+            </SecondaryButton>
           </li>
         </ul>
         <PrimaryOrangeButton
