@@ -1,21 +1,22 @@
-import { useEffect, useState } from "react";
 import { PrimaryOrangeButton, SecondaryOrangeButton } from "./TiltButton";
 import "/src/styles/global.css";
 import { navigate } from "astro:transitions/client";
-import { PrimaryButton, SecondaryButton } from "./PrimaryButton";
+import { SecondaryButton, SocialButton, Whatsapp } from "./PrimaryButton";
 
 const homeButton = {
   label: "",
   href: "/",
   className: "nav",
-  width: 120,
+  size: "medium",
+  active: false,
 };
 
 const productButton = {
   label: "Product",
   href: "/product",
   className: "nav",
-  width: 120,
+  size: "medium",
+  active: false,
 };
 
 const projectButton = {
@@ -36,40 +37,25 @@ const aboutButton = {
 
 const contactButton = {
   label: "Contact us",
-  href: "",
+  sharer: {
+    url: "https://play.google.com/store/apps/details?id=com.whatsapp&hl=en",
+    message: "Check this out",
+  },
   className: "nav",
-  width: 200,
+  type: "whatsapp",
+  size: "large",
+  active: false,
 };
 
 export default function Navigation({ logoImage }) {
-  const [mountKey, setMountKey] = useState(0);
-
-  useEffect(() => {
-    const rerenderNav = () => setMountKey((value) => value + 1);
-
-    document.addEventListener("astro:page-load", rerenderNav);
-
-    return () => {
-      document.removeEventListener("astro:page-load", rerenderNav);
-    };
-  }, []);
-
-  const handleNavigation = (href) => {
-    if (href) {
-      navigate(href);
-    }
-  };
-
   return (
-    <nav key={mountKey} className="section py-custom-xs-s bg-warm-alabaster">
+    <nav className="section py-custom-xs-s bg-warm-alabaster">
       <div className="max-w-6xl mx-auto flex justify-between items-center max-md:mx-6 max-xl:mx-10">
-        <SecondaryOrangeButton
-          client:load
-          transition:persist="navbarButton"
+        <SecondaryButton
           href={homeButton.href}
-          className={homeButton.className}
-          width={homeButton.width}
-          handleClick={() => handleNavigation(homeButton.href)}>
+          active={homeButton.active}
+          size={homeButton.size}>
+          {homeButton.label}
           <img
             slot="children"
             src={logoImage.src}
@@ -77,18 +63,15 @@ export default function Navigation({ logoImage }) {
             layout="constrained"
             class="w-auto"
           />
-        </SecondaryOrangeButton>
+        </SecondaryButton>
         <ul className="flex justify-between items-center gap-custom-xs-s max-md:hidden">
           <li>
-            <SecondaryOrangeButton
-              client:load
-              transition:persist="navbarButton"
+            <SecondaryButton
               href={productButton.href}
-              className={productButton.className}
-              width={productButton.width}
-              handleClick={() => handleNavigation(productButton.href)}>
+              active={productButton.active}
+              size={productButton.size}>
               {productButton.label}
-            </SecondaryOrangeButton>
+            </SecondaryButton>
           </li>
           <li>
             <SecondaryButton
@@ -107,30 +90,14 @@ export default function Navigation({ logoImage }) {
             </SecondaryButton>
           </li>
         </ul>
-        <PrimaryOrangeButton
-          client:load
-          transition:persist="navbarButton"
-          href={contactButton.href}
-          className={contactButton.className}
-          width={contactButton.width}
-          handleClick={() => handleNavigation(contactButton.href)}>
-          <div slot="children" className="flex gap-custom-3xs items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"></path>
-              <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"></path>
-            </svg>
-            <span className="max-md:hidden">{contactButton.label}</span>
-          </div>
-        </PrimaryOrangeButton>
+        <SocialButton
+          before={<Whatsapp />}
+          sharer={contactButton.sharer}
+          type={contactButton.type}
+          active={contactButton.active}
+          size={contactButton.size}>
+          {contactButton.label}
+        </SocialButton>
       </div>
     </nav>
   );

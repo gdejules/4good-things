@@ -131,4 +131,8 @@
     --button-raise-level: 6px;
     --button-default-border-radius: 16px;
   }
+
+  .aws-btn--whatsapp .aws-btn__content path {
+    fill: none;
+  }
 }
