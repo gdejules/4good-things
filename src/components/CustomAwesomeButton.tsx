@@ -12,6 +12,7 @@ interface ButtonProps {
   size: string;
   active: boolean;
   before?: ReactNode;
+  download?: string;
 }
 
 interface SocialButtonProps {
@@ -120,17 +121,26 @@ function Download() {
   );
 }
 
-function DownloadButton({ children, href, size, active }: ButtonProps) {
+function DownloadButton({
+  children,
+  href,
+  size,
+  active,
+  download,
+}: ButtonProps) {
   return (
     <AwesomeButton
-      href={href}
       type="secondary"
       size={size}
       active={active}
       before={<Download />}>
-      <span className="font-display text-body-normal tracking-wider">
+      <a
+        slot="children"
+        href={href}
+        download={download}
+        className="font-display text-body-normal tracking-wider">
         {children}
-      </span>
+      </a>
     </AwesomeButton>
   );
 }

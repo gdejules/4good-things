@@ -15,8 +15,9 @@ const learnMoreButton = {
   active: false,
 };
 const downloadButton = {
-  children: "Catalogue - 50MB",
-  href: "#brand-highlight",
+  children: "Catalogue - 27MB",
+  href: "/downloads/REV-1 Catalogue 4GoodThings.pdf",
+  download: "Product Catalogue",
   className: "download",
   size: "large",
   active: false,
@@ -95,11 +96,3 @@ const downloadButton = {
     </div>
   </div>
 </section>
-<script>
-  const highlight = document.getElementById("brand-highlight");
-  const cta = document.querySelector(".main-cta");
-
-  cta?.addEventListener("click", () => {
-    highlight?.scrollIntoView();
-  });
-</script>
