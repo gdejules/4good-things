@@ -7,18 +7,25 @@ import padelKeychain from "/src/assets/hero/padel-keychain.jpeg";
 import signatureStool from "/src/assets/hero/signature-stool.jpeg";
 import { PrimaryGreenButton, SecondaryGreenButton } from "./TiltButton";
 import { navigate } from "astro:transitions/client";
+import {
+  PrimaryButton,
+  SecondaryButton,
+  DownloadButton,
+} from "./PrimaryButton.tsx";
 
-const otherCtaButton = {
-  label: "Learn more",
+const learnMoreButton = {
+  children: "Learn more",
   href: "#brand-highlight",
-  className: "cta",
-  width: 160,
+  className: "about-content",
+  size: "medium",
+  active: false,
 };
-const secondCtaButton = {
-  label: "Download Catalogue",
+const downloadButton = {
+  children: "Catalogue - 50MB",
   href: "#brand-highlight",
-  className: "cta",
-  width: 240,
+  className: "download",
+  size: "large",
+  active: false,
 };
 
 const handleClick = (e: any, href: string) => {
@@ -40,22 +47,22 @@ const handleClick = (e: any, href: string) => {
         giving it a second life and turn it into something impactful.
       </p>
       <div class="main-cta flex gap-custom-s">
-        <PrimaryGreenButton
+        <PrimaryButton
           client:load
-          href={otherCtaButton.href}
-          className={otherCtaButton.className}
-          width={otherCtaButton.width}
-          handleClick={(e: any) => handleClick(e, otherCtaButton.href)}>
-          {otherCtaButton.label}
-        </PrimaryGreenButton>
-        <SecondaryGreenButton
+          transition:persist
+          href={learnMoreButton.href}
+          active={learnMoreButton.active}
+          size={learnMoreButton.size}>
+          {learnMoreButton.children}
+        </PrimaryButton>
+        <DownloadButton
           client:load
-          href={secondCtaButton.href}
-          className={secondCtaButton.className}
-          width={secondCtaButton.width}
-          handleClick={(e: any) => handleClick(e, secondCtaButton.href)}>
-          {secondCtaButton.label}
-        </SecondaryGreenButton>
+          transition:persist
+          href={downloadButton.href}
+          active={downloadButton.active}
+          size={downloadButton.size}>
+          {downloadButton.children}
+        </DownloadButton>
       </div>
     </div>
     <div

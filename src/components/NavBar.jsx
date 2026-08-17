@@ -1,8 +1,8 @@
 import "/src/styles/global.css";
-import { SecondaryButton, SocialButton, Whatsapp } from "./PrimaryButton";
+import { SecondaryButton, SocialButton, Whatsapp } from "./PrimaryButton.tsx";
 
 const homeButton = {
-  label: "",
+  children: "",
   href: "/",
   className: "nav",
   size: "medium",
@@ -10,7 +10,7 @@ const homeButton = {
 };
 
 const productButton = {
-  label: "Product",
+  children: "Product",
   href: "/product",
   className: "nav",
   size: "medium",
@@ -18,7 +18,7 @@ const productButton = {
 };
 
 const projectButton = {
-  label: "Project",
+  children: "Project",
   href: "/project",
   className: "nav",
   size: "medium",
@@ -26,7 +26,7 @@ const projectButton = {
 };
 
 const aboutButton = {
-  label: "About",
+  children: "About",
   href: "/about",
   className: "nav",
   size: "medium",
@@ -34,7 +34,7 @@ const aboutButton = {
 };
 
 const contactButton = {
-  label: "Contact us",
+  children: "Contact us",
   sharer: {
     url: "https://play.google.com/store/apps/details?id=com.whatsapp&hl=en",
     message: "Check this out",
@@ -53,7 +53,7 @@ export default function Navigation({ logoImage }) {
           href={homeButton.href}
           active={homeButton.active}
           size={homeButton.size}>
-          {homeButton.label}
+          {homeButton.children}
           <img
             slot="children"
             src={logoImage.src}
@@ -68,7 +68,7 @@ export default function Navigation({ logoImage }) {
               href={productButton.href}
               active={productButton.active}
               size={productButton.size}>
-              {productButton.label}
+              {productButton.children}
             </SecondaryButton>
           </li>
           <li>
@@ -76,7 +76,7 @@ export default function Navigation({ logoImage }) {
               href={projectButton.href}
               active={projectButton.active}
               size={projectButton.size}>
-              {projectButton.label}
+              {projectButton.children}
             </SecondaryButton>
           </li>
           <li>
@@ -84,7 +84,7 @@ export default function Navigation({ logoImage }) {
               href={aboutButton.href}
               active={aboutButton.active}
               size={aboutButton.size}>
-              {aboutButton.label}
+              {aboutButton.children}
             </SecondaryButton>
           </li>
         </ul>
@@ -94,7 +94,7 @@ export default function Navigation({ logoImage }) {
           type={contactButton.type}
           active={contactButton.active}
           size={contactButton.size}>
-          {contactButton.label}
+          {contactButton.children}
         </SocialButton>
       </div>
     </nav>

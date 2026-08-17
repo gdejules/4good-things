@@ -135,4 +135,8 @@
   .aws-btn--whatsapp .aws-btn__content path {
     fill: none;
   }
+
+  .aws-btn--secondary .aws-btn__content path {
+    fill: none;
+  }
 }
