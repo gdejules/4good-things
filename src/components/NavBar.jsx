@@ -1,5 +1,9 @@
 import "/src/styles/global.css";
-import { SecondaryButton, SocialButton, Whatsapp } from "./PrimaryButton.tsx";
+import {
+  SecondaryButton,
+  SocialButton,
+  Whatsapp,
+} from "./CustomAwesomeButton.tsx";
 
 const homeButton = {
   children: "",
