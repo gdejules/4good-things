@@ -1,6 +1,4 @@
-import { PrimaryOrangeButton, SecondaryOrangeButton } from "./TiltButton";
 import "/src/styles/global.css";
-import { navigate } from "astro:transitions/client";
 import { SecondaryButton, SocialButton, Whatsapp } from "./PrimaryButton";
 
 const homeButton = {
