@@ -1,0 +1,25 @@
+---
+const { className } = Astro.props;
+---
+
+<h3 class=`highlight-text ${className}`>
+  <slot />
+</h3>
+
+<script>
+  import { gsap } from "gsap";
+  import { SplitText } from "gsap/SplitText";
+
+  gsap.registerPlugin(SplitText);
+
+  let split = SplitText.create(".highlight-text", {
+    type: "chars, words, lines",
+    wordsClass: "word",
+  });
+
+  gsap.from(split.words, {
+    y: 100,
+    autoAlpha: 0,
+    stagger: 0.05,
+  });
+</script>

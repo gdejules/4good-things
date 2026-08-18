@@ -12,6 +12,10 @@ const learnMoreButton = {
   size: "large",
   active: false,
 };
+
+import AnimatedText from "./AnimatedText.astro";
+const animationClassName =
+  "text-heading-large max-w-text-heading-large tracking-wide text-deep-pine-charcoal";
 ---
 
 <section id="brand-highlight" class="section flex flex-col gap-custom-xl-2xl">
@@ -26,9 +30,10 @@ const learnMoreButton = {
         class="highlight-text text-heading-large max-w-text-heading-large tracking-wide text-deep-pine-charcoal">
         <span class="text-green">4GoodThings</span> is where plastic waste <span
           class="text-green">stop being trash</span
-        > and starts becoming <span class="text-green">
-          something that matters.
-        </span>
+        >
+        trash and starts becoming <span class="text-green"
+          >something that matters.</span
+        >
       </h3>
     </div>
   </div>
@@ -146,3 +151,40 @@ const learnMoreButton = {
     </div>
   </div>
 </section>
+
+<!-- <style>
+  @reference "../styles/global.css";
+  /* @layer components { */
+  /* .highlight-text {
+    @apply text-orange;
+  } */
+  .word,
+  .char,
+  .line {
+    @apply outline-2 outline-dashed outline-lime-700;
+  }
+  /* } */
+</style> -->
+
+<script>
+  import { random } from "gsap";
+  import { gsap } from "gsap";
+  import { SplitText } from "gsap/SplitText";
+
+  gsap.registerPlugin(SplitText);
+
+  let split = SplitText.create(".highlight-text", {
+    type: "chars, words, lines",
+    wordsClass: "word++",
+  });
+
+  gsap.from(split.words, {
+    y: 100,
+    autoAlpha: 0,
+    stagger: {
+      from: "random",
+      amount: 0.05,
+      repeat: 3,
+    },
+  });
+</script>
