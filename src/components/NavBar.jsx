@@ -52,21 +52,38 @@ const contactButton = {
 export default function Navigation({ logoImage }) {
   return (
     <nav className="section py-custom-xs-s bg-warm-alabaster">
-      <div className="max-w-6xl mx-auto flex justify-between items-center max-md:mx-6 max-xl:mx-10">
-        <SecondaryButton
-          href={homeButton.href}
-          active={homeButton.active}
-          size={homeButton.size}>
-          {homeButton.children}
-          <img
-            slot="children"
-            src={logoImage.src}
-            alt="4GoodThings Logo"
-            layout="constrained"
-            class="w-auto"
-          />
-        </SecondaryButton>
-        <ul className="flex justify-between items-center gap-custom-xs-s max-md:hidden">
+      <ul className="max-w-6xl mx-auto flex justify-between items-center max-md:mx-6 max-xl:mx-10">
+        <li className="max-lg:hidden">
+          <SecondaryButton
+            href={homeButton.href}
+            active={homeButton.active}
+            size={homeButton.size}>
+            {homeButton.children}
+            <img
+              slot="children"
+              src={logoImage.src}
+              alt="4GoodThings Logo"
+              layout="constrained"
+              class="w-auto"
+            />
+          </SecondaryButton>
+        </li>
+        <li className="lg:hidden">
+          <SecondaryButton
+            href={homeButton.href}
+            active={homeButton.active}
+            size="small">
+            {homeButton.children}
+            <img
+              slot="children"
+              src={logoImage.src}
+              alt="4GoodThings Logo"
+              layout="constrained"
+              class="w-auto"
+            />
+          </SecondaryButton>
+        </li>
+        <ul className="flex justify-between items-center gap-custom-2xs-xs max-md:hidden">
           <li>
             <SecondaryButton
               href={productButton.href}
@@ -92,15 +109,28 @@ export default function Navigation({ logoImage }) {
             </SecondaryButton>
           </li>
         </ul>
-        <SocialButton
-          before={<Whatsapp />}
-          sharer={contactButton.sharer}
-          type={contactButton.type}
-          active={contactButton.active}
-          size={contactButton.size}>
-          {contactButton.children}
-        </SocialButton>
-      </div>
+        <li className="max-lg:hidden">
+          <SocialButton
+            before={<Whatsapp />}
+            sharer={contactButton.sharer}
+            type={contactButton.type}
+            active={contactButton.active}
+            size={contactButton.size}
+            className="nav">
+            {contactButton.children}
+          </SocialButton>
+        </li>
+        <li className="lg:hidden">
+          <SocialButton
+            before={<Whatsapp />}
+            sharer={contactButton.sharer}
+            type={contactButton.type}
+            active={contactButton.active}
+            size="small"
+            className="mobile-nav"
+          />
+        </li>
+      </ul>
     </nav>
   );
 }

@@ -139,4 +139,14 @@
   .aws-btn--secondary .aws-btn__content path {
     fill: none;
   }
+
+  /* @media screen and (max-width: 768px) {
+    .mobile-nav.aws-btn--visible {
+      opacity: 1;
+    }
+
+    .nav.aws-btn--visible {
+      visibility: hidden;
+    }
+  } */
 }

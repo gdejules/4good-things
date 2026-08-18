@@ -13,6 +13,7 @@ interface ButtonProps {
   active: boolean;
   before?: ReactNode;
   download?: string;
+  className?: string;
 }
 
 interface SocialButtonProps {
@@ -22,17 +23,26 @@ interface SocialButtonProps {
   size: string;
   active: boolean;
   before?: ReactNode;
+  className?: string;
 }
 
-function PrimaryButton({ children, href, size, active, before }: ButtonProps) {
+function PrimaryButton({
+  children,
+  href,
+  size,
+  active,
+  before,
+  className,
+}: ButtonProps) {
   return (
     <AwesomeButton
       href={href}
       type="primary"
       size={size}
       active={active}
-      before={before}>
-      <span className="font-display text-body-normal tracking-wider">
+      before={before}
+      className={className}>
+      <span className="font-display text-body-normal max-lg:text-body-small tracking-widest">
         {children}
       </span>
     </AwesomeButton>
@@ -45,6 +55,7 @@ function SecondaryButton({
   size,
   active,
   before,
+  className,
 }: ButtonProps) {
   return (
     <AwesomeButton
@@ -52,8 +63,9 @@ function SecondaryButton({
       type="secondary"
       size={size}
       active={active}
-      before={before}>
-      <span className="font-display text-body-normal tracking-wider">
+      before={before}
+      className={className}>
+      <span className="font-display text-body-normal max-lg:text-body-small tracking-widest">
         {children}
       </span>
     </AwesomeButton>
@@ -66,14 +78,16 @@ function SocialButton({
   size,
   before,
   sharer,
+  className,
 }: SocialButtonProps) {
   return (
     <AwesomeButtonSocial
       type={type}
       size={size}
       before={before}
-      sharer={sharer}>
-      <span className="font-display text-body-normal tracking-wider">
+      sharer={sharer}
+      className={className}>
+      <span className="font-display text-body-normal max-lg:text-body-small tracking-widest">
         {children}
       </span>
     </AwesomeButtonSocial>
@@ -127,18 +141,20 @@ function DownloadButton({
   size,
   active,
   download,
+  className,
 }: ButtonProps) {
   return (
     <AwesomeButton
       type="secondary"
       size={size}
       active={active}
-      before={<Download />}>
+      before={<Download />}
+      className={className}>
       <a
         slot="children"
         href={href}
         download={download}
-        className="font-display text-body-normal tracking-wider">
+        className="font-display text-body-normal max-lg:text-body-small tracking-widest">
         {children}
       </a>
     </AwesomeButton>
