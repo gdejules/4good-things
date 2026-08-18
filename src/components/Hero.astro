@@ -11,11 +11,11 @@ const learnMoreButton = {
   children: "Learn more",
   href: "#brand-highlight",
   className: "about-content",
-  size: "medium",
+  size: "large",
   active: false,
 };
 const downloadButton = {
-  children: "Catalogue - 27MB",
+  children: "Catalogue",
   href: "/downloads/REV-1 Catalogue 4GoodThings.pdf",
   download: "Product Catalogue",
   className: "download",
@@ -36,25 +36,49 @@ const downloadButton = {
         We are reducing plastic waste that ends up in the ocean and landfills by
         giving it a second life and turn it into something impactful.
       </p>
-      <div
+      <ul
         class="main-cta flex gap-custom-s max-md:flex-col max-md:gap-custom-m max-md:items-center">
-        <PrimaryButton
-          client:load
-          transition:persist
-          href={learnMoreButton.href}
-          active={learnMoreButton.active}
-          size={learnMoreButton.size}>
-          {learnMoreButton.children}
-        </PrimaryButton>
-        <DownloadButton
-          client:load
-          transition:persist
-          href={downloadButton.href}
-          active={downloadButton.active}
-          size={downloadButton.size}>
-          {downloadButton.children}
-        </DownloadButton>
-      </div>
+        <li class="max-lg:hidden">
+          <PrimaryButton
+            client:load
+            transition:persist
+            href={learnMoreButton.href}
+            active={learnMoreButton.active}
+            size={learnMoreButton.size}>
+            {learnMoreButton.children}
+          </PrimaryButton>
+        </li>
+        <li class="lg:hidden">
+          <PrimaryButton
+            client:load
+            transition:persist
+            href={learnMoreButton.href}
+            active={learnMoreButton.active}
+            size="medium">
+            {learnMoreButton.children}
+          </PrimaryButton>
+        </li>
+        <li class="max-lg:hidden">
+          <DownloadButton
+            client:load
+            transition:persist
+            href={downloadButton.href}
+            active={downloadButton.active}
+            size={downloadButton.size}>
+            {downloadButton.children}
+          </DownloadButton>
+        </li>
+        <li class="lg:hidden">
+          <DownloadButton
+            client:load
+            transition:persist
+            href={downloadButton.href}
+            active={downloadButton.active}
+            size="medium">
+            {downloadButton.children}
+          </DownloadButton>
+        </li>
+      </ul>
     </div>
     <div
       class="order-2 max-md:order-1 col-span-6 col-end-13 grid grid-cols-6 grid-rows-2 gap-x-custom-xs-s gap-y-custom-xs-s max-md:grid-cols-2">
