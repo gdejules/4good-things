@@ -23,7 +23,7 @@ const animationClassName =
     <div
       class="max-w-6xl mx-auto py-20 flex flex-col gap-custom-xs max-md:mx-6 max-xl:mx-10">
       <h2
-        class="font-body font-medium text-heading-small uppercase text-muted-moss">
+        class="font-body font-medium text-body-large uppercase text-muted-moss">
         About us
       </h2>
       <h3
@@ -152,29 +152,16 @@ const animationClassName =
   </div>
 </section>
 
-<!-- <style>
-  @reference "../styles/global.css";
-  /* @layer components { */
-  /* .highlight-text {
-    @apply text-orange;
-  } */
-  .word,
-  .char,
-  .line {
-    @apply outline-2 outline-dashed outline-lime-700;
-  }
-  /* } */
-</style> -->
-
 <script>
-  import { random } from "gsap";
   import { gsap } from "gsap";
   import { SplitText } from "gsap/SplitText";
+  import { ScrollTrigger } from "gsap/all";
 
   gsap.registerPlugin(SplitText);
+  gsap.registerPlugin(ScrollTrigger);
 
   let split = SplitText.create(".highlight-text", {
-    type: "chars, words, lines",
+    type: "words",
     wordsClass: "word++",
   });
 
