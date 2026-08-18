@@ -55,6 +55,10 @@
   --shadow-tl-solid-orange: 10px 10px 0px 0px #ea7601;
   --shadow-tl-solid-honey: 10px 10px 0px 0px #ff9c00;
   --shadow-tl-solid-green: 10px 10px 0px 0px #258225;
+  --shadow-soft-tl-solid-soft-sand: 6px 6px 0px 0px
+    oklch(95.489% 0.02774 100.303);
+  --shadow-soft-tl-solid-muted-moss: 6px 6px 0px 0px
+    oklch(47.001% 0.02015 145.369);
 
   --spacing-custom-3xs: clamp(0.25rem, 0.2244rem + 0.1136vw, 0.3125rem);
   --spacing-custom-2xs: clamp(0.5rem, 0.4744rem + 0.1136vw, 0.5625rem);
