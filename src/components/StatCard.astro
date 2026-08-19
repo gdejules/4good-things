@@ -1,0 +1,31 @@
+---
+import type { CollectionEntry } from "astro:content";
+import CountUp from "./CountUp";
+type Props = {
+  stat: CollectionEntry<"stats">;
+};
+
+const { stat } = Astro.props;
+const { value, unit, label } = stat.data;
+---
+
+<div
+  class="flex flex-col gap-custom-2xs max-md:items-center py-custom-xs-s px-custom-s-m rounded-2xl shadow-soft-tl-solid-soft-sand">
+  <h3 class="text-heading-large text-green">
+    <CountUp
+      client:load
+      from={0}
+      to={value}
+      separator=","
+      direction="up"
+      duration={1}
+      className="count-up-text"
+      delay={0}
+    /><span> </span>
+    <span class="text-muted-moss">{unit}</span>
+  </h3>
+  <span
+    class="font-body text-body-normal max-w-text-body-normal font-normal text-deep-pine-charcoal max-md:text-center"
+    >{label}</span
+  >
+</div>

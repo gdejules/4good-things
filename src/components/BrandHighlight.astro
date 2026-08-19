@@ -4,7 +4,8 @@ import { Image } from "astro:assets";
 import alohaTrash from "/src/assets/highlight/aloha-trash-3.jpeg";
 import alohaPressing from "/src/assets/collab/aloha/aloha-pressing.png";
 import { PrimaryButton } from "./CustomAwesomeButton";
-import CountUp from "./CountUp";
+import { getCollection } from "astro:content";
+import StatCard from "./StatCard.astro";
 
 const learnMoreButton = {
   children: "Learn more",
@@ -13,6 +14,10 @@ const learnMoreButton = {
   size: "large",
   active: false,
 };
+
+const allStats = await getCollection("stats");
+
+console.log(allStats);
 
 import AnimatedText from "./AnimatedText.astro";
 const animationClassName =
@@ -110,23 +115,7 @@ const animationClassName =
     class="max-w-6xl mx-auto grid grid-cols-12 grid-rows-1 auto-rows-auto pb-custom-3xl gap-x-custom-2xs gap-y-custom-l items-center max-md:flex max-md:flex-col max-md:gap-custom-s max-md:mx-6 max-lg:pb-custom-2xl max-xl:mx-10">
     <div
       class="col-span-6 col-end-7 flex flex-col gap-custom-m max-md:order-2 max-md:items-center">
-      <div
-        class="flex flex-col gap-custom-2xs max-md:items-center py-custom-xs-s px-custom-s-m rounded-2xl shadow-soft-tl-solid-soft-sand">
-        <h3 class="text-heading-large text-green">14.433 kg</h3>
-        <span
-          class="font-body text-body-normal max-w-text-body-normal font-normal text-deep-pine-charcoal max-md:text-center"
-          >the total of plastic waste recycled per November 2025.</span
-        >
-      </div>
-      <div
-        class="flex flex-col gap-custom-2xs max-md:items-center py-custom-xs-s px-custom-s-m rounded-2xl shadow-soft-tl-solid-soft-sand">
-        <h3 class="text-heading-large text-green">3.946.667 pieces</h3>
-        <span
-          class="font-body text-body-normal max-w-text-body-normal font-normal text-deep-pine-charcoal max-md:text-center"
-          >the total of mixed plastic bottle waste that we have been collected
-          so far.</span
-        >
-      </div>
+      {allStats.map((s) => <StatCard stat={s} />)}
     </div>
     <div
       class="col-span-6 col-end-13 px-custom-l-xl py-custom-l-xl max-md:order-1 max-md:px-custom-s-l">
