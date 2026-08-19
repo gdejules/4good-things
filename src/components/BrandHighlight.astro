@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import alohaTrash from "/src/assets/highlight/aloha-trash-3.jpeg";
 import alohaPressing from "/src/assets/collab/aloha/aloha-pressing.png";
 import { PrimaryButton } from "./CustomAwesomeButton";
+import CountUp from "./CountUp";
 
 const learnMoreButton = {
   children: "Learn more",
@@ -162,9 +163,9 @@ const animationClassName =
     scrollTrigger: {
       trigger: ".about-us",
       toggleActions: "play none reverse restart",
-      markers: true,
+      markers: false,
       start: "top bottom-=10%",
-      end: "center top+=30%", // when the top of the trigger hits the bottom 20% of the viewport
+      end: "center top+=30%",
       scrub: 3,
     },
   });
@@ -175,7 +176,7 @@ const animationClassName =
       toggleActions: "play none reverse restart",
       markers: false,
       start: "top bottom-=20%",
-      end: "center top+=40%", // when the top of the trigger hits the bottom 20% of the viewport
+      end: "center top+=40%",
       scrub: 1,
     },
   });
