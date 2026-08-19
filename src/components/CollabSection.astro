@@ -2,7 +2,6 @@
 import "../styles/global.css";
 import { getCollection } from "astro:content";
 import ProjectCard from "./ProjectCard.astro";
-import Button from "./Button.astro";
 import { PrimaryButton } from "./CustomAwesomeButton";
 
 const seeMoreProjectButton = {
@@ -23,7 +22,7 @@ const featuredProjects = await getCollection("projects", ({ data }) => {
     class="max-w-6xl mx-auto flex flex-col justify-start items-center gap-custom-xl-2xl max-md:mx-6 max-xl:mx-10">
     <div class="flex-1 flex flex-col justify-start gap-custom-xs">
       <h2
-        class="font-body font-medium text-heading-small uppercase text-muted-moss">
+        class="font-body font-medium text-body-large uppercase text-muted-moss">
         Our projects
       </h2>
       <span
