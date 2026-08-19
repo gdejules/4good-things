@@ -162,10 +162,10 @@ const animationClassName =
     scrollTrigger: {
       trigger: ".about-us",
       toggleActions: "play none reverse restart",
-      markers: false,
+      markers: true,
       start: "top bottom-=10%",
       end: "center top+=30%", // when the top of the trigger hits the bottom 20% of the viewport
-      scrub: 1,
+      scrub: 3,
     },
   });
 
@@ -185,31 +185,29 @@ const animationClassName =
   });
 
   let split2 = SplitText.create(".highlight-text", {
-    type: "lines",
-    wordsClass: "line",
+    type: "words",
+    wordsClass: "word",
   });
 
   tl.from(split1.words, {
-    x: 50,
     opacity: 0,
     stagger: 0.1,
-    ease: "elastic.inOut",
-  }).from(split2.lines, {
-    x: 50,
+    ease: "none",
+  }).from(split2.words, {
     opacity: 0,
     stagger: 0.3,
-    ease: "bounce.inOut",
+    ease: "none",
   });
 
   let split3 = SplitText.create(".second-highlight-text", {
-    type: "lines",
-    wordsClass: "line",
+    type: "words",
+    wordsClass: "word",
   });
 
-  otherTL.from(split3.lines, {
+  otherTL.from(split3.words, {
     x: 50,
     opacity: 0,
     stagger: 0.3,
-    ease: "bounce.out",
+    ease: "power2.in",
   });
 </script>
