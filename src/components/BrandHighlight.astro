@@ -23,7 +23,7 @@ const animationClassName =
     <div
       class="max-w-6xl mx-auto py-custom-3xl flex flex-col gap-custom-xs max-md:mx-6 max-xl:mx-10">
       <h2
-        class="font-body font-medium text-body-large uppercase text-muted-moss">
+        class="about-us font-body font-medium text-body-large uppercase text-muted-moss">
         About us
       </h2>
       <h3
@@ -88,11 +88,11 @@ const animationClassName =
       </div>
     </div>
   </div>
-  <div class="bg-soft-sand">
+  <div class="section-highlight bg-soft-sand">
     <div
       class="max-w-6xl mx-auto py-custom-3xl flex flex-col gap-custom-xs max-md:mx-6 max-xl:mx-10">
       <h3
-        class="highlight-text text-heading-large max-w-text-heading-large tracking-wide text-deep-pine-charcoal flex flex-col gap-custom-xs">
+        class="second-highlight-text text-heading-large max-w-text-heading-large tracking-wide text-deep-pine-charcoal flex flex-col gap-custom-xs">
         <span>
           We focus on <span class="text-green">reducing plastic waste</span> that
           ends up in the ocean and landfills.
@@ -156,21 +156,60 @@ const animationClassName =
   import { SplitText } from "gsap/SplitText";
   import { ScrollTrigger } from "gsap/all";
 
-  gsap.registerPlugin(SplitText);
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(SplitText, ScrollTrigger);
 
-  let split = SplitText.create(".highlight-text", {
-    type: "words",
-    wordsClass: "word++",
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".about-us",
+      toggleActions: "play none reverse restart",
+      markers: false,
+      start: "top bottom-=10%",
+      end: "center top+=30%", // when the top of the trigger hits the bottom 20% of the viewport
+      scrub: 1,
+    },
   });
 
-  gsap.from(split.words, {
-    y: 100,
-    autoAlpha: 0,
-    stagger: {
-      from: "random",
-      amount: 0.05,
-      repeat: 3,
+  let otherTL = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".section-highlight",
+      toggleActions: "play none reverse restart",
+      markers: false,
+      start: "top bottom-=20%",
+      end: "center top+=40%", // when the top of the trigger hits the bottom 20% of the viewport
+      scrub: 1,
     },
+  });
+
+  let split1 = SplitText.create(".about-us", {
+    type: "words",
+  });
+
+  let split2 = SplitText.create(".highlight-text", {
+    type: "lines",
+    wordsClass: "line",
+  });
+
+  tl.from(split1.words, {
+    x: 50,
+    opacity: 0,
+    stagger: 0.1,
+    ease: "elastic.inOut",
+  }).from(split2.lines, {
+    x: 50,
+    opacity: 0,
+    stagger: 0.3,
+    ease: "bounce.inOut",
+  });
+
+  let split3 = SplitText.create(".second-highlight-text", {
+    type: "lines",
+    wordsClass: "line",
+  });
+
+  otherTL.from(split3.lines, {
+    x: 50,
+    opacity: 0,
+    stagger: 0.3,
+    ease: "bounce.out",
   });
 </script>
