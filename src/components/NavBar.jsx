@@ -127,7 +127,7 @@ export default function Navigation({ logoImage }) {
             {contactButton.children}
           </SocialButton>
         </li>
-        <li className="lg:hidden">
+        <li className="lg:hidden max-md:hidden">
           <SocialButton
             before={<Whatsapp />}
             sharer={contactButton.sharer}
