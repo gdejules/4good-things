@@ -19,7 +19,8 @@ interface ButtonProps {
 interface SocialButtonProps {
   children: string;
   type: string;
-  sharer: object;
+  sharer?: object;
+  href?: string;
   size: string;
   active: boolean;
   before?: ReactNode;
@@ -78,6 +79,7 @@ function SocialButton({
   size,
   before,
   sharer,
+  href,
   className,
 }: SocialButtonProps) {
   return (
@@ -86,6 +88,8 @@ function SocialButton({
       size={size}
       before={before}
       sharer={sharer}
+      href={href}
+      containerProps={{ target: "_blank", rel: "noreferrer noopener" }}
       className={className}>
       <span className="font-display text-body-normal max-lg:text-body-small tracking-widest">
         {children}
@@ -149,14 +153,12 @@ function DownloadButton({
       size={size}
       active={active}
       before={<Download />}
-      className={className}>
-      <a
-        slot="children"
-        href={href}
-        download={download}
-        className="font-display text-body-normal max-lg:text-body-small tracking-widest">
+      className={className}
+      href={href}
+      containerProps={{ target: "_blank", rel: "noreferrer noopener" }}>
+      <span className="font-display text-body-normal max-lg:text-body-small tracking-widest">
         {children}
-      </a>
+      </span>
     </AwesomeButton>
   );
 }
