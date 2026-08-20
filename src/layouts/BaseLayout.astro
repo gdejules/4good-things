@@ -31,3 +31,14 @@ import Footer from "../components/Footer.astro";
     <Footer />
   </body>
 </html>
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const btnOpen = document.querySelector("#btnOpen") as HTMLElement;
+
+    function openMobileMenu() {
+      btnOpen.setAttribute("aria-expanded", "true");
+    }
+
+    btnOpen?.addEventListener("click", openMobileMenu);
+  });
+</script>

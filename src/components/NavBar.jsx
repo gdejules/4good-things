@@ -4,6 +4,7 @@ import {
   SocialButton,
   Whatsapp,
   HamburgerMenu,
+  CloseMenuSlider,
 } from "./CustomAwesomeButton.tsx";
 
 const homeButton = {
@@ -11,6 +12,14 @@ const homeButton = {
   href: "/",
   className: "nav",
   size: "medium",
+  active: false,
+};
+
+const mobileHomeButton = {
+  children: "Home",
+  href: "/",
+  className: "nav",
+  size: "small",
   active: false,
 };
 
@@ -53,19 +62,92 @@ const contactButton = {
 const hamburgerButton = {
   size: "small",
   active: false,
-  onPress: () => alert("Open mobile menu slider"),
+  // onPress: () => alert("Open mobile menu slider"),
+};
+
+const closeSliderButton = {
+  size: "small",
+  active: false,
+  // onPress: () => alert("Close mobile menu slider"),
 };
 
 export default function Navigation({ logoImage }) {
   return (
     <nav className="section py-custom-xs-s bg-warm-alabaster">
-      <ul className="max-w-6xl mx-auto flex justify-between items-center max-md:mx-6 max-xl:mx-10">
+      <span id="nav-label" hidden>
+        Navigation
+      </span>
+      <li
+        id="btnOpen"
+        className="topnav-open md:hidden"
+        aria-expanded="false"
+        aria-labelledby="nav-label">
+        <HamburgerMenu
+          active={hamburgerButton.active}
+          size={hamburgerButton.size}
+        />
+      </li>
+      <div
+        className="topnav-menu md:hidden fixed inset-0 p-6 bg-soft-sand"
+        role="dialog"
+        aria-labelledby="nav-label">
+        <CloseMenuSlider
+          active={closeSliderButton.active}
+          size={closeSliderButton.size}
+          onPress={closeSliderButton.onPress}
+          className="topnav-close block ms-auto mbe-32"
+        />
+        <ul className="topnav-links flex flex-col justify-center items-center gap-custom-2xs-xs">
+          <li>
+            <SecondaryButton
+              href={mobileHomeButton.href}
+              active={mobileHomeButton.active}
+              size={mobileHomeButton.size}>
+              {mobileHomeButton.children}
+            </SecondaryButton>
+          </li>
+          <li>
+            <SecondaryButton
+              href={productButton.href}
+              active={productButton.active}
+              size={productButton.size}>
+              {productButton.children}
+            </SecondaryButton>
+          </li>
+          <li>
+            <SecondaryButton
+              href={projectButton.href}
+              active={projectButton.active}
+              size={projectButton.size}>
+              {projectButton.children}
+            </SecondaryButton>
+          </li>
+          <li>
+            <SecondaryButton
+              href={aboutButton.href}
+              active={aboutButton.active}
+              size={aboutButton.size}>
+              {aboutButton.children}
+            </SecondaryButton>
+          </li>
+          <li>
+            <SocialButton
+              before={<Whatsapp />}
+              sharer={contactButton.sharer}
+              type={contactButton.type}
+              active={contactButton.active}
+              size="small"
+              className="mobile-nav"
+            />
+          </li>
+        </ul>
+      </div>
+      <ul className="desktop-nav max-w-6xl mx-auto flex justify-between items-center max-md:mx-6 max-xl:mx-10">
         <li className="max-lg:hidden">
           <SecondaryButton
             href={homeButton.href}
             active={homeButton.active}
             size={homeButton.size}>
-            {homeButton.children}
             <img
               slot="children"
               src={logoImage.src}
@@ -80,7 +162,6 @@ export default function Navigation({ logoImage }) {
             href={homeButton.href}
             active={homeButton.active}
             size="small">
-            {homeButton.children}
             <img
               slot="children"
               src={logoImage.src}
@@ -135,13 +216,6 @@ export default function Navigation({ logoImage }) {
             active={contactButton.active}
             size="small"
             className="mobile-nav"
-          />
-        </li>
-        <li className="md:hidden">
-          <HamburgerMenu
-            active={hamburgerButton.active}
-            size={hamburgerButton.size}
-            onPress={hamburgerButton.onPress}
           />
         </li>
       </ul>
