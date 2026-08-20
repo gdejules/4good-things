@@ -3,6 +3,7 @@ import {
   SecondaryButton,
   SocialButton,
   Whatsapp,
+  HamburgerMenu,
 } from "./CustomAwesomeButton.tsx";
 
 const homeButton = {
@@ -47,6 +48,12 @@ const contactButton = {
   type: "whatsapp",
   size: "large",
   active: false,
+};
+
+const hamburgerButton = {
+  size: "small",
+  active: false,
+  onPress: () => alert("Open mobile menu slider"),
 };
 
 export default function Navigation({ logoImage }) {
@@ -128,6 +135,13 @@ export default function Navigation({ logoImage }) {
             active={contactButton.active}
             size="small"
             className="mobile-nav"
+          />
+        </li>
+        <li className="md:hidden">
+          <HamburgerMenu
+            active={hamburgerButton.active}
+            size={hamburgerButton.size}
+            onPress={hamburgerButton.onPress}
           />
         </li>
       </ul>
