@@ -162,9 +162,25 @@
     }
   }
 
+  @media (width < 48rem) and (prefers-reduced-motion: reduce) {
+    .topnav-menu {
+      translate: 0;
+      opacity: 0;
+      transition: opacity 500ms ease-in-out;
+    }
+  }
+
   .topnav-open[aria-expanded="true"] {
     + .topnav-menu {
       translate: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .topnav-open[aria-expanded="true"] {
+      + .topnav-menu {
+        opacity: 1;
+      }
     }
   }
 
