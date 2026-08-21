@@ -122,6 +122,13 @@
 }
 
 :root {
+  body {
+    background: linear-gradient(
+      to bottom,
+      transparent 100px,
+      transparent 100px
+    );
+  }
   .aws-btn {
     --button-primary-color: oklch(53.334% 0.15508 143.033);
     --button-primary-color-dark: oklch(40.147% 0.09762 143.511);
