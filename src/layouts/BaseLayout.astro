@@ -36,24 +36,24 @@ import Footer from "../components/Footer.astro";
     const btnOpen = document.querySelector("#btnOpen") as HTMLElement;
     const btnClose = document.querySelector("#btnClose") as HTMLElement;
     const media = window.matchMedia("(width < 48rem)");
-    const topNavMenu = document.querySelector(".topnav-menu");
+    const topNavMenu = document.querySelector(".topnav-menu") as HTMLElement;
 
     function setupTopNav(e: any) {
-      if (e.matches) {
-        console.log("is mobile");
+      if (e.matches && btnOpen.getAttribute("aria-expanded") !== "true") {
         topNavMenu?.setAttribute("inert", "");
       } else {
-        console.log("is desktop");
         topNavMenu?.removeAttribute("inert");
       }
     }
 
     function openMobileMenu() {
       btnOpen.setAttribute("aria-expanded", "true");
+      topNavMenu?.removeAttribute("inert");
     }
 
     function closeMobileMenu() {
       btnOpen.setAttribute("aria-expanded", "false");
+      topNavMenu?.setAttribute("inert", "");
     }
 
     setupTopNav(media);

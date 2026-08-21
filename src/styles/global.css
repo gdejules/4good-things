@@ -149,9 +149,17 @@
     fill: none;
   }
 
-  .topnav-menu {
-    translate: 100vw 0;
-    transition: translate 0.5s ease-in-out;
+  @media (width < 48rem) {
+    .topnav-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      padding-block: var(--spacing-custom-xs-s);
+      padding-inline: 1.5rem;
+      background-color: var(--color-soft-sand);
+      translate: 100vw 0;
+      transition: translate 0.5s ease-in-out;
+    }
   }
 
   .topnav-open[aria-expanded="true"] {

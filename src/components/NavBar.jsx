@@ -116,7 +116,7 @@ export default function Navigation({ logoImage }) {
             />
           </div>
           <div
-            className="topnav-menu fixed z-10 inset-0 max-md:py-custom-xs-s max-md:px-6 max-md:bg-soft-sand"
+            className="topnav-menu"
             role="dialog"
             aria-labelledby="nav-label">
             <div id="btnClose" aria-label="Close">
