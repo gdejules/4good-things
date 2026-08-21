@@ -32,6 +32,8 @@ import Footer from "../components/Footer.astro";
   </body>
 </html>
 <script>
+  import { nonnegative } from "astro:schema";
+
   document.addEventListener("astro:page-load", () => {
     const btnOpen = document.querySelector("#btnOpen") as HTMLElement;
     const btnClose = document.querySelector("#btnClose") as HTMLElement;
@@ -41,6 +43,7 @@ import Footer from "../components/Footer.astro";
     function setupTopNav(e: any) {
       if (e.matches && btnOpen.getAttribute("aria-expanded") !== "true") {
         topNavMenu?.setAttribute("inert", "");
+        topNavMenu.style.transition = "none";
       } else {
         topNavMenu?.removeAttribute("inert");
       }
@@ -49,11 +52,16 @@ import Footer from "../components/Footer.astro";
     function openMobileMenu() {
       btnOpen.setAttribute("aria-expanded", "true");
       topNavMenu?.removeAttribute("inert");
+      topNavMenu.removeAttribute("style");
     }
 
     function closeMobileMenu() {
       btnOpen.setAttribute("aria-expanded", "false");
       topNavMenu?.setAttribute("inert", "");
+
+      setTimeout(() => {
+        topNavMenu.style.transition = "none";
+      }, 500);
     }
 
     setupTopNav(media);
