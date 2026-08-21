@@ -35,6 +35,18 @@ import Footer from "../components/Footer.astro";
   document.addEventListener("astro:page-load", () => {
     const btnOpen = document.querySelector("#btnOpen") as HTMLElement;
     const btnClose = document.querySelector("#btnClose") as HTMLElement;
+    const media = window.matchMedia("(width < 48rem)");
+    const topNavMenu = document.querySelector(".topnav-menu");
+
+    function setupTopNav(e: any) {
+      if (e.matches) {
+        console.log("is mobile");
+        topNavMenu?.setAttribute("inert", "");
+      } else {
+        console.log("is desktop");
+        topNavMenu?.removeAttribute("inert");
+      }
+    }
 
     function openMobileMenu() {
       btnOpen.setAttribute("aria-expanded", "true");
@@ -44,7 +56,13 @@ import Footer from "../components/Footer.astro";
       btnOpen.setAttribute("aria-expanded", "false");
     }
 
+    setupTopNav(media);
+
     btnOpen?.addEventListener("click", openMobileMenu);
     btnClose?.addEventListener("click", closeMobileMenu);
+
+    media.addEventListener("change", function (e) {
+      setupTopNav(e);
+    });
   });
 </script>

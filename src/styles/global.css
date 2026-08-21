@@ -149,10 +149,6 @@
     fill: none;
   }
 
-  /* .topnav-open {
-    @apply md:hidden;
-  } */
-
   .topnav-menu {
     translate: 100vw 0;
     transition: translate 0.5s ease-in-out;
