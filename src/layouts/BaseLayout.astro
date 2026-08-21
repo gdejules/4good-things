@@ -4,13 +4,13 @@ import { ClientRouter } from "astro:transitions";
 import { getImage } from "astro:assets";
 import NavBar from "../components/NavBar";
 import logo from "/src/assets/4goodthings-logo.png";
+import Footer from "../components/Footer.astro";
 
 const optimizedLogo = await getImage({
   src: logo,
   alt: "4GoodThings Logo",
   height: 32,
 });
-import Footer from "../components/Footer.astro";
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -34,14 +34,19 @@ import Footer from "../components/Footer.astro";
   </body>
 </html>
 <script>
-  import { nonnegative } from "astro:schema";
+  import {
+    clearAllBodyScrollLocks,
+    disableBodyScroll,
+    enableBodyScroll,
+  } from "body-scroll-lock-upgrade";
 
   document.addEventListener("astro:page-load", () => {
     const btnOpen = document.querySelector("#btnOpen") as HTMLElement;
     const btnClose = document.querySelector("#btnClose") as HTMLElement;
     const media = window.matchMedia("(width < 48rem)");
     const topNavMenu = document.querySelector(".topnav-menu") as HTMLElement;
-    const main = document.querySelector("main");
+    const main = document.querySelector("main") as HTMLElement;
+    const body = document.querySelector("body") as HTMLElement;
 
     function setupTopNav(e: any) {
       if (e.matches && btnOpen.getAttribute("aria-expanded") !== "true") {
@@ -57,12 +62,14 @@ import Footer from "../components/Footer.astro";
       topNavMenu?.removeAttribute("inert");
       topNavMenu.removeAttribute("style");
       main?.setAttribute("inert", "");
+      disableBodyScroll(body);
     }
 
     function closeMobileMenu() {
       btnOpen.setAttribute("aria-expanded", "false");
       topNavMenu?.setAttribute("inert", "");
       main?.removeAttribute("inert");
+      enableBodyScroll(body);
 
       setTimeout(() => {
         topNavMenu.style.transition = "none";
