@@ -163,4 +163,13 @@
       translate: 0;
     }
   }
+
+  .topnav-close {
+    display: block;
+    margin-block-end: 8rem;
+    margin-inline-start: auto;
+    @media (width >= 48rem) {
+      display: none;
+    }
+  }
 }

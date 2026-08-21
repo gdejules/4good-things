@@ -62,13 +62,11 @@ const contactButton = {
 const hamburgerButton = {
   size: "small",
   active: false,
-  // onPress: () => alert("Open mobile menu slider"),
 };
 
 const closeSliderButton = {
   size: "small",
   active: false,
-  // onPress: () => alert("Close mobile menu slider"),
 };
 
 export default function Navigation({ logoImage }) {
@@ -118,15 +116,16 @@ export default function Navigation({ logoImage }) {
             />
           </div>
           <div
-            className="topnav-menu md:hidden fixed inset-0 p-6 bg-soft-sand"
+            className="topnav-menu fixed z-10 inset-0 py-custom-xs-s px-6 bg-soft-sand"
             role="dialog"
             aria-labelledby="nav-label">
-            <CloseMenuSlider
-              active={closeSliderButton.active}
-              size={closeSliderButton.size}
-              onPress={closeSliderButton.onPress}
-              className="topnav-close block ms-auto mbe-32"
-            />
+            <div id="btnClose" aria-label="Close">
+              <CloseMenuSlider
+                active={closeSliderButton.active}
+                size={closeSliderButton.size}
+                className="topnav-close"
+              />
+            </div>
             <ul className="topnav-links flex max-md:flex-col justify-center items-center gap-custom-xs-s">
               <li>
                 <SecondaryButton
@@ -152,7 +151,7 @@ export default function Navigation({ logoImage }) {
                   {aboutButton.children}
                 </SecondaryButton>
               </li>
-              <li className="max-lg:hidden">
+              <li className="md:max-lg:hidden">
                 <SocialButton
                   before={<Whatsapp />}
                   sharer={contactButton.sharer}
@@ -163,7 +162,7 @@ export default function Navigation({ logoImage }) {
                   {contactButton.children}
                 </SocialButton>
               </li>
-              <li className="lg:hidden">
+              <li className="lg:hidden max-md:hidden">
                 <SocialButton
                   before={<Whatsapp />}
                   sharer={contactButton.sharer}
