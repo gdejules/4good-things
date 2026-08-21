@@ -35,7 +35,6 @@ const optimizedLogo = await getImage({
 </html>
 <script>
   import {
-    clearAllBodyScrollLocks,
     disableBodyScroll,
     enableBodyScroll,
   } from "body-scroll-lock-upgrade";
@@ -54,6 +53,7 @@ const optimizedLogo = await getImage({
         topNavMenu.style.transition = "none";
       } else {
         topNavMenu?.removeAttribute("inert");
+        closeMobileMenu();
       }
     }
 
@@ -63,6 +63,7 @@ const optimizedLogo = await getImage({
       topNavMenu.removeAttribute("style");
       main?.setAttribute("inert", "");
       disableBodyScroll(body);
+      btnClose.focus();
     }
 
     function closeMobileMenu() {
@@ -70,6 +71,7 @@ const optimizedLogo = await getImage({
       topNavMenu?.setAttribute("inert", "");
       main?.removeAttribute("inert");
       enableBodyScroll(body);
+      btnOpen.focus();
 
       setTimeout(() => {
         topNavMenu.style.transition = "none";
