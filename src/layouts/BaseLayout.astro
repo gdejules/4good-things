@@ -27,7 +27,9 @@ import Footer from "../components/Footer.astro";
   </head>
   <body>
     <NavBar client:load transition:persist="navbar" logoImage={optimizedLogo} />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>
@@ -39,6 +41,7 @@ import Footer from "../components/Footer.astro";
     const btnClose = document.querySelector("#btnClose") as HTMLElement;
     const media = window.matchMedia("(width < 48rem)");
     const topNavMenu = document.querySelector(".topnav-menu") as HTMLElement;
+    const main = document.querySelector("main");
 
     function setupTopNav(e: any) {
       if (e.matches && btnOpen.getAttribute("aria-expanded") !== "true") {
@@ -53,11 +56,13 @@ import Footer from "../components/Footer.astro";
       btnOpen.setAttribute("aria-expanded", "true");
       topNavMenu?.removeAttribute("inert");
       topNavMenu.removeAttribute("style");
+      main?.setAttribute("inert", "");
     }
 
     function closeMobileMenu() {
       btnOpen.setAttribute("aria-expanded", "false");
       topNavMenu?.setAttribute("inert", "");
+      main?.removeAttribute("inert");
 
       setTimeout(() => {
         topNavMenu.style.transition = "none";
