@@ -52,8 +52,8 @@ const optimizedLogo = await getImage({
         topNavMenu?.setAttribute("inert", "");
         topNavMenu.style.transition = "none";
       } else {
-        topNavMenu?.removeAttribute("inert");
         closeMobileMenu();
+        topNavMenu?.removeAttribute("inert");
       }
     }
 
