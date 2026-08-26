@@ -5,7 +5,8 @@ import { Image } from "astro:assets";
 
 import alohaTrash from "./../assets/highlight/aloha-trash-3.jpeg";
 import alohaTable from "./../assets/hero/aloha-table.jpeg";
-import placeholder from "./../assets/prasmul-signage.jpg";
+import prasmulSignage from "./../assets/prasmul-signage.jpg";
+import prasmulGarden from "./../assets/prasmul-main.jpeg";
 ---
 
 <BaseLayout>
@@ -44,6 +45,33 @@ import placeholder from "./../assets/prasmul-signage.jpg";
             alt="A red stool made from recycled plastic sheet"
           />
         </div>
+      </div>
+    </div>
+  </section>
+  <section id="about-highlight" class="section">
+    <div class="flex flex-col gap-custom-xl-2xl bg-soft-sand">
+      <div
+        class="max-w-6xl mx-auto py-custom-3xl flex flex-col gap-custom-xs max-md:mx-6 max-xl:mx-10">
+        <h2
+          class="who font-body font-medium text-body-large uppercase text-muted-moss">
+          Who we are
+        </h2>
+        <h3
+          class="about-oneline text-heading-super max-w-text-heading-super tracking-wider text-deep-pine-charcoal">
+          we are a movement to transform plastic waste into meaningful products
+        </h3>
+        <p class="about-belief max-w-text-body-normal text-muted-moss">
+          4GoodThings was born from a belief that waste can have purpose and
+          drive more sustainable future. We strive to turn plastic into
+          meaningful products and create real impact for our environment and
+          community.
+        </p>
+        <Image
+          class="big-picture w-full h-auto aspect-auto rounded-lg object-center my-custom-2xl-3xl"
+          src={prasmulGarden}
+          priority
+          alt="A big blue signage in a garden"
+        />
       </div>
     </div>
   </section>
@@ -116,7 +144,7 @@ import placeholder from "./../assets/prasmul-signage.jpg";
         <div class="flex-1 z-1 -mx-custom-3xs">
           <Image
             class="w-full h-auto aspect-auto rounded-lg shadow-tl-solid-green"
-            src={placeholder}
+            src={prasmulSignage}
             priority
             alt="A red stool made from recycled plastic sheet"
           />
