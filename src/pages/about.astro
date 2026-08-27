@@ -7,6 +7,9 @@ import { Image } from "astro:assets";
 import headerBackground from "./../assets/prasmul-main.jpeg";
 import thrashShreds from "./../assets/thrash-shreds.jpeg";
 import alohaTableDisplay from "./../assets/aloha-table-display.jpeg";
+import circularFirst from "./../assets/circular-first.png";
+import circularSecond from "./../assets/circular-second.png";
+import circularThird from "./../assets/circular-third.png";
 import alohaTrash from "./../assets/highlight/aloha-trash-3.jpeg";
 import alohaTable from "./../assets/hero/aloha-table.jpeg";
 import prasmulSignage from "./../assets/prasmul-signage.jpg";
@@ -45,7 +48,7 @@ const gradient =
     </div>
   </section>
   <section id="about-highlight" class="section bg-forest-shadow">
-    <div class="wrapper auto-rows-auto gap-custom-xl-2xl py-custom-3xl">
+    <div class="wrapper auto-rows-auto py-custom-3xl">
       <div
         class="col-span-10 col-end-12 flex flex-col items-center gap-custom-xs py-custom-l-xl">
         <h2
@@ -87,79 +90,36 @@ const gradient =
       </div>
     </div>
   </section>
-  <section id="about-header" class="section bg-warm-alabaster">
-    <div class="wrapper grid-rows-1 auto-rows-auto py-custom-xl">
-      <div
-        class="col-span-6 col-end-7 flex flex-col justify-center items-start gap-custom-l">
-        <div class="flex flex-col gap-custom-s">
-          <h2
-            class="text-heading-medium max-w-text-heading-medium text-deep-pine-charcoal">
-            Purposeful waste
-          </h2>
-          <p class="max-w-text-body-normal text-muted-moss">
-            Inspired by the global goals for a more sustainable future, we
-            believe that waste can have purpose. From that belief, 4GoodThings
-            was born —a movement to transform plastic waste into meaningful
-            products and create real impact for our environment and community.
-          </p>
-        </div>
-        <div class="flex flex-col gap-custom-s">
-          <div class="flex flex-col gap-custom-xs">
-            <h3
-              class="text-heading-small max-w-text-heading-small text-deep-pine-charcoal">
-              One-way in, one-way out
-            </h3>
-            <p>
-              We have a term "One-way in, one-way out". This means that every
-              piece of plastic waste that enters our workshop must leave as a
-              useful and impactful products aligned with our roots.
-            </p>
-          </div>
-          <div class="flex flex-col gap-custom-xs">
-            <h3
-              class="text-heading-small max-w-text-heading-small text-deep-pine-charcoal">
-              Produced efficiently in-house
-            </h3>
-            <p>
-              Our product and essential goods are designed and created
-              efficiently with less waste and easy to assemble. Because from one
-              product, it can be reused, repaired, and recycled — this is how
-              our circular system works.
-            </p>
-          </div>
-          <div class="flex flex-col gap-custom-xs">
-            <h3
-              class="text-heading-small max-w-text-heading-small text-deep-pine-charcoal">
-              Functional and emotionally valuable
-            </h3>
-            <p>
-              Each product is designed to be functional, durable, and
-              emotionally valuable. There's no perfection in every products but
-              there's a story behind every product we craft.
-            </p>
-          </div>
-          <div class="flex flex-col gap-custom-xs">
-            <h3
-              class="text-heading-small max-w-text-heading-small text-deep-pine-charcoal">
-              Raising environmental awareness
-            </h3>
-            <p>
-              We share our journey to create environmental impact and raise
-              awareness, in order to establish collective responsibility among
-              social & community.
-            </p>
-          </div>
-        </div>
+  <section id="about-principles" class="section bg-forest-shadow">
+    <div class="wrapper auto-rows-auto py-custom-3xl">
+      <div class="col-span-12 flex flex-col gap-custom-xs py-custom-l-xl">
+        <h2
+          class="principle font-body font-medium text-body-large uppercase text-pure-white">
+          Our principles
+        </h2>
+        <h3
+          class="principle-title text-heading-large max-w-text-heading-large tracking-wider text-pure-white">
+          rooted in circular and sustainable practices
+        </h3>
       </div>
       <div
-        class="col-span-6 col-end-13 flex justify-center items-center px-custom-2xs-xl">
-        <div class="flex-1 z-1 -mx-custom-3xs">
-          <Image
-            class="w-full h-auto aspect-auto rounded-lg shadow-tl-solid-green"
-            src={prasmulSignage}
-            priority
-            alt="A red stool made from recycled plastic sheet"
-          />
+        class="col-span-12 grid grid-cols-10 gap-custom-m items-center py-custom-l-xl">
+        <Image
+          class="col-span-4 row-end-2 col-end-5"
+          src={circularFirst}
+          alt="Plactic glass trash"
+        />
+        <div
+          class="circular-first col-span-5 row-end-2 col-end-11 flex flex-col gap-custom-s">
+          <p
+            class="font-body font-bold text-body-large max-w-text-body-large text-pure-white">
+            Consumption · Collection · Recycling
+          </p>
+          <p
+            class="font-body font-normal text-body-normal max-w-text-body-normal text-pure-white">
+            Cutting waste from the systems which end up in landfill or ocean
+            with selective collection system
+          </p>
         </div>
       </div>
     </div>
