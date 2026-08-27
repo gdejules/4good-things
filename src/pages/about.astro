@@ -1,77 +1,89 @@
 ---
 import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getImage } from "astro:assets";
 import { Image } from "astro:assets";
 
+import headerBackground from "./../assets/prasmul-main.jpeg";
+import thrashShreds from "./../assets/thrash-shreds.jpeg";
+import alohaTableDisplay from "./../assets/aloha-table-display.jpeg";
 import alohaTrash from "./../assets/highlight/aloha-trash-3.jpeg";
 import alohaTable from "./../assets/hero/aloha-table.jpeg";
 import prasmulSignage from "./../assets/prasmul-signage.jpg";
-import prasmulGarden from "./../assets/prasmul-main.jpeg";
+
+const optimizedBg = await getImage({
+  src: headerBackground,
+  format: "webp", // Optional: Force a format like webp or avif
+  quality: 80, // Optional: Set optimization quality
+  width: 1440, // Optional: Specify required fallback width
+});
+const gradient =
+  "linear-gradient(to bottom, var(--color-warm-alabaster), var(--color-forest-shadow)";
 ---
 
 <BaseLayout>
-  <section id="about-header" class="section bg-warm-alabaster">
-    <div class="wrapper grid-rows-1 auto-rows-auto py-custom-xl">
-      <div
-        class="col-span-6 col-end-13 row-end-2 flex flex-col justify-center items-start gap-custom-s">
-        <h1
-          class="text-heading-large max-w-text-heading-large text-deep-pine-charcoal">
-          A mission from a curiosity
-        </h1>
-        <p class="max-w-text-body-normal text-muted-moss">
-          Our story began with a simple but uncomfortable reality. Just 6
-          kilometers from our workshop stands Bantar Gebang, the largest
-          landfill in Indonesia. This reality raised many questions that we end
-          up digging further: Is plastic waste actually valuable? Could it be
-          transformed into something useful instead of polluting our
-          environment?
-        </p>
-      </div>
-      <div
-        class="col-span-6 col-end-7 flex justify-center items-center px-custom-2xs-xl">
-        <div class="flex-1 z-1 -mx-custom-3xs">
-          <Image
-            class="w-full h-auto aspect-auto rotate-12 rounded-lg shadow-tl-solid-green"
-            src={alohaTrash}
-            priority
-            alt="A red stool made from recycled plastic sheet"
-          />
-        </div>
-        <div class="flex-1">
-          <Image
-            class="w-auto h-1/3 aspect-auto -rotate-15 rounded-lg shadow-tl-solid-green"
-            src={alohaTable}
-            priority
-            alt="A red stool made from recycled plastic sheet"
-          />
+  <section
+    id="about-header"
+    class="relative min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-end"
+    style={`background-image: url('${optimizedBg.src}');`}>
+    <div
+      class="absolute inset-0 bg-linear-to-b from-warm-alabaster via-transparent to-forest-shadow">
+      <div class="wrapper h-full grid-rows-2 py-custom-xl">
+        <div
+          class="col-span-8 col-end-11 row-end-3 flex flex-col justify-start items-center gap-custom-s">
+          <h1
+            class="text-heading-super max-w-text-heading-super text-pure-white text-center">
+            A mission from a curiosity
+          </h1>
+          <p class="max-w-text-body-normal text-cream text-center">
+            Our journey began with questions: Is plastic waste actually
+            valuable? Could it be transformed into something useful instead of
+            polluting our environment?
+          </p>
         </div>
       </div>
     </div>
   </section>
-  <section id="about-highlight" class="section">
-    <div class="flex flex-col gap-custom-xl-2xl bg-soft-sand">
+  <section id="about-highlight" class="section bg-forest-shadow">
+    <div class="wrapper auto-rows-auto gap-custom-xl-2xl py-custom-3xl">
       <div
-        class="max-w-6xl mx-auto py-custom-3xl flex flex-col gap-custom-xs max-md:mx-6 max-xl:mx-10">
+        class="col-span-10 col-end-12 flex flex-col items-center gap-custom-xs py-custom-l-xl">
         <h2
-          class="who font-body font-medium text-body-large uppercase text-muted-moss">
+          class="who font-body font-medium text-body-large text-center uppercase text-pure-white">
           Who we are
         </h2>
         <h3
-          class="about-oneline text-heading-super max-w-text-heading-super tracking-wider text-deep-pine-charcoal">
-          we are a movement to transform plastic waste into meaningful products
+          class="about-oneline text-heading-large max-w-text-heading-large tracking-wider text-pure-white text-center">
+          a movement to transform plastic waste into meaningful products
         </h3>
-        <p class="about-belief max-w-text-body-normal text-muted-moss">
-          4GoodThings was born from a belief that waste can have purpose and
-          drive more sustainable future. We strive to turn plastic into
-          meaningful products and create real impact for our environment and
-          community.
-        </p>
+      </div>
+      <div
+        class="col-span-12 grid grid-cols-10 gap-custom-m items-center py-custom-l-xl">
         <Image
-          class="big-picture w-full h-auto aspect-auto rounded-lg object-center my-custom-2xl-3xl"
-          src={prasmulGarden}
-          priority
-          alt="A big blue signage in a garden"
+          class="col-span-4 row-end-2 col-end-5"
+          src={thrashShreds}
+          alt="Plactic glass trash"
         />
+        <span
+          class="col-span-5 row-end-2 col-end-11 font-body text-body-large max-w-text-body-large font-normal text-pure-white">
+          Just 6 kilometers from our workshop stands Bantar Gebang, the largest
+          landfill in Indonesia. This uncomfortable reality raised many
+          questions that we end up digging further.
+        </span>
+      </div>
+      <div
+        class="col-span-12 grid grid-cols-10 gap-custom-m items-center py-custom-l-xl">
+        <Image
+          class="col-span-4 row-end-2 col-end-11"
+          src={alohaTableDisplay}
+          alt="Plactic glass trash"
+        />
+        <span
+          class="col-span-5 row-end-2 col-end-6 font-body text-body-large max-w-text-body-large font-normal text-pure-white">
+          4GoodThings was born from the belief that waste can have purpose. We
+          strive to turn plastic into meaningful products and create real impact
+          for our environment and community.
+        </span>
       </div>
     </div>
   </section>
