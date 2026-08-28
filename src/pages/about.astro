@@ -10,6 +10,10 @@ import alohaTableDisplay from "./../assets/aloha-table-display.jpeg";
 import circularFirst from "./../assets/circular-first.png";
 import circularSecond from "./../assets/circular-second.png";
 import circularThird from "./../assets/circular-third.png";
+import ladderFirst from "./../assets/r-Ladder-rethink.png";
+import ladderSecond from "./../assets/r-Ladder-reduce.png";
+import ladderThird from "./../assets/r-Ladder-reuse-repurpose.png";
+import ladderFourth from "./../assets/r-Ladder-recycle.png";
 import alohaTrash from "./../assets/highlight/aloha-trash-3.jpeg";
 import alohaTable from "./../assets/hero/aloha-table.jpeg";
 import prasmulSignage from "./../assets/prasmul-signage.jpg";
@@ -20,8 +24,52 @@ const optimizedBg = await getImage({
   quality: 80, // Optional: Set optimization quality
   width: 1440, // Optional: Specify required fallback width
 });
-const gradient =
-  "linear-gradient(to bottom, var(--color-warm-alabaster), var(--color-forest-shadow)";
+
+const circular = [
+  {
+    title: "Consumption, Use, Reuse, Repair · Collection · Recycling",
+    content:
+      "Cutting waste from the systems which end up in landfill or ocean with selective collection system",
+    image: circularFirst,
+  },
+  {
+    title: "Design · Production, Remanufacturing",
+    content:
+      "Transforming the plastic waste into durable and valuable goods through customized product design",
+    image: circularSecond,
+  },
+  {
+    title: "Distribution",
+    content:
+      "Distributing the products and give plastics a second life, third life, and so on through reuse and repair initiatives",
+    image: circularThird,
+  },
+];
+
+const rLadder = [
+  {
+    title: "Rethink",
+    content: "Turning plastic waste into functional and durable goods",
+    image: ladderFirst,
+  },
+  {
+    title: "Reduce",
+    content:
+      "Efficiency in product designing and production through maximizing pattern and design",
+    image: ladderSecond,
+  },
+  {
+    title: "Reuse and Repurpose",
+    content:
+      "Utilizing production waste from CNC cutting and hot press machine as raw materials",
+    image: ladderThird,
+  },
+  {
+    title: "Recycle",
+    content: "Recycle plastic waste into valuable goods",
+    image: ladderFourth,
+  },
+];
 ---
 
 <BaseLayout>
@@ -52,7 +100,7 @@ const gradient =
       <div
         class="col-span-10 col-end-12 flex flex-col items-center gap-custom-xs py-custom-l-xl">
         <h2
-          class="who font-body font-medium text-body-large text-center uppercase text-pure-white">
+          class="who font-body font-medium text-body-large text-center uppercase text-cream">
           Who we are
         </h2>
         <h3
@@ -94,16 +142,15 @@ const gradient =
     <div class="wrapper auto-rows-auto py-custom-3xl">
       <div class="col-span-12 flex flex-col gap-custom-xs py-custom-l-xl">
         <h2
-          class="principle font-body font-medium text-body-large uppercase text-pure-white">
+          class="principle font-body font-medium text-body-large uppercase text-cream text-center">
           Our principles
         </h2>
         <h3
-          class="principle-title text-heading-large max-w-text-heading-large tracking-wider text-pure-white">
+          class="principle-title text-heading-large max-w-text-heading-large tracking-wider text-pure-white text-center">
           rooted in circular and sustainable practices
         </h3>
       </div>
-      <div
-        class="col-span-12 grid grid-cols-10 gap-custom-m items-center py-custom-l-xl">
+      <div class="col-span-12 grid grid-cols-10 gap-custom-m items-center">
         <Image
           class="col-span-4 row-end-2 col-end-5"
           src={circularFirst}
@@ -111,6 +158,10 @@ const gradient =
         />
         <div
           class="circular-first col-span-5 row-end-2 col-end-11 flex flex-col gap-custom-s">
+          <span
+            class="font-display text-heading-small max-w-text-heading-small my-custom-m text-pure-white"
+            >Circular Product Cycle</span
+          >
           <p
             class="font-body font-bold text-body-large max-w-text-body-large text-pure-white">
             Consumption · Collection · Recycling
