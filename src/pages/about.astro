@@ -158,32 +158,31 @@ const rLadder = [
         </h3>
       </div>
       <div
-        class="pin-section h-screen relative col-span-12 grid grid-cols-10 auto-rows-auto gap-x-custom-2xs gap-y-custom-l-xl items-center my-custom-m">
+        class="pin-section h-screen relative col-span-12 grid grid-cols-10 grid-rows-[auto_auto] gap-x-custom-2xs gap-y-custom-s-m items-center my-custom-m">
         <span
-          class="col-span-5 col-end-6 row-end-2 font-display text-heading-small max-w-text-heading-small text-pure-white"
+          class="col-span-5 col-end-6 row-start-1 row-end-2 font-display text-heading-small max-w-text-heading-small text-pure-white"
           >Circular Product Cycle</span
         >
-        <div class="diagrams relative col-span-5 row-end-3 col-end-6">
+        <div
+          class="diagrams relative col-span-5 col-end-6 row-start-2 row-end-3 aspect-square w-full">
           {
             circular.map(({ image, alt }) => (
-              <div class="slide absolute transform -translate-y-1/2 opacity-0 invisible">
+              <div class="slide absolute inset-0 opacity-0 invisible">
                 <Image class="" src={image} alt={alt} />
               </div>
             ))
           }
         </div>
         <div
-          class="fill absolute top-4/10 bottom-2/10 left-1/2 w-1 h-5/10 bg-cream">
-        </div>
-        <div
-          class="circular articles col-span-5 row-end-3 col-end-11 flex flex-col gap-custom-m">
+          class="circular articles relative col-span-5 col-end-11 row-start-1 row-end-3 flex flex-col gap-custom-m">
+          <div class="fill absolute inset-y-0 left-0 w-1 bg-cream"></div>
           {
             circular.map(({ title, content }) => (
-              <div class="circular list flex flex-col gap-custom-xs ml-custom-m">
-                <p class="font-body font-bold text-body-large max-w-text-body-large text-pure-white">
+              <div class="circular list flex flex-col gap-custom-xs ml-custom-m text-muted-moss">
+                <p class="font-body font-bold text-body-large max-w-text-body-large">
                   {title}
                 </p>
-                <p class="font-body font-normal text-body-normal max-w-text-body-normal text-pure-white">
+                <p class="font-body font-normal text-body-normal max-w-text-body-normal">
                   {content}
                 </p>
               </div>
@@ -201,13 +200,10 @@ const rLadder = [
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const contentList = document.querySelector(".list");
   const fill = document.querySelector(".fill");
-  const content = gsap.utils.toArray<HTMLElement>("p", contentList);
+  const content = gsap.utils.toArray<HTMLElement>(".list");
   const slides = gsap.utils.toArray<HTMLElement>(".slide");
 
-  const pinSections = gsap.utils.toArray(".pin-section");
-  const lists = gsap.utils.toArray(".list");
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".pin-section",
@@ -215,11 +211,10 @@ const rLadder = [
       end: "+=" + content.length * 50 + "%",
       pin: true,
       scrub: true,
-      markers: true,
+      markers: false,
     },
   });
 
-  // First element visible, set the marker
   fill &&
     gsap.set(fill, {
       scaleY: 1 / content.length,
@@ -229,7 +224,7 @@ const rLadder = [
   content.forEach((item, i) => {
     const previousItem = content[i - 1];
     if (previousItem) {
-      tl.set(item, { color: "#ffffff" }, 0.5 * i)
+      tl.set(item, { color: "var(--color-pure-white)" }, 0.5 * i)
         .to(
           slides[i],
           {
@@ -238,7 +233,7 @@ const rLadder = [
           },
           "<",
         )
-        .set(previousItem, { color: "#545e54" }, "<")
+        .set(previousItem, { color: "var(--color-muted-moss)" }, "<")
         .to(
           slides[i - 1],
           {
@@ -248,7 +243,7 @@ const rLadder = [
           "<",
         );
     } else {
-      gsap.set(item, { color: "#ffffff" });
+      gsap.set(item, { color: "var(--color-pure-white)" });
       gsap.set(slides[i], { autoAlpha: 1 });
     }
   });
