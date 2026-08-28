@@ -147,7 +147,7 @@ const rLadder = [
   </section>
   <section id="about-principles" class="section bg-forest-shadow">
     <div class="wrapper auto-rows-auto py-custom-3xl">
-      <div class="col-span-12 flex flex-col gap-custom-xs py-custom-l-xl">
+      <div class="col-span-12 flex flex-col gap-custom-xs py-custom-s-m">
         <h2
           class="principle font-body font-medium text-body-large uppercase text-cream text-center">
           Our principles
@@ -158,30 +158,108 @@ const rLadder = [
         </h3>
       </div>
       <div
-        class="col-span-12 grid grid-cols-10 auto-rows-auto gap-custom-xs items-center my-custom-m">
+        class="pin-section h-screen relative col-span-12 grid grid-cols-10 auto-rows-auto gap-x-custom-2xs gap-y-custom-l-xl items-center my-custom-m">
         <span
           class="col-span-5 col-end-6 row-end-2 font-display text-heading-small max-w-text-heading-small text-pure-white"
           >Circular Product Cycle</span
         >
-        {circular.map(({ title, content, image, alt }) => (
-          <Image
-          class="col-span-4 row-end-3 col-end-5"
-          src={image}
-          alt={alt}
-        />
-        <div
-          class="circular-first col-span-5 row-end-3 col-end-11 flex flex-col gap-custom-s">
-          <p
-            class="font-body font-bold text-body-large max-w-text-body-large text-pure-white">
-            {title}
-          </p>
-          <p
-            class="font-body font-normal text-body-normal max-w-text-body-normal text-pure-white">
-            {content}
-          </p>
+        <div class="diagrams relative col-span-5 row-end-3 col-end-6">
+          {
+            circular.map(({ image, alt }) => (
+              <div class="slide absolute transform -translate-y-1/2 opacity-0 invisible">
+                <Image class="" src={image} alt={alt} />
+              </div>
+            ))
+          }
         </div>
-        ))}
+        <div
+          class="fill absolute top-4/10 bottom-2/10 left-1/2 w-1 h-5/10 bg-cream">
+        </div>
+        <div
+          class="circular articles col-span-5 row-end-3 col-end-11 flex flex-col gap-custom-m">
+          {
+            circular.map(({ title, content }) => (
+              <div class="circular list flex flex-col gap-custom-xs ml-custom-m">
+                <p class="font-body font-bold text-body-large max-w-text-body-large text-pure-white">
+                  {title}
+                </p>
+                <p class="font-body font-normal text-body-normal max-w-text-body-normal text-pure-white">
+                  {content}
+                </p>
+              </div>
+            ))
+          }
+        </div>
       </div>
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  import { gsap } from "gsap/gsap-core";
+  import { ScrollTrigger } from "gsap/all";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const contentList = document.querySelector(".list");
+  const fill = document.querySelector(".fill");
+  const content = gsap.utils.toArray<HTMLElement>("p", contentList);
+  const slides = gsap.utils.toArray<HTMLElement>(".slide");
+
+  const pinSections = gsap.utils.toArray(".pin-section");
+  const lists = gsap.utils.toArray(".list");
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".pin-section",
+      start: "top top",
+      end: "+=" + content.length * 50 + "%",
+      pin: true,
+      scrub: true,
+      markers: true,
+    },
+  });
+
+  // First element visible, set the marker
+  fill &&
+    gsap.set(fill, {
+      scaleY: 1 / content.length,
+      transformOrigin: "top left",
+    });
+
+  content.forEach((item, i) => {
+    const previousItem = content[i - 1];
+    if (previousItem) {
+      tl.set(item, { color: "#ffffff" }, 0.5 * i)
+        .to(
+          slides[i],
+          {
+            autoAlpha: 1,
+            duration: 0.2,
+          },
+          "<",
+        )
+        .set(previousItem, { color: "#545e54" }, "<")
+        .to(
+          slides[i - 1],
+          {
+            autoAlpha: 0,
+            duration: 0.2,
+          },
+          "<",
+        );
+    } else {
+      gsap.set(item, { color: "#ffffff" });
+      gsap.set(slides[i], { autoAlpha: 1 });
+    }
+  });
+  tl.to(
+    fill,
+    {
+      scaleY: 1,
+      transformOrigin: "top left",
+      ease: "none",
+      duration: tl.duration(),
+    },
+    0,
+  ).to({}, {}); // add a small pause at the end of the timeline before it un-pins
+</script>
