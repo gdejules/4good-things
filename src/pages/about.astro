@@ -31,18 +31,21 @@ const circular = [
     content:
       "Cutting waste from the systems which end up in landfill or ocean with selective collection system",
     image: circularFirst,
+    alt: "circular economy diagram",
   },
   {
     title: "Design · Production, Remanufacturing",
     content:
       "Transforming the plastic waste into durable and valuable goods through customized product design",
     image: circularSecond,
+    alt: "circular economy diagram",
   },
   {
     title: "Distribution",
     content:
       "Distributing the products and give plastics a second life, third life, and so on through reuse and repair initiatives",
     image: circularThird,
+    alt: "circular economy diagram",
   },
 ];
 
@@ -51,23 +54,27 @@ const rLadder = [
     title: "Rethink",
     content: "Turning plastic waste into functional and durable goods",
     image: ladderFirst,
+    alt: "r-ladder diagram",
   },
   {
     title: "Reduce",
     content:
       "Efficiency in product designing and production through maximizing pattern and design",
     image: ladderSecond,
+    alt: "r-ladder diagram",
   },
   {
     title: "Reuse and Repurpose",
     content:
       "Utilizing production waste from CNC cutting and hot press machine as raw materials",
     image: ladderThird,
+    alt: "r-ladder diagram",
   },
   {
     title: "Recycle",
     content: "Recycle plastic waste into valuable goods",
     image: ladderFourth,
+    alt: "r-ladder diagram",
   },
 ];
 ---
@@ -150,28 +157,30 @@ const rLadder = [
           rooted in circular and sustainable practices
         </h3>
       </div>
-      <div class="col-span-12 grid grid-cols-10 gap-custom-m items-center">
-        <Image
-          class="col-span-4 row-end-2 col-end-5"
-          src={circularFirst}
-          alt="Plactic glass trash"
+      <div
+        class="col-span-12 grid grid-cols-10 auto-rows-auto gap-custom-xs items-center my-custom-m">
+        <span
+          class="col-span-5 col-end-6 row-end-2 font-display text-heading-small max-w-text-heading-small text-pure-white"
+          >Circular Product Cycle</span
+        >
+        {circular.map(({ title, content, image, alt }) => (
+          <Image
+          class="col-span-4 row-end-3 col-end-5"
+          src={image}
+          alt={alt}
         />
         <div
-          class="circular-first col-span-5 row-end-2 col-end-11 flex flex-col gap-custom-s">
-          <span
-            class="font-display text-heading-small max-w-text-heading-small my-custom-m text-pure-white"
-            >Circular Product Cycle</span
-          >
+          class="circular-first col-span-5 row-end-3 col-end-11 flex flex-col gap-custom-s">
           <p
             class="font-body font-bold text-body-large max-w-text-body-large text-pure-white">
-            Consumption · Collection · Recycling
+            {title}
           </p>
           <p
             class="font-body font-normal text-body-normal max-w-text-body-normal text-pure-white">
-            Cutting waste from the systems which end up in landfill or ocean
-            with selective collection system
+            {content}
           </p>
         </div>
+        ))}
       </div>
     </div>
   </section>
