@@ -274,23 +274,24 @@ const sdg = [
       </div>
       <div
         class="pin-values-section h-screen relative col-span-12 flex flex-col gap-custom-s-m items-center my-custom-m">
-        <div class="tab-value flex gap-custom-s">
+        <div class="tabs flex gap-custom-s">
           <div
-            class="py-custom-xs px-custom-s border-2 border-muted-moss rounded-lg font-display text-heading-medium text-muted-moss data-active:border-0 data-active:bg-green data-active:text-pure-white">
+            class="tab-item py-custom-xs px-custom-s border-2 border-muted-moss rounded-lg font-display text-heading-medium text-muted-moss data-active:border-0 data-active:bg-green data-active:text-pure-white">
             crafted
           </div>
           <div
-            class="py-custom-xs px-custom-s border-2 border-muted-moss rounded-lg font-display text-heading-medium text-muted-moss data-active:border-0 data-active:bg-blue data-active:text-pure-white">
+            class="tab-item py-custom-xs px-custom-s border-2 border-muted-moss rounded-lg font-display text-heading-medium text-muted-moss data-active:border-0 data-active:bg-blue data-active:text-pure-white">
             4 sustainability pillars
           </div>
           <div
-            class="py-custom-xs px-custom-s border-2 border-muted-moss rounded-lg font-display text-heading-medium text-muted-moss data-active:border-0 data-active:bg-orange data-active:text-pure-white">
+            class="tab-item py-custom-xs px-custom-s border-2 border-muted-moss rounded-lg font-display text-heading-medium text-muted-moss data-active:border-0 data-active:bg-orange data-active:text-pure-white">
             purpose
           </div>
         </div>
-        <div class="value-content relative w-full">
+        <div
+          class="value-content relative w-full h-full flex flex-col items-center justify-center">
           <div
-            class="slide-value absolute grid grid-cols-12 auto-rows-auto gap-x-custom-2xs gap-y-custom-s-m opacity-0 invisible">
+            class="slide-value absolute inset-0 grid grid-cols-12 auto-rows-auto gap-x-custom-2xs gap-y-custom-s-m opacity-0 flex items-center justify-center">
             <div
               class="col-span-4 col-end-5 font-body font-medium text-body-normal max-w-text-body-normal text-deep-pine-charcoal">
               Our process begins with thoughtful product design, guided by the
@@ -340,7 +341,7 @@ const sdg = [
             </div>
           </div>
           <div
-            class="slide-value absolute grid grid-cols-12 auto-rows-auto gap-x-custom-2xs gap-y-custom-s-m opacity-0 invisible">
+            class="slide-value absolute inset-0 grid grid-cols-12 auto-rows-auto gap-x-custom-2xs gap-y-custom-s-m opacity-0 flex items-center justify-center">
             {
               sdg.map(({ image, alt, content }) => (
                 <div class="col-span-3 flex flex-col gap-custom-s">
@@ -357,7 +358,7 @@ const sdg = [
             }
           </div>
           <div
-            class="slide-value absolute grid grid-cols-12 auto-rows-auto gap-x-custom-2xs gap-y-custom-s-m opacity-0 invisible">
+            class="slide-value absolute inset-0 grid grid-cols-12 auto-rows-auto gap-x-custom-2xs gap-y-custom-s-m opacity-0 flex items-center justify-center">
             <div
               class="col-span-4 col-end-5 row-end-3 font-body font-medium text-body-normal max-w-text-body-normal text-deep-pine-charcoal">
               Every products crafted, contribute small impact towards the
@@ -538,7 +539,7 @@ const sdg = [
     .to({}, {}); // add a small pause at the end of the timeline before it un-pins
 
   // values animation
-  const tabValue = gsap.utils.toArray<HTMLElement>(".tab-value");
+  const tabValue = gsap.utils.toArray<HTMLElement>(".tab-item");
   const slideValue = gsap.utils.toArray<HTMLElement>(".slide-value");
 
   const tlValue = gsap.timeline({
@@ -552,39 +553,45 @@ const sdg = [
     },
   });
 
+  // Initialize all tabs and slides as inactive/invisible
+  tabValue.forEach((item, i) => {
+    item.removeAttribute("data-active");
+    gsap.set(slideValue[i], { autoAlpha: 0 });
+  });
+
+  // Animate tabs and slides - previous fades out completely before next fades in
   tabValue.forEach((item, i) => {
     const previousItem = tabValue[i - 1];
     if (previousItem) {
-      tlValue
-        .set(
-          item,
-          { onEnter: () => item.setAttribute("data-active", "") },
-          // 0.5 * i,
-        )
-        .to(
-          slideValue[i],
-          {
-            autoAlpha: 1,
-            duration: 0.2,
-          },
-          "<",
-        )
-        .set(
-          previousItem,
-          { onLeave: () => item.removeAttribute("data-active") },
-          "<",
-        )
-        .to(
-          slideValue[i - 1],
-          {
-            autoAlpha: 0,
-            duration: 0.2,
-          },
-          "<",
-        );
+      // First: fade out previous slide
+      tlValue.to(slideValue[i - 1], {
+        autoAlpha: 0,
+        duration: 0.3,
+      });
+      // Remove previous tab's active state
+      tlValue.call(() => previousItem.removeAttribute("data-active"), [], "<");
+      // Set current tab as active
+      tlValue.call(() => item.setAttribute("data-active", ""), [], "<");
+      // Then: fade in new slide
+      tlValue.to(
+        slideValue[i],
+        {
+          autoAlpha: 1,
+          duration: 0.3,
+        },
+        "<",
+      );
     } else {
-      gsap.set(item, { onEnter: () => item.setAttribute("data-active", "") });
-      gsap.set(slideValue[i], { autoAlpha: 1 });
+      // First tab/slide activation on timeline start
+      tlValue.call(() => item.setAttribute("data-active", ""), [], 0);
+      tlValue.to(
+        slideValue[i],
+        {
+          autoAlpha: 1,
+          duration: 0.3,
+        },
+        0,
+      );
     }
   });
 </script>
