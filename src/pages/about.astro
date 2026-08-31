@@ -158,16 +158,16 @@ const rLadder = [
         </h3>
       </div>
       <div
-        class="pin-section h-screen relative col-span-12 grid grid-cols-10 grid-rows-[auto_auto] gap-x-custom-2xs gap-y-custom-s-m items-center my-custom-m">
-        <span
+        class="pin-circular-section h-screen relative col-span-12 grid grid-cols-10 grid-rows-[auto_auto] gap-x-custom-2xs gap-y-custom-s-m items-center my-custom-m">
+        <!-- <span
           class="col-span-5 col-end-6 row-start-1 row-end-2 font-display text-heading-small max-w-text-heading-small text-pure-white"
           >Circular Product Cycle</span
-        >
+        > -->
         <div
-          class="diagrams relative col-span-5 col-end-6 row-start-2 row-end-3 aspect-square w-full">
+          class="diagrams relative col-span-5 col-end-6 row-start-1 row-end-3 aspect-square w-full">
           {
             circular.map(({ image, alt }) => (
-              <div class="slide absolute inset-0 opacity-0 invisible">
+              <div class="slide-circular absolute inset-0 opacity-0 invisible">
                 <Image class="" src={image} alt={alt} />
               </div>
             ))
@@ -175,16 +175,50 @@ const rLadder = [
         </div>
         <div
           class="circular articles relative col-span-5 col-end-11 row-start-1 row-end-3 flex flex-col gap-custom-m">
-          <div class="fill absolute inset-y-0 left-0 w-1 bg-cream"></div>
+          <div class="fill-circular absolute inset-y-0 left-0 w-1 bg-cream">
+          </div>
           {
             circular.map(({ title, content }) => (
-              <div class="circular list flex flex-col gap-custom-xs ml-custom-m text-muted-moss">
+              <div class="list-circular flex flex-col gap-custom-xs ml-custom-m text-muted-moss">
                 <p class="font-body font-bold text-body-large max-w-text-body-large">
                   {title}
                 </p>
                 <p class="font-body font-normal text-body-normal max-w-text-body-normal">
                   {content}
                 </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div
+        class="pin-ladder-section h-screen relative col-span-12 grid grid-cols-10 grid-rows-[auto_auto] gap-x-custom-2xs gap-y-custom-s-m items-center my-custom-m">
+        <!-- <span
+          class="col-span-5 col-end-6 row-start-1 row-end-2 font-display text-heading-small max-w-text-heading-small text-pure-white"
+          >Circular Product Cycle</span
+        > -->
+        <div
+          class="circular articles relative col-span-5 col-end-6 row-start-1 row-end-3 flex flex-col gap-custom-m">
+          <div class="fill-ladder absolute inset-y-0 left-0 w-1 bg-cream"></div>
+          {
+            rLadder.map(({ title, content }) => (
+              <div class="list-ladder flex flex-col gap-custom-xs ml-custom-m text-muted-moss">
+                <p class="font-body font-bold text-body-large max-w-text-body-large">
+                  {title}
+                </p>
+                <p class="font-body font-normal text-body-normal max-w-text-body-normal">
+                  {content}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+        <div
+          class="diagrams relative col-span-5 col-end-11 row-start-1 row-end-3 aspect-auto h-full">
+          {
+            rLadder.map(({ image, alt }) => (
+              <div class="slide-ladder absolute inset-0 opacity-0 invisible">
+                <Image class="" src={image} alt={alt} />
               </div>
             ))
           }
@@ -200,33 +234,34 @@ const rLadder = [
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const fill = document.querySelector(".fill");
-  const content = gsap.utils.toArray<HTMLElement>(".list");
-  const slides = gsap.utils.toArray<HTMLElement>(".slide");
+  const fillCircular = document.querySelector(".fill-circular");
+  const contentCircular = gsap.utils.toArray<HTMLElement>(".list-circular");
+  const slidesCircular = gsap.utils.toArray<HTMLElement>(".slide-circular");
 
-  const tl = gsap.timeline({
+  const tlCircular = gsap.timeline({
     scrollTrigger: {
-      trigger: ".pin-section",
+      trigger: ".pin-circular-section",
       start: "top top",
-      end: "+=" + content.length * 50 + "%",
+      end: "+=" + contentCircular.length * 50 + "%",
       pin: true,
       scrub: true,
       markers: false,
     },
   });
 
-  fill &&
-    gsap.set(fill, {
-      scaleY: 1 / content.length,
+  fillCircular &&
+    gsap.set(fillCircular, {
+      scaleY: 1 / contentCircular.length,
       transformOrigin: "top left",
     });
 
-  content.forEach((item, i) => {
-    const previousItem = content[i - 1];
+  contentCircular.forEach((item, i) => {
+    const previousItem = contentCircular[i - 1];
     if (previousItem) {
-      tl.set(item, { color: "var(--color-pure-white)" }, 0.5 * i)
+      tlCircular
+        .set(item, { color: "var(--color-pure-white)" }, 0.5 * i)
         .to(
-          slides[i],
+          slidesCircular[i],
           {
             autoAlpha: 1,
             duration: 0.2,
@@ -235,7 +270,7 @@ const rLadder = [
         )
         .set(previousItem, { color: "var(--color-muted-moss)" }, "<")
         .to(
-          slides[i - 1],
+          slidesCircular[i - 1],
           {
             autoAlpha: 0,
             duration: 0.2,
@@ -244,17 +279,80 @@ const rLadder = [
         );
     } else {
       gsap.set(item, { color: "var(--color-pure-white)" });
-      gsap.set(slides[i], { autoAlpha: 1 });
+      gsap.set(slidesCircular[i], { autoAlpha: 1 });
     }
   });
-  tl.to(
-    fill,
-    {
-      scaleY: 1,
-      transformOrigin: "top left",
-      ease: "none",
-      duration: tl.duration(),
+  tlCircular
+    .to(
+      fillCircular,
+      {
+        scaleY: 1,
+        transformOrigin: "top left",
+        ease: "none",
+        duration: tlCircular.duration(),
+      },
+      0,
+    )
+    .to({}, {}); // add a small pause at the end of the timeline before it un-pins
+
+  const fillLadder = document.querySelector(".fill-ladder");
+  const contentLadder = gsap.utils.toArray<HTMLElement>(".list-ladder");
+  const slidesLadder = gsap.utils.toArray<HTMLElement>(".slide-ladder");
+
+  const tlLadder = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".pin-ladder-section",
+      start: "top top",
+      end: "+=" + contentLadder.length * 50 + "%",
+      pin: true,
+      scrub: true,
+      markers: false,
     },
-    0,
-  ).to({}, {}); // add a small pause at the end of the timeline before it un-pins
+  });
+
+  fillLadder &&
+    gsap.set(fillLadder, {
+      scaleY: 1 / contentLadder.length,
+      transformOrigin: "top left",
+    });
+
+  contentLadder.forEach((item, i) => {
+    const previousItem = contentLadder[i - 1];
+    if (previousItem) {
+      tlLadder
+        .set(item, { color: "var(--color-pure-white)" }, 0.5 * i)
+        .to(
+          slidesLadder[i],
+          {
+            autoAlpha: 1,
+            duration: 0.2,
+          },
+          "<",
+        )
+        .set(previousItem, { color: "var(--color-muted-moss)" }, "<")
+        .to(
+          slidesLadder[i - 1],
+          {
+            autoAlpha: 0,
+            duration: 0.2,
+          },
+          "<",
+        );
+    } else {
+      gsap.set(item, { color: "var(--color-pure-white)" });
+      gsap.set(slidesLadder[i], { autoAlpha: 1 });
+    }
+  });
+  tlLadder
+    .to(
+      fillLadder,
+      {
+        scaleY: 1,
+        transformOrigin: "top left",
+        ease: "none",
+        duration: tlLadder.duration(),
+      },
+      0,
+    )
+    .to({}, {}); // add a small pause at the end of the timeline before it un-pins
 </script>
