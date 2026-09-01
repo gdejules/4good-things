@@ -542,11 +542,18 @@ const sdg = [
   const tabValue = gsap.utils.toArray<HTMLElement>(".tab-item");
   const slideValue = gsap.utils.toArray<HTMLElement>(".slide-value");
 
+  // Calculate timeline duration: each transition (fade out + fade in) takes 0.6s, plus time to display each slide
+  const fadeDuration = 0.4;
+  const displayDuration = 2.5; // Time each tab content is displayed
+  const transitionDuration = fadeDuration * 2; // fade out + fade in
+  const totalTimelineSeconds =
+    fadeDuration + displayDuration + (tabValue.length - 1) * (transitionDuration + displayDuration);
+
   const tlValue = gsap.timeline({
     scrollTrigger: {
       trigger: ".pin-values-section",
       start: "top top",
-      end: "+=" + tabValue.length * 70 + "%",
+      end: "+=" + totalTimelineSeconds * 100 + "%",
       pin: true,
       scrub: true,
       markers: false,
@@ -559,40 +566,43 @@ const sdg = [
     gsap.set(slideValue[i], { autoAlpha: 0 });
   });
 
-  // Animate tabs and slides - previous fades out completely before next fades in
+  // Animate tabs and slides - sequenced, no overlap
   tabValue.forEach((item, i) => {
     const previousItem = tabValue[i - 1];
     if (previousItem) {
       // First: fade out previous slide
       tlValue.to(slideValue[i - 1], {
         autoAlpha: 0,
-        duration: 0.4,
+        duration: fadeDuration,
         onComplete: () => previousItem.removeAttribute("data-active"),
         onReverseComplete: () => previousItem.setAttribute("data-active", ""),
       });
-      // Then: fade in new slide with tab activation
+      // Then: fade in new slide with tab activation (no overlap - separate animations)
       tlValue.to(
         slideValue[i],
         {
           autoAlpha: 1,
-          duration: 0.4,
+          duration: fadeDuration,
           onStart: () => item.setAttribute("data-active", ""),
           onReverseComplete: () => item.removeAttribute("data-active"),
         },
-        "<",
       );
+      // Display time for current slide (no animation, just timeline spacing)
+      tlValue.to({}, { duration: displayDuration });
     } else {
       // First tab/slide: fade in with tab activation on start
       tlValue.to(
         slideValue[i],
         {
           autoAlpha: 1,
-          duration: 0.4,
+          duration: fadeDuration,
           onStart: () => item.setAttribute("data-active", ""),
           onReverseComplete: () => item.removeAttribute("data-active"),
         },
         0,
       );
+      // Display time for first slide
+      tlValue.to({}, { duration: displayDuration }, 0);
     }
   });
 </script>
