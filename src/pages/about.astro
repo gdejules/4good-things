@@ -566,29 +566,30 @@ const sdg = [
       // First: fade out previous slide
       tlValue.to(slideValue[i - 1], {
         autoAlpha: 0,
-        duration: 0.3,
+        duration: 0.4,
+        onComplete: () => previousItem.removeAttribute("data-active"),
+        onReverseComplete: () => previousItem.setAttribute("data-active", ""),
       });
-      // Remove previous tab's active state
-      tlValue.call(() => previousItem.removeAttribute("data-active"), [], "<");
-      // Set current tab as active
-      tlValue.call(() => item.setAttribute("data-active", ""), [], "<");
-      // Then: fade in new slide
+      // Then: fade in new slide with tab activation
       tlValue.to(
         slideValue[i],
         {
           autoAlpha: 1,
-          duration: 0.3,
+          duration: 0.4,
+          onStart: () => item.setAttribute("data-active", ""),
+          onReverseComplete: () => item.removeAttribute("data-active"),
         },
         "<",
       );
     } else {
-      // First tab/slide activation on timeline start
-      tlValue.call(() => item.setAttribute("data-active", ""), [], 0);
+      // First tab/slide: fade in with tab activation on start
       tlValue.to(
         slideValue[i],
         {
           autoAlpha: 1,
-          duration: 0.3,
+          duration: 0.4,
+          onStart: () => item.setAttribute("data-active", ""),
+          onReverseComplete: () => item.removeAttribute("data-active"),
         },
         0,
       );
