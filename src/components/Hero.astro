@@ -85,7 +85,7 @@ const downloadButton = {
       <div
         class="col-start-1 col-end-4 row-start-1 row-end-2 flex items-center max-md:col-start-1 max-md:col-end-2">
         <Image
-          class="h-auto rounded-lg shadow-md"
+          class="thing thing-1 h-auto rounded-lg shadow-md"
           src={alohaTable}
           priority
           alt="A light-colored table made from recycled plastic sheet"
@@ -94,7 +94,7 @@ const downloadButton = {
       <div
         class="col-start-4 col-end-7 row-start-1 row-end-2 flex justify-center items-center max-md:col-start-2 max-md:col-end-3">
         <Image
-          class="w-3/4 h-auto rounded-lg shadow-md"
+          class="thing thing-2 w-3/4 h-auto rounded-lg shadow-md"
           src={asthaTable}
           priority
           alt="A blue-colored table made from recycled plastic sheet"
@@ -103,7 +103,7 @@ const downloadButton = {
       <div
         class="col-start-4 col-end-7 row-start-2 row-end-3 flex justify-center items-center max-md:col-start-2 max-md:col-end-3">
         <Image
-          class="w-2/3 h-auto rounded-lg shadow-md"
+          class="thing thing-3 w-2/3 h-auto rounded-lg shadow-md"
           src={padelKeychain}
           priority
           alt="Five small padel racket keychain made from recycled plastic sheet"
@@ -112,7 +112,7 @@ const downloadButton = {
       <div
         class="col-start-1 col-end-4 row-start-2 row-end-3 flex justify-center items-center max-md:col-start-1 max-md:col-end-2">
         <Image
-          class="w-3/4 rounded-lg shadow-md"
+          class="thing thing-4 w-3/4 rounded-lg shadow-md"
           src={signatureStool}
           priority
           alt="A red stool made from recycled plastic sheet"
@@ -121,3 +121,81 @@ const downloadButton = {
     </div>
   </div>
 </section>
+
+<script>
+  import { gsap } from "gsap/gsap-core";
+
+  // Use setTimeout to ensure DOM is fully rendered
+  setTimeout(() => {
+    const thing1 = document.querySelector(".thing-1");
+    const thing2 = document.querySelector(".thing-2");
+    const thing3 = document.querySelector(".thing-3");
+    const thing4 = document.querySelector(".thing-4");
+
+    console.log("Animation elements found:", {
+      thing1,
+      thing2,
+      thing3,
+      thing4,
+    });
+
+    if (thing1) {
+      gsap.to(".thing-1", {
+        keyframes: {
+          y: [0, -8, 0],
+          rotation: [0, -1, 0.5, 0],
+          ease: "none",
+          easeEach: "sine.inOut",
+        },
+        duration: 1.2,
+        repeat: -1,
+        transformOrigin: "center center",
+      });
+    }
+
+    if (thing2) {
+      gsap.to(".thing-2", {
+        keyframes: {
+          y: [0, -8, 0],
+          rotation: [0, 1, -0.5, 0],
+          ease: "none",
+          easeEach: "sine.inOut",
+        },
+        duration: 1.2,
+        delay: 0.15,
+        repeat: -1,
+        transformOrigin: "center center",
+      });
+    }
+
+    if (thing3) {
+      gsap.to(".thing-3", {
+        keyframes: {
+          y: [0, -8, 0],
+          rotation: [0, -2, 0.5, 0],
+          ease: "none",
+          easeEach: "sine.inOut",
+        },
+        duration: 1.2,
+        delay: 0.3,
+        repeat: -1,
+        transformOrigin: "center center",
+      });
+    }
+
+    if (thing4) {
+      gsap.to(".thing-4", {
+        keyframes: {
+          y: [0, -8, 0],
+          rotation: [0, 1.5, -1, 0],
+          ease: "none",
+          easeEach: "sine.inOut",
+        },
+        duration: 1.2,
+        delay: 0.45,
+        repeat: -1,
+        transformOrigin: "center center",
+      });
+    }
+  }, 500);
+</script>
