@@ -276,15 +276,15 @@ const sdg = [
         class="pin-values-section h-screen relative col-span-12 flex flex-col gap-custom-s-m items-center">
         <div class="tabs flex gap-custom-s py-custom-xl">
           <div
-            class="tab-item py-custom-xs px-custom-s border-2 border-muted-moss rounded-lg font-display text-heading-medium text-muted-moss data-active:border-0 data-active:bg-green data-active:text-pure-white">
+            class="tab-item cursor-pointer py-custom-xs px-custom-s border-2 border-muted-moss rounded-lg font-display text-heading-medium text-muted-moss data-active:border-0 data-active:bg-green data-active:text-pure-white transition-all duration-200">
             crafted
           </div>
           <div
-            class="tab-item py-custom-xs px-custom-s border-2 border-muted-moss rounded-lg font-display text-heading-medium text-muted-moss data-active:border-0 data-active:bg-blue data-active:text-pure-white">
+            class="tab-item cursor-pointer py-custom-xs px-custom-s border-2 border-muted-moss rounded-lg font-display text-heading-medium text-muted-moss data-active:border-0 data-active:bg-blue data-active:text-pure-white transition-all duration-200">
             4 sustainability pillars
           </div>
           <div
-            class="tab-item py-custom-xs px-custom-s border-2 border-muted-moss rounded-lg font-display text-heading-medium text-muted-moss data-active:border-0 data-active:bg-orange data-active:text-pure-white">
+            class="tab-item cursor-pointer py-custom-xs px-custom-s border-2 border-muted-moss rounded-lg font-display text-heading-medium text-muted-moss data-active:border-0 data-active:bg-orange data-active:text-pure-white transition-all duration-200">
             purpose
           </div>
         </div>
@@ -413,8 +413,9 @@ const sdg = [
 <script>
   import { gsap } from "gsap/gsap-core";
   import { ScrollTrigger } from "gsap/all";
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
   const fillCircular = document.querySelector(".fill-circular");
   const contentCircular = gsap.utils.toArray<HTMLElement>(".list-circular");
@@ -547,7 +548,11 @@ const sdg = [
   const displayDuration = 2.5; // Time each tab content is displayed
   const transitionDuration = fadeDuration * 2; // fade out + fade in
   const totalTimelineSeconds =
-    fadeDuration + displayDuration + (tabValue.length - 1) * (transitionDuration + displayDuration);
+    fadeDuration +
+    displayDuration +
+    (tabValue.length - 1) * (transitionDuration + displayDuration);
+
+  let scrollTriggerInstance: ScrollTrigger | null = null;
 
   const tlValue = gsap.timeline({
     scrollTrigger: {
@@ -557,8 +562,12 @@ const sdg = [
       pin: true,
       scrub: true,
       markers: false,
+      onEnter: () => {},
     },
   });
+
+  // Store the ScrollTrigger instance
+  scrollTriggerInstance = tlValue.scrollTrigger as ScrollTrigger;
 
   // Initialize all tabs and slides as inactive/invisible
   tabValue.forEach((item, i) => {
@@ -578,15 +587,12 @@ const sdg = [
         onReverseComplete: () => previousItem.setAttribute("data-active", ""),
       });
       // Then: fade in new slide with tab activation (no overlap - separate animations)
-      tlValue.to(
-        slideValue[i],
-        {
-          autoAlpha: 1,
-          duration: fadeDuration,
-          onStart: () => item.setAttribute("data-active", ""),
-          onReverseComplete: () => item.removeAttribute("data-active"),
-        },
-      );
+      tlValue.to(slideValue[i], {
+        autoAlpha: 1,
+        duration: fadeDuration,
+        onStart: () => item.setAttribute("data-active", ""),
+        onReverseComplete: () => item.removeAttribute("data-active"),
+      });
       // Display time for current slide (no animation, just timeline spacing)
       tlValue.to({}, { duration: displayDuration });
     } else {
@@ -604,5 +610,37 @@ const sdg = [
       // Display time for first slide
       tlValue.to({}, { duration: displayDuration }, 0);
     }
+  });
+
+  // Add click handlers to tabs for direct navigation
+  tabValue.forEach((item, i) => {
+    item.addEventListener("click", () => {
+      if (!scrollTriggerInstance) return;
+
+      // Calculate timeline position for this tab
+      let timelinePosition = 0;
+      if (i > 0) {
+        timelinePosition =
+          fadeDuration + (i - 1) * (transitionDuration + displayDuration);
+      }
+
+      // Calculate progress through timeline (0 to 1)
+      const progress = timelinePosition / totalTimelineSeconds;
+
+      // Calculate target scroll position
+      const triggerStart = scrollTriggerInstance.start;
+      const triggerEnd = scrollTriggerInstance.end;
+      const targetScroll =
+        triggerStart + progress * (triggerEnd - triggerStart);
+
+      // Scroll to that position quickly to avoid partial opacity states
+      gsap.to(window, {
+        scrollTo: {
+          y: targetScroll,
+          autoKill: false,
+        },
+        duration: 0.3,
+      });
+    });
   });
 </script>
