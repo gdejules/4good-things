@@ -3,6 +3,7 @@ import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getImage } from "astro:assets";
 import { Image } from "astro:assets";
+import OurValues from "../components/OurValuesTabs";
 
 import headerBackground from "./../assets/prasmul-main.jpeg";
 import thrashShreds from "./../assets/thrash-shreds.jpeg";
@@ -28,6 +29,40 @@ const optimizedBg = await getImage({
   quality: 80, // Optional: Set optimization quality
   width: 1440, // Optional: Specify required fallback width
 });
+
+// Process images for OurValues component
+const trashImageOptimized = await getImage({
+  src: alohaTrash,
+});
+
+const tableImageOptimized = await getImage({
+  src: alohaTable,
+});
+
+const sdgImagesOptimized = [
+  {
+    image: await getImage({ src: sdgFirst }),
+    alt: "fourteenth pillar of sustainable development goals",
+    content:
+      "Turning plastic waste into valuable goods before it goes to the ocean.",
+  },
+  {
+    image: await getImage({ src: sdgSecond }),
+    alt: "fifteenth pillar of sustainable development goals",
+    content: "Reducing the plastic waste dumped to the landfills.",
+  },
+  {
+    image: await getImage({ src: sdgThird }),
+    alt: "twelveth pillar of sustainable development goals",
+    content: "Educate people to be responsible with their plastic consumption.",
+  },
+  {
+    image: await getImage({ src: sdgFourth }),
+    alt: "eighth pillar of sustainable development goals",
+    content:
+      "Help local communities to contribute creating impact by being a part of 4GoodThings.",
+  },
+];
 
 const circular = [
   {
@@ -81,15 +116,6 @@ const rLadder = [
     alt: "r-ladder diagram",
   },
 ];
-
-// const craftedContents = [
-//   {
-//     image: ,
-//     alt: ,
-//     title: ,
-//     content: ,
-//   }
-// ]
 
 const sdg = [
   {
@@ -197,10 +223,6 @@ const sdg = [
       </div>
       <div
         class="pin-circular-section h-screen relative col-span-12 grid grid-cols-10 grid-rows-[auto_auto] gap-x-custom-2xs gap-y-custom-s-m items-center my-custom-m">
-        <!-- <span
-          class="col-span-5 col-end-6 row-start-1 row-end-2 font-display text-heading-small max-w-text-heading-small text-pure-white"
-          >Circular Product Cycle</span
-        > -->
         <div
           class="diagrams relative col-span-5 col-end-6 row-start-1 row-end-3 aspect-square w-full">
           {
@@ -406,6 +428,12 @@ const sdg = [
           </div>
         </div>
       </div>
+      <OurValues
+        client:load
+        trashImage={trashImageOptimized}
+        tableImage={tableImageOptimized}
+        sdg={sdgImagesOptimized}
+      />
     </div>
   </section>
 </BaseLayout>
