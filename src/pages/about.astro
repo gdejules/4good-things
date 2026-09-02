@@ -43,6 +43,10 @@ import sdgFirst from "./../assets/E_SDG_Icons-14.jpg";
 import sdgSecond from "./../assets/E_SDG_Icons-15.jpg";
 import sdgThird from "./../assets/E_SDG_Icons-12.jpg";
 import sdgFourth from "./../assets/E_SDG_Icons-08.jpg";
+import alohaPlasticSort from "./../assets/aloha-plastic-sort-3.jpeg";
+import alohaPlasticShreds from "./../assets/aloha-plastic-shreds.jpeg";
+import alohaTableDisplayTwo from "./../assets/aloha-table-6.jpeg";
+import alohaStaffs from "./../assets/aloha-plastic-sort-7.jpeg";
 
 const optimizedBg = await getImage({
   src: headerBackground,
@@ -52,23 +56,23 @@ const optimizedBg = await getImage({
 });
 
 const craftedOne = {
-  src: "/src/assets/aloha-plastic-sort-3.jpeg",
+  src: (await getImage({ src: alohaPlasticSort })).src,
   alt: "plastic sorting",
 };
 
 const craftedTwo = {
-  src: "/src/assets/aloha-plastic-shreds.jpeg",
+  src: (await getImage({ src: alohaPlasticShreds })).src,
   alt: "plastic shreds ready for processing",
 };
 
 const purposeOne: { src: string; alt: string } = {
-  src: "/src/assets/aloha-table-6.jpeg",
+  src: (await getImage({ src: alohaTableDisplayTwo })).src,
   alt: "aloha table display made from recycled plastic",
 };
 
 const purposeTwo = {
-  src: "/src/assets/aloha-plastic-sort-7.jpeg",
-  alt: "group of staff take a picture together",
+  src: (await getImage({ src: alohaStaffs })).src,
+  alt: "a group of people take a picture together with sorted thrash",
 };
 
 // Wrap optimized images with alt text for component props

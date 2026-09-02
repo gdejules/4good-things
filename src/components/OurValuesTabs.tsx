@@ -39,7 +39,7 @@ export default function OurValues({
         </Tab>
       </TabList>
       <TabPanels className="py-custom-s-m">
-        <TabPanel className="grid grid-cols-12 auto-rows-auto gap-x-custom-s gap-y-custom-s items-start justify-center">
+        <TabPanel className="grid grid-cols-12 auto-rows-auto gap-x-custom-m-l gap-y-custom-l items-start justify-center">
           <div className="col-span-4 col-end-5 row-span-2 row-end-3 font-body font-normal text-body-large max-w-text-body-large text-deep-pine-charcoal">
             Our process begins with thoughtful product design, guided by the
             principles of rethink, reduce, reuse, repurpose, and recycle. By
@@ -83,7 +83,7 @@ export default function OurValues({
             </div>
           </div>
         </TabPanel>
-        <TabPanel className="grid grid-cols-12 auto-rows-auto gap-x-custom-s gap-y-custom-s items-start justify-center">
+        <TabPanel className="grid grid-cols-12 auto-rows-auto gap-x-custom-m-l gap-y-custom-l items-start justify-center">
           {sdg.map(({ image, content }) => (
             <div className="col-span-3 flex flex-col gap-custom-s">
               <img
@@ -97,7 +97,7 @@ export default function OurValues({
             </div>
           ))}
         </TabPanel>
-        <TabPanel className="grid grid-cols-12 auto-rows-auto gap-x-custom-s gap-y-custom-s items-start justify-center">
+        <TabPanel className="grid grid-cols-12 auto-rows-auto gap-x-custom-m-l gap-y-custom-l items-start justify-center">
           <div className="col-span-4 col-end-5 row-span-2 row-end-3 font-body font-normal text-body-large max-w-text-body-large text-deep-pine-charcoal">
             Every products crafted, contribute small impact towards the problem
             we have stated.
