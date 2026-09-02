@@ -7,35 +7,38 @@ interface ImageData {
 
 interface SDGItem {
   image: ImageData;
-  alt: string;
   content: string;
 }
 
 interface OurValuesProps {
-  trashImage: ImageData;
-  tableImage: ImageData;
+  craftedOne: ImageData;
+  craftedTwo: ImageData;
   sdg: SDGItem[];
+  purposeOne: ImageData;
+  purposeTwo: ImageData;
 }
 
 export default function OurValues({
-  trashImage,
-  tableImage,
+  craftedOne,
+  craftedTwo,
   sdg,
+  purposeOne,
+  purposeTwo,
 }: OurValuesProps) {
   return (
-    <TabGroup className="col-span-12 flex flex-col gap-custom-s-m items-center">
-      <TabList className="flex gap-custom-s py-custom-xl">
-        <Tab className="cursor-pointer py-custom-xs px-custom-s border-2 rounded-lg font-display text-heading-medium text-muted-moss data-hover:bg-cream data-selected:bg-green data-selected:text-pure-white transition-all duration-200">
+    <TabGroup className="col-span-12 flex flex-col gap-custom-m-l items-center">
+      <TabList className="flex gap-custom-s">
+        <Tab className="cursor-pointer py-custom-xs px-custom-s border-2 border-gray-300 rounded-2xl font-display text-heading-medium text-muted-moss data-hover:bg-cream data-selected:bg-green data-selected:text-pure-white transition-all duration-200">
           crafted
         </Tab>
-        <Tab className="cursor-pointer py-custom-xs px-custom-s border-2 rounded-lg font-display text-heading-medium text-muted-moss data-hover:bg-cream data-selected:bg-blue data-selected:text-pure-white transition-all duration-200">
-          4
+        <Tab className="cursor-pointer py-custom-xs px-custom-s border-2 border-gray-300 rounded-2xl font-display text-heading-medium text-muted-moss data-hover:bg-cream data-selected:bg-blue data-selected:text-pure-white transition-all duration-200">
+          4 sustainability pillars
         </Tab>
-        <Tab className="cursor-pointer py-custom-xs px-custom-s border-2 rounded-lg font-display text-heading-medium text-muted-moss data-hover:bg-cream data-selected:bg-orange data-selected:text-pure-white transition-all duration-200">
+        <Tab className="cursor-pointer py-custom-xs px-custom-s border-2 border-gray-300 rounded-2xl font-display text-heading-medium text-muted-moss data-hover:bg-cream data-selected:bg-orange data-selected:text-pure-white transition-all duration-200">
           purpose
         </Tab>
       </TabList>
-      <TabPanels>
+      <TabPanels className="py-custom-s-m">
         <TabPanel className="grid grid-cols-12 auto-rows-auto gap-x-custom-s gap-y-custom-s items-start justify-center">
           <div className="col-span-4 col-end-5 row-span-2 row-end-3 font-body font-normal text-body-large max-w-text-body-large text-deep-pine-charcoal">
             Our process begins with thoughtful product design, guided by the
@@ -46,9 +49,9 @@ export default function OurValues({
           </div>
           <div className="col-span-7 col-end-13 row-end-2 h-32 flex gap-custom-s">
             <img
-              src={trashImage.src}
-              alt="plastic cup trashes"
-              className="w-40 h-40 aspect-square object-cover object-center"
+              src={craftedOne.src}
+              alt={craftedOne.alt}
+              className="w-40 h-40 aspect-square object-cover object-center rounded-xl"
             />
             <div className="flex flex-col gap-custom-2xs">
               <span className="font-body font-bold text-body-large text-deep-pine-charcoal">
@@ -63,9 +66,9 @@ export default function OurValues({
           </div>
           <div className="col-span-7 col-end-13 row-end-3 flex gap-custom-s">
             <img
-              src={tableImage.src}
-              alt="table made from plastic cups"
-              className="w-40 h-40 aspect-square object-cover object-center"
+              src={craftedTwo.src}
+              alt={craftedTwo.alt}
+              className="w-40 h-40 aspect-square object-cover object-center rounded-xl"
             />
             <div className="flex flex-col gap-custom-2xs">
               <span className="font-body font-bold text-body-large text-deep-pine-charcoal">
@@ -81,12 +84,12 @@ export default function OurValues({
           </div>
         </TabPanel>
         <TabPanel className="grid grid-cols-12 auto-rows-auto gap-x-custom-s gap-y-custom-s items-start justify-center">
-          {sdg.map(({ image, alt, content }) => (
+          {sdg.map(({ image, content }) => (
             <div className="col-span-3 flex flex-col gap-custom-s">
               <img
-                className="w-full aspect-square object-cover object-center"
+                className="w-full aspect-square object-cover object-center rounded-xl"
                 src={image.src}
-                alt={alt}
+                alt={image.alt}
               />
               <span className="font-body font-normal text-body-large text-deep-pine-charcoal">
                 {content}
@@ -102,9 +105,9 @@ export default function OurValues({
 
           <div className="col-span-7 col-end-13 row-end-2 flex gap-custom-s">
             <img
-              src={trashImage.src}
-              alt="plastic cup trashes"
-              className="w-40 h-40 aspect-square object-cover object-center"
+              src={purposeOne.src}
+              alt={purposeOne.alt}
+              className="w-40 h-40 aspect-square object-cover object-center rounded-xl"
             />
             <div className="flex flex-col gap-custom-2xs">
               <span className="font-body font-bold text-body-large text-deep-pine-charcoal">
@@ -119,9 +122,9 @@ export default function OurValues({
           </div>
           <div className="col-span-7 col-end-13 row-end-3 flex gap-custom-s">
             <img
-              src={tableImage.src}
-              alt="table made from plastic cups"
-              className="w-40 h-40 aspect-square object-cover object-center"
+              src={purposeTwo.src}
+              alt={purposeTwo.alt}
+              className="w-40 h-40 aspect-square object-cover object-center rounded-xl"
             />
             <div className="flex flex-col gap-custom-2xs">
               <span className="font-body font-bold text-body-large text-deep-pine-charcoal">

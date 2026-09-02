@@ -19,9 +19,6 @@ import sdgFirst from "./../assets/E_SDG_Icons-14.jpg";
 import sdgSecond from "./../assets/E_SDG_Icons-15.jpg";
 import sdgThird from "./../assets/E_SDG_Icons-12.jpg";
 import sdgFourth from "./../assets/E_SDG_Icons-08.jpg";
-import alohaTrash from "./../assets/highlight/aloha-trash-3.jpeg";
-import alohaTable from "./../assets/hero/aloha-table.jpeg";
-import prasmulSignage from "./../assets/prasmul-signage.jpg";
 
 const optimizedBg = await getImage({
   src: headerBackground,
@@ -30,35 +27,58 @@ const optimizedBg = await getImage({
   width: 1440, // Optional: Specify required fallback width
 });
 
-// Process images for OurValues component
-const trashImageOptimized = await getImage({
-  src: alohaTrash,
-});
+const craftedOne = {
+  src: "/src/assets/aloha-plastic-sort-3.jpeg",
+  alt: "plastic sorting",
+};
 
-const tableImageOptimized = await getImage({
-  src: alohaTable,
-});
+const craftedTwo = {
+  src: "/src/assets/aloha-plastic-shreds.jpeg",
+  alt: "plastic shreds ready for processing",
+};
 
-const sdgImagesOptimized = [
+const purposeOne: { src: string; alt: string } = {
+  src: "/src/assets/aloha-table-6.jpeg",
+  alt: "aloha table display made from recycled plastic",
+};
+
+const purposeTwo = {
+  src: "/src/assets/aloha-plastic-sort-7.jpeg",
+  alt: "group of staff take a picture together",
+};
+
+// Wrap optimized images with alt text for component props
+const sdgImagesOptimized: Array<{
+  image: { src: string; alt: string };
+  content: string;
+}> = [
   {
-    image: await getImage({ src: sdgFirst }),
-    alt: "fourteenth pillar of sustainable development goals",
+    image: {
+      src: (await getImage({ src: sdgFirst })).src,
+      alt: "fourteenth pillar of sustainable development goals",
+    },
     content:
       "Turning plastic waste into valuable goods before it goes to the ocean.",
   },
   {
-    image: await getImage({ src: sdgSecond }),
-    alt: "fifteenth pillar of sustainable development goals",
+    image: {
+      src: (await getImage({ src: sdgSecond })).src,
+      alt: "fifteenth pillar of sustainable development goals",
+    },
     content: "Reducing the plastic waste dumped to the landfills.",
   },
   {
-    image: await getImage({ src: sdgThird }),
-    alt: "twelveth pillar of sustainable development goals",
+    image: {
+      src: (await getImage({ src: sdgThird })).src,
+      alt: "twelveth pillar of sustainable development goals",
+    },
     content: "Educate people to be responsible with their plastic consumption.",
   },
   {
-    image: await getImage({ src: sdgFourth }),
-    alt: "eighth pillar of sustainable development goals",
+    image: {
+      src: (await getImage({ src: sdgFourth })).src,
+      alt: "eighth pillar of sustainable development goals",
+    },
     content:
       "Help local communities to contribute creating impact by being a part of 4GoodThings.",
   },
@@ -294,145 +314,13 @@ const sdg = [
           #crafted4purpose
         </h3>
       </div>
-      <div
-        class="pin-values-section h-screen relative col-span-12 flex flex-col gap-custom-s-m items-center">
-        <div class="tabs flex gap-custom-s py-custom-xl">
-          <div
-            class="tab-item cursor-pointer py-custom-xs px-custom-s border-2 border-muted-moss rounded-lg font-display text-heading-medium text-muted-moss data-active:border-0 data-active:bg-green data-active:text-pure-white transition-all duration-200">
-            crafted
-          </div>
-          <div
-            class="tab-item cursor-pointer py-custom-xs px-custom-s border-2 border-muted-moss rounded-lg font-display text-heading-medium text-muted-moss data-active:border-0 data-active:bg-blue data-active:text-pure-white transition-all duration-200">
-            4 sustainability pillars
-          </div>
-          <div
-            class="tab-item cursor-pointer py-custom-xs px-custom-s border-2 border-muted-moss rounded-lg font-display text-heading-medium text-muted-moss data-active:border-0 data-active:bg-orange data-active:text-pure-white transition-all duration-200">
-            purpose
-          </div>
-        </div>
-        <div
-          class="value-content relative w-full h-full flex flex-col items-center justify-center">
-          <div
-            class="slide-value absolute inset-0 grid grid-cols-12 auto-rows-auto gap-x-custom-s gap-y-custom-s opacity-0 items-start justify-center">
-            <div
-              class="col-span-4 col-end-5 row-span-2 row-end-3 font-body font-normal text-body-large max-w-text-body-large text-deep-pine-charcoal">
-              Our process begins with thoughtful product design, guided by the
-              principles of rethink, reduce, reuse, repurpose, and recycle. By
-              holding on to these values into every stage of the developments,
-              we strive to minimize waste and develop products that are
-              efficient, purposeful, and built to deliver long-term value.
-            </div>
-            <div class="col-span-7 col-end-13 row-end-2 h-32 flex gap-custom-s">
-              <Image
-                src={alohaTrash}
-                alt=""
-                class="w-40 h-40 aspect-square object-cover object-center"
-              />
-              <div class="flex flex-col gap-custom-2xs">
-                <span
-                  class="font-body font-bold text-body-large text-deep-pine-charcoal">
-                  "One-way in, one-way out"
-                </span>
-                <span
-                  class="font-body font-normal text-body-normal max-w-text-body-normal text-deep-pine-charcoal">
-                  Every piece of plastic waste that enters our workshop must
-                  leave as a useful and impactful products aligned with our
-                  roots in circularity and sustainability.
-                </span>
-              </div>
-            </div>
-            <div class="col-span-7 col-end-13 row-end-3 flex gap-custom-s">
-              <Image
-                src={alohaTable}
-                alt=""
-                class="w-40 h-40 aspect-square object-cover object-center"
-              />
-              <div class="flex flex-col gap-custom-2xs">
-                <span
-                  class="font-body font-bold text-body-large text-deep-pine-charcoal">
-                  Efficient in-house process
-                </span>
-                <span
-                  class="font-body font-normal text-body-normal max-w-text-body-normal text-deep-pine-charcoal">
-                  Our product design and essential goods are created
-                  efficiently, less waste, and easy to assemble. Because from
-                  one product, it can be reused, repaired, and recycled — this
-                  is how our circular system works.
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            class="slide-value absolute inset-0 grid grid-cols-12 auto-rows-auto gap-x-custom-s gap-y-custom-s opacity-0 items-start justify-center">
-            {
-              sdg.map(({ image, alt, content }) => (
-                <div class="col-span-3 flex flex-col gap-custom-s">
-                  <Image
-                    class="w-full aspect-square object-cover object-center"
-                    src={image}
-                    alt={alt}
-                  />
-                  <span class="font-body font-normal text-body-large text-deep-pine-charcoal">
-                    {content}
-                  </span>
-                </div>
-              ))
-            }
-          </div>
-          <div
-            class="slide-value absolute inset-0 grid grid-cols-12 auto-rows-auto gap-x-custom-s gap-y-custom-s opacity-0 items-start justify-center">
-            <div
-              class="col-span-4 col-end-5 row-span-2 row-end-3 font-body font-normal text-body-large max-w-text-body-large text-deep-pine-charcoal">
-              Every products crafted, contribute small impact towards the
-              problem we have stated.
-            </div>
-
-            <div class="col-span-7 col-end-13 row-end-2 flex gap-custom-s">
-              <Image
-                src={alohaTrash}
-                alt=""
-                class="w-40 h-40 aspect-square object-cover object-center"
-              />
-              <div class="flex flex-col gap-custom-2xs">
-                <span
-                  class="font-body font-bold text-body-large text-deep-pine-charcoal">
-                  Functional and emotionally valuable
-                </span>
-                <span
-                  class="font-body font-normal text-body-normal max-w-text-body-normal text-deep-pine-charcoal">
-                  Each product is designed to be functional, durable, and
-                  emotionally valuable. There's no perfection in every products
-                  but there's a story behind every product we craft.
-                </span>
-              </div>
-            </div>
-            <div class="col-span-7 col-end-13 row-end-3 flex gap-custom-s">
-              <Image
-                src={alohaTable}
-                alt=""
-                class="w-40 h-40 aspect-square object-cover object-center"
-              />
-              <div class="flex flex-col gap-custom-2xs">
-                <span
-                  class="font-body font-bold text-body-large text-deep-pine-charcoal">
-                  Transparency for impact and awareness
-                </span>
-                <span
-                  class="font-body font-normal text-body-normal max-w-text-body-normal text-deep-pine-charcoal">
-                  Transparency is part of our process. We share our journey to
-                  create environmental impact and raise awareness, in order to
-                  establish collective responsibility among social & community.
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <OurValues
         client:load
-        trashImage={trashImageOptimized}
-        tableImage={tableImageOptimized}
+        craftedOne={craftedOne}
+        craftedTwo={craftedTwo}
         sdg={sdgImagesOptimized}
+        purposeOne={purposeOne}
+        purposeTwo={purposeTwo}
       />
     </div>
   </section>
@@ -566,109 +454,4 @@ const sdg = [
       0,
     )
     .to({}, {}); // add a small pause at the end of the timeline before it un-pins
-
-  // values animation
-  const tabValue = gsap.utils.toArray<HTMLElement>(".tab-item");
-  const slideValue = gsap.utils.toArray<HTMLElement>(".slide-value");
-
-  // Calculate timeline duration: each transition (fade out + fade in) takes 0.6s, plus time to display each slide
-  const fadeDuration = 0.4;
-  const displayDuration = 2.5; // Time each tab content is displayed
-  const transitionDuration = fadeDuration * 2; // fade out + fade in
-  const totalTimelineSeconds =
-    fadeDuration +
-    displayDuration +
-    (tabValue.length - 1) * (transitionDuration + displayDuration);
-
-  let scrollTriggerInstance: ScrollTrigger | null = null;
-
-  const tlValue = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".pin-values-section",
-      start: "top top",
-      end: "+=" + totalTimelineSeconds * 100 + "%",
-      pin: true,
-      scrub: true,
-      markers: false,
-      onEnter: () => {},
-    },
-  });
-
-  // Store the ScrollTrigger instance
-  scrollTriggerInstance = tlValue.scrollTrigger as ScrollTrigger;
-
-  // Initialize all tabs and slides as inactive/invisible
-  tabValue.forEach((item, i) => {
-    item.removeAttribute("data-active");
-    gsap.set(slideValue[i], { autoAlpha: 0 });
-  });
-
-  // Animate tabs and slides - sequenced, no overlap
-  tabValue.forEach((item, i) => {
-    const previousItem = tabValue[i - 1];
-    if (previousItem) {
-      // First: fade out previous slide
-      tlValue.to(slideValue[i - 1], {
-        autoAlpha: 0,
-        duration: fadeDuration,
-        onComplete: () => previousItem.removeAttribute("data-active"),
-        onReverseComplete: () => previousItem.setAttribute("data-active", ""),
-      });
-      // Then: fade in new slide with tab activation (no overlap - separate animations)
-      tlValue.to(slideValue[i], {
-        autoAlpha: 1,
-        duration: fadeDuration,
-        onStart: () => item.setAttribute("data-active", ""),
-        onReverseComplete: () => item.removeAttribute("data-active"),
-      });
-      // Display time for current slide (no animation, just timeline spacing)
-      tlValue.to({}, { duration: displayDuration });
-    } else {
-      // First tab/slide: fade in with tab activation on start
-      tlValue.to(
-        slideValue[i],
-        {
-          autoAlpha: 1,
-          duration: fadeDuration,
-          onStart: () => item.setAttribute("data-active", ""),
-          onReverseComplete: () => item.removeAttribute("data-active"),
-        },
-        0,
-      );
-      // Display time for first slide
-      tlValue.to({}, { duration: displayDuration }, 0);
-    }
-  });
-
-  // Add click handlers to tabs for direct navigation
-  tabValue.forEach((item, i) => {
-    item.addEventListener("click", () => {
-      if (!scrollTriggerInstance) return;
-
-      // Calculate timeline position for this tab
-      let timelinePosition = 0;
-      if (i > 0) {
-        timelinePosition =
-          fadeDuration + (i - 1) * (transitionDuration + displayDuration);
-      }
-
-      // Calculate progress through timeline (0 to 1)
-      const progress = timelinePosition / totalTimelineSeconds;
-
-      // Calculate target scroll position
-      const triggerStart = scrollTriggerInstance.start;
-      const triggerEnd = scrollTriggerInstance.end;
-      const targetScroll =
-        triggerStart + progress * (triggerEnd - triggerStart);
-
-      // Scroll to that position quickly to avoid partial opacity states
-      gsap.to(window, {
-        scrollTo: {
-          y: targetScroll,
-          autoKill: false,
-        },
-        duration: 0.3,
-      });
-    });
-  });
 </script>
