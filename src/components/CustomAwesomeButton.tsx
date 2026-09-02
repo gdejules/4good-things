@@ -28,6 +28,20 @@ interface SocialButtonProps {
   className?: string;
 }
 
+// Icon rendering helper
+function getIconForType(iconType: string): ReactNode {
+  switch (iconType) {
+    case "whatsapp":
+      return <Whatsapp />;
+    case "instagram":
+      return <Instagram />;
+    case "mail":
+      return <Mail />;
+    default:
+      return null;
+  }
+}
+
 function PrimaryButton({
   children,
   href,
@@ -78,7 +92,7 @@ function SocialButton({
   children,
   type,
   size,
-  before,
+  active,
   sharer,
   href,
   className,
@@ -87,7 +101,7 @@ function SocialButton({
     <AwesomeButtonSocial
       type={type}
       size={size}
-      before={before}
+      before={getIconForType(type)}
       sharer={sharer}
       href={href}
       containerProps={{ target: "_blank", rel: "noreferrer noopener" }}

@@ -4,6 +4,30 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { getImage } from "astro:assets";
 import { Image } from "astro:assets";
 import OurValues from "../components/OurValuesTabs";
+import {
+  SocialButton,
+  DownloadButton,
+} from "../components/CustomAwesomeButton";
+
+const contactButton = {
+  children: "Contact us",
+  sharer: {
+    url: "https://play.google.com/store/apps/details?id=com.whatsapp&hl=en",
+    message: "Check this out",
+  },
+  className: "about-cta",
+  type: "whatsapp",
+  size: "large",
+  active: false,
+};
+const downloadButton = {
+  children: "Catalogue",
+  href: "/downloads/REV-1 Catalogue 4GoodThings.pdf",
+  download: "Product Catalogue",
+  className: "download",
+  size: "large",
+  active: false,
+};
 
 import headerBackground from "./../assets/prasmul-main.jpeg";
 import thrashShreds from "./../assets/thrash-shreds.jpeg";
@@ -297,6 +321,41 @@ const rLadder = [
         purposeOne={purposeOne}
         purposeTwo={purposeTwo}
       />
+    </div>
+  </section>
+  <section id="about-cta" class="section bg-soft-sand">
+    <div class="wrapper auto-rows-auto py-custom-3xl">
+      <div
+        class="col-span-8 col-end-11 flex flex-col gap-custom-xs items-center">
+        <h2
+          class="text-heading-large max-w-text-heading-large tracking-wider text-deep-pine-charcoal text-center">
+          TOGETHER WE CAN DRIVE A better FUTURE
+        </h2>
+        <p
+          class="text-body-large max-w-text-body-large text-muted-moss text-center">
+          We can help you to bring your sustainability ideas to life. Contact us
+          for collaboration or check our catalog for product inquiries. Let’s
+          start your circular economy journey for the environment and community.
+        </p>
+        <div class="flex gap-custom-s py-custom-l-m">
+          <SocialButton
+            client:load
+            sharer={contactButton.sharer}
+            type={contactButton.type}
+            active={contactButton.active}
+            size={contactButton.size}
+            className={contactButton.className}>
+            {contactButton.children}
+          </SocialButton>
+          <DownloadButton
+            client:load
+            href={downloadButton.href}
+            active={downloadButton.active}
+            size={downloadButton.size}>
+            {downloadButton.children}
+          </DownloadButton>
+        </div>
+      </div>
     </div>
   </section>
 </BaseLayout>
