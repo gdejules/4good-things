@@ -275,9 +275,9 @@ const rLadder = [
         </div>
       </div>
       <div
-        class="pin-ladder-section h-screen relative col-span-12 grid grid-cols-10 grid-rows-[auto_auto] gap-x-custom-2xs gap-y-custom-s-m items-center my-custom-m">
+        class="pin-ladder-section h-screen relative col-span-12 grid grid-cols-10 gap-x-custom-2xs gap-y-custom-s-m items-center my-custom-m">
         <div
-          class="circular articles relative col-span-5 col-end-6 row-start-1 row-end-3 flex flex-col gap-custom-m">
+          class="ladder articles relative col-span-5 col-end-6 flex flex-col gap-custom-m">
           <div class="fill-ladder absolute inset-y-0 left-0 w-1 bg-cream"></div>
           {
             rLadder.map(({ title, content }) => (
@@ -292,12 +292,15 @@ const rLadder = [
             ))
           }
         </div>
-        <div
-          class="diagrams relative col-span-5 col-end-11 row-start-1 row-end-3 aspect-auto h-full">
+        <div class="diagrams relative col-span-5 col-end-11 aspect-2/3 w-full">
           {
             rLadder.map(({ image, alt }) => (
               <div class="slide-ladder absolute inset-0 opacity-0 invisible">
-                <Image class="" src={image} alt={alt} />
+                <Image
+                  class="h-full w-full object-contain"
+                  src={image}
+                  alt={alt}
+                />
               </div>
             ))
           }
