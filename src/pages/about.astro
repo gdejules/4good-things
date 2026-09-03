@@ -173,7 +173,7 @@ const rLadder = [
     style={`background-image: url('${optimizedBg.src}');`}>
     <div
       class="absolute inset-0 bg-linear-to-b from-warm-alabaster via-transparent to-forest-shadow">
-      <div class="wrapper h-full grid-rows-2 py-custom-xl">
+      <div class="wrapper h-full grid-rows-2 py-custom-xl max-md:justify-end">
         <div
           class="col-span-8 col-end-11 row-end-3 flex flex-col justify-start items-center gap-custom-s">
           <h1
@@ -203,9 +203,9 @@ const rLadder = [
         </h3>
       </div>
       <div
-        class="col-span-12 grid grid-cols-10 gap-custom-m items-center py-custom-l-xl">
+        class="col-span-12 grid grid-cols-10 gap-custom-m items-center py-custom-l-xl max-sm:flex max-sm:flex-col">
         <Image
-          class="col-span-4 row-end-2 col-end-5"
+          class="col-span-4 row-end-2 col-end-5 max-sm:w-2/3 max-sm:h-auto"
           src={thrashShreds}
           alt="Plactic glass trash"
         />
@@ -217,9 +217,9 @@ const rLadder = [
         </span>
       </div>
       <div
-        class="col-span-12 grid grid-cols-10 gap-custom-m items-center py-custom-l-xl">
+        class="col-span-12 grid grid-cols-10 gap-custom-m items-center py-custom-l-xl max-sm:flex max-sm:flex-col">
         <Image
-          class="col-span-4 row-end-2 col-end-11"
+          class="col-span-4 row-end-2 col-end-11 max-sm:w-2/3 max-sm:h-auto"
           src={alohaTableDisplay}
           alt="Plactic glass trash"
         />
@@ -245,9 +245,9 @@ const rLadder = [
         </h3>
       </div>
       <div
-        class="pin-circular-section h-screen relative col-span-12 grid grid-cols-10 grid-rows-[auto_auto] gap-x-custom-2xs gap-y-custom-s-m items-center my-custom-m">
+        class="pin-circular-section h-screen relative col-span-12 grid grid-cols-10 grid-rows-[auto_auto] gap-x-custom-2xs gap-y-custom-s-m items-center my-custom-m max-sm:flex max-sm:w-full">
         <div
-          class="diagrams relative col-span-5 col-end-6 row-start-1 row-end-3 aspect-square w-full">
+          class="diagrams relative col-span-5 col-end-6 row-start-1 row-end-3 aspect-square w-full max-sm:hidden">
           {
             circular.map(({ image, alt }) => (
               <div class="slide-circular absolute inset-0 opacity-0 invisible">
@@ -275,7 +275,7 @@ const rLadder = [
         </div>
       </div>
       <div
-        class="pin-ladder-section h-screen relative col-span-12 grid grid-cols-10 gap-x-custom-2xs gap-y-custom-s-m items-center my-custom-m">
+        class="pin-ladder-section h-screen relative col-span-12 grid grid-cols-10 gap-x-custom-2xs gap-y-custom-s-m items-center my-custom-m max-sm:flex max-sm:w-full">
         <div
           class="ladder articles relative col-span-5 col-end-6 flex flex-col gap-custom-m">
           <div class="fill-ladder absolute inset-y-0 left-0 w-1 bg-cream"></div>
@@ -292,7 +292,8 @@ const rLadder = [
             ))
           }
         </div>
-        <div class="diagrams relative col-span-5 col-end-11 aspect-2/3 w-full">
+        <div
+          class="diagrams relative col-span-5 col-end-11 aspect-2/3 w-full max-sm:hidden">
           {
             rLadder.map(({ image, alt }) => (
               <div class="slide-ladder absolute inset-0 opacity-0 invisible">
@@ -344,7 +345,7 @@ const rLadder = [
           for collaboration or check our catalog for product inquiries. Let’s
           start your circular economy journey for the environment and community.
         </p>
-        <div class="flex gap-custom-s py-custom-l-m">
+        <div class="flex gap-custom-s py-custom-l-m max-sm:flex-col">
           <SocialButton
             client:load
             sharer={contactButton.sharer}

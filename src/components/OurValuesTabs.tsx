@@ -27,7 +27,7 @@ export default function OurValues({
 }: OurValuesProps) {
   return (
     <TabGroup className="col-span-12 flex flex-col gap-custom-m-l items-center">
-      <TabList className="flex gap-custom-s">
+      <TabList className="flex gap-custom-s max-md:flex-col">
         <Tab className="cursor-pointer py-custom-xs px-custom-s border-2 border-gray-300 rounded-2xl font-display text-heading-medium text-muted-moss data-hover:bg-cream data-selected:bg-green data-selected:text-pure-white transition-all duration-200">
           crafted
         </Tab>
@@ -39,15 +39,15 @@ export default function OurValues({
         </Tab>
       </TabList>
       <TabPanels className="py-custom-s-m">
-        <TabPanel className="grid grid-cols-12 auto-rows-auto gap-x-custom-m-l gap-y-custom-l items-start justify-center">
-          <div className="col-span-4 col-end-5 row-span-2 row-end-3 font-body font-normal text-body-large max-w-text-body-large text-deep-pine-charcoal">
+        <TabPanel className="grid grid-cols-12 auto-rows-auto gap-x-custom-m-l gap-y-custom-l items-start justify-center max-md:flex max-md:flex-col">
+          <div className="col-span-5 col-end-6 row-span-2 row-end-3 font-body font-normal text-body-large max-w-text-body-large text-deep-pine-charcoal">
             Our process begins with thoughtful product design, guided by the
             principles of rethink, reduce, reuse, repurpose, and recycle. By
             holding on to these values into every stage of the developments, we
             strive to minimize waste and develop products that are efficient,
             purposeful, and built to deliver long-term value.
           </div>
-          <div className="col-span-7 col-end-13 row-end-2 h-32 flex gap-custom-s">
+          <div className="col-span-7 col-end-13 row-end-2 flex gap-custom-s max-md:items-center max-sm:flex-col">
             <img
               src={craftedOne.src}
               alt={craftedOne.alt}
@@ -64,7 +64,7 @@ export default function OurValues({
               </span>
             </div>
           </div>
-          <div className="col-span-7 col-end-13 row-end-3 flex gap-custom-s">
+          <div className="col-span-7 col-end-13 row-end-3 flex gap-custom-s max-md:items-center max-sm:flex-col">
             <img
               src={craftedTwo.src}
               alt={craftedTwo.alt}
@@ -83,11 +83,11 @@ export default function OurValues({
             </div>
           </div>
         </TabPanel>
-        <TabPanel className="grid grid-cols-12 auto-rows-auto gap-x-custom-m-l gap-y-custom-l items-start justify-center">
+        <TabPanel className="grid grid-cols-12 auto-rows-auto gap-x-custom-m-l gap-y-custom-l items-start justify-center max-md:grid-cols-2">
           {sdg.map(({ image, content }) => (
             <div
               key={image.src}
-              className="col-span-3 flex flex-col gap-custom-s">
+              className="col-span-3 flex flex-col gap-custom-s max-md:col-span-1">
               <img
                 className="w-full aspect-square object-cover object-center rounded-xl"
                 src={image.src}
@@ -99,13 +99,13 @@ export default function OurValues({
             </div>
           ))}
         </TabPanel>
-        <TabPanel className="grid grid-cols-12 auto-rows-auto gap-x-custom-m-l gap-y-custom-l items-start justify-center">
+        <TabPanel className="grid grid-cols-12 auto-rows-auto gap-x-custom-m-l gap-y-custom-l items-start justify-center max-md:flex max-md:flex-col">
           <div className="col-span-4 col-end-5 row-span-2 row-end-3 font-body font-normal text-body-large max-w-text-body-large text-deep-pine-charcoal">
             Every products crafted, contribute small impact towards the problem
             we have stated.
           </div>
 
-          <div className="col-span-7 col-end-13 row-end-2 flex gap-custom-s">
+          <div className="col-span-7 col-end-13 row-end-2 flex gap-custom-s max-md:items-center max-sm:flex-col">
             <img
               src={purposeOne.src}
               alt={purposeOne.alt}
@@ -122,7 +122,7 @@ export default function OurValues({
               </span>
             </div>
           </div>
-          <div className="col-span-7 col-end-13 row-end-3 flex gap-custom-s">
+          <div className="col-span-7 col-end-13 row-end-3 flex gap-custom-s max-md:items-center max-sm:flex-col">
             <img
               src={purposeTwo.src}
               alt={purposeTwo.alt}
