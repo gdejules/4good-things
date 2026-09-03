@@ -85,7 +85,9 @@ export default function OurValues({
         </TabPanel>
         <TabPanel className="grid grid-cols-12 auto-rows-auto gap-x-custom-m-l gap-y-custom-l items-start justify-center">
           {sdg.map(({ image, content }) => (
-            <div className="col-span-3 flex flex-col gap-custom-s">
+            <div
+              key={image.src}
+              className="col-span-3 flex flex-col gap-custom-s">
               <img
                 className="w-full aspect-square object-cover object-center rounded-xl"
                 src={image.src}
