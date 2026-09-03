@@ -148,10 +148,9 @@
     --button-default-border-radius: 16px;
   }
 
-  .aws-btn--whatsapp .aws-btn__content path {
-    fill: none;
-  }
-
+  .aws-btn--whatsapp .aws-btn__content path,
+  .aws-btn--instagram .aws-btn__content path,
+  .aws-btn--mail .aws-btn__content path,
   .aws-btn--secondary .aws-btn__content path {
     fill: none;
   }

@@ -3,6 +3,31 @@ import "../styles/global.css";
 import { Image } from "astro:assets";
 import logo from "/public/4goodthings-logo-center_1.png";
 import Button from "./Button.astro";
+import { SocialButton } from "./CustomAwesomeButton";
+
+const whatsappButton = {
+  sharer: {
+    url: "https://wa.me/6281113805807",
+    message: "Hi, I want to ask about reycling plastics products.",
+  },
+  type: "whatsapp",
+  size: "small",
+  active: false,
+};
+
+const instaButton = {
+  href: "https://www.instagram.com/4goodthings_/",
+  type: "instagram",
+  size: "small",
+  active: false,
+};
+
+const mailButton = {
+  href: "mailto:weare4goodthings@gmail.com",
+  type: "mail",
+  size: "small",
+  active: false,
+};
 ---
 
 <footer class="section pt-20 pb-10 bg-forest-shadow">
@@ -156,6 +181,29 @@ import Button from "./Button.astro";
               <span>Email</span>
             </a>
           </Button>
+        </div>
+        <div class="flex gap-custom-l">
+          <SocialButton
+            client:load
+            type={whatsappButton.type}
+            sharer={whatsappButton.sharer}
+            size={whatsappButton.size}
+            active={whatsappButton.active}
+          />
+          <SocialButton
+            client:load
+            type={instaButton.type}
+            href={instaButton.href}
+            size={instaButton.size}
+            active={instaButton.active}
+          />
+          <SocialButton
+            client:load
+            type={mailButton.type}
+            href={mailButton.href}
+            size={mailButton.size}
+            active={mailButton.active}
+          />
         </div>
       </div>
     </div>
