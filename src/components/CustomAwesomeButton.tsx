@@ -7,8 +7,8 @@ import "@rcaferati/react-awesome-button/styles.css";
 import type { ReactNode } from "react";
 
 interface ButtonProps {
-  children?: string;
-  href: string;
+  children?: ReactNode;
+  href?: string;
   size: string;
   active: boolean;
   before?: ReactNode;

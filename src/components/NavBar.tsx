@@ -2,7 +2,6 @@ import "/src/styles/global.css";
 import {
   SecondaryButton,
   SocialButton,
-  Whatsapp,
   HamburgerMenu,
   CloseMenuSlider,
 } from "./CustomAwesomeButton.tsx";
@@ -12,14 +11,6 @@ const homeButton = {
   href: "/",
   className: "nav",
   size: "medium",
-  active: false,
-};
-
-const mobileHomeButton = {
-  children: "Home",
-  href: "/",
-  className: "nav",
-  size: "small",
   active: false,
 };
 
@@ -69,7 +60,18 @@ const closeSliderButton = {
   active: false,
 };
 
-export default function Navigation({ logoImage }) {
+interface ImageData {
+  src: string;
+  alt: string;
+  height?: number;
+  width?: number;
+}
+
+interface Prop {
+  logoImage: ImageData;
+}
+
+export default function Navigation({ logoImage }: Prop) {
   return (
     <header className="section py-custom-xs-s bg-warm-alabaster">
       <div className="max-w-6xl mx-auto flex justify-between items-center max-md:mx-6 max-xl:mx-10">
@@ -78,13 +80,7 @@ export default function Navigation({ logoImage }) {
             href={homeButton.href}
             active={homeButton.active}
             size={homeButton.size}>
-            <img
-              slot="children"
-              src={logoImage.src}
-              alt="4GoodThings Logo"
-              layout="constrained"
-              class="w-auto"
-            />
+            <img src={logoImage.src} alt={logoImage.alt} className="w-auto" />
           </SecondaryButton>
         </div>
         <div className="lg:hidden">
@@ -92,13 +88,7 @@ export default function Navigation({ logoImage }) {
             href={homeButton.href}
             active={homeButton.active}
             size="small">
-            <img
-              slot="children"
-              src={logoImage.src}
-              alt="4GoodThings Logo"
-              layout="constrained"
-              class="w-auto"
-            />
+            <img src={logoImage.src} alt={logoImage.alt} className="w-auto" />
           </SecondaryButton>
         </div>
         <nav>
@@ -153,7 +143,6 @@ export default function Navigation({ logoImage }) {
               </li>
               <li className="md:max-lg:hidden">
                 <SocialButton
-                  before={<Whatsapp />}
                   sharer={contactButton.sharer}
                   type={contactButton.type}
                   active={contactButton.active}
@@ -164,7 +153,6 @@ export default function Navigation({ logoImage }) {
               </li>
               <li className="lg:hidden max-md:hidden">
                 <SocialButton
-                  before={<Whatsapp />}
                   sharer={contactButton.sharer}
                   type={contactButton.type}
                   active={contactButton.active}

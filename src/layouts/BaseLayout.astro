@@ -11,6 +11,7 @@ const optimizedLogo = await getImage({
   alt: "4GoodThings Logo",
   height: 32,
 });
+console.log(typeof optimizedLogo);
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -26,7 +27,11 @@ const optimizedLogo = await getImage({
     <ClientRouter />
   </head>
   <body>
-    <NavBar client:load transition:persist="navbar" logoImage={optimizedLogo} />
+    <NavBar
+      client:load
+      transition:persist="navbar"
+      logoImage={{ src: optimizedLogo.src, alt: "4GoodThings logo" }}
+    />
     <main>
       <slot />
     </main>
