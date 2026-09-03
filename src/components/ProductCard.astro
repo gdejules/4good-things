@@ -13,9 +13,9 @@ import Image from "astro/components/Image.astro";
 ---
 
 <div
-  class="relative min-w-0 h-auto col-span-3 flex flex-col gap-custom-2xs justify-start items-start bg-warm-alabaster rounded-2xl max-md:col-span-1 overflow-clip border-[lightgrey] border-2">
+  class="relative group min-w-0 h-auto col-span-3 flex flex-col gap-custom-2xs justify-start items-start bg-warm-alabaster rounded-2xl max-md:col-span-1 overflow-clip border-[lightgrey] border-2 cursor-pointer transition hover:scale-100 hover:-translate-y-2 hover:-translate-x-2 hover:shadow-tl-solid-honey duration-500 ease-cubic">
   <p
-    class="absolute top-2 left-2 right-2 amount max-w-max truncate font-body text-body-small font-normal text-green backdrop-blur-lg py-custom-3xs px-custom-s rounded-full hover:text-pure-white hover:bg-green">
+    class="absolute top-2 left-2 right-2 amount max-w-max truncate font-body text-body-small font-normal text-green backdrop-blur-lg py-custom-3xs px-custom-s rounded-full group-hover:text-pure-white group-hover:bg-green">
     {recycledWeight} of plastic waste recycled
   </p>
   <Image
@@ -34,7 +34,7 @@ import Image from "astro/components/Image.astro";
     {name}
   </h3>
   <p
-    class="price font-body text-body-normal font-medium text-blue max-sm:text-body-small hover:text-pure-white hover:bg-blue self-end rounded-tl-2xl py-custom-3xs px-custom-s overflow-hidden text-ellipsis">
+    class="price font-body text-body-normal font-medium text-blue max-sm:text-body-small group-hover:text-pure-white group-hover:bg-blue self-end rounded-tl-2xl py-custom-3xs px-custom-s overflow-hidden text-ellipsis">
     {formatPrice(price)}
   </p>
 </div>

@@ -88,6 +88,9 @@
   --spacing-custom-l-m: clamp(1.6875rem, 2.1278rem + -0.5682vw, 2rem);
   --spacing-custom-l-s: clamp(1.125rem, 2.358rem + -1.5909vw, 2rem);
   --spacing-custom-xl-m: clamp(1.6875rem, 3.5369rem + -2.3864vw, 3rem);
+
+  /* animation */
+  --ease-cubic: cubic-bezier(0.8, -0.5, 0.2, 1.8);
 }
 
 @layer base {
