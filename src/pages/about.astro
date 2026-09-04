@@ -371,129 +371,141 @@ const rLadder = [
 <script>
   import { gsap } from "gsap/gsap-core";
   import { ScrollTrigger } from "gsap/all";
-  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+  gsap.registerPlugin(ScrollTrigger);
 
-  const fillCircular = document.querySelector(".fill-circular");
-  const contentCircular = gsap.utils.toArray<HTMLElement>(".list-circular");
-  const slidesCircular = gsap.utils.toArray<HTMLElement>(".slide-circular");
+  function init() {
+    const fillCircular = document.querySelector(".fill-circular");
+    const contentCircular = gsap.utils.toArray<HTMLElement>(".list-circular");
+    const slidesCircular = gsap.utils.toArray<HTMLElement>(".slide-circular");
 
-  const tlCircular = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".pin-circular-section",
-      start: "top top",
-      end: "+=" + contentCircular.length * 50 + "%",
-      pin: true,
-      scrub: true,
-      markers: false,
-    },
-  });
+    if (fillCircular) {
+      console.log("start animate circular diagram");
+    } else return;
 
-  fillCircular &&
-    gsap.set(fillCircular, {
-      scaleY: 1 / contentCircular.length,
-      transformOrigin: "top left",
+    const tlCircular = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".pin-circular-section",
+        start: "top top",
+        end: "+=" + contentCircular.length * 50 + "%",
+        pin: true,
+        scrub: true,
+        markers: false,
+      },
     });
 
-  contentCircular.forEach((item, i) => {
-    const previousItem = contentCircular[i - 1];
-    if (previousItem) {
-      tlCircular
-        .set(item, { color: "var(--color-pure-white)" }, 0.5 * i)
-        .to(
-          slidesCircular[i],
-          {
-            autoAlpha: 1,
-            duration: 0.2,
-          },
-          "<",
-        )
-        .set(previousItem, { color: "var(--color-muted-moss)" }, "<")
-        .to(
-          slidesCircular[i - 1],
-          {
-            autoAlpha: 0,
-            duration: 0.2,
-          },
-          "<",
-        );
-    } else {
-      gsap.set(item, { color: "var(--color-pure-white)" });
-      gsap.set(slidesCircular[i], { autoAlpha: 1 });
-    }
-  });
-  tlCircular
-    .to(
-      fillCircular,
-      {
-        scaleY: 1,
+    fillCircular &&
+      gsap.set(fillCircular, {
+        scaleY: 1 / contentCircular.length,
         transformOrigin: "top left",
-        ease: "none",
-        duration: tlCircular.duration(),
+      });
+
+    contentCircular.forEach((item, i) => {
+      const previousItem = contentCircular[i - 1];
+      if (previousItem) {
+        tlCircular
+          .set(item, { color: "var(--color-pure-white)" }, 0.5 * i)
+          .to(
+            slidesCircular[i],
+            {
+              autoAlpha: 1,
+              duration: 0.2,
+            },
+            "<",
+          )
+          .set(previousItem, { color: "var(--color-muted-moss)" }, "<")
+          .to(
+            slidesCircular[i - 1],
+            {
+              autoAlpha: 0,
+              duration: 0.2,
+            },
+            "<",
+          );
+      } else {
+        gsap.set(item, { color: "var(--color-pure-white)" });
+        gsap.set(slidesCircular[i], { autoAlpha: 1 });
+      }
+    });
+    tlCircular
+      .to(
+        fillCircular,
+        {
+          scaleY: 1,
+          transformOrigin: "top left",
+          ease: "none",
+          duration: tlCircular.duration(),
+        },
+        0,
+      )
+      .to({}, {}); // add a small pause at the end of the timeline before it un-pins
+
+    const fillLadder = document.querySelector(".fill-ladder");
+    const contentLadder = gsap.utils.toArray<HTMLElement>(".list-ladder");
+    const slidesLadder = gsap.utils.toArray<HTMLElement>(".slide-ladder");
+
+    if (fillLadder) {
+      console.log("start animate r-ladder diagram");
+    } else return;
+
+    const tlLadder = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".pin-ladder-section",
+        start: "top top",
+        end: "+=" + contentLadder.length * 50 + "%",
+        pin: true,
+        scrub: true,
+        markers: false,
       },
-      0,
-    )
-    .to({}, {}); // add a small pause at the end of the timeline before it un-pins
-
-  const fillLadder = document.querySelector(".fill-ladder");
-  const contentLadder = gsap.utils.toArray<HTMLElement>(".list-ladder");
-  const slidesLadder = gsap.utils.toArray<HTMLElement>(".slide-ladder");
-
-  const tlLadder = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".pin-ladder-section",
-      start: "top top",
-      end: "+=" + contentLadder.length * 50 + "%",
-      pin: true,
-      scrub: true,
-      markers: false,
-    },
-  });
-
-  fillLadder &&
-    gsap.set(fillLadder, {
-      scaleY: 1 / contentLadder.length,
-      transformOrigin: "top left",
     });
 
-  contentLadder.forEach((item, i) => {
-    const previousItem = contentLadder[i - 1];
-    if (previousItem) {
-      tlLadder
-        .set(item, { color: "var(--color-pure-white)" }, 0.5 * i)
-        .to(
-          slidesLadder[i],
-          {
-            autoAlpha: 1,
-            duration: 0.2,
-          },
-          "<",
-        )
-        .set(previousItem, { color: "var(--color-muted-moss)" }, "<")
-        .to(
-          slidesLadder[i - 1],
-          {
-            autoAlpha: 0,
-            duration: 0.2,
-          },
-          "<",
-        );
-    } else {
-      gsap.set(item, { color: "var(--color-pure-white)" });
-      gsap.set(slidesLadder[i], { autoAlpha: 1 });
-    }
-  });
-  tlLadder
-    .to(
-      fillLadder,
-      {
-        scaleY: 1,
+    fillLadder &&
+      gsap.set(fillLadder, {
+        scaleY: 1 / contentLadder.length,
         transformOrigin: "top left",
-        ease: "none",
-        duration: tlLadder.duration(),
-      },
-      0,
-    )
-    .to({}, {}); // add a small pause at the end of the timeline before it un-pins
+      });
+
+    contentLadder.forEach((item, i) => {
+      const previousItem = contentLadder[i - 1];
+      if (previousItem) {
+        tlLadder
+          .set(item, { color: "var(--color-pure-white)" }, 0.5 * i)
+          .to(
+            slidesLadder[i],
+            {
+              autoAlpha: 1,
+              duration: 0.2,
+            },
+            "<",
+          )
+          .set(previousItem, { color: "var(--color-muted-moss)" }, "<")
+          .to(
+            slidesLadder[i - 1],
+            {
+              autoAlpha: 0,
+              duration: 0.2,
+            },
+            "<",
+          );
+      } else {
+        gsap.set(item, { color: "var(--color-pure-white)" });
+        gsap.set(slidesLadder[i], { autoAlpha: 1 });
+      }
+    });
+    tlLadder
+      .to(
+        fillLadder,
+        {
+          scaleY: 1,
+          transformOrigin: "top left",
+          ease: "none",
+          duration: tlLadder.duration(),
+        },
+        0,
+      )
+      .to({}, {}); // add a small pause at the end of the timeline before it un-pins
+  }
+
+  document.removeEventListener("astro:page-load", init); // astro:page-load
+  document.addEventListener("astro:page-load", init); // astro:page-load
 </script>
