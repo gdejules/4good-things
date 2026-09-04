@@ -145,7 +145,7 @@ const allStats = await getCollection("stats");
   function initHL() {
     const highlightContainer = document.getElementById("brand-highlight");
     if (!highlightContainer) return;
-    console.log("start animate brand highlight");
+
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".about-us",

@@ -375,13 +375,12 @@ const rLadder = [
   gsap.registerPlugin(ScrollTrigger);
 
   function initAbout() {
+    const aboutPage = document.getElementById("about-header");
+    if (!aboutPage) return;
+
     const fillCircular = document.querySelector(".fill-circular");
     const contentCircular = gsap.utils.toArray<HTMLElement>(".list-circular");
     const slidesCircular = gsap.utils.toArray<HTMLElement>(".slide-circular");
-
-    if (fillCircular) {
-      console.log("start animate circular diagram");
-    } else return;
 
     const tlCircular = gsap.timeline({
       scrollTrigger: {
