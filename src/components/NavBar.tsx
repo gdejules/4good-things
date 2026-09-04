@@ -5,6 +5,11 @@ import {
   HamburgerMenu,
   CloseMenuSlider,
 } from "./CustomAwesomeButton.tsx";
+import { useEffect, useState } from "react";
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+} from "body-scroll-lock-upgrade";
 
 const homeButton = {
   children: "",
@@ -72,6 +77,40 @@ interface Prop {
 }
 
 export default function Navigation({ logoImage }: Prop) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(width < 48rem)");
+    const handleMediaChange = () => {
+      setIsMobile(media.matches);
+      if (!media.matches) setIsMenuOpen(false);
+    };
+    const closeOnPageTransition = () => setIsMenuOpen(false);
+
+    handleMediaChange();
+    media.addEventListener("change", handleMediaChange);
+    document.addEventListener("astro:before-preparation", closeOnPageTransition);
+
+    return () => {
+      media.removeEventListener("change", handleMediaChange);
+      document.removeEventListener(
+        "astro:before-preparation",
+        closeOnPageTransition,
+      );
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      disableBodyScroll(document.body);
+    } else {
+      enableBodyScroll(document.body);
+    }
+
+    return () => enableBodyScroll(document.body);
+  }, [isMenuOpen]);
+
   return (
     <header className="section py-custom-xs-s bg-warm-alabaster">
       <div className="max-w-6xl mx-auto flex justify-between items-center max-md:mx-6 max-xl:mx-10">
@@ -98,22 +137,26 @@ export default function Navigation({ logoImage }: Prop) {
           <div
             id="btnOpen"
             className="topnav-open md:hidden"
-            aria-expanded="false"
+            aria-expanded={isMenuOpen}
             aria-labelledby="nav-label">
             <HamburgerMenu
               active={hamburgerButton.active}
               size={hamburgerButton.size}
+              onPress={() => setIsMenuOpen(true)}
             />
           </div>
           <div
             className="topnav-menu"
             role="dialog"
-            aria-labelledby="nav-label">
+            aria-labelledby="nav-label"
+            aria-modal="true"
+            inert={isMobile && !isMenuOpen ? true : undefined}>
             <div id="btnClose" aria-label="Close">
               <CloseMenuSlider
                 active={closeSliderButton.active}
                 size={closeSliderButton.size}
                 className="topnav-close"
+                onPress={() => setIsMenuOpen(false)}
               />
             </div>
             <ul className="topnav-links flex max-md:flex-col justify-center items-center gap-custom-xs-s">
