@@ -126,7 +126,11 @@ const downloadButton = {
   import { gsap } from "gsap/gsap-core";
 
   // Use setTimeout to ensure DOM is fully rendered
-  setTimeout(() => {
+  function initHero() {
+    const heroContainer = document.getElementById("hero");
+    if (!heroContainer) return;
+
+    console.log("start animate hero images");
     const thing1 = document.querySelector(".thing-1");
     const thing2 = document.querySelector(".thing-2");
     const thing3 = document.querySelector(".thing-3");
@@ -190,5 +194,8 @@ const downloadButton = {
         transformOrigin: "center center",
       });
     }
-  }, 500);
+  }
+
+  document.removeEventListener("astro:page-load", initHero); // astro:page-load
+  document.addEventListener("astro:page-load", initHero); // astro:page-load
 </script>

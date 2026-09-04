@@ -142,56 +142,64 @@ const allStats = await getCollection("stats");
 
   gsap.registerPlugin(SplitText, ScrollTrigger);
 
-  let tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".about-us",
-      toggleActions: "play none reverse restart",
-      markers: false,
-      start: "top bottom-=10%",
-      end: "center top+=30%",
-      scrub: 3,
-    },
-  });
+  function initHL() {
+    const highlightContainer = document.getElementById("brand-highlight");
+    if (!highlightContainer) return;
+    console.log("start animate brand highlight");
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".about-us",
+        toggleActions: "play none reverse restart",
+        markers: false,
+        start: "top bottom-=10%",
+        end: "center top+=30%",
+        scrub: 3,
+      },
+    });
 
-  let otherTL = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".section-highlight",
-      toggleActions: "play none reverse restart",
-      markers: false,
-      start: "top bottom-=20%",
-      end: "center top+=40%",
-      scrub: 1,
-    },
-  });
+    let otherTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".section-highlight",
+        toggleActions: "play none reverse restart",
+        markers: false,
+        start: "top bottom-=20%",
+        end: "center top+=40%",
+        scrub: 1,
+      },
+    });
 
-  let split1 = SplitText.create(".about-us", {
-    type: "words",
-  });
+    let split1 = SplitText.create(".about-us", {
+      type: "words",
+    });
 
-  let split2 = SplitText.create(".highlight-text", {
-    type: "words",
-    wordsClass: "word",
-  });
+    let split2 = SplitText.create(".highlight-text", {
+      type: "words",
+      wordsClass: "word",
+    });
 
-  tl.from(split1.words, {
-    opacity: 0,
-    stagger: 0.1,
-    ease: "none",
-  }).from(split2.words, {
-    opacity: 0,
-    stagger: 0.3,
-    ease: "none",
-  });
+    tl.from(split1.words, {
+      opacity: 0,
+      stagger: 0.1,
+      ease: "none",
+    }).from(split2.words, {
+      opacity: 0,
+      stagger: 0.3,
+      ease: "none",
+    });
 
-  let split3 = SplitText.create(".second-highlight-text", {
-    type: "words",
-    wordsClass: "word",
-  });
+    let split3 = SplitText.create(".second-highlight-text", {
+      type: "words",
+      wordsClass: "word",
+    });
 
-  otherTL.from(split3.words, {
-    y: 100,
-    opacity: 0,
-    stagger: 0.3,
-    ease: "power2.in",
-  });
+    otherTL.from(split3.words, {
+      y: 100,
+      opacity: 0,
+      stagger: 0.3,
+      ease: "power2.in",
+    });
+  }
+
+  document.removeEventListener("astro:page-load", initHL);
+  document.addEventListener("astro:page-load", initHL);
 </script>

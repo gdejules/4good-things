@@ -374,7 +374,7 @@ const rLadder = [
 
   gsap.registerPlugin(ScrollTrigger);
 
-  function init() {
+  function initAbout() {
     const fillCircular = document.querySelector(".fill-circular");
     const contentCircular = gsap.utils.toArray<HTMLElement>(".list-circular");
     const slidesCircular = gsap.utils.toArray<HTMLElement>(".slide-circular");
@@ -506,6 +506,6 @@ const rLadder = [
       .to({}, {}); // add a small pause at the end of the timeline before it un-pins
   }
 
-  document.removeEventListener("astro:page-load", init); // astro:page-load
-  document.addEventListener("astro:page-load", init); // astro:page-load
+  document.removeEventListener("astro:page-load", initAbout); // astro:page-load
+  document.addEventListener("astro:page-load", initAbout); // astro:page-load
 </script>
