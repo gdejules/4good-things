@@ -6,10 +6,7 @@ import {
   CloseMenuSlider,
 } from "./CustomAwesomeButton.tsx";
 import { useEffect, useState } from "react";
-import {
-  disableBodyScroll,
-  enableBodyScroll,
-} from "body-scroll-lock-upgrade";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock-upgrade";
 
 const homeButton = {
   children: "",
@@ -90,7 +87,10 @@ export default function Navigation({ logoImage }: Prop) {
 
     handleMediaChange();
     media.addEventListener("change", handleMediaChange);
-    document.addEventListener("astro:before-preparation", closeOnPageTransition);
+    document.addEventListener(
+      "astro:before-preparation",
+      closeOnPageTransition,
+    );
 
     return () => {
       media.removeEventListener("change", handleMediaChange);
