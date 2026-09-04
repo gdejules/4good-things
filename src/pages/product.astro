@@ -62,27 +62,10 @@ const allColors = await getCollection("colors");
   <section id="product-list" class="section bg-soft-sand">
     <div
       class="max-w-6xl mx-auto py-custom-l-xl flex flex-col gap-custom-l-xl max-md:mx-6 max-xl:mx-10">
-      <div
-        class="flex justify-between items-center max-md:flex-col max-md:gap-custom-s max-md:items-start">
-        <h2
-          class="text-heading-medium max-w-text-heading-medium text-deep-pine-charcoal">
-          Product Collections
-        </h2>
-        <div class="flex items-center">
-          <div
-            class="px-custom-s-m py-custom-3xs-2xs bg-green rounded-l-full border border-green font-body text-body-small font-extrabold text-center text-pure-white">
-            all products
-          </div>
-          <div
-            class="px-custom-s-m py-custom-3xs-2xs bg-soft-sand border border-green font-body text-body-small text-center text-deep-pine-charcoal">
-            smaller things
-          </div>
-          <div
-            class="px-custom-s-m py-custom-3xs-2xs bg-soft-sand rounded-r-full border border-green font-body text-body-small text-center text-deep-pine-charcoal">
-            larger things
-          </div>
-        </div>
-      </div>
+      <h2
+        class="text-heading-medium max-w-text-heading-medium text-deep-pine-charcoal">
+        Product Collections
+      </h2>
       <div
         class="grid grid-cols-12 auto-rows-auto gap-x-custom-s gap-y-custom-xl max-md:grid-cols-2 max-md:gap-y-custom-m-l">
         {allProducts.map((p) => <ProductCard product={p} />)}
