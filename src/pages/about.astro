@@ -443,10 +443,6 @@ const rLadder = [
     const contentLadder = gsap.utils.toArray<HTMLElement>(".list-ladder");
     const slidesLadder = gsap.utils.toArray<HTMLElement>(".slide-ladder");
 
-    if (fillLadder) {
-      console.log("start animate r-ladder diagram");
-    } else return;
-
     const tlLadder = gsap.timeline({
       scrollTrigger: {
         trigger: ".pin-ladder-section",
