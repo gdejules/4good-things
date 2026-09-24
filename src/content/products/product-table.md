@@ -1,7 +1,7 @@
 ---
 name: Low Square Table
 category: larger-things
-description: Custom table with mixed materials
+shortDescription: Custom table with mixed materials
 recycledWeight: 5 kg
 price: 1300000
 length: 60 cm
@@ -15,4 +15,7 @@ images:
   - src: "./../../assets/table-3.jpeg"
     alt: a green-colored circle table with two stools
 featured: true
+order: 2
 ---
+
+Lorem ipsum dolor sit amet

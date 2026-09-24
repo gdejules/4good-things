@@ -9,7 +9,7 @@ const products = defineCollection({
     z.object({
       name: z.string(),
       category: z.enum(["smaller-things", "larger-things"]),
-      description: z.string(),
+      shortDescription: z.string(),
       recycledWeight: z.string(), // e.g. "1 kg"
       price: z.number(), // IDR
       length: z.string().optional(),
@@ -25,6 +25,7 @@ const products = defineCollection({
         }),
       ),
       featured: z.boolean().default(false),
+      order: z.number().int().nonnegative(),
     }),
 });
 

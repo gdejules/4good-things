@@ -1,7 +1,7 @@
 ---
 name: Padel Key Chain
 category: smaller-things
-description: A key chain with padel racket form
+shortDescription: A key chain with padel racket form
 recycledWeight: 100 gr
 price: 60000
 length: 7 cm
@@ -15,4 +15,7 @@ images:
   - src: "./../../assets/padel-keychain-3.jpeg"
     alt: two padel key chain attached to a bag
 featured: true
+order: 1
 ---
+
+Lorem ipsum dolor sit amet

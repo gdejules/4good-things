@@ -1,7 +1,7 @@
 ---
 name: Signage Board
 category: larger-things
-description: A signage board to display information
+shortDescription: A signage board to display information
 recycledWeight: 11 kg
 price: 1650000
 length: 45 cm
@@ -15,4 +15,7 @@ images:
   - src: "./../../assets/signage-board-3.jpeg"
     alt: a blue-colored signage board with some information
 featured: true
+order: 7
 ---
+
+Lorem ipsum dolor sit amet

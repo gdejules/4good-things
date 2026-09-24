@@ -1,7 +1,7 @@
 ---
 name: Trash Bin
 category: larger-things
-description: A box-shaped trash bin
+shortDescription: A box-shaped trash bin
 recycledWeight: 33 kg
 price: 235000
 length: 30 cm
@@ -16,4 +16,7 @@ images:
   - src: "./../../assets/trash-bin-3.jpeg"
     alt: two trash bins with blue and green color
 featured: true
+order: 8
 ---
+
+Lorem ipsum dolor sit amet

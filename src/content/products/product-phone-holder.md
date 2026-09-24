@@ -1,7 +1,7 @@
 ---
 name: Phone Holder Bag Charm
 category: smaller-things
-description: A bag charm that you can use as phone stand
+shortDescription: A bag charm that you can use as phone stand
 recycledWeight: 100 gr
 price: 60000
 length: 8 cm
@@ -14,4 +14,7 @@ images:
   - src: "./../../assets/phone-holder-3.jpeg"
     alt: a handphone mounted on a phone holder
 featured: true
+order: 4
 ---
+
+Lorem ipsum dolor sit amet

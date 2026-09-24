@@ -9,7 +9,7 @@ export interface Product {
   slug: string;
   name: string;
   category: "smaller-things" | "larger-things";
-  description: string;
+  shortDescription: string;
   recycledWeight: string;
   price: number;
   length: string;
