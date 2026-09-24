@@ -1,5 +1,5 @@
 ---
-name: Low Square Table
+name: Square Table
 category: larger-things
 shortDescription: Custom table with mixed materials
 recycledWeight: 5 kg
