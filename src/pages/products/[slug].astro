@@ -3,6 +3,10 @@ import "../../styles/global.css";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { formatPrice, getProducts, getRelated } from "../../data/product.ts";
 import { Image } from "astro:assets";
+import {
+  SocialButton,
+  SecondaryButton,
+} from "../../components/CustomAwesomeButton";
 
 export async function getStaticPaths() {
   const products = await getProducts();
@@ -13,27 +17,178 @@ export async function getStaticPaths() {
 }
 
 const { product, related } = Astro.props;
+const dimensionKeys = [
+  "height",
+  "length",
+  "width",
+  "diameter",
+  "volume",
+  "thickness",
+];
+const dimensionProps = Object.fromEntries(
+  Object.entries(product).filter(([key]) => dimensionKeys.includes(key)),
+);
+const availableDimensionProps = Object.entries(dimensionProps).filter(
+  ([_, value]) => {
+    return value !== undefined && value !== null && value !== "";
+  },
+);
+const contactButton = {
+  children: "Contact us",
+  sharer: {
+    url: "https://play.google.com/store/apps/details?id=com.whatsapp&hl=en",
+    message: "Check this out",
+  },
+  className: "nav",
+  type: "whatsapp",
+  size: "large",
+  active: false,
+};
+const marketplaceButton = {
+  children: "Buy product",
+  href: "https://shopee.co.id/",
+  className: "nav",
+  size: "large",
+  active: false,
+};
 ---
 
 <BaseLayout>
-  <section id="product-header" class="section bg-warm-alabaster">
+  <section id="product-detail" class="section bg-warm-alabaster">
     <div class="wrapper pt-custom-xl pb-custom-2xl">
-      <div class="flex flex-col">
-        <div>
-          {product.name}
-        </div>
-        <div>
-          {formatPrice(product.price)}
-        </div>
-        <div>
+      <div
+        class="col-span-6 flex flex-col gap-custom-s gap-max-lg:col-span-1"
+        data-product-gallery>
+        <div
+          class="relative aspect-square overflow-hidden rounded-lg bg-soft-sand">
           {
-            product.images.map((i) => (
-              <div class="flex gap-2">
-                <Image src={i.src} alt={i.alt} width="100" height="100" />
+            product.images.map((image, index) => (
+              <div
+                class:list={["absolute inset-0", index !== 0 && "hidden"]}
+                data-gallery-panel={index}>
+                <Image
+                  src={image.src}
+                  alt={`${image.alt} — view ${index + 1}`}
+                  width={1440}
+                  height={1440}
+                  format="webp"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  class="h-full w-full object-cover"
+                />
               </div>
             ))
           }
         </div>
+        <div class="grid grid-cols-3 gap-custom-m">
+          {
+            product.images.map((image, index) => (
+              <button
+                type="button"
+                class:list="aspect-square overflow-hidden bg-soft-sand transition-all"
+                data-gallery-thumb={index}
+                aria-label={`Show view ${index + 1}`}
+                aria-pressed={index === 0 ? "true" : "false"}>
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={360}
+                  height={360}
+                  format="webp"
+                  loading="lazy"
+                  class="h-full w-full object-cover rounded-md"
+                />
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <div
+        class="col-start-8 col-span-5 flex flex-col gap-custom-m gap-max-lg:col-span-1">
+        <div class="flex flex-col gap-custom-xs">
+          <span class="text-muted-moss font-body text-body-large font-normal"
+            >{product.category}</span
+          >
+          <h1 class="text-deep-pine-charcoal text-heading-large">
+            {product.name}
+          </h1>
+          <span class="text-blue font-body text-body-large font-bold"
+            >{formatPrice(product.price)}</span
+          >
+        </div>
+        <div
+          class="text-deep-pine-charcoal font-body text-body-normal max-w-text-body-normal font-normal">
+          {product.description}
+        </div>
+        <div class="flex gap-custom-m">
+          <div class="flex-1 flex flex-col gap-custom-xs">
+            <div
+              class="text-muted-moss font-body text-body-normal font-bold tracking-wider uppercase">
+              Impact
+            </div>
+            <div
+              class="text-deep-pine-charcoal font-body text-body-normal font-medium">
+              {`${product.recycledWeight} of plastic waste recycled`}
+            </div>
+          </div>
+          <div class="flex-1 flex flex-col gap-custom-xs">
+            <div
+              class="text-muted-moss font-body text-body-normal font-bold tracking-wider uppercase">
+              Dimension
+            </div>
+            <ul class="flex flex-col gap-custom-s">
+              {
+                availableDimensionProps.map(([key, value]) => (
+                  <li class="flex gap-custom-s">
+                    <div class="font-body text-body-normal font-normal text-muted-moss">
+                      {key}
+                    </div>
+                    <div class="font-body text-body-normal font-medium text-deep-pine-charcoal">
+                      {value}
+                    </div>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+        <div class="flex-1 flex flex-col gap-custom-xs">
+          <div
+            class="text-muted-moss font-body text-body-normal font-bold tracking-wider uppercase">
+            Additional Information
+          </div>
+          <ul
+            class="text-deep-pine-charcoal font-body text-body-normal font-normal flex flex-col gap-custom-xs">
+            <li>
+              Size & thickness tolerance within 2-3mm from measurement above
+            </li>
+            <li>
+              Contact us if you have any required custom sized, color & quantity
+            </li>
+          </ul>
+        </div>
+        <div class="flex gap-custom-s">
+          <SocialButton
+            client:load
+            sharer={contactButton.sharer}
+            type={contactButton.type}
+            active={contactButton.active}
+            size={contactButton.size}
+            className="nav">
+            {contactButton.children}
+          </SocialButton>
+          <SecondaryButton
+            client:load
+            href={marketplaceButton.href}
+            active={marketplaceButton.active}
+            size={marketplaceButton.size}>
+            {marketplaceButton.children}
+          </SecondaryButton>
+        </div>
+        <span class="text-muted-moss font-body text-body-small font-normal"
+          >CONTACT US FOR MORE INFORMATION OR VISIT OUR MARKETPLACE FOR DIRECT
+          PURCHASE.</span
+        >
       </div>
     </div>
   </section>
