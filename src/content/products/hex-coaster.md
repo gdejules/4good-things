@@ -2,7 +2,7 @@
 name: Hex Coaster
 category: smaller things
 shortDescription: Hexagram-shaped coaster made as tableware
-recycledWeight: 200 kg
+recycledWeight: 200 gr
 price: 75000
 diameter: 10 cm
 thickness: 1 cm
@@ -14,7 +14,7 @@ images:
   - src: "./../../assets/hex-coaster-3.jpeg"
     alt: four mixed-colored hex coaster
 featured: true
-order: 6
+order: 3
 ---
 
 Lorem ipsum dolor sit amet

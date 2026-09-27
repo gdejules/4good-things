@@ -15,7 +15,7 @@ images:
   - src: "./../../assets/hanger-3.jpeg"
     alt: a blue-colored hanger
 featured: true
-order: 5
+order: 4
 ---
 
 Lorem ipsum dolor sit amet

@@ -14,7 +14,7 @@ images:
   - src: "./../../assets/phone-holder-3.jpeg"
     alt: a handphone mounted on a phone holder
 featured: true
-order: 4
+order: 2
 ---
 
 Lorem ipsum dolor sit amet

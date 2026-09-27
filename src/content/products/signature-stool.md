@@ -15,7 +15,7 @@ images:
   - src: "./../../assets/signature-stool-3.jpeg"
     alt: detail image of a red-colored signature stool
 featured: true
-order: 1
+order: 5
 ---
 
 Lorem ipsum dolor sit amet

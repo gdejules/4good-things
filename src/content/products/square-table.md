@@ -15,7 +15,7 @@ images:
   - src: "./../../assets/table-3.jpeg"
     alt: a green-colored circle table with two stools
 featured: true
-order: 2
+order: 6
 ---
 
 Lorem ipsum dolor sit amet
