@@ -65,7 +65,21 @@ const allProductsButton = {
 
 <BaseLayout>
   <section id="product-detail" class="section bg-warm-alabaster">
-    <div class="product-info wrapper pt-custom-xl pb-custom-2xl">
+    <div class="wrapper pt-custom-l">
+      <nav
+        class="col-span-12 flex gap-custom-s font-body text-body-small uppercase tracking-widest"
+        aria-label="Breadcrumb">
+        <a href="/product" class="text-muted-moss hover:text-green"
+          >All Products</a
+        >
+        <span aria-hidden="true">/</span>
+        <span class="text-deep-pine-charcoal" aria-current="page"
+          >{product.name}</span
+        >
+      </nav>
+    </div>
+
+    <div class="product-info wrapper pt-custom-l pb-custom-2xl">
       <div
         class="col-span-6 flex flex-col gap-custom-s max-md:col-span-1"
         data-product-gallery>
