@@ -1,6 +1,6 @@
 ---
 name: Padel Key Chain
-category: smaller-things
+category: smaller things
 shortDescription: A key chain with padel racket form
 recycledWeight: 100 gr
 price: 60000

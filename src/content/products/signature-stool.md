@@ -1,6 +1,6 @@
 ---
 name: Signature Stool
-category: larger-things
+category: larger things
 shortDescription: Our signature stool that can be assembled quickly
 recycledWeight: 8 kg
 price: 235000

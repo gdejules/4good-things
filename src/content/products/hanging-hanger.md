@@ -1,6 +1,6 @@
 ---
 name: Hanging Hanger
-category: smaller-things
+category: smaller things
 shortDescription: Hanger for hanging clothes
 recycledWeight: 1 kg
 price: 235000

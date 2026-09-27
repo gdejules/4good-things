@@ -8,7 +8,7 @@ const products = defineCollection({
   schema: ({ image }) =>
     z.object({
       name: z.string(),
-      category: z.enum(["smaller-things", "larger-things"]),
+      category: z.enum(["smaller things", "larger things"]),
       shortDescription: z.string(),
       recycledWeight: z.string(), // e.g. "1 kg"
       price: z.number(), // IDR

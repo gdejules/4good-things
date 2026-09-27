@@ -1,6 +1,6 @@
 ---
 name: Signage Board
-category: larger-things
+category: larger things
 shortDescription: A signage board to display information
 recycledWeight: 11 kg
 price: 1650000

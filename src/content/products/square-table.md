@@ -1,6 +1,6 @@
 ---
 name: Square Table
-category: larger-things
+category: larger things
 shortDescription: Custom table with mixed materials
 recycledWeight: 5 kg
 price: 1300000

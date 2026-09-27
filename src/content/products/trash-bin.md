@@ -1,6 +1,6 @@
 ---
 name: Trash Bin
-category: larger-things
+category: larger things
 shortDescription: A box-shaped trash bin
 recycledWeight: 33 kg
 price: 235000
