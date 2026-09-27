@@ -7,6 +7,7 @@ import {
   SocialButton,
   SecondaryButton,
 } from "../../components/CustomAwesomeButton";
+import ProductCard from "../../components/ProductCard.astro";
 
 export async function getStaticPaths() {
   const products = await getProducts();
@@ -17,6 +18,8 @@ export async function getStaticPaths() {
 }
 
 const { product, related } = Astro.props;
+console.log(product);
+console.log(related);
 const dimensionKeys = [
   "height",
   "length",
@@ -55,9 +58,9 @@ const marketplaceButton = {
 
 <BaseLayout>
   <section id="product-detail" class="section bg-warm-alabaster">
-    <div class="wrapper pt-custom-xl pb-custom-2xl">
+    <div class="product-info wrapper pt-custom-xl pb-custom-2xl">
       <div
-        class="col-span-6 flex flex-col gap-custom-s gap-max-lg:col-span-1"
+        class="col-span-6 flex flex-col gap-custom-s max-md:col-span-1"
         data-product-gallery>
         <div
           class="relative aspect-square overflow-hidden rounded-lg bg-soft-sand">
@@ -190,6 +193,20 @@ const marketplaceButton = {
           >CONTACT US FOR MORE INFORMATION OR VISIT OUR MARKETPLACE FOR DIRECT
           PURCHASE.</span
         >
+      </div>
+    </div>
+
+    <div class="product-info">
+      <div
+        class="max-w-6xl mx-auto py-custom-l-xl flex flex-col gap-custom-l-xl max-md:mx-6 max-xl:mx-10">
+        <h2
+          class="text-heading-medium max-w-text-heading-medium text-deep-pine-charcoal">
+          Other related products
+        </h2>
+        <div
+          class="grid grid-cols-12 auto-rows-auto gap-x-custom-s gap-y-custom-xl max-md:grid-cols-2 max-md:gap-y-custom-m-l">
+          {related.map((p) => <ProductCard product={p} />)}
+        </div>
       </div>
     </div>
   </section>

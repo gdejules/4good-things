@@ -1,14 +1,19 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import type { Product } from "../data/product.ts";
 import "../styles/global.css";
 
 type Props = {
-  product: CollectionEntry<"products">;
+  product: CollectionEntry<"products"> | Product;
 };
 
 const { product } = Astro.props;
-const { name, category, recycledWeight, price, images } = product.data;
-const slug = product.id.replace(/\.(md|mdx)$/, "");
+const source = "data" in product ? product.data : product;
+const slug =
+  "slug" in product ? product.slug : product.id.replace(/\.(md|mdx)$/, "");
+const { name, category, recycledWeight, price, images = [] } = source;
+const primaryImage = images[0];
+
 import { formatPrice } from "../data/product.ts";
 import Image from "astro/components/Image.astro";
 ---
@@ -22,8 +27,8 @@ import Image from "astro/components/Image.astro";
   </p>
   <Image
     class="object-cover object-center w-full aspect-square mb-custom-2xs"
-    src={images[0].src}
-    alt={images[0].alt}
+    src={primaryImage.src}
+    alt={primaryImage.alt}
     layout="constrained"
     format="webp"
   />

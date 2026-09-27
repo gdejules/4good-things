@@ -8,7 +8,7 @@ export interface ImageAsset {
 export interface Product {
   slug: string;
   name: string;
-  category: "smaller-things" | "larger-things";
+  category: "smaller things" | "larger things";
   shortDescription: string;
   recycledWeight: string;
   price: number;
