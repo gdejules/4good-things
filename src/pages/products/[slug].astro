@@ -42,7 +42,7 @@ const contactButton = {
     url: "https://play.google.com/store/apps/details?id=com.whatsapp&hl=en",
     message: "Check this out",
   },
-  className: "nav",
+  className: "product-detail",
   type: "whatsapp",
   size: "large",
   active: false,
@@ -50,7 +50,14 @@ const contactButton = {
 const marketplaceButton = {
   children: "Buy product",
   href: "https://shopee.co.id/",
-  className: "nav",
+  className: "product-detail",
+  size: "large",
+  active: false,
+};
+const allProductsButton = {
+  children: "See all",
+  href: "/products",
+  className: "all-products items-center",
   size: "large",
   active: false,
 };
@@ -206,6 +213,15 @@ const marketplaceButton = {
         <div
           class="grid grid-cols-12 auto-rows-auto gap-x-custom-s gap-y-custom-xl max-md:grid-cols-2 max-md:gap-y-custom-m-l">
           {related.map((p) => <ProductCard product={p} />)}
+        </div>
+        <div class="flex justify-center">
+          <SecondaryButton
+            client:load
+            href={allProductsButton.href}
+            active={allProductsButton.active}
+            size={allProductsButton.size}>
+            {allProductsButton.children}
+          </SecondaryButton>
         </div>
       </div>
     </div>
