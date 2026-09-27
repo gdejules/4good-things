@@ -3,10 +3,10 @@ import { getCollection } from "astro:content";
 import "../styles/global.css";
 import ProductCard from "./ProductCard.astro";
 const smallerProducts = await getCollection("products", ({ data }) => {
-  return data.category === "smaller-things" && data.featured === true;
+  return data.category === "smaller things" && data.featured === true;
 });
 const largerProducts = await getCollection("products", ({ data }) => {
-  return data.category === "larger-things" && data.featured === true;
+  return data.category === "larger things" && data.featured === true;
 });
 import { PrimaryButton } from "./CustomAwesomeButton";
 
