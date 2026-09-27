@@ -240,32 +240,34 @@ const allProductsButton = {
   </section>
 
   <script is:inline>
-    const gallery = document.querySelector("[data-product-gallery]");
-    if (gallery) {
-      const panels = Array.from(
-        gallery.querySelectorAll("[data-gallery-panel]"),
-      );
-      const thumbs = Array.from(
-        gallery.querySelectorAll("[data-gallery-thumb]"),
-      );
+    document.addEventListener("astro:page-load", () => {
+      const gallery = document.querySelector("[data-product-gallery]");
+      if (gallery) {
+        const panels = Array.from(
+          gallery.querySelectorAll("[data-gallery-panel]"),
+        );
+        const thumbs = Array.from(
+          gallery.querySelectorAll("[data-gallery-thumb]"),
+        );
 
-      thumbs.forEach((thumb) => {
-        thumb.addEventListener("click", () => {
-          const active = thumb.dataset.galleryThumb;
-          panels.forEach((panel) =>
-            panel.classList.toggle(
-              "hidden",
-              panel.dataset.galleryPanel !== active,
-            ),
-          );
-          thumbs.forEach((button) => {
-            const selected = button.dataset.galleryThumb === active;
-            button.classList.toggle("ring-ink", selected);
-            button.classList.toggle("ring-line", !selected);
-            button.setAttribute("aria-pressed", selected ? "true" : "false");
+        thumbs.forEach((thumb) => {
+          thumb.addEventListener("click", () => {
+            const active = thumb.dataset.galleryThumb;
+            panels.forEach((panel) =>
+              panel.classList.toggle(
+                "hidden",
+                panel.dataset.galleryPanel !== active,
+              ),
+            );
+            thumbs.forEach((button) => {
+              const selected = button.dataset.galleryThumb === active;
+              button.classList.toggle("ring-ink", selected);
+              button.classList.toggle("ring-line", !selected);
+              button.setAttribute("aria-pressed", selected ? "true" : "false");
+            });
           });
         });
-      });
-    }
+      }
+    });
   </script>
 </BaseLayout>
