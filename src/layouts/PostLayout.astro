@@ -1,0 +1,26 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import { Image } from "astro/components/Image.astro";
+
+import type { Project } from "../data/project.ts";
+
+type Props = {
+  project: Project;
+};
+
+const { project } = Astro.props;
+---
+
+<BaseLayout>
+  <figure>
+    <Image
+      src={project.images[0].src}
+      alt={project.images[0].alt}
+      layout="full-width"
+    />
+    <figcaption>
+      {project.images[0].alt}
+    </figcaption>
+  </figure>
+  <slot />
+</BaseLayout>

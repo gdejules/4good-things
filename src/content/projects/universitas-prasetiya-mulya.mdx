@@ -17,6 +17,9 @@ images:
 featured: true
 ---
 
+import { Image } from "astro:assets";
+import signage from "./../../assets/prasmul-signage.jpg";
+
 Our Collaboration with Universitas Prasetiya Mulya. We’ve transform 210kg plastic waste mixed from plastic bottle cap and shampoo bottle to create several product, such as Garden Bench, Garden Fence, & Signage Board.
 
 ## Solution to Plastic Waste : Reduce, Recycle, Upcycle
@@ -27,12 +30,14 @@ In the bustling grounds of Universitas Prasetiya Mulya, a unique initiative is t
 
 <figure>
   <Image
-    src={images[1].src}
-    alt={images[1].src}
-    class="w-16 h-20 object-cover"
+    src={signage}
+    alt="Closer look of Universitas Prasetiya Mulya's signage"
+    width={1200}
+    height={800}
+    class="h-full w-full object-cover"
     layout="full-width"
   />
-  <figcaption>{images[1].alt}</figcaption>
+  <figcaption>Closer look of Universitas Prasetiya Mulya's signage</figcaption>
 </figure>
 
 ## The Transformation Process

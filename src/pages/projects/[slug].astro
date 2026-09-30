@@ -1,4 +1,30 @@
 ---
 import "../../styles/global.css";
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import { render } from "astro:content";
+import { Image } from "astro:assets";
+import { getProjects, type Project } from "../../data/project.ts";
+import PostLayout from "../../layouts/PostLayout.astro";
+
+export async function getStaticPaths() {
+  const projects = await getProjects();
+
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+type Props = {
+  project: Project;
+};
+
+const { project } = Astro.props;
+
+// Pass the preserved entry object to render()
+const { Content } = await render(project.entry);
 ---
+
+<PostLayout project={project}>
+  <h1>{project.title}</h1>
+  <Content />
+</PostLayout>

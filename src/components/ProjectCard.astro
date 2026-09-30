@@ -5,7 +5,12 @@ type Props = {
   project: CollectionEntry<"projects">;
 };
 const { project } = Astro.props;
-const { client, type, recycledWeight, description, images } = project.data;
+const source = "data" in project ? project.data : project;
+const slug =
+  "slug" in project ? project.slug : project.id.replace(/\.(md|mdx)$/, "");
+
+const { client, type, recycledWeight, description, images = [] } = source;
+const primaryImage = images[0];
 ---
 
 <div
@@ -26,13 +31,17 @@ const { client, type, recycledWeight, description, images } = project.data;
     <p class="font-body font-normal text-body-normal text-muted-moss">
       {description}
     </p>
+    <a
+      href={`/projects/${slug}`}
+      class="font-body text-body-normal uppercase text-blue">Read More</a
+    >
   </div>
   <div
     class="col-span-6 col-end-13 px-custom-m-l py-custom-l-xl max-md:px-custom-2xs-xl">
     <Image
       class="object-cover object-center w-full aspect-auto rounded-2xl rotate-6 shadow-tl-solid-honey"
-      src={images[0].src}
-      alt={images[0].alt}
+      src={primaryImage.src}
+      alt={primaryImage.alt}
       format="webp"
     />
   </div>
