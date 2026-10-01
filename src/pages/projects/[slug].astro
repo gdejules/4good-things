@@ -30,8 +30,8 @@ const { Content } = await render(project.entry);
   >
   <h1 class="text-heading-large">{project.title}</h1>
   <div class="py-custom-l flex flex-col gap-custom-m">
-    <div class="flex gap-custom-l">
-      <div class="flex flex-col gap-custom-3xs">
+    <div class="flex gap-custom-l max-sm:justify-between">
+      <div class="flex-1 flex flex-col gap-custom-3xs">
         <span
           class="font-body text-body-small uppercase text-muted-moss tracking-wider"
           >Impact</span
@@ -41,7 +41,7 @@ const { Content } = await render(project.entry);
           {`${project.recycledWeight} of plastic recycled`}
         </div>
       </div>
-      <div class="flex flex-col gap-custom-3xs">
+      <div class="flex-1 flex flex-col gap-custom-3xs">
         <span
           class="font-body text-body-small uppercase text-muted-moss tracking-wider"
           >Material</span
