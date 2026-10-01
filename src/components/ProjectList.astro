@@ -1,13 +1,18 @@
 ---
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+import textureBgBlue from "./../assets/texture-blue.jpeg";
+
 type Props = {
   project: CollectionEntry<"projects">;
 };
 const { project } = Astro.props;
-const { client, title, recycledWeight, description, images } = project.data;
+const source = "data" in project ? project.data : project;
+const slug =
+  "slug" in project ? project.slug : project.id.replace(/\.(md|mdx)$/, "");
 
-import textureBgBlue from "./../assets/texture-blue.jpeg";
+const { title, client, recycledWeight, description, images = [] } = source;
+const primaryImage = images[0];
 ---
 
 <div
@@ -16,8 +21,8 @@ import textureBgBlue from "./../assets/texture-blue.jpeg";
     class="z-2 order-2 col-span-6 col-end-13 row-end-2 pr-custom-s-m max-md:px-custom-2xs-xl max-md:order-1">
     <Image
       class="object-cover object-center w-full aspect-auto rounded-2xl"
-      src={images[0].src}
-      alt={images[0].alt}
+      src={primaryImage.src}
+      alt={primaryImage.alt}
       format="webp"
     />
   </div>
@@ -37,6 +42,10 @@ import textureBgBlue from "./../assets/texture-blue.jpeg";
     <p class="font-body font-normal text-body-normal text-cream">
       {description}
     </p>
+    <a
+      href={`/projects/${slug}`}
+      class="font-body text-body-normal uppercase text-blue">Read More</a
+    >
   </div>
   <div
     class="z-1 order-1 col-span-9 col-end-10 row-end-2 max-md:absolute max-md:bottom-0 max-md:order-2">

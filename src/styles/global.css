@@ -110,7 +110,7 @@
   }
 
   p {
-    @apply font-body text-body-normal mt-custom-xs mb-custom-xl-m;
+    @apply font-body text-body-normal;
   }
 }
 
