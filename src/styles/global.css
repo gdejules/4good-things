@@ -102,11 +102,15 @@
   }
 
   h1 {
-    @apply text-heading-super;
+    @apply text-heading-super tracking-wide;
+  }
+
+  h2 {
+    @apply text-heading-medium tracking-wide;
   }
 
   p {
-    @apply font-body text-body-normal;
+    @apply font-body text-body-normal mt-custom-xs mb-custom-xl-m;
   }
 }
 

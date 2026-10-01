@@ -1,26 +1,102 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import { Image } from "astro:assets";
-
 import type { Project } from "../data/project.ts";
+import {
+  SocialButton,
+  DownloadButton,
+} from "../components/CustomAwesomeButton";
 
 type Props = {
   project: Project;
 };
 
 const { project } = Astro.props;
+const contactButton = {
+  children: "Contact us",
+  sharer: {
+    url: "https://play.google.com/store/apps/details?id=com.whatsapp&hl=en",
+    message: "Check this out",
+  },
+  className: "about-cta",
+  type: "whatsapp",
+  size: "large",
+  active: false,
+};
+const downloadButton = {
+  children: "Catalogue",
+  href: "/downloads/REV-1 Catalogue 4GoodThings.pdf",
+  download: "Product Catalogue",
+  className: "download",
+  size: "large",
+  active: false,
+};
 ---
 
 <BaseLayout>
-  <figure>
-    <Image
-      src={project.images[0].src}
-      alt={project.images[0].alt}
-      layout="full-width"
-    />
-    <figcaption>
-      {project.images[0].alt}
-    </figcaption>
-  </figure>
-  <slot />
+  <section id="article-wrapper" class="bg-warm-alabaster">
+    <div
+      id="article"
+      class="m-auto p-custom-s font-body text-deep-pine-charcoal text-body-normal max-w-text-body-normal max-md:m-0">
+      <nav
+        class="my-custom-s flex gap-custom-s font-body text-body-small uppercase tracking-widest"
+        aria-label="Breadcrumb">
+        <a href="/project" class="text-muted-moss hover:text-green"
+          >All Projects</a
+        >
+        <span aria-hidden="true">/</span>
+        <span class="text-deep-pine-charcoal" aria-current="page"
+          >{project.client}</span
+        >
+      </nav>
+      <figure>
+        <Image
+          src={project.images[0].src}
+          alt={project.images[0].alt}
+          layout="full-width"
+          class="rounded-2xl shadow-tl-solid-honey"
+        />
+        <figcaption
+          class="font-body text-body-small text-center text-muted-moss my-custom-s">
+          {project.images[0].alt}
+        </figcaption>
+      </figure>
+      <slot />
+    </div>
+  </section>
+  <section id="cta" class="section bg-soft-sand">
+    <div class="wrapper auto-rows-auto py-custom-3xl">
+      <div
+        class="col-span-8 col-end-11 flex flex-col gap-custom-xs items-center">
+        <h2
+          class="text-heading-large max-w-text-heading-large tracking-wider text-deep-pine-charcoal text-center">
+          Together we can drive a better future
+        </h2>
+        <p
+          class="text-body-large max-w-text-body-large text-muted-moss text-center">
+          We can help you to bring your sustainability ideas to life. Contact us
+          for collaboration or check our catalog for product inquiries. Let’s
+          start your circular economy journey for the environment and community.
+        </p>
+        <div class="flex gap-custom-s py-custom-l-m max-sm:flex-col">
+          <SocialButton
+            client:load
+            sharer={contactButton.sharer}
+            type={contactButton.type}
+            active={contactButton.active}
+            size={contactButton.size}
+            className={contactButton.className}>
+            {contactButton.children}
+          </SocialButton>
+          <DownloadButton
+            client:load
+            href={downloadButton.href}
+            active={downloadButton.active}
+            size={downloadButton.size}>
+            {downloadButton.children}
+          </DownloadButton>
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

@@ -19,6 +19,8 @@ featured: true
 
 import { Image } from "astro:assets";
 import signage from "./../../assets/prasmul-signage.jpg";
+import bench from "./../../assets/prasmul-bench.jpg";
+import fence from "./../../assets/prasmul-fences.jpg";
 
 Our Collaboration with Universitas Prasetiya Mulya. We’ve transform 210kg plastic waste mixed from plastic bottle cap and shampoo bottle to create several product, such as Garden Bench, Garden Fence, & Signage Board.
 
@@ -28,17 +30,20 @@ At the heart of this endeavor lies a simple yet powerful message: reduce, recycl
 
 In the bustling grounds of Universitas Prasetiya Mulya, a unique initiative is taking root, demonstrating the power of creativity and environmental consciousness. The project, born from a desire to promote sustainability and combat plastic waste, involves the transformation of 210kg of plastic bottles and shampoo bottle caps into functional and beautiful additions to the campus garden, called “Pocket Forest”.
 
-<figure>
+{<figure>
+
   <Image
     src={signage}
     alt="Closer look of Universitas Prasetiya Mulya's signage"
     width={1200}
     height={800}
-    class="h-full w-full object-cover"
+    class="h-full w-full object-cover rounded-2xl shadow-tl-solid-orange"
     layout="full-width"
   />
-  <figcaption>Closer look of Universitas Prasetiya Mulya's signage</figcaption>
-</figure>
+  <figcaption class="font-body text-body-small text-center text-muted-moss my-custom-s">
+    Closer look of Universitas Prasetiya Mulya's signage
+  </figcaption>
+</figure>}
 
 ## The Transformation Process
 
@@ -47,6 +52,36 @@ The journey begins with the collection of plastic bottles and shampoo bottle cap
 Next comes the recycling phase, where the collected plastic waste is carefully sorted and processed. Through innovative techniques and dedication, the plastic is transformed into raw materials suitable for upcycling. Here are how it turn out, one of the benches that have been used in “Pocket Forest” comes from waste.
 
 With creativity and craftsmanship, the recycled plastic materials are molded and shaped into benches and fences for the Pocket Forest. Skilled hands bring forth beauty from what was once considered waste, turning it into functional pieces that serve both practical and aesthetic purposes.
+
+{<div class="flex gap-custom-m mb-custom-3xl">
+
+  <figure>
+    <Image
+      src={bench}
+      alt="A bench from recycled plastic for Universitas Prasetiya Mulya"
+      width={1200}
+      height={800}
+      class="h-full w-full object-cover rounded-2xl shadow-tl-solid-green"
+      layout="full-width"
+    />
+    <figcaption class="font-body text-body-small text-center text-muted-moss my-custom-s">
+      a bench from recycled plastic
+    </figcaption>
+  </figure>
+  <figure>
+    <Image
+      src={fence}
+      alt="Fences from recycled plastic for Universitas Prasetiya Mulya"
+      width={1200}
+      height={800}
+      class="h-full w-full object-cover rounded-2xl shadow-tl-solid-green"
+      layout="full-width"
+    />
+    <figcaption class="font-body text-body-small text-center text-muted-moss my-custom-s">
+      Fences from recycled plastic
+    </figcaption>
+  </figure>
+</div>}
 
 ## Join The Movement : Collaborate With 4goodthings
 
