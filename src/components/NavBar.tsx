@@ -83,23 +83,43 @@ export default function Navigation({ logoImage }: Prop) {
   const [isMobile, setIsMobile] = useState(false);
 
   useGSAP(() => {
-    const showAnim = gsap
-      .from(".main-navigation", {
-        yPercent: -100,
-        paused: true,
-        duration: 0.2,
-      })
-      .progress(1);
+    const navigation = document.querySelector<HTMLElement>(".main-navigation");
+    if (!navigation) return;
+
+    let isAtTop = window.scrollY <= 1;
+
+    navigation.classList.toggle("bg-warm-alabaster", isAtTop);
+    navigation.classList.toggle("bg-transparent", !isAtTop);
+
+    const showAnim = isMobile
+      ? null
+      : gsap
+          .from(navigation, {
+            yPercent: -100,
+            paused: true,
+            duration: 0.2,
+          })
+          .progress(1);
 
     ScrollTrigger.create({
+      trigger: document.documentElement,
       start: "top top",
       end: "max",
       // markers: true,
       onUpdate: (self) => {
-        self.direction === -1 ? showAnim.play() : showAnim.reverse();
+        const atTop = self.scroll() <= 1;
+        if (atTop !== isAtTop) {
+          isAtTop = atTop;
+          navigation.classList.toggle("bg-warm-alabaster", atTop);
+          navigation.classList.toggle("bg-transparent", !atTop);
+        }
+
+        if (showAnim) {
+          self.direction === -1 ? showAnim.play() : showAnim.reverse();
+        }
       },
     });
-  });
+  }, { dependencies: [isMobile], revertOnUpdate: true });
 
   useEffect(() => {
     const media = window.matchMedia("(width < 48rem)");
@@ -136,7 +156,7 @@ export default function Navigation({ logoImage }: Prop) {
   }, [isMenuOpen]);
 
   return (
-    <header className="main-navigation section py-custom-xs-s bg-warm-alabaster">
+    <header className="main-navigation sticky top-0 z-20 section py-custom-xs-s bg-warm-alabaster transition-colors duration-200">
       <div className="max-w-6xl mx-auto flex justify-between items-center max-md:mx-6 max-xl:mx-10">
         <div className="max-lg:hidden">
           <SecondaryButton
