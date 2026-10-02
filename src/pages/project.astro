@@ -3,9 +3,9 @@ import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 
-import alohaTable from "./../assets/collab/aloha/aloha-table1.jpeg";
+import alohaTable from "./../assets/aloha-table1.jpeg";
 import prasmulSign from "./../assets/prasmul-signage.jpg";
-import petronasRack from "./../assets/collab/petronas/petronas-rack1.png";
+import prasmulBench from "./../assets/prasmul-bench.jpg";
 
 import { getCollection } from "astro:content";
 import CollaborathingList from "../components/CollaborathingList.astro";
@@ -38,7 +38,7 @@ const allGeneralProjects = await getCollection("projects", ({ data }) => {
         <div class="flex-1">
           <Image
             class="w-auto h-1/3 aspect-auto rotate-15 rounded-lg shadow-tl-solid-green"
-            src={petronasRack}
+            src={prasmulBench}
             priority
             alt="A red stool made from recycled plastic sheet"
           />
