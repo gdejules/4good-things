@@ -48,8 +48,8 @@
   --color-deep-pine-charcoal: oklch(24.368% 0.01422 145.213);
   --color-muted-moss: oklch(47.001% 0.02015 145.369);
   --color-pure-white: oklch(100% 0.00011 271.152);
-  --color-hover-forest-shadow: oklch(1 0 0 / 40%);
-  --color-hover-warm-alabaster: oklch(23.546% 0.03929 144.234 / 40%);
+  --color-hover-forest-shadow: oklch(1 0 0 / 12%);
+  --color-hover-warm-alabaster: oklch(23.546% 0.03929 144.234 / 12%);
 
   --shadow-solid-orange: 0px 10px 0px 0px #ea7601;
   --shadow-solid-honey: 0px 10px 0px 0px #ff9c00;

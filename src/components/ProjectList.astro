@@ -16,7 +16,7 @@ const primaryImage = images[0];
 ---
 
 <div
-  class="col-span-12 grid grid-cols-12 gap-x-custom-2xs items-center max-md:flex max-md:flex-col max-md:gap-custom-s max-md:items-center max-md:relative">
+  class="group isolate relative py-custom-l-m px-custom-l-m rounded-2xl col-span-12 grid grid-cols-12 gap-x-custom-2xs items-center max-md:flex max-md:flex-col max-md:gap-custom-s max-md:items-center max-md:relative hover:bg-hover-warm-alabaster">
   <div
     class="z-2 order-2 col-span-6 col-end-13 row-end-2 pr-custom-s-m max-md:px-custom-2xs-xl max-md:order-1">
     <Image
@@ -27,33 +27,48 @@ const primaryImage = images[0];
     />
   </div>
   <div
-    class="z-2 order-1 col-span-5 col-end-7 row-end-2 flex flex-col gap-custom-xs-s max-md:px-custom-2xs-xl max-md:order-2">
-    <span class="font-body font-medium text-body-large uppercase text-cream"
+    class="z-2 order-1 col-span-6 col-end-7 row-end-2 flex flex-col gap-custom-2xs max-md:px-custom-2xs-xl max-md:order-2">
+    <span
+      class="font-body font-medium text-body-large uppercase text-muted-moss"
       >{client}</span
     >
-    <h4
-      class="font-display font-extrabold text-heading-medium tracking-wide text-pure-white">
-      {title}
-    </h4>
+    <h3>
+      <a
+        href={`/projects/${slug}`}
+        class="font-display text-heading-small tracking-wide text-deep-pine-charcoal group-hover:text-green"
+        ><span class="absolute inset-0 z-10"></span>{title}</a
+      >
+    </h3>
     <p
       class="font-body font-extrabold text-body-small max-w-max rounded-2xl text-pure-white px-custom-xs py-custom-2xs bg-green">
       {recycledWeight} of plastic waste recycled
     </p>
-    <p class="font-body font-normal text-body-normal text-cream">
+    <p
+      class="font-body font-normal text-body-normal text-muted-moss my-custom-xs line-clamp-2">
       {description}
     </p>
-    <a
-      href={`/projects/${slug}`}
-      class="font-body text-body-normal uppercase text-blue">Read More</a
-    >
-  </div>
-  <div
-    class="z-1 order-1 col-span-9 col-end-10 row-end-2 max-md:absolute max-md:bottom-0 max-md:order-2">
-    <Image
-      class="object-cover object-center w-full aspect-video rounded-r-full max-md:rounded-t-full max-md:aspect-auto max-md:rounded-bl-none"
-      src={textureBgBlue}
-      alt="stone-colored texture background"
-      format="webp"
-    />
+    <div class="h-8 flex items-center gap-custom-3xs">
+      <span
+        class="font-body text-body-normal font-normal text-muted-moss tracking-wide group-hover:text-green"
+        >Read article</span
+      >
+      <span class="invisible text-green group-hover:visible">
+        <svg
+          class="w-6 h-6"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24">
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 12H5m14 0-4 4m4-4-4-4"></path>
+        </svg>
+      </span>
+    </div>
   </div>
 </div>
