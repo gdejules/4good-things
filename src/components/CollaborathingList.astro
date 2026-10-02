@@ -16,11 +16,11 @@ const primaryImage = images[0];
 ---
 
 <div
-  class="group isolate relative py-custom-l-m px-custom-l-m rounded-2xl col-span-12 grid grid-cols-12 gap-x-custom-2xs items-center max-md:flex max-md:flex-col max-md:gap-custom-s max-md:items-center max-md:relative hover:bg-hover-forest-shadow">
+  class="group isolate relative py-custom-m px-custom-m rounded-2xl col-span-12 grid grid-cols-12 gap-x-custom-2xs items-center max-md:flex max-md:flex-col max-md:gap-custom-s max-md:items-center max-md:relative max-md:p-0 hover:bg-hover-forest-shadow">
   <div
     class="z-2 order-1 col-span-6 col-end-7 row-end-2 pr-custom-s-m max-md:px-custom-2xs-xl">
     <Image
-      class="object-cover object-center w-full aspect-auto rounded-2xl"
+      class="object-cover object-center w-full aspect-auto rounded-lg"
       src={primaryImage.src}
       alt={primaryImage.alt}
       format="webp"
@@ -29,18 +29,18 @@ const primaryImage = images[0];
   <div
     class="z-2 order-2 col-span-6 col-end-13 row-end-2 flex flex-col gap-custom-2xs max-md:px-custom-2xs-xl">
     <span
-      class="font-body font-medium text-body-large uppercase text-pure-white"
+      class="font-body font-medium text-body-normal tracking-wider uppercase text-pure-white"
       >{client}</span
     >
     <h3>
       <a
         href={`/projects/${slug}`}
-        class="font-display text-heading-small tracking-wide text-pure-white group-hover:text-green"
+        class="font-display text-heading-small tracking-wide text-pure-white group-hover:text-green line-clamp-3"
         ><span class="absolute inset-0 z-10"></span>{title}</a
       >
     </h3>
     <p
-      class="font-body font-extrabold text-body-small max-w-max rounded-2xl text-pure-white px-custom-xs py-custom-2xs bg-green">
+      class="font-body font-extrabold text-body-small max-w-max rounded-2xl text-pure-white px-custom-xs py-custom-2xs bg-green line-clamp-1">
       {recycledWeight} of plastic waste recycled
     </p>
     <p
@@ -49,10 +49,10 @@ const primaryImage = images[0];
     </p>
     <div class="h-8 flex items-center gap-custom-3xs">
       <span
-        class="font-body text-body-normal font-normal text-pure-white tracking-wide group-hover:text-green"
+        class="font-body text-body-normal font-normal text-pure-white tracking-wide group-hover:text-green max-md:text-green"
         >Read article</span
       >
-      <span class="invisible text-green group-hover:visible">
+      <span class="invisible text-green group-hover:visible max-md:visible">
         <svg
           class="w-6 h-6"
           aria-hidden="true"
