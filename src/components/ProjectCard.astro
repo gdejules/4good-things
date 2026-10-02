@@ -14,27 +14,51 @@ const primaryImage = images[0];
 ---
 
 <div
-  class="col-span-12 grid grid-cols-12 gap-x-custom-2xs max-md:flex max-md:flex-col max-md:gap-custom-s max-md:items-center">
-  <div class="col-span-6 col-end-7 flex flex-col gap-custom-xs-s">
+  class="group isolate relative py-custom-l-m px-custom-l-m rounded-2xl col-span-12 grid grid-cols-12 gap-x-custom-2xs max-md:flex max-md:flex-col max-md:gap-custom-s max-md:items-center hover:bg-soft-sand">
+  <div class="col-span-6 col-end-7 flex flex-col gap-custom-2xs">
     <span
       class="font-body font-medium text-body-small uppercase text-muted-moss"
       >{type}</span
     >
-    <h4
-      class="font-display font-extrabold text-heading-medium tracking-wide text-deep-pine-charcoal">
-      <span class="text-green">4GoodThings</span> with {client}
-    </h4>
+    <h3 class="font-display font-extrabold text-heading-medium tracking-wide">
+      <a
+        href={`/projects/${slug}`}
+        class="text-deep-pine-charcoal group-hover:text-green"
+        ><span class="absolute inset-0 z-10"></span>4GoodThings with {client}</a
+      >
+    </h3>
     <p
-      class="font-body font-extrabold text-body-small max-w-max rounded-2xl text-pure-white px-custom-xs py-custom-2xs bg-green">
+      class="font-body font-medium text-body-small max-w-max rounded-2xl text-pure-white px-custom-xs py-custom-2xs bg-green">
       {recycledWeight} of plastic waste recycled
     </p>
-    <p class="font-body font-normal text-body-normal text-muted-moss">
+    <p
+      class="font-body font-normal text-body-normal text-muted-moss line-clamp-2 my-custom-s">
       {description}
     </p>
-    <a
-      href={`/projects/${slug}`}
-      class="font-body text-body-normal uppercase text-blue">Read More</a
-    >
+    <div class="h-8 flex items-center gap-custom-3xs">
+      <span
+        class="font-body text-body-normal font-normal text-muted-moss tracking-wide group-hover:text-green"
+        >Read article</span
+      >
+      <span
+        class="invisible text-green group-hover:visible transition-transform">
+        <svg
+          class="w-6 h-6"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24">
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 12H5m14 0-4 4m4-4-4-4"></path>
+        </svg>
+      </span>
+    </div>
   </div>
   <div
     class="col-span-6 col-end-13 px-custom-m-l py-custom-l-xl max-md:px-custom-2xs-xl">
