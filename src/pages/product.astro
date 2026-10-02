@@ -3,16 +3,37 @@ import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import Button from "../components/Button.astro";
+import {
+  PrimaryButton,
+  DownloadButton,
+} from "../components/CustomAwesomeButton";
 
 import signatureStool from "./../assets/signature-stool-1.jpeg";
 import padelKeyChain from "./../assets/padel-keychain-1.jpeg";
 import table from "./../assets/table-1.jpeg";
+import justStool from "./../assets/just-stool.jpeg";
 
 import { getCollection } from "astro:content";
 import ProductCard from "../components/ProductCard.astro";
 const allProducts = await getCollection("products");
 import ColorCard from "../components/ColorCard.astro";
 const allColors = await getCollection("colors");
+
+const marketplaceButton = {
+  children: "See marketplace",
+  href: "https://shopee.co.id/",
+  className: "product-detail",
+  size: "large",
+  active: false,
+};
+const downloadButton = {
+  children: "Catalogue",
+  href: "/downloads/REV-1 Catalogue 4GoodThings.pdf",
+  download: "Product Catalogue",
+  className: "download",
+  size: "large",
+  active: false,
+};
 ---
 
 <BaseLayout>
@@ -72,22 +93,43 @@ const allColors = await getCollection("colors");
       </div>
     </div>
   </section>
-  <section id="cta-banner" class="section bg-blue">
+  <section id="marketplace-banner" class="section bg-soft-sand py-custom-2xl">
     <div
-      class="max-w-6xl mx-auto py-custom-xl-m flex justify-between items-center gap-custom-2xl max-lg:flex-col max-lg:gap-custom-m max-md:mx-6 max-xl:mx-10">
-      <span
-        class="font-body text-body-large font-normal text-pure-white max-lg:text-center"
-        >Go to our marketplace to purchase our product or download our full
-        catalogue for additional information</span
-      >
+      class="max-w-6xl mx-auto flex items-center rounded-2xl bg-cream overflow-clip max-lg:flex-col max-lg:gap-custom-m max-md:mx-6 max-xl:mx-10">
+      <div class="shrink-0">
+        <Image
+          class="h-120 w-auto max-sm:w-full max-sm:h-full max-sm:bg-cover"
+          src={justStool}
+          alt="signature stool with white and blue color"
+        />
+      </div>
       <div
-        class="flex gap-custom-s max-md:flex-col max-md:items-center max-md:gap-custom-m-l">
-        <Button>
-          <a href=""> browse marketplace </a>
-        </Button>
-        <Button>
-          <a href=""> download catalogue </a>
-        </Button>
+        class="flex-1 py-custom-l-xl px-custom-2xl-3xl flex flex-col gap-custom-m max-md:items-center">
+        <h2
+          class="text-heading-medium max-w-text-heading-medium text-green max-lg:text-center">
+          Interested to see our full product lineup?
+        </h2>
+        <span
+          class="font-body text-body-large font-normal text-deep-pine-charcoal max-lg:text-center"
+          >Go to our marketplace or download our catalogue for full product
+          lineup</span
+        >
+        <div class="flex gap-custom-s max-md:flex-col">
+          <PrimaryButton
+            client:load
+            href={marketplaceButton.href}
+            active={marketplaceButton.active}
+            size={marketplaceButton.size}>
+            {marketplaceButton.children}
+          </PrimaryButton>
+          <DownloadButton
+            client:load
+            href={downloadButton.href}
+            active={downloadButton.active}
+            size={downloadButton.size}>
+            {downloadButton.children}
+          </DownloadButton>
+        </div>
       </div>
     </div>
   </section>
