@@ -7,6 +7,11 @@ import {
 } from "./CustomAwesomeButton.tsx";
 import { useEffect, useState } from "react";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock-upgrade";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const homeButton = {
   children: "",
@@ -77,6 +82,25 @@ export default function Navigation({ logoImage }: Prop) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
+  useGSAP(() => {
+    const showAnim = gsap
+      .from(".main-navigation", {
+        yPercent: -100,
+        paused: true,
+        duration: 0.2,
+      })
+      .progress(1);
+
+    ScrollTrigger.create({
+      start: "top top",
+      end: "max",
+      // markers: true,
+      onUpdate: (self) => {
+        self.direction === -1 ? showAnim.play() : showAnim.reverse();
+      },
+    });
+  });
+
   useEffect(() => {
     const media = window.matchMedia("(width < 48rem)");
     const handleMediaChange = () => {
@@ -112,7 +136,7 @@ export default function Navigation({ logoImage }: Prop) {
   }, [isMenuOpen]);
 
   return (
-    <header className="section py-custom-xs-s bg-warm-alabaster">
+    <header className="main-navigation section py-custom-xs-s bg-warm-alabaster">
       <div className="max-w-6xl mx-auto flex justify-between items-center max-md:mx-6 max-xl:mx-10">
         <div className="max-lg:hidden">
           <SecondaryButton
