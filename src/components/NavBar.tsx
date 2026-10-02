@@ -82,44 +82,48 @@ export default function Navigation({ logoImage }: Prop) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  useGSAP(() => {
-    const navigation = document.querySelector<HTMLElement>(".main-navigation");
-    if (!navigation) return;
+  useGSAP(
+    () => {
+      const navigation =
+        document.querySelector<HTMLElement>(".main-navigation");
+      if (!navigation) return;
 
-    let isAtTop = window.scrollY <= 1;
+      let isAtTop = window.scrollY <= 1;
 
-    navigation.classList.toggle("bg-warm-alabaster", isAtTop);
-    navigation.classList.toggle("bg-transparent", !isAtTop);
+      navigation.classList.toggle("bg-warm-alabaster", isAtTop);
+      navigation.classList.toggle("bg-transparent", !isAtTop);
 
-    const showAnim = isMobile
-      ? null
-      : gsap
-          .from(navigation, {
-            yPercent: -100,
+      const showAnim = gsap
+        .fromTo(
+          navigation,
+          isMobile ? { top: -navigation.offsetHeight } : { yPercent: -100 },
+          {
+            ...(isMobile ? { top: 0 } : { yPercent: 0 }),
             paused: true,
             duration: 0.2,
-          })
-          .progress(1);
+          },
+        )
+        .progress(1);
 
-    ScrollTrigger.create({
-      trigger: document.documentElement,
-      start: "top top",
-      end: "max",
-      // markers: true,
-      onUpdate: (self) => {
-        const atTop = self.scroll() <= 1;
-        if (atTop !== isAtTop) {
-          isAtTop = atTop;
-          navigation.classList.toggle("bg-warm-alabaster", atTop);
-          navigation.classList.toggle("bg-transparent", !atTop);
-        }
+      ScrollTrigger.create({
+        trigger: document.documentElement,
+        start: "top top",
+        end: "max",
+        // markers: true,
+        onUpdate: (self) => {
+          const atTop = self.scroll() <= 1;
+          if (atTop !== isAtTop) {
+            isAtTop = atTop;
+            navigation.classList.toggle("bg-warm-alabaster", atTop);
+            navigation.classList.toggle("bg-transparent", !atTop);
+          }
 
-        if (showAnim) {
           self.direction === -1 ? showAnim.play() : showAnim.reverse();
-        }
-      },
-    });
-  }, { dependencies: [isMobile], revertOnUpdate: true });
+        },
+      });
+    },
+    { dependencies: [isMobile], revertOnUpdate: true },
+  );
 
   useEffect(() => {
     const media = window.matchMedia("(width < 48rem)");
@@ -191,6 +195,7 @@ export default function Navigation({ logoImage }: Prop) {
           </div>
           <div
             className="topnav-menu"
+            style={isMenuOpen ? { translate: "0" } : undefined}
             role="dialog"
             aria-labelledby="nav-label"
             aria-modal="true"
