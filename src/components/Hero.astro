@@ -29,8 +29,7 @@ const downloadButton = {
     <div
       class="order-1 max-md:order-2 col-span-6 col-end-7 flex flex-col justify-center items-start gap-5 max-md:items-center">
       <h1 class="flex flex-col text-deep-pine-charcoal max-md:text-center">
-        <span><span class="text-green">Good Things</span> are</span>
-        <span>Coming to You</span>
+        <span class="text-green">Good Things</span> are Coming to You
       </h1>
       <p class="body-large text-muted-moss max-md:text-center">
         We are reducing plastic waste that ends up in the ocean and landfills by
@@ -38,7 +37,7 @@ const downloadButton = {
       </p>
       <ul
         class="main-cta flex gap-custom-s max-md:flex-col max-md:gap-custom-m max-md:items-center">
-        <li class="max-lg:hidden">
+        <li class="md:max-lg:hidden">
           <PrimaryButton
             client:load
             transition:persist
@@ -48,7 +47,7 @@ const downloadButton = {
             {learnMoreButton.children}
           </PrimaryButton>
         </li>
-        <li class="lg:hidden">
+        <li class="max-md:hidden lg:hidden">
           <PrimaryButton
             client:load
             transition:persist
@@ -58,7 +57,7 @@ const downloadButton = {
             {learnMoreButton.children}
           </PrimaryButton>
         </li>
-        <li class="max-lg:hidden">
+        <li class="md:max-lg:hidden">
           <DownloadButton
             client:load
             transition:persist
@@ -68,7 +67,7 @@ const downloadButton = {
             {downloadButton.children}
           </DownloadButton>
         </li>
-        <li class="lg:hidden">
+        <li class="max-md:hidden lg:hidden">
           <DownloadButton
             client:load
             transition:persist
